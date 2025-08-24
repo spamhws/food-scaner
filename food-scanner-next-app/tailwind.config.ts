@@ -1,46 +1,54 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
-    extend: {
-      colors: {
-        gray: {
-          10: '#F5F7FA',
-          20: '#EBEFF5',
-          30: '#DDE3ED',
-          40: '#C8D1E0',
-          50: '#AFBACC',
-          60: '#8E99AB',
-          70: '#707A8A',
-          80: '#58606E',
-          90: '#434A54',
-          100: '#333840',
-        },
-        blue: {
-          10: '#F0F5FC',
-          20: '#F0F5FC',
-          30: '#ACCBFC',
-          40: '#84B1FA',
-          50: '#5691F0',
-          60: '#3272D9',
-          70: '#1D5BBF',
-          80: '#114599',
-          90: '#103570',
-          100: '#15233B',
-        },
-        green: {
-          10: '#E1FAEB',
-          60: '#038537',
-        },
-        bronze: {
-          10: '#FCF2E6',
-          60: '#AD5F00',
-        },
-        red: {
-          10: '#FAF0F0',
-          60: '#DE1B1B',
-        },
+    fontSize: {
+      xs: ['10px', '14px'],
+      sm: ['11px', '15px'],
+      base: ['13px', '18px'],
+      lg: ['16px', '24px'],
+      xl: ['20px', '28px'],
+      '2xl': ['24px', '32px'],
+      '3xl': ['32px', '40px'],
+      number: ['14px', '24px'],
+    },
+    colors: {
+      gray: {
+        10: '#F5F7FA',
+        20: '#EBEFF5',
+        30: '#DDE3ED',
+        40: '#C8D1E0',
+        50: '#AFBACC',
+        60: '#8E99AB',
+        70: '#707A8A',
+        80: '#58606E',
+        90: '#434A54',
+        100: '#333840',
+      },
+      blue: {
+        10: '#F0F5FC',
+        20: '#F0F5FC',
+        30: '#ACCBFC',
+        40: '#84B1FA',
+        50: '#5691F0',
+        60: '#3272D9',
+        70: '#1D5BBF',
+        80: '#114599',
+        90: '#103570',
+        100: '#15233B',
+      },
+      green: {
+        10: '#E1FAEB',
+        60: '#038537',
+      },
+      bronze: {
+        10: '#FCF2E6',
+        60: '#AD5F00',
+      },
+      red: {
+        10: '#FAF0F0',
+        60: '#DE1B1B',
       },
     },
     fontFamily: {

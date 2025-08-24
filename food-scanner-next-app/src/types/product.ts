@@ -28,6 +28,9 @@ export interface Product {
   name: string;
   brand: string;
   image: string;
+  imageSmall: string;
+  product_quantity: string;
+  product_quantity_unit: string;
   nutrition: NutritionData;
   assessment: Assessment;
   ingredients: string[];
@@ -42,6 +45,9 @@ export interface OpenFoodFactsResponse {
     product_name: string;
     brands: string;
     image_url: string;
+    image_front_small_url: string;
+    product_quantity: string;
+    product_quantity_unit: string;
     nutrition_grades: string;
     nutriments: {
       'energy-kcal_100g': string;

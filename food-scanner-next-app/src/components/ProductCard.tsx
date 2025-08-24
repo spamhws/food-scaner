@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Card } from '@/components/ui/Card';
+import { IconFlame, IconDroplet, IconEggFried, IconWheat } from '@tabler/icons-react';
 import type { Product } from '@/types/product';
 
 interface ProductCardProps {
@@ -8,35 +9,46 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <Card>
-      <div className='flex flex-col items-center gap-6'>
-        <div className='relative w-48 h-48'>
-          <Image src={product.image} alt={product.name} fill className='object-contain rounded-lg' sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw' />
+    <Card className='p-2'>
+      <div className='flex gap-3'>
+        {/* Left Section - Product Image */}
+        <div className='relative h-full w-24 aspect-square rounded-lg bg-gray-30'>
+          <Image src={product.image} alt={product.name} fill className='object-contain rounded-lg' sizes='96px' />
         </div>
-        <div className='w-full'>
-          <h2 className='text-xl font-semibold text-gray-90 text-center'>{product.name}</h2>
-          <p className='text-gray-60 text-center'>{product.brand}</p>
-          <div className='mt-2 flex flex-wrap justify-center gap-2'>
-            {product.labels.map((label) => (
-              <span key={label} className='px-2 py-1 text-sm rounded-full bg-blue-10 text-blue-70'>
-                {label}
-              </span>
-            ))}
+
+        {/* Right Section - Product Info */}
+        <div className='flex flex-1 flex-col justify-center gap-1'>
+          {/* Product Name and Weight */}
+          <h2 className='font-medium text-base'>
+            {product.name}, {product.brand} {product.product_quantity ? `, ${product.product_quantity} ${product.product_quantity_unit} asdasd asdasdas` : ''}
+          </h2>
+
+          {/* Nutritional Information */}
+          <div className='flex gap-4'>
+            <div className='flex items-center gap-0.5'>
+              <IconFlame size={16} className='text-gray-50' />
+              <span className='font-semibold'>{Math.round(product.nutrition.calories.value)}</span>
+            </div>
+            <div className='flex items-center gap-0.5'>
+              <IconEggFried size={16} className='text-gray-50' />
+              <span className='font-semibold'>{product.nutrition.protein.value.toFixed(1)}</span>
+            </div>
+            <div className='flex items-center gap-0.5'>
+              <IconDroplet size={16} className='text-gray-50' />
+              <span className='font-semibold'>{product.nutrition.fat.value.toFixed(1)}</span>
+            </div>
+            <div className='flex items-center gap-0.5'>
+              <IconWheat size={16} className='text-gray-50' />
+              <span className='font-semibold'>{product.nutrition.carbohydrates.value.toFixed(1)}</span>
+            </div>
+          </div>
+
+          {/* Health Assessment Label */}
+          <div className='mt-1'>
+            <span className='inline-block px-2 py-1 rounded-lg bg-bronze-10 text-bronze-60 border border-bronze-60 font-semibold'>{product.assessment.description}</span>
           </div>
         </div>
       </div>
-      {product.allergens.length > 0 && (
-        <div className='mt-6'>
-          <h3 className='text-sm font-medium text-gray-70'>Allergens:</h3>
-          <div className='mt-1 flex flex-wrap gap-2'>
-            {product.allergens.map((allergen) => (
-              <span key={allergen} className='px-2 py-1 text-sm rounded-full bg-red-10 text-red-60'>
-                {allergen}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
     </Card>
   );
 }

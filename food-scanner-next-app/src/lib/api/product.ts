@@ -7,6 +7,7 @@ export async function fetchProduct(barcode: string): Promise<Product | null> {
   if (!barcode) return null;
 
   const response = await fetch(`${API_URL}/api/product/${barcode}`);
+  console.log('response', response);
   if (!response.ok) {
     throw new Error('Failed to fetch product');
   }
@@ -28,7 +29,10 @@ export async function fetchProduct(barcode: string): Promise<Product | null> {
     barcode,
     name: product.product_name || 'Unknown Product',
     brand: product.brands || 'Unknown Brand',
-    image: product.image_url || '/placeholder-product.png',
+    image: product.image_url || '',
+    imageSmall: product.image_front_small_url || product.image_url || '',
+    product_quantity: product.product_quantity || '',
+    product_quantity_unit: product.product_quantity_unit || 'g',
     nutrition: {
       calories: {
         value: parseFloat(product.nutriments['energy-kcal_100g'] || '0'),
