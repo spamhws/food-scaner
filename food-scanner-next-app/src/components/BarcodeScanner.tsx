@@ -1,23 +1,24 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { BarcodeDetector } from 'barcode-detector/ponyfill';
-import { Navigation } from './Navigation';
-import { ScannerControl } from './ScannerControl';
-import { CornerDecorations } from './ui/CornerDecorations';
-import { generateMaskSVG } from '@/lib/utils/videoMaskSVG';
-import { ProductResult } from './ProductResult';
+import { useEffect, useRef, useState, useCallback } from "react";
+import { BarcodeDetector } from "barcode-detector/ponyfill";
+import { Navigation } from "./Navigation";
+import { ScannerControl } from "./ScannerControl";
+import { CornerDecorations } from "./ui/CornerDecorations";
+import { generateMaskSVG } from "@/lib/utils/videoMaskSVG";
+import { ProductCardSlider } from "./ProductCardSlider";
 
 export function BarcodeScanner() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isScanning, setIsScanning] = useState(false);
   const [isFlashOn, setIsFlashOn] = useState(false);
-  const [searchBarcode, setSearchBarcode] = useState<string | null>(null);
+  const [scannedBarcodes, setScannedBarcodes] = useState<string[]>([]);
   const scannerRef = useRef<BarcodeDetector | null>(null);
   const animationFrameRef = useRef<number | undefined>(undefined);
   const streamRef = useRef<MediaStream | null>(null);
+
   const controlHeight = 64;
-  const resultCardHeight = 120;
+  const resultCardHeight = 112;
 
   // Window geometry - responsive to viewport
   const getScanCardDimensions = () => {
@@ -27,7 +28,10 @@ export function BarcodeScanner() {
     const windowWidth = viewportWidth - 48;
 
     // Add some padding above and below the controls
-    const windowHeight = Math.min((windowWidth / 4) * 3, viewportHeight - controlHeight - resultCardHeight - 64 - 48);
+    const windowHeight = Math.min(
+      (windowWidth / 4) * 3,
+      viewportHeight - controlHeight - resultCardHeight - 64 - 48,
+    );
 
     // Corner radius should be circular and match corner decorations (24px)
     const cornerRadius = 16;
@@ -35,7 +39,11 @@ export function BarcodeScanner() {
     return { w: windowWidth, h: windowHeight, r: cornerRadius };
   };
 
-  const [scanCardDimensions, setScanCardDimensions] = useState<{ w: number; h: number; r: number } | null>(null);
+  const [scanCardDimensions, setScanCardDimensions] = useState<{
+    w: number;
+    h: number;
+    r: number;
+  } | null>(null);
 
   useEffect(() => {
     // Only calculate dimensions after component mounts on client
@@ -45,8 +53,8 @@ export function BarcodeScanner() {
       setScanCardDimensions(getScanCardDimensions());
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const scanForBarcodes = useCallback(async () => {
@@ -56,7 +64,14 @@ export function BarcodeScanner() {
       const barcodes = await scannerRef.current.detect(videoRef.current);
 
       if (barcodes.length > 0) {
-        setSearchBarcode(barcodes[0].rawValue);
+        const barcode = barcodes[0].rawValue;
+        // Only add if not already in the array
+        setScannedBarcodes((prev) => {
+          if (!prev.includes(barcode)) {
+            return [...prev, barcode];
+          }
+          return prev;
+        });
         // Removed return to allow continuous scanning
       }
     } catch {
@@ -76,11 +91,11 @@ export function BarcodeScanner() {
 
   useEffect(() => {
     const initializeScanner = async () => {
-      const { prepareZXingModule } = await import('barcode-detector/ponyfill');
+      const { prepareZXingModule } = await import("barcode-detector/ponyfill");
       await prepareZXingModule({
         overrides: {
           locateFile: (path) => {
-            if (path.endsWith('.wasm')) {
+            if (path.endsWith(".wasm")) {
               return `/zxing/${path}`;
             }
             return path;
@@ -89,7 +104,17 @@ export function BarcodeScanner() {
       });
 
       scannerRef.current = new BarcodeDetector({
-        formats: ['ean_13', 'ean_8', 'upc_a', 'upc_e', 'code_128', 'code_39', 'code_93', 'databar', 'databar_expanded'],
+        formats: [
+          "ean_13",
+          "ean_8",
+          "upc_a",
+          "upc_e",
+          "code_128",
+          "code_39",
+          "code_93",
+          "databar",
+          "databar_expanded",
+        ],
       });
 
       startScanning();
@@ -112,7 +137,7 @@ export function BarcodeScanner() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
-          facingMode: 'environment',
+          facingMode: "environment",
           width: { ideal: 1920, max: 3840 },
           height: { ideal: 1080, max: 2160 },
           aspectRatio: { ideal: 16 / 9 },
@@ -129,8 +154,8 @@ export function BarcodeScanner() {
           await videoRef.current.play();
           setIsScanning(true);
         } catch (playError) {
-          if (playError instanceof Error && playError.name === 'AbortError') {
-            console.log('Video play was interrupted, cleaning up...');
+          if (playError instanceof Error && playError.name === "AbortError") {
+            console.log("Video play was interrupted, cleaning up...");
             // Clean up the stream if play was interrupted
             stream.getTracks().forEach((track) => track.stop());
             return;
@@ -139,7 +164,7 @@ export function BarcodeScanner() {
         }
       }
     } catch {
-      console.error('Camera access error');
+      console.error("Camera access error");
     }
   };
 
@@ -155,23 +180,29 @@ export function BarcodeScanner() {
       });
       setIsFlashOn(!isFlashOn);
     } catch {
-      console.error('Flash error');
+      console.error("Flash error");
     }
   };
 
   // Generate SVG mask for the scanning window
 
   return (
-    <div className='relative w-full h-full bg-black overflow-hidden flex flex-col'>
+    <div className="relative flex h-full w-full flex-col overflow-hidden bg-black">
       {/* Single video element */}
-      <video ref={videoRef} className='absolute inset-0 w-full h-full object-cover' playsInline muted autoPlay />
+      <video
+        ref={videoRef}
+        className="absolute inset-0 h-full w-full object-cover"
+        playsInline
+        muted
+        autoPlay
+      />
 
       {/* Blur/dim overlay with hard-edged rounded-rect hole using SVG mask */}
       <div
-        className='pointer-events-none absolute inset-0'
+        className="pointer-events-none absolute inset-0"
         style={{
-          backdropFilter: 'blur(14px) brightness(0.5)',
-          WebkitBackdropFilter: 'blur(14px) brightness(0.5)',
+          backdropFilter: "blur(14px) brightness(0.5)",
+          WebkitBackdropFilter: "blur(14px) brightness(0.5)",
           maskImage: `url("${generateMaskSVG(scanCardDimensions, controlHeight, resultCardHeight)}")`,
           WebkitMaskImage: `url("${generateMaskSVG(scanCardDimensions, controlHeight, resultCardHeight)}")`,
         }}
@@ -179,22 +210,30 @@ export function BarcodeScanner() {
 
       {/* Scanner Interface */}
       {scanCardDimensions && (
-        <div className='relative w-full flex-1 p-6 border border-green-60 z-30 flex flex-col items-center justify-center gap-8'>
-          <div className='w-full p-2.5 relative h-full z-30 flex border border-red-60 flex-col items-center justify-center' style={{ height: `${Math.round(scanCardDimensions.h)}px` }}>
+        <div className="relative z-30 flex w-full flex-1 flex-col items-center justify-center gap-8 p-6">
+          <div
+            className="relative z-30 flex h-full w-full flex-col items-center justify-center p-2.5"
+            style={{ height: `${Math.round(scanCardDimensions.h)}px` }}
+          >
             {/* Corner decorations positioned at screen edges */}
             <CornerDecorations />
-            <div className='flex-1 flex items-center justify-center w-full'>
-              <ScannerControl onKeyboardClick={() => {}} onFlashClick={toggleFlash} controlHeight={controlHeight} />
+            <div className="flex w-full flex-1 items-center justify-center">
+              <ScannerControl
+                onKeyboardClick={() => {}}
+                onFlashClick={toggleFlash}
+                controlHeight={controlHeight}
+              />
             </div>
           </div>
 
           {/* Navigation */}
           <Navigation navigationHeight={controlHeight} />
 
-          {/* Product Result Card - Shows below scanner when product is found */}
-          <div className='w-full h-full z-30 flex border border-blue-50 flex-col' style={{ height: `${resultCardHeight}px` }}>
-            <ProductResult barcode={searchBarcode} />
-          </div>
+          {/* Product Result Cards - Horizontal scrolling */}
+          <ProductCardSlider
+            barcodes={scannedBarcodes}
+            height={resultCardHeight}
+          />
         </div>
       )}
     </div>

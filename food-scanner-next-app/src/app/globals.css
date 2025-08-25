@@ -1,9 +1,76 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
 
-:root {
-  --font-montserrat: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+@layer base {
+  :root {
+    --font-montserrat:
+      "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      "Noto Color Emoji";
+
+    /* Font sizes and line heights */
+    --font-size-xs: 10px;
+    --font-size-sm: 11px;
+    --font-size-base: 13px;
+    --font-size-lg: 16px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 32px;
+    --font-size-number: 14px;
+
+    --line-height-xs: 14px;
+    --line-height-sm: 15px;
+    --line-height-base: 18px;
+    --line-height-lg: 24px;
+    --line-height-xl: 28px;
+    --line-height-2xl: 32px;
+    --line-height-3xl: 40px;
+    --line-height-number: 24px;
+  }
+
+  /* Apply base font size and line height */
+  body {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+  }
 }
 
-body {
-  font-family: var(--font-montserrat);
+@layer utilities {
+  /* Line clamping utilities */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Hide scrollbar utility */
+  .scrollbar-hide {
+    /* Firefox */
+    scrollbar-width: none;
+    /* Safari and Chrome */
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

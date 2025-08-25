@@ -1,4 +1,4 @@
-import { IconSettings, IconHistory, IconHeart } from '@tabler/icons-react';
+import { IconSettings, IconHistory, IconHeart } from "@tabler/icons-react";
 
 type NavigationProps = {
   navigationHeight: number;
@@ -6,15 +6,27 @@ type NavigationProps = {
 
 export function Navigation({ navigationHeight }: NavigationProps) {
   return (
-    <nav className='w-full h-16 flex items-center justify-center gap-1 rounded-2xl overflow-hidden' style={{ height: `${navigationHeight}px` }}>
-      <a href='#' className='flex-1 h-full flex items-center justify-center bg-gray-500/20 backdrop-blur-sm'>
-        <IconSettings size={24} stroke={2} className='text-white' />
+    <nav
+      className="flex h-16 w-full items-center justify-center gap-1 overflow-hidden rounded-2xl"
+      style={{ height: `${navigationHeight}px` }}
+    >
+      <a
+        href="#"
+        className="flex h-full flex-1 items-center justify-center bg-white/10 backdrop-blur-sm"
+      >
+        <IconSettings size={24} stroke={2} className="text-white" />
       </a>
-      <a href='#' className='flex-1 h-full flex items-center justify-center bg-gray-500/20 backdrop-blur-sm'>
-        <IconHistory size={24} stroke={2} className='text-white' />
+      <a
+        href="#"
+        className="flex h-full flex-1 items-center justify-center bg-white/10 backdrop-blur-sm"
+      >
+        <IconHistory size={24} stroke={2} className="text-white" />
       </a>
-      <a href='#' className='flex-1 h-full flex items-center justify-center bg-gray-500/20 backdrop-blur-sm'>
-        <IconHeart size={24} stroke={2} className='text-white' />
+      <a
+        href="#"
+        className="flex h-full flex-1 items-center justify-center bg-white/10 backdrop-blur-sm"
+      >
+        <IconHeart size={24} stroke={2} className="text-white" />
       </a>
     </nav>
   );

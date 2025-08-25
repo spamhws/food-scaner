@@ -2,6 +2,9 @@ import express, { Request, Response, Router } from 'express';
 import type { RequestHandler } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
 
 dotenv.config();
 
@@ -50,6 +53,16 @@ router.get('/api/health', healthCheck);
 
 app.use(router);
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+// HTTPS configuration
+const httpsOptions = {
+  key: fs.readFileSync(path.join(__dirname, '../ssl/key.pem')),
+  cert: fs.readFileSync(path.join(__dirname, '../ssl/cert.pem')),
+};
+
+// Create HTTPS server
+const server = https.createServer(httpsOptions, app);
+
+server.listen(port, () => {
+  console.log(`🔒 HTTPS Server running at https://localhost:${port}`);
+  console.log(`📱 Mobile access: https://YOUR_IP:${port}`);
 });
