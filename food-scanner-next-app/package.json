@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -H 0.0.0.0 -p 3000",
+    "dev:https": "next dev -H 0.0.0.0 -p 3000 --experimental-https --experimental-https-key ./cert.key --experimental-https-cert ./cert.crt",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -27,6 +28,7 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^9.28.0",
     "eslint-config-next": "15.3.3",
+    "mkcert": "^3.2.0",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
