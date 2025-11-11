@@ -1,30 +1,39 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { IconBolt, IconBoltOff } from '@tabler/icons-react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
+import { IconBolt } from '@tabler/icons-react-native';
 
 interface ScannerControlProps {
+  onKeyboardClick: () => void;
   onFlashClick: () => void;
   isFlashOn: boolean;
   controlHeight?: number;
 }
 
 export function ScannerControl({
+  onKeyboardClick,
   onFlashClick,
   isFlashOn,
   controlHeight = 64,
+   
 }: ScannerControlProps) {
   return (
-    <View className="flex-row justify-center items-center gap-8" style={{ height: controlHeight }}>
+    <View
+      className="flex-row w-full items-center justify-center gap-1 self-end overflow-hidden rounded-b-3xl"
+      style={{ height: controlHeight }}
+    >
       <TouchableOpacity
-        onPress={onFlashClick}
-        className="w-12 h-12 rounded-full bg-white/20 items-center justify-center"
+        onPress={onKeyboardClick}
+        className="flex-1 h-full items-center justify-center bg-white/10"
         activeOpacity={0.7}
       >
-        {isFlashOn ? (
-          <IconBolt size={24} stroke="#FFFFFF" />
-        ) : (
-          <IconBoltOff size={32} stroke="#FFFFFF" />
-        )}
+        <Text className="text-white text-2xl font-bold">⌨</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={onFlashClick}
+        className="flex-1 h-full items-center justify-center bg-white/10"
+        activeOpacity={0.7}
+      >
+        <IconBolt size={24} stroke="#FFFFFF" />
       </TouchableOpacity>
     </View>
   );

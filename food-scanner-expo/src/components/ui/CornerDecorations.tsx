@@ -1,44 +1,72 @@
 import React from 'react';
 import { View } from 'react-native';
 
-export function CornerDecorations() {
-  const cornerSize = 24;
-  const strokeWidth = 3;
+interface CornerDecorationsProps {
+  strokeWidth?: number;
+  cornerSize?: number;
+}
+
+export function CornerDecorations({ strokeWidth, cornerSize }: CornerDecorationsProps) {
+
+  const cornerRadius = 32;
 
   return (
-    <>
+    <View className="absolute inset-x-6 inset-y-0">
       {/* Top Left */}
-      <View className="absolute top-0 left-0">
+      <View className="absolute top-0 left- 6">
         <View
-          className="border-l-[3px] border-t-[3px] border-white rounded-tl-2xl"
-          style={{ width: cornerSize, height: cornerSize }}
+          className="border-white"
+          style={{
+            width: cornerSize,
+            height: cornerSize,
+            borderLeftWidth: strokeWidth,
+            borderTopWidth: strokeWidth,
+            borderTopLeftRadius: cornerRadius,
+          }}
         />
       </View>
 
       {/* Top Right */}
       <View className="absolute top-0 right-0">
         <View
-          className="border-r-[3px] border-t-[3px] border-white rounded-tr-2xl"
-          style={{ width: cornerSize, height: cornerSize }}
+          className="border-white"
+          style={{
+            width: cornerSize,
+            height: cornerSize,
+            borderRightWidth: strokeWidth,
+            borderTopWidth: strokeWidth,
+            borderTopRightRadius: cornerRadius,
+          }}
         />
       </View>
 
       {/* Bottom Left */}
       <View className="absolute bottom-0 left-0">
         <View
-          className="border-l-[3px] border-b-[3px] border-white rounded-bl-2xl"
-          style={{ width: cornerSize, height: cornerSize }}
+          className="border-white"
+          style={{
+            width: cornerSize,
+            height: cornerSize,
+            borderLeftWidth: strokeWidth,
+            borderBottomWidth: strokeWidth,
+            borderBottomLeftRadius: cornerRadius,
+          }}
         />
       </View>
 
       {/* Bottom Right */}
       <View className="absolute bottom-0 right-0">
         <View
-          className="border-r-[3px] border-b-[3px] border-white rounded-br-2xl"
-          style={{ width: cornerSize, height: cornerSize }}
+          className="border-white"
+          style={{
+            width: cornerSize,
+            height: cornerSize,
+            borderRightWidth: strokeWidth,
+            borderBottomWidth: strokeWidth,
+            borderBottomRightRadius: cornerRadius,
+          }}
         />
       </View>
-    </>
+    </View>
   );
 }
-

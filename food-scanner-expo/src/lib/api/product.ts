@@ -3,11 +3,15 @@ import { API_URL } from '@/constants/endpoints';
 import { NUTRITION_GRADES } from '@/constants/colors';
 import { parseNutrient, calculateNutritionScore } from '@/lib/utils/format';
 
-export async function fetchProduct(barcode: string): Promise<Product | null> {
+export async function fetchProduct(
+  barcode: string,
+  isRetry: boolean = false
+): Promise<Product | null> {
   if (!barcode) return null;
 
   try {
-    const response = await fetch(`${API_URL}/api/product/${barcode}`, {
+    console.log('Fetching product for barcode:', barcode);
+    const response = await fetch(`${API_URL}/api/v0/product/${barcode}`, {
       headers: {
         'User-Agent': 'FoodScanner/1.0.0',
       },
@@ -18,6 +22,18 @@ export async function fetchProduct(barcode: string): Promise<Product | null> {
     }
 
     const data = (await response.json()) as OpenFoodFactsResponse;
+
+    // If product not found and this is a 13-digit EAN-13 starting with 0, try UPC-A format
+    if (
+      (!data || data.status === 0 || !data.product) &&
+      !isRetry &&
+      barcode.length === 13 &&
+      barcode.startsWith('0')
+    ) {
+      console.log('Product not found with EAN-13, trying UPC-A format (removing leading 0)...');
+      return fetchProduct(barcode.substring(1), true);
+    }
+
     if (!data || data.status === 0 || !data.product) {
       throw new Error('Product not found');
     }
@@ -73,4 +89,3 @@ export async function fetchProduct(barcode: string): Promise<Product | null> {
     throw error;
   }
 }
-

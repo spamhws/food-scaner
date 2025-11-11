@@ -12,11 +12,19 @@ export function Navigation({ navigationHeight = 64 }: NavigationProps) {
 
   return (
     <View
-      className="flex-row justify-around items-center w-full bg-white/10 rounded-full px-6"
+      className="flex-row w-full items-center justify-center gap-1 overflow-hidden rounded-2xl"
       style={{ height: navigationHeight }}
     >
       <TouchableOpacity
-        className="flex-1 items-center justify-center"
+        className="flex-1 h-full items-center justify-center bg-white/10"
+        activeOpacity={0.7}
+        onPress={() => navigate('Settings')}
+      >
+        <IconSettings size={24} stroke="#FFFFFF" />
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        className="flex-1 h-full items-center justify-center bg-white/10"
         activeOpacity={0.7}
         onPress={() => navigate('History')}
       >
@@ -24,19 +32,11 @@ export function Navigation({ navigationHeight = 64 }: NavigationProps) {
       </TouchableOpacity>
 
       <TouchableOpacity
-        className="flex-1 items-center justify-center"
+        className="flex-1 h-full items-center justify-center bg-white/10"
         activeOpacity={0.7}
         onPress={() => navigate('Favourites')}
       >
         <IconHeart size={24} stroke="#FFFFFF" />
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        className="flex-1 items-center justify-center"
-        activeOpacity={0.7}
-        onPress={() => navigate('Settings')}
-      >
-        <IconSettings size={24} stroke="#FFFFFF" />
       </TouchableOpacity>
     </View>
   );
