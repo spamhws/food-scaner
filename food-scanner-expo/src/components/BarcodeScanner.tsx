@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -16,6 +16,7 @@ import { Navigation } from './Navigation';
 import { ScannerControl } from './ScannerControl';
 import { CornerDecorations } from './ui/CornerDecorations';
 import { ProductCardSlider } from './ProductCardSlider';
+import { useBarcodeScanner } from '@/hooks/useBarcodeScanner';
 import Svg, { Defs, Mask, Rect, Path } from 'react-native-svg';
 
 export function BarcodeScanner() {
@@ -25,10 +26,6 @@ export function BarcodeScanner() {
   const [showBarcodeModal, setShowBarcodeModal] = useState(false);
   const [manualBarcode, setManualBarcode] = useState('');
   const [isManualEntryActive, setIsManualEntryActive] = useState(false);
-
-  // Track last scanned barcode to prevent duplicates
-  const lastScanRef = useRef<{ barcode: string; timestamp: number } | null>(null);
-  const SCAN_COOLDOWN_MS = 2000; // 2 seconds cooldown for same barcode
 
   const controlHeight = 64;
   const resultCardHeight = 112;
@@ -54,45 +51,52 @@ export function BarcodeScanner() {
 
   const [scanCardDimensions, setScanCardDimensions] = useState(getScanCardDimensions());
 
+  // Get viewport dimensions
+  const viewportHeight = Dimensions.get('window').height;
+  const viewportWidth = Dimensions.get('window').width;
+
+  // Scanner layout constants
+  const scannerPadding = 8;
+  const cornerRadius = 24;
+  const cornerStrokeWidth = 4;
+  const verticalOffset = 120;
+
+  // Calculate camera bounds
+  const scannerTop = (viewportHeight - scanCardDimensions.h - controlHeight) / 2 - verticalOffset;
+  const cameraLeft = (viewportWidth - scanCardDimensions.w) / 2 + scannerPadding;
+  const cameraRight = (viewportWidth + scanCardDimensions.w) / 2 - scannerPadding;
+  const cameraTop = scannerTop + scannerPadding + cornerStrokeWidth;
+  const cameraBottom = scannerTop + scanCardDimensions.h - scannerPadding * 2;
+
+  // Add barcode to list callback
+  const handleBarcodeDetected = (barcode: string) => {
+    setScannedBarcodes((prev) => (prev.includes(barcode) ? prev : [...prev, barcode]));
+  };
+
+  // Initialize barcode scanner hook
+  const { barcodeCorners, handleBarCodeScanned, clearOutline } = useBarcodeScanner({
+    viewportWidth,
+    viewportHeight,
+    cameraBounds: {
+      left: cameraLeft,
+      top: cameraTop,
+      right: cameraRight,
+      bottom: cameraBottom,
+    },
+    onBarcodeScanned: handleBarcodeDetected,
+    isDisabled: isManualEntryActive,
+  });
+
   useEffect(() => {
     const subscription = Dimensions.addEventListener('change', () => {
       setScanCardDimensions(getScanCardDimensions());
     });
 
-    return () => subscription?.remove();
-  }, []);
-
-  const handleBarCodeScanned = ({ type, data }: { type: string; data: string }) => {
-    // Don't scan while manual entry is active (iOS prompt or Android modal)
-    if (isManualEntryActive) {
-      return;
-    }
-
-    const now = Date.now();
-    const lastScan = lastScanRef.current;
-
-    // Check if this is a duplicate scan within the cooldown period
-    if (lastScan && lastScan.barcode === data) {
-      const timeSinceLastScan = now - lastScan.timestamp;
-      if (timeSinceLastScan < SCAN_COOLDOWN_MS) {
-        console.log(`Ignoring duplicate scan of ${data} (${timeSinceLastScan}ms since last scan)`);
-        return;
-      }
-    }
-
-    console.log('Scanned barcode:', { type, data, length: data.length });
-
-    // Update last scan reference
-    lastScanRef.current = { barcode: data, timestamp: now };
-
-    // Only add if not already in the array
-    setScannedBarcodes((prev) => {
-      if (!prev.includes(data)) {
-        return [...prev, data];
-      }
-      return prev;
-    });
-  };
+    return () => {
+      subscription?.remove();
+      clearOutline();
+    };
+  }, [clearOutline]);
 
   const toggleFlash = () => {
     setIsFlashOn(!isFlashOn);
@@ -174,24 +178,9 @@ export function BarcodeScanner() {
     );
   }
 
-  const viewportHeight = Dimensions.get('window').height;
-  const viewportWidth = Dimensions.get('window').width;
-
-  // Scanner layout constants
-  const scannerPadding = 8; // Padding inside corners
-  const cornerRadius = 24; // Top corner radius for camera area
-  const cornerStrokeWidth = 4; // Thickness of corner decoration lines
+  // Additional layout constants
   const cameraButtonGap = 4; // Gap between camera area and buttons
-  const verticalOffset = 120; // Offset from center (move up)
   const cornerSize = 100; // Size of the corner decorations
-  // Calculate centered position for scanner window, slightly above center
-  const scannerTop = (viewportHeight - scanCardDimensions.h - controlHeight) / 2 - verticalOffset;
-
-  // Camera area dimensions
-  const cameraLeft = (viewportWidth - scanCardDimensions.w) / 2 + scannerPadding;
-  const cameraRight = (viewportWidth + scanCardDimensions.w) / 2 - scannerPadding;
-  const cameraTop = scannerTop + scannerPadding + cornerStrokeWidth;
-  const cameraBottom = scannerTop + scanCardDimensions.h - scannerPadding * 2;
   const cameraWidth = scanCardDimensions.w - scannerPadding * 2;
   const cameraHeight = scanCardDimensions.h - scannerPadding;
 
@@ -290,6 +279,18 @@ export function BarcodeScanner() {
             mask="url(#scannerMask)"
           />
         </Svg>
+
+        {/* Barcode Detection Overlay */}
+        {barcodeCorners && (
+          <Svg style={StyleSheet.absoluteFill} pointerEvents="none">
+            <Path
+              d={`M ${barcodeCorners.map((p) => `${p.x},${p.y}`).join(' L ')} Z`}
+              stroke="#10b981"
+              strokeWidth={3}
+              fill="rgba(16, 185, 129, 0.1)"
+            />
+          </Svg>
+        )}
 
         {/* Scanner Interface */}
         <View
