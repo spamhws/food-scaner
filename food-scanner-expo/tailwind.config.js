@@ -56,7 +56,8 @@ module.exports = {
         // Custom typography styles matching design
         title: ['16px', '24px'], // Title - 16/24
         number: ['14px', '24px'], // Number - 14/24
-        caption: ['11px', '16px'], // Caption/CAPS - 11/16
+        CAPS: ['11px', '16px'], // CAPS - 13/16
+        caption: ['13px', '16px'], // Caption/CAPS - 11/16
         'body-bold': ['13px', '18px'], // Bold - 13/18
         'body-medium': ['13px', '18px'], // Medium - 13/18
         display: ['57px', '64px'], // Display large - 57/64

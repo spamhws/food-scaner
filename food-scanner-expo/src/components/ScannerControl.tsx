@@ -33,7 +33,12 @@ export function ScannerControl({
         className="flex-1 h-full items-center justify-center bg-white/10"
         activeOpacity={0.7}
       >
-        <IconBolt size={24} stroke="#FFFFFF" />
+        <IconBolt
+          size={24}
+          color={isFlashOn ? '#FFFF00' : '#FFFFFF'}
+          fill={isFlashOn ? '#FFFF00' : 'none'}
+          strokeWidth={1.5}
+        />
       </TouchableOpacity>
     </View>
   );

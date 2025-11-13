@@ -1,14 +1,15 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { IconHistory, IconHeart, IconSettings } from '@tabler/icons-react-native';
-import { useNavigation } from '@/navigation/SimpleNavigator';
+import { useNavigation } from '@react-navigation/native';
+import type { NavigationProp } from '@/navigation/navigation-types';
 
-interface NavigationProps {
+interface NavigationButtonsProps {
   navigationHeight?: number;
 }
 
-export function Navigation({ navigationHeight = 64 }: NavigationProps) {
-  const { navigate } = useNavigation();
+export function NavigationButtons({ navigationHeight = 64 }: NavigationButtonsProps) {
+  const navigation = useNavigation<NavigationProp>();
 
   return (
     <View
@@ -18,7 +19,7 @@ export function Navigation({ navigationHeight = 64 }: NavigationProps) {
       <TouchableOpacity
         className="flex-1 h-full items-center justify-center bg-white/10"
         activeOpacity={0.7}
-        onPress={() => navigate('Settings')}
+        onPress={() => navigation.navigate('Settings')}
       >
         <IconSettings size={24} stroke="#FFFFFF" />
       </TouchableOpacity>
@@ -26,7 +27,7 @@ export function Navigation({ navigationHeight = 64 }: NavigationProps) {
       <TouchableOpacity
         className="flex-1 h-full items-center justify-center bg-white/10"
         activeOpacity={0.7}
-        onPress={() => navigate('History')}
+        onPress={() => navigation.navigate('History')}
       >
         <IconHistory size={24} stroke="#FFFFFF" />
       </TouchableOpacity>
@@ -34,11 +35,10 @@ export function Navigation({ navigationHeight = 64 }: NavigationProps) {
       <TouchableOpacity
         className="flex-1 h-full items-center justify-center bg-white/10"
         activeOpacity={0.7}
-        onPress={() => navigate('Favourites')}
+        onPress={() => navigation.navigate('Favourites')}
       >
         <IconHeart size={24} stroke="#FFFFFF" />
       </TouchableOpacity>
     </View>
   );
 }
-

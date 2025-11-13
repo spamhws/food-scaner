@@ -4,9 +4,10 @@ import { ProductCard } from './ProductCard';
 
 interface ProductListProps {
   barcodes: string[];
+  onProductPress?: (barcode: string) => void;
 }
 
-export function ProductList({ barcodes }: ProductListProps) {
+export function ProductList({ barcodes, onProductPress }: ProductListProps) {
   if (barcodes.length === 0) {
     return (
       <View className="flex-1 items-center justify-center px-6">
@@ -25,9 +26,7 @@ export function ProductList({ barcodes }: ProductListProps) {
         <View key={barcode} style={{ marginBottom: index < barcodes.length - 1 ? 12 : 0 }}>
           <ProductCard
             barcode={barcode}
-            variant="list"
-            showFavorite
-            onFavoritePress={() => console.log('Toggle favorite', barcode)}
+            onPress={onProductPress ? () => onProductPress(barcode) : undefined}
           />
         </View>
       ))}

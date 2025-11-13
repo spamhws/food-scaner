@@ -32,5 +32,12 @@ declare module '@tabler/icons-react-native' {
   export const IconAlertTriangle: React.FC<IconProps>;
   export const IconThumbUp: React.FC<IconProps>;
   export const IconThumbDown: React.FC<IconProps>;
+  export const IconQuestionMark: React.FC<IconProps>;
+  export const IconFileText: React.FC<IconProps>;
+  export const IconShieldLock: React.FC<IconProps>;
+  export const IconChevronDown: React.FC<IconProps>;
+  export const IconChevronUp: React.FC<IconProps>;
+  export const IconHelpHexagon: React.FC<IconProps>;
+  export const IconDeviceMobile: React.FC<IconProps>;
 }
 

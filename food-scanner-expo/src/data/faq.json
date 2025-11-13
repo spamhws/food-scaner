@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "question": "How does the barcode scanner work?",
+    "answer": "Simply point your camera at a product's barcode. The app automatically detects and scans it. You can also manually enter the barcode using the keyboard button if the camera can't read it."
+  },
+  {
+    "id": 2,
+    "question": "What is OpenFoodFacts?",
+    "answer": "OpenFoodFacts is a free, open, collaborative database of food products from around the world. It contains nutritional information, ingredients, allergens, and other product details contributed by users worldwide. Our app uses this database to provide you with accurate product information."
+  },
+  {
+    "id": 3,
+    "question": "How are positive and negative assessments generated?",
+    "answer": "Our app analyzes the product's nutritional content including calories, proteins, fats, carbohydrates, fiber, sodium, and sugars. We compare these values against recommended daily intake guidelines. Products with high fiber, protein, and low sodium/sugar receive positive assessments, while products high in saturated fats, sodium, or sugars receive negative assessments."
+  },
+  {
+    "id": 4,
+    "question": "What is the Nutri-Score?",
+    "answer": "Nutri-Score is a nutrition label that converts the nutritional value of products into a simple code consisting of 5 letters, each with its own color (A=Green/Best, B=Light Green, C=Yellow, D=Orange, E=Red/Worst). It helps you make healthier food choices at a glance."
+  },
+  {
+    "id": 5,
+    "question": "Why can't I find some products?",
+    "answer": "Not all products are in the OpenFoodFacts database yet. The database is community-driven and constantly growing. If a product isn't found, you can contribute by adding it to OpenFoodFacts directly on their website or mobile app."
+  },
+  {
+    "id": 6,
+    "question": "How do I add products to favorites?",
+    "answer": "When viewing a product's details, tap the heart icon at the bottom of the screen. The heart will turn red, indicating the product has been added to your favorites. Access your favorites anytime from the favorites tab."
+  },
+  {
+    "id": 7,
+    "question": "Where is my scan history stored?",
+    "answer": "All your scanned products and favorites are stored locally on your device. This means your data never leaves your phone and remains completely private. See our Privacy Policy for more details."
+  }
+]
+

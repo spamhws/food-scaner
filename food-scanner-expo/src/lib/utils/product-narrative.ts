@@ -105,10 +105,10 @@ export function getNutriscoreColor(grade: string): string {
  */
 export function getNutriscoreDescription(grade: string): string {
   const descriptions: Record<string, string> = {
-    'A': 'Excellent choice',
-    'B': 'Good choice',
-    'C': 'Moderately healthy',
-    'D': 'Poor nutritional quality',
+    'A': 'Great choice',
+    'B': 'Great choice',
+    'C': 'Moderately beneficial',
+    'D': 'Moderately beneficial',
     'E': 'Unhealthy',
   };
   

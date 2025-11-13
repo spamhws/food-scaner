@@ -11,15 +11,18 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
-import { useQuery } from '@tanstack/react-query';
-import { fetchProduct } from '@/lib/api/product';
 import { Button } from './ui/Button';
-import { Navigation } from './Navigation';
+import { NavigationButtons } from './NavigationButtons';
 import { ScannerControl } from './ScannerControl';
 import { CornerDecorations } from './ui/CornerDecorations';
 import { ProductCardSlider, type ProductCardSliderRef } from './ProductCardSlider';
-import { ProductDetailSheet, type ProductDetailSheetRef } from './ProductDetailSheet';
+import {
+  ProductDetailSheet,
+  type ProductDetailSheetRef,
+} from './ProductDetailSheet/ProductDetailSheet';
 import { useBarcodeScanner } from '@/hooks/useBarcodeScanner';
+import { useHistory } from '@/hooks/useHistory';
+import { useProduct } from '@/hooks/useProduct';
 import Svg, { Defs, Mask, Rect, Path } from 'react-native-svg';
 
 export function BarcodeScanner() {
@@ -34,11 +37,14 @@ export function BarcodeScanner() {
   const bottomSheetRef = useRef<ProductDetailSheetRef>(null);
   const productSliderRef = useRef<ProductCardSliderRef>(null);
 
-  // Fetch selected product data
-  const { data: selectedProduct } = useQuery({
-    queryKey: ['product', selectedBarcode],
-    queryFn: () => fetchProduct(selectedBarcode!),
+  // History management
+  const { addItem: addToHistory } = useHistory();
+
+  // Fetch selected product data (from cache for quick display)
+  const { data: selectedProduct } = useProduct({
+    barcode: selectedBarcode || '',
     enabled: !!selectedBarcode,
+    fromCache: true,
   });
 
   const controlHeight = 64;
@@ -73,7 +79,7 @@ export function BarcodeScanner() {
   const scannerPadding = 8;
   const cornerRadius = 24;
   const cornerStrokeWidth = 4;
-  const verticalOffset = 120;
+  const verticalOffset = 100;
 
   // Calculate camera bounds
   const scannerTop = (viewportHeight - scanCardDimensions.h - controlHeight) / 2 - verticalOffset;
@@ -84,6 +90,9 @@ export function BarcodeScanner() {
 
   // Add barcode to list callback
   const handleBarcodeDetected = (barcode: string) => {
+    // Save to history
+    addToHistory(barcode);
+
     setScannedBarcodes((prev) => {
       if (prev.includes(barcode)) {
         // Barcode already exists (whether product found or error) - scroll to it
@@ -354,7 +363,7 @@ export function BarcodeScanner() {
           </View>
           {/* Navigation */}
           <View className="px-6">
-            <Navigation navigationHeight={controlHeight} />
+            <NavigationButtons navigationHeight={controlHeight} />
           </View>
 
           {/* Product Result Cards - Horizontal scrolling */}

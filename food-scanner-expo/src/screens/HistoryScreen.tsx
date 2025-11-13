@@ -1,71 +1,69 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { View, ActivityIndicator, BackHandler } from 'react-native';
 import { ProductList } from '@/components/ProductList';
-import { useNavigation } from '@/navigation/SimpleNavigator';
-import { IconArrowLeft } from '@tabler/icons-react-native';
+import { useNavigation } from '@react-navigation/native';
+import type { NavigationProp } from '@/navigation/navigation-types';
+import { useHistory } from '@/hooks/useHistory';
+import {
+  ProductDetailSheet,
+  type ProductDetailSheetRef,
+} from '@/components/ProductDetailSheet/ProductDetailSheet';
+import { useProduct } from '@/hooks/useProduct';
 
 export function HistoryScreen() {
-  const { goBack } = useNavigation();
-  
-  // Mock data for now - you'll replace this with actual history from storage
-  const historyBarcodes = [
-    '5449000000996', // Coca-Cola
-    '3017620422003', // Nutella
-    '5000159461122', // Kit Kat
-  ];
+  const navigation = useNavigation<NavigationProp>();
+  const { history, isLoading } = useHistory();
+  const [selectedBarcode, setSelectedBarcode] = useState<string | null>(null);
+  const bottomSheetRef = useRef<ProductDetailSheetRef>(null);
+
+  // Fetch selected product data (from cache)
+  const { data: selectedProduct } = useProduct({
+    barcode: selectedBarcode || '',
+    enabled: !!selectedBarcode,
+    fromCache: true,
+  });
+
+  const handleProductPress = (barcode: string) => {
+    setSelectedBarcode(barcode);
+    bottomSheetRef.current?.expand();
+  };
+
+  const handleBottomSheetClose = () => {
+    setSelectedBarcode(null);
+  };
+
+  // Handle Android back button
+  useEffect(() => {
+    const backAction = () => {
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+        return true;
+      }
+      return false;
+    };
+
+    const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+
+    return () => backHandler.remove();
+  }, [navigation]);
 
   return (
-    <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={goBack} style={styles.backButton}>
-          <IconArrowLeft size={24} stroke="#434A54" />
-        </TouchableOpacity>
-        <View style={styles.headerText}>
-          <Text style={styles.title}>History</Text>
-          <Text style={styles.subtitle}>
-            {historyBarcodes.length} scanned products
-          </Text>
-        </View>
-      </View>
-
+    <View className="flex-1 bg-gray-10">
       {/* Product List */}
-      <ProductList barcodes={historyBarcodes} />
+      {isLoading ? (
+        <View className="flex-1 justify-center items-center">
+          <ActivityIndicator size="large" color="#3272D9" />
+        </View>
+      ) : (
+        <ProductList barcodes={history} onProductPress={handleProductPress} />
+      )}
+
+      {/* Product Detail Sheet */}
+      <ProductDetailSheet
+        ref={bottomSheetRef}
+        product={selectedProduct || null}
+        onClose={handleBottomSheetClose}
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5F7FA',
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderBottomWidth: 1,
-    borderBottomColor: '#DDE3ED',
-    paddingHorizontal: 16,
-    paddingTop: 48,
-    paddingBottom: 16,
-  },
-  backButton: {
-    padding: 8,
-    marginRight: 8,
-  },
-  headerText: {
-    flex: 1,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: '#434A54',
-  },
-  subtitle: {
-    fontSize: 14,
-    color: '#8E99AB',
-    marginTop: 4,
-  },
-});
-

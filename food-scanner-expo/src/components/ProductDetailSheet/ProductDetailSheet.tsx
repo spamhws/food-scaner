@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useImperativeHandle, ReactNode } from 'react';
+import React, { forwardRef, useState, useImperativeHandle, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,9 @@ import {
   Dimensions,
   PanResponder,
   Alert,
+  BackHandler,
+  Share,
+  Platform,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
@@ -32,6 +35,10 @@ import {
   getNutriscoreBadgeVariant,
 } from '@/lib/utils/product-narrative';
 import { Badge } from '@/components/ui/Badge';
+import { SectionLabel } from './SectionLabel';
+import { InfoCard } from './InfoCard';
+import { InfoRow } from './InfoRow';
+import { useFavorites } from '@/hooks/useFavorites';
 
 interface ProductDetailSheetProps {
   product: Product | null;
@@ -49,10 +56,13 @@ const SHEET_HEIGHT = SCREEN_HEIGHT * 0.9;
 export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetailSheetProps>(
   ({ product, onClose }, ref) => {
     const insets = useSafeAreaInsets();
-    const [isFavorite, setIsFavorite] = useState(false);
+    const { isFavorite: checkIsFavorite, toggle: toggleFavorite } = useFavorites();
     const [visible, setVisible] = useState(false);
+    const [isSharing, setIsSharing] = useState(false);
     const translateY = React.useRef(new Animated.Value(SHEET_HEIGHT)).current;
     const opacity = React.useRef(new Animated.Value(0)).current;
+
+    const isFavorite = product ? checkIsFavorite(product.barcode) : false;
 
     useImperativeHandle(ref, () => ({
       expand: () => {
@@ -91,6 +101,37 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
       },
     }));
 
+    // Handle Android back button
+    useEffect(() => {
+      const backAction = () => {
+        if (visible) {
+          // Close drawer if it's open
+          Animated.parallel([
+            Animated.spring(translateY, {
+              toValue: SHEET_HEIGHT,
+              useNativeDriver: true,
+              tension: 65,
+              friction: 11,
+            }),
+            Animated.timing(opacity, {
+              toValue: 0,
+              duration: 200,
+              useNativeDriver: true,
+            }),
+          ]).start(() => {
+            setVisible(false);
+            onClose();
+          });
+          return true; // Prevent default back behavior
+        }
+        return false; // Allow default back behavior
+      };
+
+      const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+
+      return () => backHandler.remove();
+    }, [visible, translateY, opacity, onClose]);
+
     const handlePanResponder = React.useRef(
       PanResponder.create({
         onStartShouldSetPanResponder: () => true,
@@ -125,14 +166,73 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
       })
     ).current;
 
-    const handleFavoriteToggle = () => {
-      setIsFavorite(!isFavorite);
-      // TODO: Save to favorites
+    const handleFavoriteToggle = async () => {
+      if (product) {
+        await toggleFavorite(product.barcode);
+      }
     };
 
-    const handleShare = () => {
-      // TODO: Implement share functionality
-    };
+    const handleShare = useCallback(async () => {
+      if (!product || isSharing) {
+        console.log('No product to share or already sharing');
+        return;
+      }
+
+      setIsSharing(true);
+
+      try {
+        // Build share message with product details and macros
+        const productTitle = product.brand ? `${product.name} - ${product.brand}` : product.name;
+
+        const quantity = product.product_quantity
+          ? `${product.product_quantity}${product.product_quantity_unit || ''}`
+          : '';
+
+        const macros = `
+📊 Nutritional Information (per 100g):
+🔥 Calories: ${product.nutrition.calories?.per_100g || 'N/A'} kcal
+🥚 Protein: ${product.nutrition.protein?.per_100g || 'N/A'}g
+💧 Fat: ${product.nutrition.fat?.per_100g || 'N/A'}g
+🌾 Carbs: ${product.nutrition.carbohydrates?.per_100g || 'N/A'}g`;
+
+        const nutriScore = product.assessment?.category
+          ? `\n\n🏆 Nutri-Score: ${product.assessment.category}`
+          : '';
+
+        // Include image URL in message on iOS, or as separate on Android
+        const imageUrl = product.image ? `\n\n📷 Product Image:\n${product.image}` : '';
+
+        const appLink = '\n\n📱 Get FoodScanner:\nhttps://apps.apple.com/foodscanner (coming soon)';
+
+        const message = `${productTitle}${
+          quantity ? ` (${quantity})` : ''
+        }${macros}${nutriScore}${imageUrl}${appLink}`;
+
+        const shareOptions: any = {
+          message: Platform.OS === 'android' ? message : message,
+          title: productTitle,
+        };
+
+        // On iOS, url property works differently - it replaces message in some apps
+        // Better to include image URL in the message text for consistency
+        if (Platform.OS === 'android' && product.image) {
+          shareOptions.url = product.image;
+        }
+
+        const result = await Share.share(shareOptions);
+
+        if (result.action === Share.sharedAction) {
+          console.log('Content shared successfully');
+        } else if (result.action === Share.dismissedAction) {
+          console.log('Share dismissed');
+        }
+      } catch (error: any) {
+        console.error('Error sharing:', error);
+        Alert.alert('Share Error', 'Unable to share product. Please try again.');
+      } finally {
+        setIsSharing(false);
+      }
+    }, [product, isSharing]);
 
     const handleNutriscorePress = () => {
       if (!product) return;
@@ -167,9 +267,7 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
               ref?.current?.close();
             }}
           >
-            <Animated.View
-              className="absolute inset-0"
-            />
+            <Animated.View className="absolute inset-0" />
           </TouchableOpacity>
 
           {/* Sheet */}
@@ -322,7 +420,7 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
               )}
 
               {/* Bottom spacing for fixed buttons */}
-              <View style={{ height: 100 }} />
+              <View style={{ height: 100 + Math.max(insets.bottom, 16) }} />
             </ScrollView>
 
             {/* Fixed Bottom Navigation */}
@@ -339,17 +437,20 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
                   <IconHeart
                     size={32}
                     color={isFavorite ? '#DE1B1B' : '#000000'}
+                    fill={isFavorite ? '#DE1B1B' : 'none'}
                     strokeWidth={1.5}
                   />
                 </TouchableOpacity>
 
                 <TouchableOpacity
                   onPress={handleShare}
-                  className="flex-1 bg-gray-20 rounded-xl py-4 items-center justify-center opacity-50"
+                  className={`flex-1 bg-gray-20 rounded-xl py-4 items-center justify-center ${
+                    isSharing ? 'opacity-50' : ''
+                  }`}
                   activeOpacity={0.7}
-                  disabled
+                  disabled={isSharing}
                 >
-                  <IconShare2 size={32} color="#8E99AB" />
+                  <IconShare2 size={32} color="#434A54" />
                 </TouchableOpacity>
               </View>
             </View>
@@ -359,53 +460,5 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
     );
   }
 );
-
-// Section Label Component
-interface SectionLabelProps {
-  children: string;
-}
-
-function SectionLabel({ children }: SectionLabelProps) {
-  return (
-    <Text className="text-caption font-semibold text-gray-60 uppercase tracking-wide mb-2 mt-4">
-      {children}
-    </Text>
-  );
-}
-
-// Reusable Card Component
-interface InfoCardProps {
-  children: ReactNode;
-  className?: string;
-}
-
-function InfoCard({ children, className = '' }: InfoCardProps) {
-  return (
-    <View className={`bg-white rounded-2xl p-4 shadow-card mb-4 ${className}`}>{children}</View>
-  );
-}
-
-// Reusable Row Component
-interface InfoRowProps {
-  icon: ReactNode;
-  label: string;
-  value?: string;
-  isLast?: boolean;
-}
-
-function InfoRow({ icon, label, value, isLast = false }: InfoRowProps) {
-  return (
-    <View className="py-2">
-      <View className="flex-row items-center justify-between gap-2">
-        <View className="flex-row items-center gap-2">
-          {icon}
-          <Text className="text-title text-black">{label}</Text>
-        </View>
-        {value && <Text className="text-title font-semibold text-gray-90">{value}</Text>}
-      </View>
-      {!isLast && <View className="h-px bg-gray-30 mt-2 ml-8" />}
-    </View>
-  );
-}
 
 ProductDetailSheet.displayName = 'ProductDetailSheet';

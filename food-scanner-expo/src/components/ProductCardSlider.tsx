@@ -92,6 +92,7 @@ export const ProductCardSlider = forwardRef<ProductCardSliderRef, ProductCardSli
             <View key={barcode} style={{ width: screenWidth - 48 }}>
               <ProductCard
                 barcode={barcode}
+                vibrateOnScan
                 onPress={onProductPress ? () => onProductPress(barcode) : undefined}
               />
             </View>
