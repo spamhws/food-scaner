@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   View,
   Text,
@@ -11,11 +11,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
+import { useQuery } from '@tanstack/react-query';
+import { fetchProduct } from '@/lib/api/product';
 import { Button } from './ui/Button';
 import { Navigation } from './Navigation';
 import { ScannerControl } from './ScannerControl';
 import { CornerDecorations } from './ui/CornerDecorations';
-import { ProductCardSlider } from './ProductCardSlider';
+import { ProductCardSlider, type ProductCardSliderRef } from './ProductCardSlider';
+import { ProductDetailSheet, type ProductDetailSheetRef } from './ProductDetailSheet';
 import { useBarcodeScanner } from '@/hooks/useBarcodeScanner';
 import Svg, { Defs, Mask, Rect, Path } from 'react-native-svg';
 
@@ -26,6 +29,17 @@ export function BarcodeScanner() {
   const [showBarcodeModal, setShowBarcodeModal] = useState(false);
   const [manualBarcode, setManualBarcode] = useState('');
   const [isManualEntryActive, setIsManualEntryActive] = useState(false);
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+  const [selectedBarcode, setSelectedBarcode] = useState<string | null>(null);
+  const bottomSheetRef = useRef<ProductDetailSheetRef>(null);
+  const productSliderRef = useRef<ProductCardSliderRef>(null);
+
+  // Fetch selected product data
+  const { data: selectedProduct } = useQuery({
+    queryKey: ['product', selectedBarcode],
+    queryFn: () => fetchProduct(selectedBarcode!),
+    enabled: !!selectedBarcode,
+  });
 
   const controlHeight = 64;
   const resultCardHeight = 112;
@@ -70,7 +84,20 @@ export function BarcodeScanner() {
 
   // Add barcode to list callback
   const handleBarcodeDetected = (barcode: string) => {
-    setScannedBarcodes((prev) => (prev.includes(barcode) ? prev : [...prev, barcode]));
+    setScannedBarcodes((prev) => {
+      if (prev.includes(barcode)) {
+        // Barcode already exists (whether product found or error) - scroll to it
+        const index = prev.indexOf(barcode);
+        // Pass the current array to ensure we have the right index
+        setTimeout(() => {
+          if (productSliderRef.current) {
+            productSliderRef.current.scrollToBarcode(barcode, prev);
+          }
+        }, 300);
+        return prev; // Don't add duplicate
+      }
+      return [...prev, barcode];
+    });
   };
 
   // Initialize barcode scanner hook
@@ -84,7 +111,7 @@ export function BarcodeScanner() {
       bottom: cameraBottom,
     },
     onBarcodeScanned: handleBarcodeDetected,
-    isDisabled: isManualEntryActive,
+    isDisabled: isManualEntryActive || isBottomSheetOpen,
   });
 
   useEffect(() => {
@@ -156,6 +183,17 @@ export function BarcodeScanner() {
       setShowBarcodeModal(true);
     }
   };
+
+  const handleProductPress = useCallback((barcode: string) => {
+    setSelectedBarcode(barcode);
+    setIsBottomSheetOpen(true);
+    bottomSheetRef.current?.expand();
+  }, []);
+
+  const handleBottomSheetClose = useCallback(() => {
+    setSelectedBarcode(null);
+    setIsBottomSheetOpen(false);
+  }, []);
 
   if (!permission) {
     // Camera permissions are still loading
@@ -321,10 +359,22 @@ export function BarcodeScanner() {
 
           {/* Product Result Cards - Horizontal scrolling */}
           <View className="w-full">
-            <ProductCardSlider barcodes={scannedBarcodes} height={resultCardHeight} />
+            <ProductCardSlider
+              ref={productSliderRef}
+              barcodes={scannedBarcodes}
+              height={resultCardHeight}
+              onProductPress={handleProductPress}
+            />
           </View>
         </View>
       </View>
+
+      {/* Product Detail Bottom Sheet */}
+      <ProductDetailSheet
+        ref={bottomSheetRef}
+        product={selectedProduct || null}
+        onClose={handleBottomSheetClose}
+      />
     </>
   );
 }

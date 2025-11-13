@@ -18,10 +18,12 @@ export async function fetchProduct(
     });
 
     if (!response.ok) {
-      throw new Error('Failed to fetch product');
+      // Network/server error - return null instead of throwing
+      return null;
     }
 
     const data = (await response.json()) as OpenFoodFactsResponse;
+
 
     // If product not found and this is a 13-digit EAN-13 starting with 0, try UPC-A format
     if (
@@ -35,7 +37,8 @@ export async function fetchProduct(
     }
 
     if (!data || data.status === 0 || !data.product) {
-      throw new Error('Product not found');
+      // Return null instead of throwing - this is an expected case, not an error
+      return null;
     }
 
     const product = data.product;
@@ -85,7 +88,8 @@ export async function fetchProduct(
         : [],
     };
   } catch (error) {
-    console.error('Error fetching product:', error);
-    throw error;
+    // Only log unexpected errors, return null for expected cases
+    console.error('Unexpected error fetching product:', error);
+    return null;
   }
 }
