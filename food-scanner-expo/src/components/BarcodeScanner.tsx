@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
+import { BlurView } from 'expo-blur';
 import { Button } from './ui/Button';
 import { NavigationButtons } from './NavigationButtons';
 import { ScannerControl } from './ScannerControl';
@@ -289,43 +290,64 @@ export function BarcodeScanner() {
           enableTorch={isFlashOn}
         />
 
-        {/* Overlay with SVG mask - single element like web app */}
-        <Svg
-          style={StyleSheet.absoluteFill}
-          pointerEvents="none"
-          width={viewportWidth}
-          height={viewportHeight}
-        >
-          <Defs>
-            <Mask id="scannerMask">
-              {/* White fills the entire screen */}
-              <Rect x="0" y="0" width={viewportWidth} height={viewportHeight} fill="white" />
-              {/* Black punches a hole for the camera view only (rounded top, gap before buttons) */}
-              <Path
-                d={`
-                M ${cameraLeft} ${cameraTop + cornerRadius}
-                L ${cameraLeft} ${cameraTop + cornerRadius}
-                A ${cornerRadius} ${cornerRadius} 0 0 1 ${cameraLeft + cornerRadius} ${cameraTop}
-                L ${cameraRight - cornerRadius} ${cameraTop}
-                A ${cornerRadius} ${cornerRadius} 0 0 1 ${cameraRight} ${cameraTop + cornerRadius}
-                L ${cameraRight} ${cameraBottom}
-                L ${cameraLeft} ${cameraBottom}
-                Z
-              `}
-                fill="black"
-              />
-            </Mask>
-          </Defs>
-          {/* Dark overlay everywhere except the masked area */}
-          <Rect
-            x="0"
-            y="0"
-            width={viewportWidth}
-            height={viewportHeight}
-            fill="rgba(0, 0, 0, 0.6)"
-            mask="url(#scannerMask)"
+        {/* Blur effect only in darkened areas */}
+        <View style={StyleSheet.absoluteFill} pointerEvents="none">
+          {/* Top blur */}
+          <BlurView
+            intensity={15}
+            tint="dark"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: cameraTop,
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            }}
           />
-        </Svg>
+
+          {/* Left blur */}
+          <BlurView
+            intensity={15}
+            tint="dark"
+            style={{
+              position: 'absolute',
+              top: cameraTop,
+              left: 0,
+              width: cameraLeft,
+              height: cameraHeight,
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            }}
+          />
+
+          {/* Right blur */}
+          <BlurView
+            intensity={15}
+            tint="dark"
+            style={{
+              position: 'absolute',
+              top: cameraTop,
+              right: 0,
+              width: viewportWidth - cameraRight,
+              height: cameraHeight,
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            }}
+          />
+
+          {/* Bottom blur */}
+          <BlurView
+            intensity={15}
+            tint="dark"
+            style={{
+              position: 'absolute',
+              top: cameraBottom,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            }}
+          />
+        </View>
 
         {/* Barcode Detection Overlay */}
         {barcodeCorners && (
