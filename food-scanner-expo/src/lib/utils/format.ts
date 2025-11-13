@@ -17,11 +17,10 @@ export function calculateNutritionScore(grade: string): number {
     d: 30,
     e: 10,
   };
-  return scores[grade.toLowerCase()] || 10;
+  return scores[grade.toLowerCase()] || 0;
 }
 
 export function formatNutrient(nutrient: Nutrient | undefined, decimals: number = 1): string {
   if (!nutrient) return '0';
   return nutrient.value.toFixed(decimals);
 }
-

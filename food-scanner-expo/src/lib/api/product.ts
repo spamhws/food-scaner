@@ -23,7 +23,7 @@ export async function fetchProduct(
     }
 
     const data = (await response.json()) as OpenFoodFactsResponse;
-
+ 
 
     // If product not found and this is a 13-digit EAN-13 starting with 0, try UPC-A format
     if (
@@ -42,13 +42,17 @@ export async function fetchProduct(
     }
 
     const product = data.product;
-    let grade = (product.nutrition_grades || 'e').toLowerCase();
-    if (!NUTRITION_GRADES[grade]) {
-      console.warn(`Invalid grade: ${grade}, defaulting to 'e'`);
-      grade = 'e';
-    }
 
-    return {
+    // Check if nutrition grade is valid (a, b, c, d, e)
+    // Use nutriscore_grade as primary source, fall back to nutrition_grades
+    const rawGrade = (product.nutriscore_grade || product.nutrition_grades)?.toLowerCase();
+
+    // Only consider grade valid if it's one of a, b, c, d, e
+    // This automatically filters out "not-applicable", "unknown", undefined, etc.
+    const hasValidGrade = rawGrade && NUTRITION_GRADES[rawGrade] !== undefined;
+
+    // Build the product object
+    const transformedProduct: Product = {
       id: product._id,
       barcode,
       name: product.product_name || 'Unknown Product',
@@ -71,12 +75,15 @@ export async function fetchProduct(
         salt: parseNutrient(product.nutriments.salt_100g),
         fiber: parseNutrient(product.nutriments.fiber_100g),
       },
-      assessment: {
-        score: calculateNutritionScore(grade),
-        category: grade.toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E',
-        color: NUTRITION_GRADES[grade].color,
-        description: NUTRITION_GRADES[grade].description,
-      },
+      // Only include assessment if we have a valid grade (a, b, c, d, e)
+      ...(hasValidGrade && {
+        assessment: {
+          score: calculateNutritionScore(rawGrade),
+          category: rawGrade.toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E',
+          color: NUTRITION_GRADES[rawGrade].color,
+          description: NUTRITION_GRADES[rawGrade].description,
+        },
+      }),
       ingredients: product.ingredients_text_en
         ? product.ingredients_text_en.split(',').map((i: string) => i.trim())
         : [],
@@ -87,6 +94,8 @@ export async function fetchProduct(
         ? product.labels_tags.map((l: string) => l.replace('en:', ''))
         : [],
     };
+
+    return transformedProduct;
   } catch (error) {
     // Only log unexpected errors, return null for expected cases
     console.error('Unexpected error fetching product:', error);

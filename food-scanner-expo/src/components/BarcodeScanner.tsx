@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { BlurView } from 'expo-blur';
+import MaskedView from '@react-native-masked-view/masked-view';
 import { Button } from './ui/Button';
 import { NavigationButtons } from './NavigationButtons';
 import { ScannerControl } from './ScannerControl';
@@ -24,7 +25,19 @@ import {
 import { useBarcodeScanner } from '@/hooks/useBarcodeScanner';
 import { useHistory } from '@/hooks/useHistory';
 import { useProduct } from '@/hooks/useProduct';
-import Svg, { Defs, Mask, Rect, Path } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
+
+// Helper to build a rounded-rect path for SVG (only top corners rounded)
+const rrectPath = (x: number, y: number, w: number, h: number, r: number) => `
+  M ${x + r},${y}
+  H ${x + w - r}
+  A ${r},${r} 0 0 1 ${x + w},${y + r}
+  V ${y + h}
+  H ${x}
+  V ${y + r}
+  A ${r},${r} 0 0 1 ${x + r},${y}
+  Z
+`;
 
 export function BarcodeScanner() {
   const [permission, requestPermission] = useCameraPermissions();
@@ -89,26 +102,29 @@ export function BarcodeScanner() {
   const cameraTop = scannerTop + scannerPadding + cornerStrokeWidth;
   const cameraBottom = scannerTop + scanCardDimensions.h - scannerPadding * 2;
 
-  // Add barcode to list callback
-  const handleBarcodeDetected = (barcode: string) => {
-    // Save to history
-    addToHistory(barcode);
+  // Add barcode to list callback (memoized to prevent scanning issues on state changes)
+  const handleBarcodeDetected = useCallback(
+    (barcode: string) => {
+      // Save to history
+      addToHistory(barcode);
 
-    setScannedBarcodes((prev) => {
-      if (prev.includes(barcode)) {
-        // Barcode already exists (whether product found or error) - scroll to it
-        const index = prev.indexOf(barcode);
-        // Pass the current array to ensure we have the right index
-        setTimeout(() => {
-          if (productSliderRef.current) {
-            productSliderRef.current.scrollToBarcode(barcode, prev);
-          }
-        }, 300);
-        return prev; // Don't add duplicate
-      }
-      return [...prev, barcode];
-    });
-  };
+      setScannedBarcodes((prev) => {
+        if (prev.includes(barcode)) {
+          // Barcode already exists (whether product found or error) - scroll to it
+          const index = prev.indexOf(barcode);
+          // Pass the current array to ensure we have the right index
+          setTimeout(() => {
+            if (productSliderRef.current) {
+              productSliderRef.current.scrollToBarcode(barcode, prev);
+            }
+          }, 300);
+          return prev; // Don't add duplicate
+        }
+        return [...prev, barcode];
+      });
+    },
+    [addToHistory]
+  );
 
   // Initialize barcode scanner hook
   const { barcodeCorners, handleBarCodeScanned, clearOutline } = useBarcodeScanner({
@@ -290,64 +306,54 @@ export function BarcodeScanner() {
           enableTorch={isFlashOn}
         />
 
-        {/* Blur effect only in darkened areas */}
-        <View style={StyleSheet.absoluteFill} pointerEvents="none">
-          {/* Top blur */}
-          <BlurView
-            intensity={15}
-            tint="dark"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: cameraTop,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
-          />
+        {/* Blur + Dark overlay with inverse mask (blur outside camera area only) */}
+        <MaskedView
+          style={StyleSheet.absoluteFill}
+          pointerEvents="none"
+          maskElement={
+            <Svg width={viewportWidth} height={viewportHeight}>
+              {/* Even-odd path: full screen minus scan rect => show outside only */}
+              <Path
+                fill="#fff"
+                fillRule="evenodd"
+                d={`M0,0 H${viewportWidth} V${viewportHeight} H0 Z
+                   ${rrectPath(
+                     cameraLeft,
+                     cameraTop,
+                     cameraRight - cameraLeft,
+                     cameraBottom - cameraTop,
+                     cornerRadius
+                   )}
+                `}
+              />
+            </Svg>
+          }
+        >
+          {/* This blurs whatever is behind it; masked to only the outside region */}
+          <BlurView style={StyleSheet.absoluteFill} intensity={12} tint="dark" />
+        </MaskedView>
 
-          {/* Left blur */}
-          <BlurView
-            intensity={15}
-            tint="dark"
-            style={{
-              position: 'absolute',
-              top: cameraTop,
-              left: 0,
-              width: cameraLeft,
-              height: cameraHeight,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
+        {/* Additional dark overlay for extra dimming (optional, adjust opacity) */}
+        <Svg
+          width={viewportWidth}
+          height={viewportHeight}
+          style={StyleSheet.absoluteFill}
+          pointerEvents="none"
+        >
+          <Path
+            fill="rgba(0, 0, 0, 0.7)"
+            fillRule="evenodd"
+            d={`M0,0 H${viewportWidth} V${viewportHeight} H0 Z
+               ${rrectPath(
+                 cameraLeft,
+                 cameraTop,
+                 cameraRight - cameraLeft,
+                 cameraBottom - cameraTop,
+                 cornerRadius
+               )}
+            `}
           />
-
-          {/* Right blur */}
-          <BlurView
-            intensity={15}
-            tint="dark"
-            style={{
-              position: 'absolute',
-              top: cameraTop,
-              right: 0,
-              width: viewportWidth - cameraRight,
-              height: cameraHeight,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
-          />
-
-          {/* Bottom blur */}
-          <BlurView
-            intensity={15}
-            tint="dark"
-            style={{
-              position: 'absolute',
-              top: cameraBottom,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
-          />
-        </View>
+        </Svg>
 
         {/* Barcode Detection Overlay */}
         {barcodeCorners && (

@@ -9,12 +9,33 @@ import {
   type ProductDetailSheetRef,
 } from '@/components/ProductDetailSheet/ProductDetailSheet';
 import { useProduct } from '@/hooks/useProduct';
+import { getCachedProduct } from '@/lib/storage/storage';
 
 export function HistoryScreen() {
   const navigation = useNavigation<NavigationProp>();
   const { history, isLoading } = useHistory();
   const [selectedBarcode, setSelectedBarcode] = useState<string | null>(null);
   const bottomSheetRef = useRef<ProductDetailSheetRef>(null);
+  const [validHistory, setValidHistory] = useState<string[]>([]);
+
+  // Filter history to only include products that exist (not errors)
+  useEffect(() => {
+    const filterHistory = async () => {
+      const validBarcodes: string[] = [];
+      for (const barcode of history) {
+        const cachedProduct = await getCachedProduct(barcode);
+        if (cachedProduct !== null) {
+          // Only include if product exists (not an error)
+          validBarcodes.push(barcode);
+        }
+      }
+      setValidHistory(validBarcodes);
+    };
+
+    if (!isLoading) {
+      filterHistory();
+    }
+  }, [history, isLoading]);
 
   // Fetch selected product data (from cache)
   const { data: selectedProduct } = useProduct({
@@ -55,7 +76,7 @@ export function HistoryScreen() {
           <ActivityIndicator size="large" color="#3272D9" />
         </View>
       ) : (
-        <ProductList barcodes={history} onProductPress={handleProductPress} />
+        <ProductList barcodes={validHistory} onProductPress={handleProductPress} />
       )}
 
       {/* Product Detail Sheet */}

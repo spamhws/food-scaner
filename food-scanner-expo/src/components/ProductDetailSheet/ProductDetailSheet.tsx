@@ -235,7 +235,7 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
     }, [product, isSharing]);
 
     const handleNutriscorePress = () => {
-      if (!product) return;
+      if (!product || !product.assessment) return;
 
       const narrative = generateProductNarrative(product);
       const gradeDescription = getNutriscoreDescription(product.assessment.category);
@@ -308,13 +308,15 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
                     {product.brand && ` (${product.brand})`}
                   </Text>
 
-                  {/* Nutriscore Badge */}
-                  <Badge
-                    variant={getNutriscoreBadgeVariant(product.assessment.category)}
-                    label={getNutriscoreDescription(product.assessment.category)}
-                    interactive
-                    onPress={handleNutriscorePress}
-                  />
+                  {/* Nutriscore Badge - only show if assessment exists */}
+                  {product.assessment && (
+                    <Badge
+                      variant={getNutriscoreBadgeVariant(product.assessment.category)}
+                      label={getNutriscoreDescription(product.assessment.category)}
+                      interactive
+                      onPress={handleNutriscorePress}
+                    />
+                  )}
                 </View>
               </InfoCard>
 
@@ -399,7 +401,7 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
                       <InfoRow
                         key={index}
                         icon={<IconAlertTriangle size={20} strokeWidth={1.5} color="#AD5F00" />}
-                        label={allergen}
+                        label={allergen.charAt(0).toUpperCase() + allergen.slice(1)}
                         isLast={index === product.allergens.length - 1}
                       />
                     ))}
@@ -438,7 +440,7 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
                     size={32}
                     color={isFavorite ? '#DE1B1B' : '#000000'}
                     fill={isFavorite ? '#DE1B1B' : 'none'}
-                    strokeWidth={1.5}
+            
                   />
                 </TouchableOpacity>
 
@@ -450,7 +452,7 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
                   activeOpacity={0.7}
                   disabled={isSharing}
                 >
-                  <IconShare2 size={32} color="#434A54" />
+                  <IconShare2 size={32}  color="#000000" />
                 </TouchableOpacity>
               </View>
             </View>

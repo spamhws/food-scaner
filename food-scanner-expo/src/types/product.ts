@@ -32,7 +32,7 @@ export interface Product {
   product_quantity: string;
   product_quantity_unit: string;
   nutrition: NutritionData;
-  assessment: Assessment;
+  assessment?: Assessment; // Optional - only present if nutrition grade is valid (A-E)
   ingredients: string[];
   allergens: string[];
   labels: string[];
@@ -49,6 +49,8 @@ export interface OpenFoodFactsResponse {
     product_quantity: string;
     product_quantity_unit: string;
     nutrition_grades: string;
+    nutriscore_grade?: string; // More reliable than nutrition_grades
+    nutriscore_score?: number; // 0 means not calculated
     nutriments: {
       'energy-kcal_100g': string;
       fat_100g: string;

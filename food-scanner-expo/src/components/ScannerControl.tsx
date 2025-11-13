@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
-import { IconBolt } from '@tabler/icons-react-native';
+import { IconBolt, IconKeyboard
+} from '@tabler/icons-react-native';
 
 interface ScannerControlProps {
   onKeyboardClick: () => void;
@@ -26,7 +27,9 @@ export function ScannerControl({
         className="flex-1 h-full items-center justify-center bg-white/10"
         activeOpacity={0.7}
       >
-        <Text className="text-white text-2xl font-bold">⌨</Text>
+        <Text className="text-white text-2xl font-bold">
+          <IconKeyboard size={24} strokeWidth={1.5} color="white" />
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={onFlashClick}

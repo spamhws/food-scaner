@@ -6,21 +6,21 @@ import { generateAssessments } from './product-assessment';
  */
 export function generateProductNarrative(product: Product): string {
   const assessments = generateAssessments(product);
-  
+
   if (assessments.length === 0) {
-    return "This product has a balanced nutritional profile with no significant concerns or notable benefits.";
+    return 'This product has a balanced nutritional profile with no significant concerns or notable benefits.';
   }
 
-  const positives = assessments.filter(a => a.type === 'positive');
-  const negatives = assessments.filter(a => a.type === 'negative');
+  const positives = assessments.filter((a) => a.type === 'positive');
+  const negatives = assessments.filter((a) => a.type === 'negative');
 
   let narrative = '';
 
   // Build positive aspects
   if (positives.length > 0) {
     narrative += 'This product ';
-    const positiveTexts = positives.map(p => p.label.toLowerCase());
-    
+    const positiveTexts = positives.map((p) => p.label.toLowerCase());
+
     if (positiveTexts.length === 1) {
       narrative += `is ${positiveTexts[0]}`;
     } else if (positiveTexts.length === 2) {
@@ -39,9 +39,9 @@ export function generateProductNarrative(product: Product): string {
     } else {
       narrative += 'This product ';
     }
-    
-    const negativeTexts = negatives.map(n => n.label.toLowerCase());
-    
+
+    const negativeTexts = negatives.map((n) => n.label.toLowerCase());
+
     if (negativeTexts.length === 1) {
       narrative += `is ${negativeTexts[0]}`;
     } else if (negativeTexts.length === 2) {
@@ -53,8 +53,9 @@ export function generateProductNarrative(product: Product): string {
     narrative += '. ';
   }
 
-  // Add recommendation
-  const recommendation = getRecommendation(positives.length, negatives.length, product.assessment.category);
+  // Add recommendation (use grade if available, otherwise rely on score-based logic)
+  const grade = product.assessment?.category || '';
+  const recommendation = getRecommendation(positives.length, negatives.length, grade);
   narrative += recommendation;
 
   return narrative;
@@ -65,24 +66,24 @@ export function generateProductNarrative(product: Product): string {
  */
 function getRecommendation(positiveCount: number, negativeCount: number, grade: string): string {
   const score = positiveCount - negativeCount;
-  
+
   // Excellent (A grade or high positive score)
   if (grade === 'A' || (grade === 'B' && score >= 2)) {
     return 'This is an excellent choice for regular consumption.';
   }
-  
+
   // Good (B grade or moderate positive score)
   if (grade === 'B' || (grade === 'C' && score >= 1)) {
     return 'This is a good choice and can be consumed regularly in moderation.';
   }
-  
+
   // Moderate (C-D grade or balanced)
   if (grade === 'C' || grade === 'D' || (score >= -1 && score <= 1)) {
     return 'Consider consuming this product moderately and balance it with healthier options.';
   }
-  
+
   // Poor (E grade or high negative score)
-  return 'It\'s best to limit consumption of this product and opt for healthier alternatives when possible.';
+  return "It's best to limit consumption of this product and opt for healthier alternatives when possible.";
 }
 
 /**
@@ -90,13 +91,13 @@ function getRecommendation(positiveCount: number, negativeCount: number, grade: 
  */
 export function getNutriscoreColor(grade: string): string {
   const colors: Record<string, string> = {
-    'a': '#038537', // green-60 (Excellent)
-    'b': '#038537', // green-60 (Good)
-    'c': '#AD5F00', // bronze-60 (Moderate)
-    'd': '#AD5F00', // bronze-60 (Poor)
-    'e': '#DE1B1B', // red-60 (Unhealthy)
+    a: '#038537', // green-60 (Excellent)
+    b: '#038537', // green-60 (Good)
+    c: '#AD5F00', // bronze-60 (Moderate)
+    d: '#AD5F00', // bronze-60 (Poor)
+    e: '#DE1B1B', // red-60 (Unhealthy)
   };
-  
+
   return colors[grade.toLowerCase()] || colors['e'];
 }
 
@@ -105,13 +106,13 @@ export function getNutriscoreColor(grade: string): string {
  */
 export function getNutriscoreDescription(grade: string): string {
   const descriptions: Record<string, string> = {
-    'A': 'Great choice',
-    'B': 'Great choice',
-    'C': 'Moderately beneficial',
-    'D': 'Moderately beneficial',
-    'E': 'Unhealthy',
+    A: 'Great choice',
+    B: 'Great choice',
+    C: 'Moderately beneficial',
+    D: 'Moderately beneficial',
+    E: 'Unhealthy',
   };
-  
+
   return descriptions[grade.toUpperCase()] || 'Unknown';
 }
 
@@ -120,15 +121,14 @@ export function getNutriscoreDescription(grade: string): string {
  */
 export function getNutriscoreBadgeVariant(grade: string): 'success' | 'warning' | 'danger' {
   const gradeUpper = grade.toUpperCase();
-  
+
   if (gradeUpper === 'A' || gradeUpper === 'B') {
     return 'success'; // green
   }
-  
+
   if (gradeUpper === 'C' || gradeUpper === 'D') {
     return 'warning'; // bronze
   }
-  
+
   return 'danger'; // red (E)
 }
-
