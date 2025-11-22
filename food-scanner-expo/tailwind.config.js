@@ -8,10 +8,18 @@ module.exports = {
   ],
   presets: [require('nativewind/preset')],
   theme: {
-    fontFamily: {
-      sans: ['Montserrat_400Regular', 'Montserrat'],
-    },
     extend: {
+      fontFamily: {
+        sans: ['Montserrat-Regular'],
+        medium: ['Montserrat-Medium'],
+        semibold: ['Montserrat-SemiBold'],
+        bold: ['Montserrat-Bold'],
+      },
+      fontWeight: {
+        medium: undefined,
+        semibold: undefined,
+        bold: undefined,
+      },
       colors: {
         gray: {
           10: '#F5F7FA',
@@ -52,13 +60,6 @@ module.exports = {
         white: '#FFFFFF',
         black: '#000000',
       },
-      fontFamily: {
-        sans: ['Montserrat_400Regular', 'Montserrat'],
-        montserrat: ['Montserrat_400Regular', 'Montserrat'],
-        'montserrat-medium': ['Montserrat_500Medium', 'Montserrat'],
-        'montserrat-semibold': ['Montserrat_600SemiBold', 'Montserrat'],
-        'montserrat-bold': ['Montserrat_700Bold', 'Montserrat'],
-      },
       fontSize: {
         // Custom typography styles matching design
         title: ['16px', '24px'], // Title - 16/24
@@ -74,5 +75,13 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.font-medium': { fontFamily: 'Montserrat-Medium' },
+        '.font-semibold': { fontFamily: 'Montserrat-SemiBold' },
+        '.font-bold': { fontFamily: 'Montserrat-Bold' },
+      });
+    },
+  ],
 };

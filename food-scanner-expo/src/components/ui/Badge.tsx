@@ -23,19 +23,19 @@ const variantStyles: Record<
   success: {
     container: 'bg-green-10',
     text: 'text-green-60',
-    border: 'border-green-60',
+    border: 'border-green-60/30',
     iconColor: '#038537', // green-60
   },
   warning: {
     container: 'bg-bronze-10',
     text: 'text-bronze-60',
-    border: 'border-bronze-60',
+    border: 'border-bronze-60/30',
     iconColor: '#AD5F00', // bronze-60
   },
   danger: {
     container: 'bg-red-10',
     text: 'text-red-60',
-    border: 'border-red-60',
+    border: 'border-red-60/30',
     iconColor: '#DE1B1B', // red-60
   },
 };

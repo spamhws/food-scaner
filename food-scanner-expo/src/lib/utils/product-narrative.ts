@@ -77,8 +77,8 @@ function getRecommendation(positiveCount: number, negativeCount: number, grade: 
     return 'This is a good choice and can be consumed regularly in moderation.';
   }
 
-  // Moderate (C-D grade or balanced)
-  if (grade === 'C' || grade === 'D' || (score >= -1 && score <= 1)) {
+  // Moderate (C grade or D grade or balanced)
+  if (grade === 'C' || grade === 'D' || (score >= -1 && score <= 1)) { 
     return 'Consider consuming this product moderately and balance it with healthier options.';
   }
 
@@ -92,9 +92,9 @@ function getRecommendation(positiveCount: number, negativeCount: number, grade: 
 export function getNutriscoreColor(grade: string): string {
   const colors: Record<string, string> = {
     a: '#038537', // green-60 (Excellent)
-    b: '#038537', // green-60 (Good)
+    b: '#AD5F00', // green-60 (Good)
     c: '#AD5F00', // bronze-60 (Moderate)
-    d: '#AD5F00', // bronze-60 (Poor)
+    d: '#DE1B1B', // bronze-60 (Poor)
     e: '#DE1B1B', // red-60 (Unhealthy)
   };
 
@@ -106,10 +106,10 @@ export function getNutriscoreColor(grade: string): string {
  */
 export function getNutriscoreDescription(grade: string): string {
   const descriptions: Record<string, string> = {
-    A: 'Great choice',
-    B: 'Great choice',
-    C: 'Moderately beneficial',
-    D: 'Moderately beneficial',
+    A: 'Great Coice',
+    B: 'Moderately Beneficial',
+    C: 'Moderately Beneficial',
+    D: 'Unhealthy',
     E: 'Unhealthy',
   };
 
@@ -122,11 +122,11 @@ export function getNutriscoreDescription(grade: string): string {
 export function getNutriscoreBadgeVariant(grade: string): 'success' | 'warning' | 'danger' {
   const gradeUpper = grade.toUpperCase();
 
-  if (gradeUpper === 'A' || gradeUpper === 'B') {
+  if (gradeUpper === 'A' ) {
     return 'success'; // green
   }
 
-  if (gradeUpper === 'C' || gradeUpper === 'D') {
+  if (gradeUpper === 'B' || gradeUpper === 'C') {
     return 'warning'; // bronze
   }
 

@@ -82,20 +82,21 @@ export const ProductCardSlider = forwardRef<ProductCardSliderRef, ProductCardSli
         decelerationRate="fast"
         contentContainerStyle={{
           paddingHorizontal: 24,
-          gap: 24,
+          gap: 12,
           height: height,
         }}
         style={{ height: height }}
       >
         {barcodes.length > 0 &&
           barcodes.map((barcode) => (
-            <View key={barcode} style={{ width: screenWidth - 48 }}>
-              <ProductCard
-                barcode={barcode}
-                vibrateOnScan
-                onPress={onProductPress ? () => onProductPress(barcode) : undefined}
-              />
-            </View>
+            <ProductCard
+              key={barcode}
+              barcode={barcode}
+              vibrateOnScan
+              inSlider={true}
+              sliderWidth={cardWidth}
+              onPress={onProductPress ? () => onProductPress(barcode) : undefined}
+            />
           ))}
       </ScrollView>
     );

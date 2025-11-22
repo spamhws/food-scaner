@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, Image, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { Card } from '@/components/ui/Card';
+import { clsx } from 'clsx';
 import {
   IconFlame,
   IconDroplet,
-  IconEggFried,
+  IconMeat,
   IconWheat,
   IconPhotoOff,
   IconMoodSurprised,
@@ -19,6 +20,8 @@ interface ProductCardProps {
   className?: string;
   onPress?: () => void;
   vibrateOnScan?: boolean;
+  inSlider?: boolean;
+  sliderWidth?: number;
 }
 
 export function ProductCard({
@@ -26,6 +29,8 @@ export function ProductCard({
   className,
   onPress,
   vibrateOnScan = false,
+  inSlider = false,
+  sliderWidth,
 }: ProductCardProps) {
   const { data: product, isLoading } = useProduct({
     barcode,
@@ -58,11 +63,11 @@ export function ProductCard({
   const content = (
     <View className="flex-row gap-3">
       {/* Left Section - Product Image */}
-      <View className="relative aspect-square h-24 w-24 items-center justify-center rounded-xl border border-gray-30 bg-gray-10">
+      <View className="relative aspect-square h-[100px] w-[100px] items-center justify-center rounded-xl border border-gray-30 bg-gray-10">
         {isLoading ? (
           <ActivityIndicator size="large" color="#8E99AB" />
         ) : isError ? (
-          <IconMoodSurprised size={32} stroke="#8E99AB" />
+          <IconMoodSurprised size={32} strokeWidth={1.5} stroke="#8E99AB" />
         ) : product?.image ? (
           <Image
             source={{ uri: product.image }}
@@ -71,7 +76,7 @@ export function ProductCard({
             resizeMode="contain"
           />
         ) : (
-          <IconPhotoOff size={32} stroke="#8E99AB" />
+          <IconPhotoOff size={32} strokeWidth={1.5} stroke="#8E99AB" />
         )}
       </View>
 
@@ -89,25 +94,26 @@ export function ProductCard({
               {product?.brand && `, ${product.brand}`}
               {product?.product_quantity &&
                 `, ${product.product_quantity} ${product.product_quantity_unit}`}
+            
             </>
           )}
         </Text>
 
         {(isError || isLoading) && (
           <Text className="text-sm text-gray-60">
-            {isLoading ? 'Please wait...' : 'Product not in knowledge base'}
+            {isLoading ? 'Please wait...' : 'It seems this item is not in my knowledge base'}
           </Text>
         )}
 
         {/* Nutritional Information */}
         {product && !isError && !isLoading && (
-          <View className="flex-row flex-wrap gap-x-4 gap-y-1">
+          <View className="flex-row flex-wrap gap-x-2 gap-y-1">
             <View className="flex-row items-center gap-0.5">
               <IconFlame size={16} stroke="#8E99AB" strokeWidth={1.5} />
               <Text className="font-semibold">{Math.round(product.nutrition.calories.value)}</Text>
             </View>
             <View className="flex-row items-center gap-0.5">
-              <IconEggFried size={16} stroke="#8E99AB" strokeWidth={1.5} />
+              <IconMeat size={16} stroke="#8E99AB" strokeWidth={1.5} />
               <Text className="font-semibold">{product.nutrition.protein.value.toFixed(1)}</Text>
             </View>
             <View className="flex-row items-center gap-0.5">
@@ -137,7 +143,10 @@ export function ProductCard({
   );
 
   return (
-    <Card className={`p-2 mb-0 flex-shrink-0 w-full ${className}`}>
+    <Card
+      className={clsx('p-2 mb-0 flex-shrink-0 min-h-[116px]', inSlider ? '' : 'w-full', className)}
+      style={inSlider && sliderWidth ? { width: sliderWidth } : undefined}
+    >
       {onPress && product && !isError && !isLoading ? (
         <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
           {content}

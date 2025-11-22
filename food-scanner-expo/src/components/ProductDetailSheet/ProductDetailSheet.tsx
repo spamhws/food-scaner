@@ -1,7 +1,6 @@
 import React, { forwardRef, useState, useImperativeHandle, useEffect, useCallback } from 'react';
 import {
   View,
-  Text,
   Image,
   ScrollView,
   TouchableOpacity,
@@ -13,13 +12,14 @@ import {
   BackHandler,
   Share,
   Platform,
+  Text,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   IconHeart,
   IconShare2,
   IconFlame,
-  IconEggFried,
+  IconMeat,
   IconDroplet,
   IconWheat,
   IconAlertTriangle,
@@ -251,7 +251,7 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
       <Modal
         visible={visible}
         transparent
-        animationType="none"
+        animationType="slide"
         onRequestClose={() => {
           // @ts-ignore - ref methods
           ref?.current?.close();
@@ -267,7 +267,7 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
               ref?.current?.close();
             }}
           >
-            <Animated.View className="absolute inset-0" />
+            <Animated.View className="absolute inset-0 bg-black/50" style={{ opacity }} />
           </TouchableOpacity>
 
           {/* Sheet */}
@@ -288,22 +288,18 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
               <InfoCard className="flex-col gap-4">
                 {/* Image with grey background */}
                 <View className="bg-gray-20 rounded-lg items-center -m-2 mb-0">
-                  {product.image ? (
+                  {product.image && (
                     <Image
                       source={{ uri: product.image }}
                       className="w-full h-60"
                       resizeMode="contain"
                     />
-                  ) : (
-                    <View className="w-full h-64 items-center justify-center">
-                      <Text className="text-gray-60">No image</Text>
-                    </View>
                   )}
                 </View>
 
                 {/* Title with Nutriscore Badge */}
-                <View className="items-center mb-2">
-                  <Text className="text-2xl font-bold text-center text-gray-90 mb-3">
+                <View className="items-center mb-2 gap-3">
+                  <Text className="text-2xl font-bold text-center text-gray-90">
                     {product.name || 'Unknown Product'}
                     {product.brand && ` (${product.brand})`}
                   </Text>
@@ -336,7 +332,7 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
 
                     {product.nutrition.protein && (
                       <InfoRow
-                        icon={<IconEggFried size={24} strokeWidth={1.5} color="#8E99AB" />}
+                        icon={<IconMeat size={24} strokeWidth={1.5} color="#8E99AB" />}
                         label="Protein"
                         value={`${product.nutrition.protein.value.toFixed(1)} g`}
                         isLast={false}
@@ -438,9 +434,9 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
                 >
                   <IconHeart
                     size={32}
+                    strokeWidth={1.5}
                     color={isFavorite ? '#DE1B1B' : '#000000'}
                     fill={isFavorite ? '#DE1B1B' : 'none'}
-            
                   />
                 </TouchableOpacity>
 
@@ -452,7 +448,7 @@ export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetai
                   activeOpacity={0.7}
                   disabled={isSharing}
                 >
-                  <IconShare2 size={32}  color="#000000" />
+                  <IconShare2 size={32} strokeWidth={1.5} color="#000000" />
                 </TouchableOpacity>
               </View>
             </View>

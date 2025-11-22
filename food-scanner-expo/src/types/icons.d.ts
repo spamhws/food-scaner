@@ -16,6 +16,7 @@ declare module '@tabler/icons-react-native' {
   export const IconFlame: React.FC<IconProps>;
   export const IconDroplet: React.FC<IconProps>;
   export const IconEggFried: React.FC<IconProps>;
+  export const IconMeat: React.FC<IconProps>;
   export const IconWheat: React.FC<IconProps>;
   export const IconPhotoOff: React.FC<IconProps>;
   export const IconMoodSurprised: React.FC<IconProps>;
