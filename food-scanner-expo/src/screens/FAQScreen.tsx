@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
-import { View, Text, ScrollView, BackHandler } from 'react-native';
+import { View, Text, ScrollView, BackHandler, Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
 import faqData from '@/data/faq.json';
 
 export function FAQScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const insets = useSafeAreaInsets();
+  
+  // Header height (44px) + status bar - only needed on iOS with transparent header
+  const headerHeight = Platform.OS === 'ios' ? 44 + insets.top : 0;
 
   // Handle Android back button
   useEffect(() => {
@@ -23,7 +28,14 @@ export function FAQScreen() {
 
   return (
     <View className="flex-1 bg-gray-10">
-      <ScrollView className="flex-1" contentContainerStyle={{ padding: 20, paddingBottom: 40 }}>
+      <ScrollView 
+        className="flex-1" 
+        contentContainerStyle={{ 
+          paddingTop: headerHeight + 20,
+          paddingHorizontal: 20,
+          paddingBottom: 40,
+        }}
+      >
         {faqData.map((item, index) => (
           <View key={item.id} className="mb-6">
             <Text className="text-lg font-semibold text-gray-90 mb-3">

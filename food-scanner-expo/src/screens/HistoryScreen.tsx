@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, ActivityIndicator, BackHandler } from 'react-native';
+import { View, ActivityIndicator, BackHandler, Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ProductList } from '@/components/ProductList';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
@@ -13,10 +14,14 @@ import { getCachedProduct } from '@/lib/storage/storage';
 
 export function HistoryScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const insets = useSafeAreaInsets();
   const { history, isLoading } = useHistory();
   const [selectedBarcode, setSelectedBarcode] = useState<string | null>(null);
   const bottomSheetRef = useRef<ProductDetailSheetRef>(null);
   const [validHistory, setValidHistory] = useState<string[]>([]);
+  
+  // Header height (44px) + status bar - only needed on iOS with transparent header
+  const headerHeight = Platform.OS === 'ios' ? 44 + insets.top : 0;
 
   // Filter history to only include products that exist (not errors)
   useEffect(() => {
@@ -72,11 +77,15 @@ export function HistoryScreen() {
     <View className="flex-1 bg-gray-10">
       {/* Product List */}
       {isLoading ? (
-        <View className="flex-1 justify-center items-center">
+        <View className="flex-1 justify-center items-center" style={{ paddingTop: headerHeight }}>
           <ActivityIndicator size="large" color="#3272D9" />
         </View>
       ) : (
-        <ProductList barcodes={validHistory} onProductPress={handleProductPress} />
+        <ProductList 
+          barcodes={validHistory} 
+          onProductPress={handleProductPress}
+          contentInsetTop={headerHeight}
+        />
       )}
 
       {/* Product Detail Sheet */}

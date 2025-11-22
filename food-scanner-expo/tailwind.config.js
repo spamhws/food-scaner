@@ -8,6 +8,9 @@ module.exports = {
   ],
   presets: [require('nativewind/preset')],
   theme: {
+    fontFamily: {
+      sans: ['Montserrat_400Regular', 'Montserrat'],
+    },
     extend: {
       colors: {
         gray: {
@@ -50,7 +53,11 @@ module.exports = {
         black: '#000000',
       },
       fontFamily: {
-        montserrat: ['Montserrat'],
+        sans: ['Montserrat_400Regular', 'Montserrat'],
+        montserrat: ['Montserrat_400Regular', 'Montserrat'],
+        'montserrat-medium': ['Montserrat_500Medium', 'Montserrat'],
+        'montserrat-semibold': ['Montserrat_600SemiBold', 'Montserrat'],
+        'montserrat-bold': ['Montserrat_700Bold', 'Montserrat'],
       },
       fontSize: {
         // Custom typography styles matching design

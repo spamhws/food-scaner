@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, BackHandler } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, BackHandler, Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   IconHelpHexagon,
   IconFileText,
@@ -19,7 +20,14 @@ interface SettingItemProps {
   showChevron?: boolean;
 }
 
-function SettingItem({ icon, title, subtitle, value, onPress, showChevron = true }: SettingItemProps) {
+function SettingItem({
+  icon,
+  title,
+  subtitle,
+  value,
+  onPress,
+  showChevron = true,
+}: SettingItemProps) {
   const content = (
     <>
       <View className="mr-4">{icon}</View>
@@ -53,6 +61,10 @@ function SettingItem({ icon, title, subtitle, value, onPress, showChevron = true
 
 export function SettingsScreen() {
   const navigation = useNavigation<NavigationProp>();
+  const insets = useSafeAreaInsets();
+
+  // Header height (44px) + status bar - only needed on iOS with transparent header
+  const headerHeight = Platform.OS === 'ios' ? 44 + insets.top : 0;
 
   // Handle Android back button
   useEffect(() => {
@@ -73,7 +85,11 @@ export function SettingsScreen() {
     <View className="flex-1 bg-gray-10">
       <ScrollView
         className="flex-1"
-        contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 24, paddingBottom: 24 }}
+        contentContainerStyle={{
+          paddingTop: headerHeight + 24,
+          paddingHorizontal: 16,
+          paddingBottom: 24,
+        }}
       >
         {/* Information Section */}
         <SettingItem
@@ -92,14 +108,12 @@ export function SettingsScreen() {
           onPress={() => navigation.navigate('PrivacyPolicy')}
         />
 
-<SettingItem
-            icon={<IconDeviceMobile size={24} stroke="#8E99AB" />}
-            title="App Version"
-            value="1.0"
-            showChevron={false}
-          />
-
-      
+        <SettingItem
+          icon={<IconDeviceMobile size={24} stroke="#8E99AB" />}
+          title="App Version"
+          value="1.0"
+          showChevron={false}
+        />
       </ScrollView>
     </View>
   );

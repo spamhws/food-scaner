@@ -1,5 +1,8 @@
 import React from 'react';
+import { TouchableOpacity, Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import { IconChevronRight } from '@tabler/icons-react-native';
 import { ScannerScreen } from '@/screens/ScannerScreen';
 import { HistoryScreen } from '@/screens/HistoryScreen';
 import { FavouritesScreen } from '@/screens/FavouritesScreen';
@@ -7,6 +10,25 @@ import { SettingsScreen } from '@/screens/SettingsScreen';
 import { FAQScreen } from '@/screens/FAQScreen';
 import { UserAgreementScreen } from '@/screens/UserAgreementScreen';
 import { PrivacyPolicyScreen } from '@/screens/PrivacyPolicyScreen';
+
+// Custom back button with just chevron (no text)
+function CustomBackButton() {
+  const navigation = useNavigation();
+
+  if (!navigation.canGoBack()) {
+    return null;
+  }
+
+  return (
+    <TouchableOpacity onPress={() => navigation.goBack()} className="ml-2" activeOpacity={0.7}>
+      <IconChevronRight
+        size={32}
+        stroke="#000000"
+        style={{ transform: [{ rotate: '180deg' }], marginLeft: -6 }}
+      />
+    </TouchableOpacity>
+  );
+}
 
 export type RootStackParamList = {
   Scanner: undefined;
@@ -21,18 +43,17 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function AppNavigator() {
+  const isIOS = Platform.OS === 'ios';
+
   return (
     <Stack.Navigator
       screenOptions={{
-        headerStyle: {
-          backgroundColor: '#FFFFFF',
-        },
-        headerTintColor: '#007AFF',
-        headerTitleStyle: {
-          fontWeight: '600',
-          fontSize: 17,
-        },
-        headerBackVisible: true,
+        headerTitleAlign: 'center',
+        headerTransparent: isIOS, // Transparent only on iOS
+        headerBackTitle: isIOS ? '' : undefined, // Hide back title only on iOS
+        headerLeft: isIOS ? () => <CustomBackButton /> : undefined, // Custom button only on iOS
+        headerStyle: isIOS ? undefined : { backgroundColor: '#FFFFFF' }, // White background on Android
+        headerTintColor: isIOS ? undefined : '#007AFF', // Blue tint on Android
         contentStyle: {
           backgroundColor: '#F5F7FA',
         },
@@ -43,6 +64,8 @@ export function AppNavigator() {
         component={ScannerScreen}
         options={{
           headerShown: false, // Scanner has custom UI
+          title: '', // Empty title so back button doesn't show "Scanner"
+          headerBackTitle: '', // Hide back button title when navigating from this screen
         }}
       />
       <Stack.Screen
