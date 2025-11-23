@@ -236,10 +236,7 @@ export function ScannerScreen() {
   }
 
   // Additional layout constants
-  const cameraButtonGap = 4; // Gap between camera area and buttons
   const cornerSize = 100; // Size of the corner decorations
-  const cameraWidth = scanCardDimensions.w - scannerPadding * 2;
-  const cameraHeight = scanCardDimensions.h - scannerPadding;
 
   return (
     <>
@@ -288,8 +285,8 @@ export function ScannerScreen() {
       </Modal>
 
       <View className="relative flex-1 bg-black">
-        {/* Camera View - only active when screen is focused */}
-        {isFocused && (
+        {/* Camera View - only active when screen is focused and sheet is closed */}
+        {isFocused && !selectedBarcode && (
           <CameraView
             style={StyleSheet.absoluteFill}
             facing="back"

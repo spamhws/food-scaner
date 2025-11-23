@@ -22,7 +22,6 @@ export async function fetchProduct(
     }
 
     const data = (await response.json()) as OpenFoodFactsResponse;
- 
 
     // If product not found and this is a 13-digit EAN-13 starting with 0, try UPC-A format
     if (
