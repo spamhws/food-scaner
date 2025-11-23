@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import {
   View,
   Text,
@@ -82,9 +82,14 @@ export function ScannerScreen() {
 
   const [scanCardDimensions, setScanCardDimensions] = useState(getScanCardDimensions());
 
-  // Get viewport dimensions
-  const viewportHeight = Dimensions.get('window').height;
-  const viewportWidth = Dimensions.get('window').width;
+  // Store viewport dimensions in state to avoid recalculating on every render
+  const [viewportDimensions, setViewportDimensions] = useState(() => {
+    const dims = Dimensions.get('window');
+    return { width: dims.width, height: dims.height };
+  });
+
+  const viewportWidth = viewportDimensions.width;
+  const viewportHeight = viewportDimensions.height;
 
   // Scanner layout constants
   const scannerPadding = 8;
@@ -92,12 +97,36 @@ export function ScannerScreen() {
   const cornerStrokeWidth = 4;
   const verticalOffset = 100;
 
-  // Calculate camera bounds
+  // Memoize camera bounds - only recalculate when dimensions change
+  const cameraBounds = useMemo(() => {
+    const scannerTop = (viewportHeight - scanCardDimensions.h - controlHeight) / 2 - verticalOffset;
+    const cameraLeft = (viewportWidth - scanCardDimensions.w) / 2 + scannerPadding;
+    const cameraRight = (viewportWidth + scanCardDimensions.w) / 2 - scannerPadding;
+    const cameraTop = scannerTop + scannerPadding + cornerStrokeWidth - 1;
+    const cameraBottom = scannerTop + scanCardDimensions.h - scannerPadding * 2;
+
+    return {
+      left: cameraLeft,
+      top: cameraTop,
+      right: cameraRight,
+      bottom: cameraBottom,
+    };
+  }, [
+    viewportWidth,
+    viewportHeight,
+    scanCardDimensions,
+    controlHeight,
+    scannerPadding,
+    cornerStrokeWidth,
+    verticalOffset,
+  ]);
+
+  // Extract individual values for backward compatibility
   const scannerTop = (viewportHeight - scanCardDimensions.h - controlHeight) / 2 - verticalOffset;
-  const cameraLeft = (viewportWidth - scanCardDimensions.w) / 2 + scannerPadding;
-  const cameraRight = (viewportWidth + scanCardDimensions.w) / 2 - scannerPadding;
-  const cameraTop = scannerTop + scannerPadding + cornerStrokeWidth - 1;
-  const cameraBottom = scannerTop + scanCardDimensions.h - scannerPadding * 2;
+  const cameraLeft = cameraBounds.left;
+  const cameraRight = cameraBounds.right;
+  const cameraTop = cameraBounds.top;
+  const cameraBottom = cameraBounds.bottom;
 
   // Add barcode to list callback (memoized to prevent scanning issues on state changes)
   const handleBarcodeDetected = useCallback(
@@ -126,18 +155,15 @@ export function ScannerScreen() {
   const { barcodeCorners, handleBarCodeScanned, clearOutline } = useBarcodeScanner({
     viewportWidth,
     viewportHeight,
-    cameraBounds: {
-      left: cameraLeft,
-      top: cameraTop,
-      right: cameraRight,
-      bottom: cameraBottom,
-    },
+    cameraBounds,
     onBarcodeScanned: handleBarcodeDetected,
     isDisabled: isManualEntryActive || !!selectedBarcode,
   });
 
   useEffect(() => {
     const subscription = Dimensions.addEventListener('change', () => {
+      const dims = Dimensions.get('window');
+      setViewportDimensions({ width: dims.width, height: dims.height });
       setScanCardDimensions(getScanCardDimensions());
     });
 
