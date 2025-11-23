@@ -4,7 +4,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ProductList } from '@/components/ProductList';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
-import { useFavorites } from '@/hooks/useFavorites';
 import { ProductDetailSheet, type ProductDetailSheetRef } from '@/components/ProductDetailSheet/ProductDetailSheet';
 import { useProduct } from '@/hooks/useProduct';
 

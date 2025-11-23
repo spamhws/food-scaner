@@ -13,7 +13,7 @@ export function CornerDecorations({ strokeWidth, cornerSize }: CornerDecorations
   return (
     <View className="absolute inset-x-6 inset-y-0">
       {/* Top Left */}
-      <View className="absolute top-0 left- 6">
+      <View className="absolute top-0 left-0">
         <View
           className="border-white"
           style={{

@@ -19,10 +19,7 @@ import { NavigationButtons } from '@/components/NavigationButtons';
 import { ScannerControl } from '@/components/ScannerControl';
 import { CornerDecorations } from '@/components/ui/CornerDecorations';
 import { ProductCardSlider, type ProductCardSliderRef } from '@/components/ProductCardSlider';
-import {
-  ProductDetailSheet,
-  type ProductDetailSheetRef,
-} from '@/components/ProductDetailSheet/ProductDetailSheet';
+import { ProductDetailSheet } from '@/components/ProductDetailSheet/ProductDetailSheet';
 import { useBarcodeScanner } from '@/hooks/useBarcodeScanner';
 import { useHistory } from '@/hooks/useHistory';
 import { useProduct } from '@/hooks/useProduct';
@@ -48,9 +45,7 @@ export function ScannerScreen() {
   const [showBarcodeModal, setShowBarcodeModal] = useState(false);
   const [manualBarcode, setManualBarcode] = useState('');
   const [isManualEntryActive, setIsManualEntryActive] = useState(false);
-  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const [selectedBarcode, setSelectedBarcode] = useState<string | null>(null);
-  const bottomSheetRef = useRef<ProductDetailSheetRef>(null);
   const productSliderRef = useRef<ProductCardSliderRef>(null);
 
   // History management
@@ -101,7 +96,7 @@ export function ScannerScreen() {
   const scannerTop = (viewportHeight - scanCardDimensions.h - controlHeight) / 2 - verticalOffset;
   const cameraLeft = (viewportWidth - scanCardDimensions.w) / 2 + scannerPadding;
   const cameraRight = (viewportWidth + scanCardDimensions.w) / 2 - scannerPadding;
-  const cameraTop = scannerTop + scannerPadding + cornerStrokeWidth;
+  const cameraTop = scannerTop + scannerPadding + cornerStrokeWidth - 1;
   const cameraBottom = scannerTop + scanCardDimensions.h - scannerPadding * 2;
 
   // Add barcode to list callback (memoized to prevent scanning issues on state changes)
@@ -109,7 +104,6 @@ export function ScannerScreen() {
     (barcode: string) => {
       // Save to history
       addToHistory(barcode);
-
       setScannedBarcodes((prev) => {
         if (prev.includes(barcode)) {
           // Barcode already exists (whether product found or error) - scroll to it
@@ -139,7 +133,7 @@ export function ScannerScreen() {
       bottom: cameraBottom,
     },
     onBarcodeScanned: handleBarcodeDetected,
-    isDisabled: isManualEntryActive || isBottomSheetOpen,
+    isDisabled: isManualEntryActive || !!selectedBarcode,
   });
 
   useEffect(() => {
@@ -214,13 +208,10 @@ export function ScannerScreen() {
 
   const handleProductPress = useCallback((barcode: string) => {
     setSelectedBarcode(barcode);
-    setIsBottomSheetOpen(true);
-    bottomSheetRef.current?.expand();
   }, []);
 
   const handleBottomSheetClose = useCallback(() => {
     setSelectedBarcode(null);
-    setIsBottomSheetOpen(false);
   }, []);
 
   if (!permission) {
@@ -411,11 +402,7 @@ export function ScannerScreen() {
       </View>
 
       {/* Product Detail Bottom Sheet */}
-      <ProductDetailSheet
-        ref={bottomSheetRef}
-        product={selectedProduct || null}
-        onClose={handleBottomSheetClose}
-      />
+      <ProductDetailSheet product={selectedProduct || null} onClose={handleBottomSheetClose} />
     </>
   );
 }

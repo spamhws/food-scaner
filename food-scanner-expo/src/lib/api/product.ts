@@ -1,6 +1,5 @@
 import type { OpenFoodFactsResponse, Product } from '@/types/product';
 import { API_URL } from '@/constants/endpoints';
-import { NUTRITION_GRADES } from '@/constants/colors';
 import { parseNutrient, calculateNutritionScore } from '@/lib/utils/format';
 
 export async function fetchProduct(
@@ -49,7 +48,8 @@ export async function fetchProduct(
 
     // Only consider grade valid if it's one of a, b, c, d, e
     // This automatically filters out "not-applicable", "unknown", undefined, etc.
-    const hasValidGrade = rawGrade && NUTRITION_GRADES[rawGrade] !== undefined;
+    const validGrades = ['a', 'b', 'c', 'd', 'e'];
+    const hasValidGrade = rawGrade && validGrades.includes(rawGrade);
 
     // Build the product object
     const transformedProduct: Product = {
@@ -80,8 +80,6 @@ export async function fetchProduct(
         assessment: {
           score: calculateNutritionScore(rawGrade),
           category: rawGrade.toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E',
-          color: NUTRITION_GRADES[rawGrade].color,
-          description: NUTRITION_GRADES[rawGrade].description,
         },
       }),
       ingredients: product.ingredients_text_en

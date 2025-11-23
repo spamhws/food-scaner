@@ -18,8 +18,6 @@ export interface NutritionData {
 export interface Assessment {
   score: number;
   category: 'A' | 'B' | 'C' | 'D' | 'E';
-  color: string;
-  description: string;
 }
 
 export interface Product {

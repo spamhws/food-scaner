@@ -63,18 +63,20 @@ export function ProductCard({
   const content = (
     <View className="flex-row gap-3">
       {/* Left Section - Product Image */}
-      <View className="relative aspect-square h-[100px] w-[100px] items-center justify-center rounded-xl border border-gray-30 bg-gray-10">
+      <View className="relative aspect-square h-[100px] w-[100px] items-center justify-center rounded-xl border border-gray-30 bg-gray-10 overflow-hidden">
         {isLoading ? (
           <ActivityIndicator size="large" color="#8E99AB" />
         ) : isError ? (
           <IconMoodSurprised size={32} strokeWidth={1.5} stroke="#8E99AB" />
         ) : product?.image ? (
-          <Image
-            source={{ uri: product.image }}
-            className="rounded-lg"
-            style={{ width: '100%', height: '100%' }}
-            resizeMode="contain"
-          />
+          <>
+            <Image
+              source={{ uri: product.image }}
+              className="absolute h-full w-full"
+              blurRadius={16}
+            />
+            <Image source={{ uri: product.image }} className="h-full w-full" resizeMode="contain" />
+          </>
         ) : (
           <IconPhotoOff size={32} strokeWidth={1.5} stroke="#8E99AB" />
         )}
@@ -94,7 +96,6 @@ export function ProductCard({
               {product?.brand && `, ${product.brand}`}
               {product?.product_quantity &&
                 `, ${product.product_quantity} ${product.product_quantity_unit}`}
-            
             </>
           )}
         </Text>

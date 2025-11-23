@@ -1,23 +1,12 @@
-import React, { forwardRef, useState, useImperativeHandle, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import { View, Image, Alert, BackHandler, Text, Dimensions } from 'react-native';
 import {
-  View,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-  Modal,
-  Animated,
-  Dimensions,
-  PanResponder,
-  Alert,
-  BackHandler,
-  Share,
-  Platform,
-  Text,
-} from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+  BottomSheetModal,
+  BottomSheetBackdrop,
+  BottomSheetScrollView,
+  BottomSheetView,
+} from '@gorhom/bottom-sheet';
 import {
-  IconHeart,
-  IconShare2,
   IconFlame,
   IconMeat,
   IconDroplet,
@@ -30,14 +19,16 @@ import type { Product } from '@/types/product';
 import { generateAssessments } from '@/lib/utils/product-assessment';
 import {
   generateProductNarrative,
-  getNutriscoreColor,
   getNutriscoreDescription,
   getNutriscoreBadgeVariant,
 } from '@/lib/utils/product-narrative';
+import { shareProduct } from '@/lib/utils/share';
 import { Badge } from '@/components/ui/Badge';
 import { SectionLabel } from './SectionLabel';
 import { InfoCard } from './InfoCard';
 import { InfoRow } from './InfoRow';
+import { NutritionRow } from './NutritionRow';
+import { ProductDetailFooter } from './ProductDetailFooter';
 import { useFavorites } from '@/hooks/useFavorites';
 
 interface ProductDetailSheetProps {
@@ -45,418 +36,289 @@ interface ProductDetailSheetProps {
   onClose: () => void;
 }
 
-export interface ProductDetailSheetRef {
-  expand: () => void;
-  close: () => void;
-}
-
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
-const SHEET_HEIGHT = SCREEN_HEIGHT * 0.9;
 
-export const ProductDetailSheet = forwardRef<ProductDetailSheetRef, ProductDetailSheetProps>(
-  ({ product, onClose }, ref) => {
-    const insets = useSafeAreaInsets();
-    const { isFavorite: checkIsFavorite, toggle: toggleFavorite } = useFavorites();
-    const [visible, setVisible] = useState(false);
-    const [isSharing, setIsSharing] = useState(false);
-    const translateY = React.useRef(new Animated.Value(SHEET_HEIGHT)).current;
-    const opacity = React.useRef(new Animated.Value(0)).current;
+export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps) {
+  const { isFavorite: checkIsFavorite, toggle: toggleFavorite } = useFavorites();
+  const [isSharing, setIsSharing] = useState(false);
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
-    const isFavorite = product ? checkIsFavorite(product.barcode) : false;
+  const snapPoints = useMemo(() => [SCREEN_HEIGHT - 150], []);
+  const isFavorite = product ? checkIsFavorite(product.barcode) : false;
 
-    useImperativeHandle(ref, () => ({
-      expand: () => {
-        setVisible(true);
-        Animated.parallel([
-          Animated.spring(translateY, {
-            toValue: 0,
-            useNativeDriver: true,
-            tension: 65,
-            friction: 11,
-          }),
-          Animated.timing(opacity, {
-            toValue: 1,
-            duration: 200,
-            useNativeDriver: true,
-          }),
-        ]).start();
-      },
-      close: () => {
-        Animated.parallel([
-          Animated.spring(translateY, {
-            toValue: SHEET_HEIGHT,
-            useNativeDriver: true,
-            tension: 65,
-            friction: 11,
-          }),
-          Animated.timing(opacity, {
-            toValue: 0,
-            duration: 200,
-            useNativeDriver: true,
-          }),
-        ]).start(() => {
-          setVisible(false);
-          onClose();
-        });
-      },
-    }));
+  // Ignore safe area for the sheet itself
+  const topInset = 0;
 
-    // Handle Android back button
-    useEffect(() => {
-      const backAction = () => {
-        if (visible) {
-          // Close drawer if it's open
-          Animated.parallel([
-            Animated.spring(translateY, {
-              toValue: SHEET_HEIGHT,
-              useNativeDriver: true,
-              tension: 65,
-              friction: 11,
-            }),
-            Animated.timing(opacity, {
-              toValue: 0,
-              duration: 200,
-              useNativeDriver: true,
-            }),
-          ]).start(() => {
-            setVisible(false);
-            onClose();
-          });
-          return true; // Prevent default back behavior
-        }
-        return false; // Allow default back behavior
-      };
+  // Present modal when product is set
+  useEffect(() => {
+    if (product) {
+      bottomSheetModalRef.current?.present();
+    } else {
+      bottomSheetModalRef.current?.dismiss();
+    }
+  }, [product]);
 
-      const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+  const handleSheetChanges = useCallback(
+    (index: number) => {
+      if (index === -1) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
 
-      return () => backHandler.remove();
-    }, [visible, translateY, opacity, onClose]);
+  const handleDismiss = useCallback(() => {
+    onClose();
+  }, [onClose]);
 
-    const handlePanResponder = React.useRef(
-      PanResponder.create({
-        onStartShouldSetPanResponder: () => true,
-        onMoveShouldSetPanResponder: () => true,
-        onPanResponderMove: (_, gestureState) => {
-          if (gestureState.dy > 0) {
-            translateY.setValue(gestureState.dy);
-          }
-        },
-        onPanResponderRelease: (_, gestureState) => {
-          if (gestureState.dy > 100 || gestureState.vy > 0.5) {
-            // Close if dragged down enough
-            Animated.spring(translateY, {
-              toValue: SHEET_HEIGHT,
-              useNativeDriver: true,
-              tension: 65,
-              friction: 11,
-            }).start(() => {
-              setVisible(false);
-              onClose();
-            });
-          } else {
-            // Snap back
-            Animated.spring(translateY, {
-              toValue: 0,
-              useNativeDriver: true,
-              tension: 65,
-              friction: 11,
-            }).start();
-          }
-        },
-      })
-    ).current;
-
-    const handleFavoriteToggle = async () => {
+  useEffect(() => {
+    const backAction = () => {
       if (product) {
-        await toggleFavorite(product.barcode);
+        bottomSheetModalRef.current?.dismiss();
+        return true;
       }
+      return false;
     };
+    const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+    return () => backHandler.remove();
+  }, [product]);
 
-    const handleShare = useCallback(async () => {
-      if (!product || isSharing) {
-        console.log('No product to share or already sharing');
-        return;
-      }
+  const renderBackdrop = useCallback(
+    (props: any) => (
+      <BottomSheetBackdrop {...props} disappearsOnIndex={-1} appearsOnIndex={0} opacity={0.5} />
+    ),
+    []
+  );
 
-      setIsSharing(true);
+  const handleFavoriteToggle = async () => {
+    if (product) await toggleFavorite(product.barcode);
+  };
 
-      try {
-        // Build share message with product details and macros
-        const productTitle = product.brand ? `${product.name} - ${product.brand}` : product.name;
+  const handleShare = useCallback(async () => {
+    if (!product || isSharing) return;
+    setIsSharing(true);
+    try {
+      await shareProduct(product);
+    } finally {
+      setIsSharing(false);
+    }
+  }, [product, isSharing]);
 
-        const quantity = product.product_quantity
-          ? `${product.product_quantity}${product.product_quantity_unit || ''}`
-          : '';
+  const renderFooter = useCallback(
+    (props: any) => (
+      <ProductDetailFooter
+        isFavorite={isFavorite}
+        isSharing={isSharing}
+        onFavoriteToggle={handleFavoriteToggle}
+        onShare={handleShare}
+        props={props}
+      />
+    ),
+    [isFavorite, isSharing, handleFavoriteToggle, handleShare]
+  );
 
-        const macros = `
-📊 Nutritional Information (per 100g):
-🔥 Calories: ${product.nutrition.calories?.per_100g || 'N/A'} kcal
-🥚 Protein: ${product.nutrition.protein?.per_100g || 'N/A'}g
-💧 Fat: ${product.nutrition.fat?.per_100g || 'N/A'}g
-🌾 Carbs: ${product.nutrition.carbohydrates?.per_100g || 'N/A'}g`;
+  const handleNutriscorePress = () => {
+    if (!product?.assessment) return;
+    const narrative = generateProductNarrative(product);
+    const gradeDescription = getNutriscoreDescription(product.assessment.category);
+    Alert.alert(`Nutri-Score ${product.assessment.category} - ${gradeDescription}`, narrative, [
+      { text: 'Got it', style: 'default' },
+    ]);
+  };
 
-        const nutriScore = product.assessment?.category
-          ? `\n\n🏆 Nutri-Score: ${product.assessment.category}`
-          : '';
+  const assessments = product ? generateAssessments(product) : [];
 
-        // Include image URL in message on iOS, or as separate on Android
-        const imageUrl = product.image ? `\n\n📷 Product Image:\n${product.image}` : '';
-
-        const appLink = '\n\n📱 Get FoodScanner:\nhttps://apps.apple.com/foodscanner (coming soon)';
-
-        const message = `${productTitle}${
-          quantity ? ` (${quantity})` : ''
-        }${macros}${nutriScore}${imageUrl}${appLink}`;
-
-        const shareOptions: any = {
-          message: Platform.OS === 'android' ? message : message,
-          title: productTitle,
-        };
-
-        // On iOS, url property works differently - it replaces message in some apps
-        // Better to include image URL in the message text for consistency
-        if (Platform.OS === 'android' && product.image) {
-          shareOptions.url = product.image;
-        }
-
-        const result = await Share.share(shareOptions);
-
-        if (result.action === Share.sharedAction) {
-          console.log('Content shared successfully');
-        } else if (result.action === Share.dismissedAction) {
-          console.log('Share dismissed');
-        }
-      } catch (error: any) {
-        console.error('Error sharing:', error);
-        Alert.alert('Share Error', 'Unable to share product. Please try again.');
-      } finally {
-        setIsSharing(false);
-      }
-    }, [product, isSharing]);
-
-    const handleNutriscorePress = () => {
-      if (!product || !product.assessment) return;
-
-      const narrative = generateProductNarrative(product);
-      const gradeDescription = getNutriscoreDescription(product.assessment.category);
-
-      Alert.alert(`Nutri-Score ${product.assessment.category} - ${gradeDescription}`, narrative, [
-        { text: 'Got it', style: 'default' },
-      ]);
-    };
-
-    if (!product || !visible) return null;
-
-    return (
-      <Modal
-        visible={visible}
-        transparent
-        animationType="slide"
-        onRequestClose={() => {
-          // @ts-ignore - ref methods
-          ref?.current?.close();
-        }}
+  return (
+    <BottomSheetModal
+      ref={bottomSheetModalRef}
+      snapPoints={snapPoints}
+      enablePanDownToClose
+      enableContentPanningGesture={false}
+      enableHandlePanningGesture={true}
+      onChange={handleSheetChanges}
+      onDismiss={handleDismiss}
+      backdropComponent={renderBackdrop}
+      footerComponent={renderFooter}
+      backgroundStyle={{ backgroundColor: '#F5F7FA' }}
+      handleIndicatorStyle={{ backgroundColor: '#D1D5DB' }}
+      topInset={topInset}
+      android_keyboardInputMode="adjustResize"
+      enableDynamicSizing={false}
+    >
+      <BottomSheetScrollView
+        className="p-4"
+        showsVerticalScrollIndicator={true}
+        contentContainerStyle={{ paddingBottom: 120 }}
       >
-        <View className="flex-1">
-          {/* Backdrop */}
-          <TouchableOpacity
-            className="absolute inset-0"
-            activeOpacity={1}
-            onPress={() => {
-              // @ts-ignore
-              ref?.current?.close();
-            }}
-          >
-            <Animated.View className="absolute inset-0 bg-black/50" style={{ opacity }} />
-          </TouchableOpacity>
-
-          {/* Sheet */}
-          <Animated.View
-            className="absolute bottom-0 left-0 right-0 bg-gray-10 rounded-t-3xl shadow-lg"
-            style={{
-              height: SHEET_HEIGHT,
-              transform: [{ translateY }],
-            }}
-          >
-            {/* Handle - swipe down to close */}
-            <View className="py-3 px-5 items-center" {...handlePanResponder.panHandlers}>
-              <View className="w-10 h-1 bg-gray-40 rounded-full" />
-            </View>
-
-            <ScrollView className="p-4" showsVerticalScrollIndicator={false}>
-              {/* Product Image and Title */}
-              <InfoCard className="flex-col gap-4">
-                {/* Image with grey background */}
-                <View className="bg-gray-20 rounded-lg items-center -m-2 mb-0">
-                  {product.image && (
+        {product && (
+          <>
+            {/* Product Image and Title */}
+            <InfoCard className="flex-col gap-4">
+              <View
+                className="rounded-xl items-center justify-center -m-2 mb-0 overflow-hidden"
+                style={{ height: 240 }}
+              >
+                {product.image ? (
+                  <>
                     <Image
                       source={{ uri: product.image }}
-                      className="w-full h-60"
+                      className="absolute h-full w-full"
+                      blurRadius={16}
+                    />
+                    <Image
+                      source={{ uri: product.image }}
+                      className="h-full w-full"
                       resizeMode="contain"
                     />
-                  )}
-                </View>
+                  </>
+                ) : (
+                  <View className="bg-gray-20 w-full h-full" />
+                )}
+              </View>
+              <View className="items-center mb-2 gap-3">
+                <Text className="text-2xl font-bold text-center text-black">
+                  {product.name || 'Unknown Product'}
+                  {product.brand && ` (${product.brand})`}
+                </Text>
+                {product.assessment && (
+                  <Badge
+                    variant={getNutriscoreBadgeVariant(product.assessment.category)}
+                    label={getNutriscoreDescription(product.assessment.category)}
+                    interactive
+                    onPress={handleNutriscorePress}
+                  />
+                )}
+              </View>
+            </InfoCard>
 
-                {/* Title with Nutriscore Badge */}
-                <View className="items-center mb-2 gap-3">
-                  <Text className="text-2xl font-bold text-center text-gray-90">
-                    {product.name || 'Unknown Product'}
-                    {product.brand && ` (${product.brand})`}
-                  </Text>
+            {/* Nutrition Facts */}
+            {product.nutrition &&
+              (() => {
+                // Check if package size info is available
+                const hasPackageInfo = !!product.product_quantity;
 
-                  {/* Nutriscore Badge - only show if assessment exists */}
-                  {product.assessment && (
-                    <Badge
-                      variant={getNutriscoreBadgeVariant(product.assessment.category)}
-                      label={getNutriscoreDescription(product.assessment.category)}
-                      interactive
-                      onPress={handleNutriscorePress}
-                    />
-                  )}
-                </View>
-              </InfoCard>
+                // Calculate package weight in grams
+                const packageWeight = hasPackageInfo
+                  ? parseFloat(product.product_quantity) *
+                    (product.product_quantity_unit === 'kg' ? 1000 : 1)
+                  : null;
 
-              {/* Nutrition Facts Card */}
-              {product.nutrition && (
-                <>
-                  <SectionLabel>Nutritional value per 100g</SectionLabel>
-                  <InfoCard>
-                    {product.nutrition.calories && (
-                      <InfoRow
-                        icon={<IconFlame size={24} strokeWidth={1.5} color="#8E99AB" />}
-                        label="Calories"
-                        value={`${Math.round(product.nutrition.calories.value)} kcal`}
-                        isLast={false}
-                      />
-                    )}
-
-                    {product.nutrition.protein && (
-                      <InfoRow
-                        icon={<IconMeat size={24} strokeWidth={1.5} color="#8E99AB" />}
-                        label="Protein"
-                        value={`${product.nutrition.protein.value.toFixed(1)} g`}
-                        isLast={false}
-                      />
-                    )}
-
-                    {product.nutrition.fat && (
-                      <InfoRow
-                        icon={<IconDroplet size={24} strokeWidth={1.5} color="#8E99AB" />}
-                        label="Fat"
-                        value={`${product.nutrition.fat.value.toFixed(1)} g`}
-                        isLast={false}
-                      />
-                    )}
-
-                    {product.nutrition.carbohydrates && (
-                      <InfoRow
-                        icon={<IconWheat size={24} strokeWidth={1.5} color="#8E99AB" />}
-                        label="Carbohydrates"
-                        value={`${product.nutrition.carbohydrates.value.toFixed(1)} g`}
-                        isLast={true}
-                      />
-                    )}
-                  </InfoCard>
-                </>
-              )}
-
-              {/* Assessment - Positive/Negative attributes */}
-              {(() => {
-                const assessments = generateAssessments(product);
-                if (assessments.length === 0) return null;
+                // Helper to calculate per package value
+                const getPerPackage = (per100g: number): number | null => {
+                  if (packageWeight === null) return null;
+                  return (per100g / 100) * packageWeight;
+                };
 
                 return (
                   <>
-                    <SectionLabel>Key characteristics</SectionLabel>
+                    <View className="flex-row items-center justify-between mt-2">
+                      <SectionLabel>Nutritional value</SectionLabel>
+                      <Text className="text-CAPS font-medium text-gray-60 uppercase tracking-wide">
+                        {hasPackageInfo ? 'PER 100G / PER PACKAGE' : 'PER 100G'}
+                      </Text>
+                    </View>
                     <InfoCard>
-                      {assessments.map((assessment, index) => (
-                        <InfoRow
-                          key={index}
-                          icon={
-                            assessment.type === 'positive' ? (
-                              <IconThumbUp size={20} strokeWidth={1.5} color="#038537" />
-                            ) : (
-                              <IconThumbDown size={20} strokeWidth={1.5} color="#DE1B1B" />
-                            )
-                          }
-                          label={assessment.label}
-                          isLast={index === assessments.length - 1}
+                      {product.nutrition.calories && (
+                        <NutritionRow
+                          icon={<IconFlame size={24} strokeWidth={1.5} color="#707A8A" />}
+                          label="Calories, kcal"
+                          per100g={product.nutrition.calories.per_100g}
+                          perPackage={getPerPackage(product.nutrition.calories.per_100g)}
+                          unit=""
+                          isLast={false}
+                          showPackageColumn={hasPackageInfo}
                         />
-                      ))}
+                      )}
+                      {product.nutrition.protein && (
+                        <NutritionRow
+                          icon={<IconMeat size={24} strokeWidth={1.5} color="#707A8A" />}
+                          label="Protein, g"
+                          per100g={product.nutrition.protein.per_100g}
+                          perPackage={getPerPackage(product.nutrition.protein.per_100g)}
+                          unit="g"
+                          isLast={false}
+                          showPackageColumn={hasPackageInfo}
+                        />
+                      )}
+                      {product.nutrition.fat && (
+                        <NutritionRow
+                          icon={<IconDroplet size={24} strokeWidth={1.5} color="#707A8A" />}
+                          label="Fats, g"
+                          per100g={product.nutrition.fat.per_100g}
+                          perPackage={getPerPackage(product.nutrition.fat.per_100g)}
+                          unit="g"
+                          isLast={false}
+                          showPackageColumn={hasPackageInfo}
+                        />
+                      )}
+                      {product.nutrition.carbohydrates && (
+                        <NutritionRow
+                          icon={<IconWheat size={24} strokeWidth={1.5} color="#707A8A" />}
+                          label="Carbs, g"
+                          per100g={product.nutrition.carbohydrates.per_100g}
+                          perPackage={getPerPackage(product.nutrition.carbohydrates.per_100g)}
+                          unit="g"
+                          isLast={true}
+                          showPackageColumn={hasPackageInfo}
+                        />
+                      )}
                     </InfoCard>
                   </>
                 );
               })()}
 
-              {/* Allergens */}
-              {product.allergens && product.allergens.length > 0 && (
-                <>
-                  <SectionLabel>Allergens</SectionLabel>
-                  <InfoCard>
-                    {product.allergens.map((allergen: string, index: number) => (
-                      <InfoRow
-                        key={index}
-                        icon={<IconAlertTriangle size={20} strokeWidth={1.5} color="#AD5F00" />}
-                        label={allergen.charAt(0).toUpperCase() + allergen.slice(1)}
-                        isLast={index === product.allergens.length - 1}
-                      />
-                    ))}
-                  </InfoCard>
-                </>
-              )}
+            {/* Key Characteristics */}
+            {assessments.length > 0 && (
+              <>
+                <SectionLabel>Key characteristics</SectionLabel>
+                <InfoCard>
+                  {assessments.map((assessment, index) => (
+                    <InfoRow
+                      key={index}
+                      icon={
+                        assessment.type === 'positive' ? (
+                          <IconThumbUp size={20} color="#038537" />
+                        ) : (
+                          <IconThumbDown size={20} color="#DE1B1B" />
+                        )
+                      }
+                      label={assessment.label}
+                      isLast={index === assessments.length - 1}
+                    />
+                  ))}
+                </InfoCard>
+              </>
+            )}
 
-              {/* Ingredients */}
-              {product.ingredients && product.ingredients.length > 0 && (
-                <>
-                  <SectionLabel>Ingredients</SectionLabel>
-                  <InfoCard>
-                    <Text className="text-base text-black leading-6">
-                      {product.ingredients.join(', ')}
-                    </Text>
-                  </InfoCard>
-                </>
-              )}
+            {/* Allergens */}
+            {product.allergens && product.allergens.length > 0 && (
+              <>
+                <SectionLabel>Allergens</SectionLabel>
+                <InfoCard>
+                  {product.allergens.map((allergen: string, index: number) => (
+                    <InfoRow
+                      key={index}
+                      icon={<IconAlertTriangle size={20} strokeWidth={1.5} color="#AD5F00" />}
+                      label={allergen.charAt(0).toUpperCase() + allergen.slice(1)}
+                      isLast={index === product.allergens.length - 1}
+                    />
+                  ))}
+                </InfoCard>
+              </>
+            )}
 
-              {/* Bottom spacing for fixed buttons */}
-              <View style={{ height: 100 + Math.max(insets.bottom, 16) }} />
-            </ScrollView>
-
-            {/* Fixed Bottom Navigation */}
-            <View
-              className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-30"
-              style={{ paddingBottom: Math.max(insets.bottom, 16) }}
-            >
-              <View className="flex-row px-4 py-3 gap-2">
-                <TouchableOpacity
-                  onPress={handleFavoriteToggle}
-                  className="flex-1 bg-gray-20 rounded-xl py-4 items-center justify-center"
-                  activeOpacity={0.7}
-                >
-                  <IconHeart
-                    size={32}
-                    strokeWidth={1.5}
-                    color={isFavorite ? '#DE1B1B' : '#000000'}
-                    fill={isFavorite ? '#DE1B1B' : 'none'}
-                  />
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  onPress={handleShare}
-                  className={`flex-1 bg-gray-20 rounded-xl py-4 items-center justify-center ${
-                    isSharing ? 'opacity-50' : ''
-                  }`}
-                  activeOpacity={0.7}
-                  disabled={isSharing}
-                >
-                  <IconShare2 size={32} strokeWidth={1.5} color="#000000" />
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Animated.View>
-        </View>
-      </Modal>
-    );
-  }
-);
-
-ProductDetailSheet.displayName = 'ProductDetailSheet';
+            {/* Ingredients */}
+            {product.ingredients && product.ingredients.length > 0 && (
+              <>
+                <SectionLabel>Ingredients</SectionLabel>
+                <InfoCard>
+                  <Text className="font-medium leading-6">{product.ingredients.join(', ')}</Text>
+                </InfoCard>
+              </>
+            )}
+          </>
+        )}
+      </BottomSheetScrollView>
+    </BottomSheetModal>
+  );
+}

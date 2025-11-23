@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, BackHandler, Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Constants from 'expo-constants';
 import {
   IconHelpHexagon,
   IconFileText,
@@ -32,7 +33,7 @@ function SettingItem({
     <>
       <View className="mr-4">{icon}</View>
       <View className="flex-1">
-        <Text className="text-base font-medium ">{title}</Text>
+        <Text className="text-base font-medium text-black">{title}</Text>
         {subtitle && <Text className="text-sm text-gray-60 mt-0.5">{subtitle}</Text>}
       </View>
       {value && <Text className="text-caption font-medium ">{value}</Text>}
@@ -111,7 +112,7 @@ export function SettingsScreen() {
         <SettingItem
           icon={<IconDeviceMobile size={24} stroke="#8E99AB" />}
           title="App Version"
-          value="1.0"
+          value={Constants.expoConfig?.version || 'unknown'}
           showChevron={false}
         />
       </ScrollView>

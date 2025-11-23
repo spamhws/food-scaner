@@ -14,9 +14,9 @@ export function InfoRow({ icon, label, value, isLast = false }: InfoRowProps) {
       <View className="flex-row items-center justify-between gap-2">
         <View className="flex-row items-center gap-2">
           {icon}
-          <Text className="font-sans text-title text-black">{label}</Text>
+          <Text className="font-medium text-title text-black">{label}</Text>
         </View>
-        {value && <Text className="font-sans text-title font-semibold text-gray-90">{value}</Text>}
+        {value && <Text className="text-title font-semibold text-gray-90">{value}</Text>}
       </View>
       {!isLast && <View className="h-px bg-gray-30 mt-2 ml-8" />}
     </View>

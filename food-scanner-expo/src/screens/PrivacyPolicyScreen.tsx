@@ -45,7 +45,7 @@ export function PrivacyPolicyScreen() {
             <Text className="text-lg font-semibold mb-3">
               {section.id}. {section.title}
             </Text>
-            <Text className="text-base leading-6 text-gray-90">{section.content}</Text>
+            <Text className="leading-6 text-gray-90">{section.content}</Text>
           </View>
         ))}
       </ScrollView>

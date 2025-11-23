@@ -38,10 +38,10 @@ export function FAQScreen() {
       >
         {faqData.map((item, index) => (
           <View key={item.id} className="mb-6">
-            <Text className="text-lg font-semibold text-gray-90 mb-3">
+            <Text className="text-lg font-semibold mb-3">
               {index + 1}. {item.question}
             </Text>
-            <Text className="text-base leading-6 text-gray-70">{item.answer}</Text>
+            <Text className="leading-6 text-gray-90">{item.answer}</Text>
           </View>
         ))}
       </ScrollView>
