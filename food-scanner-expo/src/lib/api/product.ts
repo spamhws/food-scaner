@@ -9,7 +9,6 @@ export async function fetchProduct(
   if (!barcode) return null;
 
   try {
-    console.log('Fetching product for barcode:', barcode);
     const response = await fetch(`${API_URL}/api/v0/product/${barcode}`, {
       headers: {
         'User-Agent': 'FoodScanner/1.0.0',
@@ -30,7 +29,6 @@ export async function fetchProduct(
       barcode.length === 13 &&
       barcode.startsWith('0')
     ) {
-      console.log('Product not found with EAN-13, trying UPC-A format (removing leading 0)...');
       return fetchProduct(barcode.substring(1), true);
     }
 

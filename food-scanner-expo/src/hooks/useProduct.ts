@@ -29,7 +29,6 @@ export function useProduct({ barcode, enabled = true, fromCache = false }: UsePr
 
     getCachedProduct(barcode).then((cached) => {
       if (cached) {
-        console.log(`📦 Loaded product ${barcode} from cache`);
         setCachedData(cached);
       } else {
         setCachedData(null);
@@ -41,7 +40,6 @@ export function useProduct({ barcode, enabled = true, fromCache = false }: UsePr
     queryKey: ['product', barcode],
     queryFn: async () => {
       // Always fetch from API to get fresh data
-      console.log(`🌐 Fetching product ${barcode} from API`);
       const product = await fetchProduct(barcode);
 
       // Cache the result if successful
