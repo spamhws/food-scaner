@@ -62,12 +62,12 @@ module.exports = {
       },
       fontSize: {
         // Custom typography styles matching design
-        title: ['16px', '24px'], // Title - 16/24
-        number: ['14px', '24px'], // Number - 14/24
-        CAPS: ['11px', '16px'], // CAPS - 13/16
-        caption: ['13px', '16px'], // Caption/CAPS - 11/16
-        'body-bold': ['13px', '18px'], // Bold - 13/18
-        'body-medium': ['13px', '18px'], // Medium - 13/18
+        title: ['18px', '28px'], // Title - 18/28
+        number: ['15px', '25px'], // Number - 15/25
+        CAPS: ['11px', '16px'], // CAPS - 11/16
+        caption: ['14px', '18px'], // Caption - 14/18
+        'body-bold': ['14px', '18px'], // Bold - 14/18
+        'body-medium': ['14px', '18px'], // Medium - 14/18
         display: ['57px', '64px'], // Display large - 57/64
       },
       boxShadow: {

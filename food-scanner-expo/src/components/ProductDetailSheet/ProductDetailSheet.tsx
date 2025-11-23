@@ -176,9 +176,12 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
                 )}
               </View>
               <View className="items-center mb-2 gap-3">
-                <Text className="text-2xl font-bold text-center text-black">
+                <Text className="text-title font-bold text-center text-black">
                   {product.name || 'Unknown Product'}
-                  {product.brand && ` (${product.brand})`}
+                  {product.brand &&
+                    product.brand !== 'null' &&
+                    product.brand.trim() &&
+                    ` (${product.brand})`}
                 </Text>
                 {product.assessment && (
                   <Badge
@@ -213,9 +216,9 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
                   <>
                     <View className="flex-row items-center justify-between mt-2">
                       <SectionLabel>Nutritional value</SectionLabel>
-                      <Text className="text-CAPS font-medium text-gray-60 uppercase tracking-wide">
+                      <SectionLabel>
                         {hasPackageInfo ? 'PER 100G / PER PACKAGE' : 'PER 100G'}
-                      </Text>
+                      </SectionLabel>
                     </View>
                     <InfoCard>
                       {product.nutrition.calories && (
@@ -277,9 +280,9 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
                       key={index}
                       icon={
                         assessment.type === 'positive' ? (
-                          <IconThumbUp size={20} color="#038537" />
+                          <IconThumbUp size={24} strokeWidth={1.5} color="#038537" />
                         ) : (
-                          <IconThumbDown size={20} color="#DE1B1B" />
+                          <IconThumbDown size={24} strokeWidth={1.5} color="#DE1B1B" />
                         )
                       }
                       label={assessment.label}
@@ -298,7 +301,7 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
                   {product.allergens.map((allergen: string, index: number) => (
                     <InfoRow
                       key={index}
-                      icon={<IconAlertTriangle size={20} strokeWidth={1.5} color="#AD5F00" />}
+                      icon={<IconAlertTriangle size={24} strokeWidth={1.5} color="#AD5F00" />}
                       label={allergen.charAt(0).toUpperCase() + allergen.slice(1)}
                       isLast={index === product.allergens.length - 1}
                     />
@@ -311,8 +314,10 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
             {product.ingredients && product.ingredients.length > 0 && (
               <>
                 <SectionLabel>Ingredients</SectionLabel>
-                <InfoCard>
-                  <Text className="font-medium leading-6">{product.ingredients.join(', ')}</Text>
+                <InfoCard className="px-5">
+                  <Text className="font-medium text-caption capitalize leading-6">
+                    {product.ingredients.join(', ')}
+                  </Text>
                 </InfoCard>
               </>
             )}

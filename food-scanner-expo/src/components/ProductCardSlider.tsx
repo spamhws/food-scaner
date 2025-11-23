@@ -78,7 +78,7 @@ export const ProductCardSlider = forwardRef<ProductCardSliderRef, ProductCardSli
         ref={scrollViewRef}
         horizontal
         showsHorizontalScrollIndicator={false}
-        snapToInterval={screenWidth - 48 + 24} // card width + gap
+        snapToInterval={screenWidth - 48 + 12} // card width + gap
         decelerationRate="fast"
         contentContainerStyle={{
           paddingHorizontal: 24,

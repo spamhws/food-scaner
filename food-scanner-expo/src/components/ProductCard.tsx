@@ -93,7 +93,10 @@ export function ProductCard({
           ) : (
             <>
               {product?.name || 'Unknown Product'}
-              {product?.brand && `, ${product.brand}`}
+              {product?.brand &&
+                product.brand !== 'null' &&
+                product.brand.trim() &&
+                `, ${product.brand}`}
               {product?.product_quantity &&
                 `, ${product.product_quantity} ${product.product_quantity_unit}`}
             </>

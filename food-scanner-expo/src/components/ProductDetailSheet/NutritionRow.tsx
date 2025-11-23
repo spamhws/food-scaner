@@ -33,17 +33,17 @@ export function NutritionRow({
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center gap-2">
           {icon}
-          <Text className="font-medium text-title text-black">{label}</Text>
+          <Text className="font-medium text-caption text-black">{label}</Text>
         </View>
         <View className="flex-row items-center" style={{ gap: showPackageColumn ? 24 : 0 }}>
           <Text
-            className="text-title font-semibold  text-right"
-            style={{ width: showPackageColumn ? 52 : undefined }}
+            className="text-number font-semibold text-right"
+         
           >
             {formatValue(per100g)}
           </Text>
           {showPackageColumn && perPackage !== null && (
-            <Text className="text-title font-semibold text-right" style={{ width: 52 }}>
+            <Text className="text-number font-semibold text-right w-[56px]">
               {formatValue(perPackage)}
             </Text>
           )}

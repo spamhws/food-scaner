@@ -56,7 +56,7 @@ export async function fetchProduct(
       id: product._id,
       barcode,
       name: product.product_name || 'Unknown Product',
-      brand: product.brands || 'Unknown Brand',
+      brand: product.brands || '',
       image: product.image_url || '',
       imageSmall: product.image_front_small_url || product.image_url || '',
       product_quantity: product.product_quantity || '',

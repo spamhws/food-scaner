@@ -1,14 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, ActivityIndicator, BackHandler, Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ProductList } from '@/components/ProductList';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
 import { useHistory } from '@/hooks/useHistory';
-import {
-  ProductDetailSheet,
-  type ProductDetailSheetRef,
-} from '@/components/ProductDetailSheet/ProductDetailSheet';
+import { ProductDetailSheet } from '@/components/ProductDetailSheet/ProductDetailSheet';
 import { useProduct } from '@/hooks/useProduct';
 import { getCachedProduct } from '@/lib/storage/storage';
 
@@ -17,7 +14,6 @@ export function HistoryScreen() {
   const insets = useSafeAreaInsets();
   const { history, isLoading } = useHistory();
   const [selectedBarcode, setSelectedBarcode] = useState<string | null>(null);
-  const bottomSheetRef = useRef<ProductDetailSheetRef>(null);
   const [validHistory, setValidHistory] = useState<string[]>([]);
   
   // Header height (44px) + status bar - only needed on iOS with transparent header
@@ -51,7 +47,6 @@ export function HistoryScreen() {
 
   const handleProductPress = (barcode: string) => {
     setSelectedBarcode(barcode);
-    bottomSheetRef.current?.expand();
   };
 
   const handleBottomSheetClose = () => {
@@ -90,7 +85,6 @@ export function HistoryScreen() {
 
       {/* Product Detail Sheet */}
       <ProductDetailSheet
-        ref={bottomSheetRef}
         product={selectedProduct || null}
         onClose={handleBottomSheetClose}
       />
