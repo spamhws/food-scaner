@@ -8,17 +8,12 @@ interface ButtonProps extends TouchableOpacityProps {
   className?: string;
 }
 
-export function Button({
-  children,
-  variant = 'primary',
-  className,
-  ...props
-}: ButtonProps) {
+export function Button({ children, variant = 'primary', className, ...props }: ButtonProps) {
   return (
     <TouchableOpacity
       className={cn(
         'rounded-full px-6 py-3 items-center justify-center',
-        variant === 'primary' && 'bg-blue-60',
+        variant === 'primary' && 'bg-blue-50',
         variant === 'secondary' && 'bg-gray-20 border border-gray-30',
         variant === 'ghost' && 'bg-transparent',
         className
@@ -31,7 +26,7 @@ export function Button({
             'font-semibold',
             variant === 'primary' && 'text-white',
             variant === 'secondary' && 'text-gray-90',
-            variant === 'ghost' && 'text-blue-60'
+            variant === 'ghost' && 'text-blue-50'
           )}
         >
           {children}
@@ -42,4 +37,3 @@ export function Button({
     </TouchableOpacity>
   );
 }
-

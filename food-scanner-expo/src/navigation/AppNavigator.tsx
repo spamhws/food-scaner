@@ -8,6 +8,7 @@ import { HistoryScreen } from '@/screens/HistoryScreen';
 import { FavouritesScreen } from '@/screens/FavouritesScreen';
 import { SettingsScreen } from '@/screens/SettingsScreen';
 import { FAQScreen } from '@/screens/FAQScreen';
+import { FAQDetailScreen } from '@/screens/FAQDetailScreen';
 import { UserAgreementScreen } from '@/screens/UserAgreementScreen';
 import { PrivacyPolicyScreen } from '@/screens/PrivacyPolicyScreen';
 
@@ -31,11 +32,12 @@ function CustomBackButton() {
 }
 
 export type RootStackParamList = {
-  Scanner: undefined;
-  History: undefined;
-  Favourites: undefined;
-  Settings: undefined;
+  Scanner: { barcode?: string } | undefined;
+  History: { barcode?: string } | undefined;
+  Favourites: { barcode?: string } | undefined;
+  Info: undefined;
   FAQ: undefined;
+  FAQDetail: { id: string; barcode?: string } | undefined;
   UserAgreement: undefined;
   PrivacyPolicy: undefined;
 };
@@ -83,10 +85,10 @@ export function AppNavigator() {
         }}
       />
       <Stack.Screen
-        name="Settings"
+        name="Info"
         component={SettingsScreen}
         options={{
-          title: 'Settings',
+          title: 'Info',
         }}
       />
       <Stack.Screen
@@ -94,6 +96,17 @@ export function AppNavigator() {
         component={FAQScreen}
         options={{
           title: 'FAQ',
+        }}
+      />
+      <Stack.Screen
+        name="FAQDetail"
+        component={FAQDetailScreen}
+        options={({ route }) => {
+          const faqData = require('@/data/faq.json');
+          const item = faqData.find((i: any) => i.id === route.params?.id);
+          return {
+            title: item?.title || item?.question || 'FAQ',
+          };
         }}
       />
       <Stack.Screen

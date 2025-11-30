@@ -10,16 +10,20 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import { useIsFocused } from '@react-navigation/native';
+import { useIsFocused, useRoute, RouteProp } from '@react-navigation/native';
+import type { RootStackParamList } from '@/navigation/AppNavigator';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { BlurView } from 'expo-blur';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { Button } from '@/components/ui/Button';
+import { CTAScreen } from '@/components/CTAScreen';
+import { Videos } from '@/constants/assets';
 import { NavigationButtons } from '@/components/NavigationButtons';
 import { ScannerControl } from '@/components/ScannerControl';
 import { CornerDecorations } from '@/components/ui/CornerDecorations';
 import { ProductCardSlider, type ProductCardSliderRef } from '@/components/ProductCardSlider';
 import { ProductDetailSheet } from '@/components/ProductDetailSheet/ProductDetailSheet';
+import { DevTools } from '@/components/DevTools';
 import { useBarcodeScanner } from '@/hooks/useBarcodeScanner';
 import { useHistory } from '@/hooks/useHistory';
 import { useProduct } from '@/hooks/useProduct';
@@ -37,7 +41,10 @@ const rrectPath = (x: number, y: number, w: number, h: number, r: number) => `
   Z
 `;
 
+type ScannerRouteProp = RouteProp<RootStackParamList, 'Scanner'>;
+
 export function ScannerScreen() {
+  const route = useRoute<ScannerRouteProp>();
   const isFocused = useIsFocused();
   const [permission, requestPermission] = useCameraPermissions();
   const [isFlashOn, setIsFlashOn] = useState(false);
@@ -50,6 +57,14 @@ export function ScannerScreen() {
 
   // History management
   const { addItem: addToHistory } = useHistory();
+
+  // Check if barcode was passed as route param (from FAQ navigation)
+  useEffect(() => {
+    const routeBarcode = route.params?.barcode;
+    if (routeBarcode) {
+      setSelectedBarcode(routeBarcode);
+    }
+  }, [route.params]);
 
   // Fetch selected product data (from cache for quick display)
   const { data: selectedProduct } = useProduct({
@@ -128,24 +143,28 @@ export function ScannerScreen() {
   const cameraTop = cameraBounds.top;
   const cameraBottom = cameraBounds.bottom;
 
-  // Add barcode to list callback (memoized to prevent scanning issues on state changes)
-  const handleBarcodeDetected = useCallback(
+  // Unified barcode processing pipeline - used by both camera scan and manual input
+  const processBarcode = useCallback(
     (barcode: string) => {
+      // Normalize barcode: trim whitespace
+      const normalizedBarcode = barcode.trim();
+      if (!normalizedBarcode) return;
+
       // Save to history
-      addToHistory(barcode);
+      addToHistory(normalizedBarcode);
+
+      // Update scanned barcodes list
       setScannedBarcodes((prev) => {
-        if (prev.includes(barcode)) {
-          // Barcode already exists (whether product found or error) - scroll to it
-          const index = prev.indexOf(barcode);
-          // Pass the current array to ensure we have the right index
+        if (prev.includes(normalizedBarcode)) {
+          // Barcode already exists - scroll to it
           setTimeout(() => {
             if (productSliderRef.current) {
-              productSliderRef.current.scrollToBarcode(barcode, prev);
+              productSliderRef.current.scrollToBarcode(normalizedBarcode, prev);
             }
           }, 300);
           return prev; // Don't add duplicate
         }
-        return [...prev, barcode];
+        return [...prev, normalizedBarcode];
       });
     },
     [addToHistory]
@@ -156,7 +175,7 @@ export function ScannerScreen() {
     viewportWidth,
     viewportHeight,
     cameraBounds,
-    onBarcodeScanned: handleBarcodeDetected,
+    onBarcodeScanned: processBarcode, // Use unified pipeline
     isDisabled: isManualEntryActive || !!selectedBarcode,
   });
 
@@ -177,19 +196,8 @@ export function ScannerScreen() {
     setIsFlashOn(!isFlashOn);
   };
 
-  const addManualBarcode = (barcode: string) => {
-    if (barcode && barcode.trim()) {
-      setScannedBarcodes((prev) => {
-        if (!prev.includes(barcode.trim())) {
-          return [...prev, barcode.trim()];
-        }
-        return prev;
-      });
-    }
-  };
-
   const handleModalSubmit = () => {
-    addManualBarcode(manualBarcode);
+    processBarcode(manualBarcode); // Use unified pipeline
     setShowBarcodeModal(false);
     setManualBarcode('');
     setIsManualEntryActive(false);
@@ -197,6 +205,9 @@ export function ScannerScreen() {
 
   const handleManualEntry = () => {
     setIsManualEntryActive(true);
+
+    // Test barcode for development
+    const TEST_BARCODE = '3017620429484';
 
     if (Platform.OS === 'ios') {
       // iOS native prompt
@@ -214,20 +225,20 @@ export function ScannerScreen() {
           {
             text: 'Search',
             onPress: (barcode?: string) => {
-              if (barcode && barcode.trim()) {
-                addManualBarcode(barcode.trim());
+              if (barcode) {
+                processBarcode(barcode); // Use unified pipeline
               }
               setIsManualEntryActive(false);
             },
           },
         ],
         'plain-text',
-        '',
+        TEST_BARCODE, // Pre-fill with test barcode
         'numeric'
       );
     } else {
       // Android custom modal
-      setManualBarcode('');
+      setManualBarcode(TEST_BARCODE); // Pre-fill with test barcode
       setShowBarcodeModal(true);
     }
   };
@@ -252,12 +263,13 @@ export function ScannerScreen() {
   if (!permission.granted) {
     // Camera permissions are not granted yet
     return (
-      <View className="flex-1 items-center justify-center bg-black px-6">
-        <Text className="text-white text-center mb-4">
-          We need your permission to access the camera to scan barcodes
-        </Text>
-        <Button onPress={requestPermission}>Grant Permission</Button>
-      </View>
+      <CTAScreen
+        video={Videos.handPhone}
+        title="Ready to Scan?"
+        description="We just need camera access to scan barcodes. Nothing is recorded."
+        buttonText="Enable Camera"
+        onButtonPress={requestPermission}
+      />
     );
   }
 
@@ -311,6 +323,9 @@ export function ScannerScreen() {
       </Modal>
 
       <View className="relative flex-1 bg-black">
+        {/* DEV TOOLS - Remove before production */}
+        <DevTools currentBarcode={scannedBarcodes.length > 0 ? scannedBarcodes[0] : null} />
+
         {/* Camera View - only active when screen is focused and sheet is closed */}
         {isFocused && !selectedBarcode && (
           <CameraView
@@ -374,16 +389,42 @@ export function ScannerScreen() {
         </Svg>
 
         {/* Barcode Detection Overlay */}
-        {barcodeCorners && (
-          <Svg style={StyleSheet.absoluteFill} pointerEvents="none">
-            <Path
-              d={`M ${barcodeCorners.map((p) => `${p.x},${p.y}`).join(' L ')} Z`}
-              stroke="#10b981"
-              strokeWidth={3}
-              fill="rgba(16, 185, 129, 0.1)"
-            />
-          </Svg>
-        )}
+        {barcodeCorners &&
+          (() => {
+            // Add 20 points of padding to each side
+            const padding = 20;
+
+            // Calculate center of barcode
+            const centerX = barcodeCorners.reduce((sum, p) => sum + p.x, 0) / barcodeCorners.length;
+            const centerY = barcodeCorners.reduce((sum, p) => sum + p.y, 0) / barcodeCorners.length;
+
+            // Expand each corner outward by padding amount
+            const paddedCorners = barcodeCorners.map((p) => {
+              const dx = p.x - centerX;
+              const dy = p.y - centerY;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance === 0) return p;
+
+              // Normalize and extend by padding
+              const normalizedX = dx / distance;
+              const normalizedY = dy / distance;
+              return {
+                x: p.x + normalizedX * padding,
+                y: p.y + normalizedY * padding,
+              };
+            });
+
+            return (
+              <Svg style={StyleSheet.absoluteFill} pointerEvents="none">
+                <Path
+                  d={`M ${paddedCorners.map((p) => `${p.x},${p.y}`).join(' L ')} Z`}
+                  stroke="#10b981"
+                  strokeWidth={3}
+                  fill="rgba(16, 185, 129, 0.1)"
+                />
+              </Svg>
+            );
+          })()}
 
         {/* Scanner Interface */}
         <View

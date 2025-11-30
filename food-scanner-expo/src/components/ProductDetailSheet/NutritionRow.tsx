@@ -2,13 +2,13 @@ import React, { ReactNode } from 'react';
 import { View, Text } from 'react-native';
 
 interface NutritionRowProps {
-  icon: ReactNode;
+  icon?: ReactNode; // Optional - sub-items don't have icons
   label: string;
   per100g: number;
   perPackage: number | null;
   unit: string;
-  isLast?: boolean;
   showPackageColumn?: boolean;
+  isSubItem?: boolean; // Indicates this is a sub-item (no icon, no divider above)
 }
 
 export function NutritionRow({
@@ -17,8 +17,8 @@ export function NutritionRow({
   per100g,
   perPackage,
   unit,
-  isLast = false,
   showPackageColumn = true,
+  isSubItem = false,
 }: NutritionRowProps) {
   const formatValue = (value: number) => {
     // Always show 1 decimal place for gram values (g), otherwise show integer if whole number
@@ -29,27 +29,20 @@ export function NutritionRow({
   };
 
   return (
-    <View>
-      <View className="flex-row items-center justify-between">
-        <View className="flex-row items-center gap-2">
-          {icon}
-          <Text className="font-medium text-caption text-black">{label}</Text>
-        </View>
-        <View className="flex-row items-center" style={{ gap: showPackageColumn ? 24 : 0 }}>
-          <Text
-            className="text-number font-semibold text-right"
-         
-          >
-            {formatValue(per100g)}
-          </Text>
-          {showPackageColumn && perPackage !== null && (
-            <Text className="text-number font-semibold text-right w-[56px]">
-              {formatValue(perPackage)}
-            </Text>
-          )}
-        </View>
+    <View className="flex-row items-center justify-between">
+      <View className="flex-row items-center gap-2">
+        {icon}
+        {!icon && isSubItem && <View style={{ width: 24 }} />}
+        <Text className="font-medium text-caption text-black">{label}</Text>
       </View>
-      {!isLast && <View className="h-px bg-gray-30 mt-2 ml-8" />}
+      <View className="flex-row items-center" style={{ gap: showPackageColumn ? 24 : 0 }}>
+        <Text className="text-number font-semibold text-right">{formatValue(per100g)}</Text>
+        {showPackageColumn && perPackage !== null && (
+          <Text className="text-number font-semibold text-right w-[56px]">
+            {formatValue(perPackage)}
+          </Text>
+        )}
+      </View>
     </View>
   );
 }

@@ -14,6 +14,7 @@ import { useProduct } from '@/hooks/useProduct';
 import { vibrateProductFound, vibrateProductNotFound } from '@/lib/utils/vibration';
 import { Badge } from '@/components/ui/Badge';
 import { getNutriscoreBadgeVariant, getNutriscoreDescription } from '@/lib/utils/product-narrative';
+import { getNutrientColor, getCaloriesColor } from '@/lib/utils/nutrient-colors';
 
 interface ProductCardProps {
   barcode: string;
@@ -113,19 +114,39 @@ export function ProductCard({
         {product && !isError && !isLoading && (
           <View className="flex-row flex-wrap gap-x-2 gap-y-1">
             <View className="flex-row items-center gap-0.5">
-              <IconFlame size={16} stroke="#8E99AB" strokeWidth={1.5} />
+              <IconFlame
+                size={16}
+                stroke={getCaloriesColor(product.nutrientLevels, product.nutrition)}
+                strokeWidth={1.5}
+              />
               <Text className="font-semibold">{Math.round(product.nutrition.calories.value)}</Text>
             </View>
             <View className="flex-row items-center gap-0.5">
-              <IconMeat size={16} stroke="#8E99AB" strokeWidth={1.5} />
+              <IconMeat
+                size={16}
+                stroke={getNutrientColor(product.nutrientLevels, 'proteins', product.nutrition)}
+                strokeWidth={1.5}
+              />
               <Text className="font-semibold">{product.nutrition.protein.value.toFixed(1)}</Text>
             </View>
             <View className="flex-row items-center gap-0.5">
-              <IconDroplet size={16} stroke="#8E99AB" strokeWidth={1.5} />
+              <IconDroplet
+                size={16}
+                stroke={getNutrientColor(product.nutrientLevels, 'fat', product.nutrition)}
+                strokeWidth={1.5}
+              />
               <Text className="font-semibold">{product.nutrition.fat.value.toFixed(1)}</Text>
             </View>
             <View className="flex-row items-center gap-0.5">
-              <IconWheat size={16} stroke="#8E99AB" strokeWidth={1.5} />
+              <IconWheat
+                size={16}
+                stroke={getNutrientColor(
+                  product.nutrientLevels,
+                  'carbohydrates',
+                  product.nutrition
+                )}
+                strokeWidth={1.5}
+              />
               <Text className="font-semibold">
                 {product.nutrition.carbohydrates.value.toFixed(1)}
               </Text>

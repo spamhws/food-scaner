@@ -1,0 +1,65 @@
+{
+  "calories": {
+    "name": "Calories",
+    "unit": "kcal",
+    "low": 100,
+    "high": 300,
+    "isPositive": false
+  },
+  "fat": {
+    "name": "Fat",
+    "unit": "g",
+    "low": 3,
+    "high": 20,
+    "isPositive": false
+  },
+  "saturated-fat": {
+    "name": "Saturated Fat",
+    "unit": "g",
+    "low": 1.5,
+    "high": 5,
+    "isPositive": false
+  },
+  "sugars": {
+    "name": "Sugars",
+    "unit": "g",
+    "low": 5,
+    "high": 15,
+    "isPositive": false
+  },
+  "salt": {
+    "name": "Salt",
+    "unit": "g",
+    "low": 0.3,
+    "high": 1.5,
+    "isPositive": false
+  },
+  "proteins": {
+    "name": "Protein",
+    "unit": "g",
+    "low": 5,
+    "high": 10,
+    "isPositive": true
+  },
+  "fiber": {
+    "name": "Fiber",
+    "unit": "g",
+    "low": 3,
+    "high": 5,
+    "isPositive": true
+  },
+  "carbohydrates": {
+    "name": "Carbohydrates",
+    "unit": "g",
+    "low": 5,
+    "high": 30,
+    "isPositive": false
+  },
+  "sodium": {
+    "name": "Sodium",
+    "unit": "g",
+    "low": 0.12,
+    "high": 0.6,
+    "isPositive": false
+  }
+}

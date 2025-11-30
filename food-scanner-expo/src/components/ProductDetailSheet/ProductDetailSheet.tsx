@@ -1,35 +1,20 @@
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import { View, Image, Alert, BackHandler, Text, Dimensions } from 'react-native';
-import {
-  BottomSheetModal,
-  BottomSheetBackdrop,
-  BottomSheetScrollView,
-  BottomSheetView,
-} from '@gorhom/bottom-sheet';
-import {
-  IconFlame,
-  IconMeat,
-  IconDroplet,
-  IconWheat,
-  IconAlertTriangle,
-  IconThumbUp,
-  IconThumbDown,
-} from '@tabler/icons-react-native';
+import { Alert, BackHandler, Dimensions } from 'react-native';
+import { BottomSheetModal, BottomSheetBackdrop, BottomSheetScrollView } from '@gorhom/bottom-sheet';
+import { useNavigation } from '@react-navigation/native';
+import type { NavigationProp } from '@/navigation/navigation-types';
 import type { Product } from '@/types/product';
 import { generateAssessments } from '@/lib/utils/product-assessment';
-import {
-  generateProductNarrative,
-  getNutriscoreDescription,
-  getNutriscoreBadgeVariant,
-} from '@/lib/utils/product-narrative';
+import { generateProductNarrative, getNutriscoreDescription } from '@/lib/utils/product-narrative';
 import { shareProduct } from '@/lib/utils/share';
-import { Badge } from '@/components/ui/Badge';
-import { SectionLabel } from './SectionLabel';
-import { InfoCard } from './InfoCard';
-import { InfoRow } from './InfoRow';
-import { NutritionRow } from './NutritionRow';
 import { ProductDetailFooter } from './ProductDetailFooter';
 import { useFavorites } from '@/hooks/useFavorites';
+import { ImageTitleSection } from './ImageTitleSection';
+import { NutrientsSection } from './NutrientsSection';
+import { NutriScoresSection } from './NutriScoresSection';
+import { CharacteristicsSection } from './CharacteristicsSection';
+import { AllergensSection } from './AllergensSection';
+import { IngredientsSection } from './IngredientsSection';
 
 interface ProductDetailSheetProps {
   product: Product | null;
@@ -39,6 +24,7 @@ interface ProductDetailSheetProps {
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps) {
+  const navigation = useNavigation<NavigationProp>();
   const { isFavorite: checkIsFavorite, toggle: toggleFavorite } = useFavorites();
   const [isSharing, setIsSharing] = useState(false);
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -152,175 +138,19 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
       >
         {product && (
           <>
-            {/* Product Image and Title */}
-            <InfoCard className="flex-col gap-4">
-              <View
-                className="rounded-xl items-center justify-center -m-2 mb-0 overflow-hidden"
-                style={{ height: 240 }}
-              >
-                {product.image ? (
-                  <>
-                    <Image
-                      source={{ uri: product.image }}
-                      className="absolute h-full w-full"
-                      blurRadius={16}
-                    />
-                    <Image
-                      source={{ uri: product.image }}
-                      className="h-full w-full"
-                      resizeMode="contain"
-                    />
-                  </>
-                ) : (
-                  <View className="bg-gray-20 w-full h-full" />
-                )}
-              </View>
-              <View className="items-center mb-2 gap-3">
-                <Text className="text-title font-bold text-center text-black">
-                  {product.name || 'Unknown Product'}
-                  {product.brand &&
-                    product.brand !== 'null' &&
-                    product.brand.trim() &&
-                    ` (${product.brand})`}
-                </Text>
-                {product.assessment && (
-                  <Badge
-                    variant={getNutriscoreBadgeVariant(product.assessment.category)}
-                    label={getNutriscoreDescription(product.assessment.category)}
-                    interactive
-                    onPress={handleNutriscorePress}
-                  />
-                )}
-              </View>
-            </InfoCard>
-
-            {/* Nutrition Facts */}
-            {product.nutrition &&
-              (() => {
-                // Check if package size info is available
-                const hasPackageInfo = !!product.product_quantity;
-
-                // Calculate package weight in grams
-                const packageWeight = hasPackageInfo
-                  ? parseFloat(product.product_quantity) *
-                    (product.product_quantity_unit === 'kg' ? 1000 : 1)
-                  : null;
-
-                // Helper to calculate per package value
-                const getPerPackage = (per100g: number): number | null => {
-                  if (packageWeight === null) return null;
-                  return (per100g / 100) * packageWeight;
-                };
-
-                return (
-                  <>
-                    <View className="flex-row items-center justify-between mt-2">
-                      <SectionLabel>Nutritional value</SectionLabel>
-                      <SectionLabel>
-                        {hasPackageInfo ? 'PER 100G / PER PACKAGE' : 'PER 100G'}
-                      </SectionLabel>
-                    </View>
-                    <InfoCard>
-                      {product.nutrition.calories && (
-                        <NutritionRow
-                          icon={<IconFlame size={24} strokeWidth={1.5} color="#707A8A" />}
-                          label="Calories, kcal"
-                          per100g={product.nutrition.calories.per_100g}
-                          perPackage={getPerPackage(product.nutrition.calories.per_100g)}
-                          unit=""
-                          isLast={false}
-                          showPackageColumn={hasPackageInfo}
+            <ImageTitleSection product={product} onNutriscorePress={handleNutriscorePress} />
+            <NutrientsSection product={product} />
+            <NutriScoresSection
+              nutriscoreGrade={product.assessment?.category}
+              ecoscoreGrade={product.ecoscoreGrade}
+              novascoreGrade={product.novascoreGrade}
+              navigation={navigation}
+              onClose={onClose}
+              productBarcode={product.barcode}
                         />
-                      )}
-                      {product.nutrition.protein && (
-                        <NutritionRow
-                          icon={<IconMeat size={24} strokeWidth={1.5} color="#707A8A" />}
-                          label="Protein, g"
-                          per100g={product.nutrition.protein.per_100g}
-                          perPackage={getPerPackage(product.nutrition.protein.per_100g)}
-                          unit="g"
-                          isLast={false}
-                          showPackageColumn={hasPackageInfo}
-                        />
-                      )}
-                      {product.nutrition.fat && (
-                        <NutritionRow
-                          icon={<IconDroplet size={24} strokeWidth={1.5} color="#707A8A" />}
-                          label="Fats, g"
-                          per100g={product.nutrition.fat.per_100g}
-                          perPackage={getPerPackage(product.nutrition.fat.per_100g)}
-                          unit="g"
-                          isLast={false}
-                          showPackageColumn={hasPackageInfo}
-                        />
-                      )}
-                      {product.nutrition.carbohydrates && (
-                        <NutritionRow
-                          icon={<IconWheat size={24} strokeWidth={1.5} color="#707A8A" />}
-                          label="Carbs, g"
-                          per100g={product.nutrition.carbohydrates.per_100g}
-                          perPackage={getPerPackage(product.nutrition.carbohydrates.per_100g)}
-                          unit="g"
-                          isLast={true}
-                          showPackageColumn={hasPackageInfo}
-                        />
-                      )}
-                    </InfoCard>
-                  </>
-                );
-              })()}
-
-            {/* Key Characteristics */}
-            {assessments.length > 0 && (
-              <>
-                <SectionLabel>Key characteristics</SectionLabel>
-                <InfoCard>
-                  {assessments.map((assessment, index) => (
-                    <InfoRow
-                      key={index}
-                      icon={
-                        assessment.type === 'positive' ? (
-                          <IconThumbUp size={24} strokeWidth={1.5} color="#038537" />
-                        ) : (
-                          <IconThumbDown size={24} strokeWidth={1.5} color="#DE1B1B" />
-                        )
-                      }
-                      label={assessment.label}
-                      isLast={index === assessments.length - 1}
-                    />
-                  ))}
-                </InfoCard>
-              </>
-            )}
-
-            {/* Allergens */}
-            {product.allergens && product.allergens.length > 0 && (
-              <>
-                <SectionLabel>Allergens</SectionLabel>
-                <InfoCard>
-                  {product.allergens.map((allergen: string, index: number) => (
-                    <InfoRow
-                      key={index}
-                      icon={<IconAlertTriangle size={24} strokeWidth={1.5} color="#AD5F00" />}
-                      label={allergen.charAt(0).toUpperCase() + allergen.slice(1)}
-                      isLast={index === product.allergens.length - 1}
-                    />
-                  ))}
-                </InfoCard>
-              </>
-            )}
-
-            {/* Ingredients */}
-            {product.ingredients && product.ingredients.length > 0 && (
-              <>
-                <SectionLabel>Ingredients</SectionLabel>
-                <InfoCard className="px-5">
-                  <Text className="font-medium text-caption capitalize leading-6">
-                    {product.ingredients.join(', ')}
-                  </Text>
-                </InfoCard>
-              </>
-            )}
+            <CharacteristicsSection assessments={assessments} />
+            <AllergensSection allergens={product.allergens} />
+            <IngredientsSection ingredients={product.ingredients} />
           </>
         )}
       </BottomSheetScrollView>

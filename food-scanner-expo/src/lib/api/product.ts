@@ -11,7 +11,12 @@ export async function fetchProduct(
   try {
     const response = await fetch(`${API_URL}/api/v0/product/${barcode}`, {
       headers: {
-        'User-Agent': 'FoodScanner/1.0.0',
+        // User-Agent format: AppName/Version (ContactEmail)
+        // This identifies your app to Open Food Facts, not individual users
+        // Note: Your email will be visible to Open Food Facts servers
+        // Consider using a dedicated app email instead of personal email
+        'User-Agent': 'FoodScanner/1.0.1',
+        // Alternative with email: 'FoodScanner/1.0.1 (your-app-email@example.com)'
       },
     });
 
@@ -68,8 +73,14 @@ export async function fetchProduct(
         saturatedFat: parseNutrient(product.nutriments['saturated-fat_100g']),
         carbohydrates: parseNutrient(product.nutriments.carbohydrates_100g),
         sugars: parseNutrient(product.nutriments.sugars_100g),
+        ...(product.nutriments['added-sugars_100g'] && {
+          addedSugars: parseNutrient(product.nutriments['added-sugars_100g']),
+        }),
         protein: parseNutrient(product.nutriments.proteins_100g),
         salt: parseNutrient(product.nutriments.salt_100g),
+        ...(product.nutriments.sodium_100g && {
+          sodium: parseNutrient(product.nutriments.sodium_100g),
+        }),
         fiber: parseNutrient(product.nutriments.fiber_100g),
       },
       // Only include assessment if we have a valid grade (a, b, c, d, e)
@@ -78,6 +89,19 @@ export async function fetchProduct(
           score: calculateNutritionScore(rawGrade),
           category: rawGrade.toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E',
         },
+      }),
+      // Include nutrient levels if available from API
+      ...(product.nutrient_levels && {
+        nutrientLevels: product.nutrient_levels,
+      }),
+      // Include Eco-Score if available (A-E)
+      ...(product.ecoscore_grade &&
+        ['a', 'b', 'c', 'd', 'e'].includes(product.ecoscore_grade.toLowerCase()) && {
+          ecoscoreGrade: product.ecoscore_grade.toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E',
+        }),
+      // Include NOVA Score if available (1-4)
+      ...(product.nova_group && product.nova_group >= 1 && product.nova_group <= 4 && {
+        novascoreGrade: product.nova_group as 1 | 2 | 3 | 4,
       }),
       ingredients: product.ingredients_text_en
         ? product.ingredients_text_en.split(',').map((i: string) => i.trim())

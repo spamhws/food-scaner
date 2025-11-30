@@ -18,7 +18,7 @@ export async function shareProduct(product: Product): Promise<void> {
       : '';
     const imageUrl = product.image ? `\n\n📷 Product Image:\n${product.image}` : '';
     const appLinks =
-      '\n\n📱 Get FoodScanner:\nApp Store: https://apps.apple.com/foodscanner (coming soon)\nGoogle Play: https://play.google.com/store/apps/details?id=com.foodscanner (coming soon)';
+      '\n\n📱 Get Food ID:\nApp Store: https://apps.apple.com/app/food-id (coming soon)\nGoogle Play: https://play.google.com/store/apps/details?id=com.foodid (coming soon)';
     const message = `${productTitle}${
       quantity ? ` (${quantity})` : ''
     }${macros}${nutriScore}${imageUrl}${appLinks}`;

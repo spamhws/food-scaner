@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
-import { IconHistory, IconHeart, IconSettings } from '@tabler/icons-react-native';
+import { IconHistory, IconHeart, IconInfoCircle } from '@tabler/icons-react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
 
@@ -19,9 +19,9 @@ export function NavigationButtons({ navigationHeight = 64 }: NavigationButtonsPr
       <TouchableOpacity
         className="flex-1 h-full items-center justify-center bg-white/10"
         activeOpacity={0.7}
-        onPress={() => navigation.navigate('Settings')}
+        onPress={() => navigation.navigate('Info')}
       >
-        <IconSettings size={24} stroke="#FFFFFF" />
+        <IconInfoCircle size={24} stroke="#FFFFFF" />
       </TouchableOpacity>
 
       <TouchableOpacity

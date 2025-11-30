@@ -1,5 +1,14 @@
-import React, { useEffect } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, BackHandler, Platform } from 'react-native';
+import React from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  Platform,
+  Share,
+  Linking,
+  Alert,
+} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import {
@@ -8,9 +17,13 @@ import {
   IconShieldLock,
   IconDeviceMobile,
   IconChevronRight,
+  IconSend,
+  IconStar,
 } from '@tabler/icons-react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
+import { useNavigationBack } from '@/hooks/useNavigationBack';
+import { APP_STORE_LINKS, APP_STORE_REVIEW_LINKS } from '@/constants/app-store';
 
 interface SettingItemProps {
   icon: React.ReactNode;
@@ -63,24 +76,44 @@ function SettingItem({
 export function SettingsScreen() {
   const navigation = useNavigation<NavigationProp>();
   const insets = useSafeAreaInsets();
+  useNavigationBack();
 
   // Header height (44px) + status bar - only needed on iOS with transparent header
   const headerHeight = Platform.OS === 'ios' ? 44 + insets.top : 0;
 
-  // Handle Android back button
-  useEffect(() => {
-    const backAction = () => {
-      if (navigation.canGoBack()) {
-        navigation.goBack();
-        return true;
+  const handleShareApp = async () => {
+    try {
+      const message = `Check out Food ID - the app that helps you make informed food choices!
+
+🍎 App Store: ${APP_STORE_LINKS.ios}
+🤖 Google Play: ${APP_STORE_LINKS.android}`;
+
+      await Share.share({
+        message,
+        title: 'Share Food ID',
+      });
+    } catch (error) {
+      Alert.alert('Error', 'Unable to share the app. Please try again.');
+    }
+  };
+
+  const handleRateApp = async () => {
+    try {
+      const reviewLink =
+        Platform.OS === 'ios' ? APP_STORE_REVIEW_LINKS.ios : APP_STORE_REVIEW_LINKS.android;
+      const canOpen = await Linking.canOpenURL(reviewLink);
+
+      if (canOpen) {
+        await Linking.openURL(reviewLink);
+      } else {
+        // Fallback to regular app store link if review link doesn't work
+        const fallbackLink = Platform.OS === 'ios' ? APP_STORE_LINKS.ios : APP_STORE_LINKS.android;
+        await Linking.openURL(fallbackLink);
       }
-      return false;
-    };
-
-    const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
-
-    return () => backHandler.remove();
-  }, [navigation]);
+    } catch (error) {
+      Alert.alert('Error', 'Unable to open the app store. Please try again.');
+    }
+  };
 
   return (
     <View className="flex-1 bg-gray-10">
@@ -97,6 +130,16 @@ export function SettingsScreen() {
           icon={<IconHelpHexagon size={24} stroke="#8E99AB" />}
           title="FAQ"
           onPress={() => navigation.navigate('FAQ')}
+        />
+        <SettingItem
+          icon={<IconSend size={24} stroke="#8E99AB" />}
+          title="Share the App"
+          onPress={handleShareApp}
+        />
+        <SettingItem
+          icon={<IconStar size={24} stroke="#8E99AB" />}
+          title="Rate the App"
+          onPress={handleRateApp}
         />
         <SettingItem
           icon={<IconFileText size={24} stroke="#8E99AB" />}
