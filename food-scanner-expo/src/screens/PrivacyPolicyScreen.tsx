@@ -2,12 +2,22 @@ import React, { useEffect } from 'react';
 import { View, Text, ScrollView, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
-import privacyData from '@/data/privacyPolicy.json';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 
+// Load privacy policy data based on language
+const getPrivacyData = (language: 'en' | 'uk') => {
+  if (language === 'uk') {
+    return require('@/data/privacyPolicy.uk.json');
+  }
+  return require('@/data/privacyPolicy.json');
+};
+
 export function PrivacyPolicyScreen() {
+  const { currentLanguage } = useTranslation();
   const navigation = useNavigation<NavigationProp>();
   const headerHeight = useHeaderHeight();
+  const privacyData = getPrivacyData(currentLanguage);
 
   // Handle Android back button
   useEffect(() => {
@@ -34,7 +44,12 @@ export function PrivacyPolicyScreen() {
         }}
       >
         <Text className="text-sm text-gray-60 mb-6 italic font-inter">
-          Last updated: {privacyData.lastUpdated}
+          {currentLanguage === 'uk' ? 'Останнє оновлення: ' : 'Last updated: '}
+          {new Intl.DateTimeFormat(currentLanguage === 'uk' ? 'uk-UA' : 'en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          }).format(new Date(privacyData.lastUpdated))}
         </Text>
 
         {privacyData.sections.map((section) => (

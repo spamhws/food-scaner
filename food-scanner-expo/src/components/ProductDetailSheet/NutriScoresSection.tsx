@@ -4,6 +4,7 @@ import type { NavigationProp } from '@/navigation/navigation-types';
 import { SectionLabel } from './SectionLabel';
 import { InfoCard } from './InfoCard';
 import { ScoreImage } from '@/components/ScoreImage';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface NutriScoresSectionProps {
   nutriscoreGrade?: 'A' | 'B' | 'C' | 'D' | 'E';
@@ -23,6 +24,7 @@ function showScoreAlert(
   faqId: string,
   navigation: NavigationProp,
   onClose: () => void,
+  t: (key: string) => string,
   productBarcode?: string
 ) {
   Alert.alert(
@@ -30,11 +32,11 @@ function showScoreAlert(
     description,
     [
       {
-        text: 'Done',
+        text: t('common.done'),
         style: 'default',
       },
       {
-        text: 'Learn More',
+        text: t('common.learnMore'),
         onPress: () => {
           onClose();
           navigation.navigate('FAQDetail', {
@@ -55,17 +57,19 @@ export function NutriScoresSection({
   onClose,
   productBarcode,
 }: NutriScoresSectionProps) {
+  const { t } = useTranslation();
   const hasAnyScore = nutriscoreGrade || ecoscoreGrade || novascoreGrade;
   if (!hasAnyScore) return null;
 
   const handleNutriscorePress = () => {
     if (!nutriscoreGrade) return;
     showScoreAlert(
-      'Nutri-Score',
-      `Rates nutritional quality (A to E) per 100g, balancing beneficial (protein, fibre) and detrimental (fat, sugar, salt) components. A is the best choice for health.`,
+      t('scores.nutriScore'),
+      t('scores.nutriScoreDescription'),
       'nutri-score',
       navigation,
       onClose,
+      t,
       productBarcode
     );
   };
@@ -73,11 +77,12 @@ export function NutriScoresSection({
   const handleEcoscorePress = () => {
     if (!ecoscoreGrade) return;
     showScoreAlert(
-      'ECO-Score',
-      `Rates the environmental impact (A to E), considering CO2 emissions, packaging recyclability, and ingredient origins. A is the best choice for the planet.`,
+      t('scores.ecoscore'),
+      t('scores.ecoscoreDescription'),
       'eco-score',
       navigation,
       onClose,
+      t,
       productBarcode
     );
   };
@@ -85,18 +90,19 @@ export function NutriScoresSection({
   const handleNovascorePress = () => {
     if (!novascoreGrade) return;
     showScoreAlert(
-      'NOVA Score',
-      `Rates the degree of industrial processing (Group 1 to 4). Group 4 is Ultra-Processed Food (UPF), which should be limited regardless of its nutrient content.`,
+      t('scores.novascore'),
+      t('scores.novascoreDescription'),
       'nova-score',
       navigation,
       onClose,
+      t,
       productBarcode
     );
   };
 
   return (
     <>
-      <SectionLabel>NUTRI SCORES</SectionLabel>
+      <SectionLabel>{t('scores.nutriScores')}</SectionLabel>
       <InfoCard>
         <View className="flex-row items-center gap-4">
           {nutriscoreGrade && (

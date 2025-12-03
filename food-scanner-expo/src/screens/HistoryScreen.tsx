@@ -11,8 +11,10 @@ import { Images } from '@/constants/assets';
 import { CTAScreen } from '@/components/CTAScreen';
 import { HeaderButton } from '@/navigation/AppNavigator';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export function HistoryScreen() {
+  const { t } = useTranslation();
   const navigation = useNavigation<NavigationProp>();
   const { history, isLoading, clear, removeItem } = useHistory();
   const [selectedBarcode, setSelectedBarcode] = useState<string | null>(null);
@@ -73,23 +75,19 @@ export function HistoryScreen() {
   };
 
   const handleClearAll = () => {
-    Alert.alert(
-      'Clear All History',
-      "Are you sure you want to clear all the items from your history? It won't affect to favorite products list",
-      [
-        {
-          text: 'Cancel',
-          style: 'cancel',
+    Alert.alert(t('history.clearAllHistory'), t('history.clearAllHistoryMessage'), [
+      {
+        text: t('common.cancel'),
+        style: 'cancel',
+      },
+      {
+        text: t('common.clearAll'),
+        style: 'destructive',
+        onPress: async () => {
+          await clear();
         },
-        {
-          text: 'Clear All',
-          style: 'destructive',
-          onPress: async () => {
-            await clear();
-          },
-        },
-      ]
-    );
+      },
+    ]);
   };
 
   // Set header right button for Clear All
@@ -97,7 +95,7 @@ export function HistoryScreen() {
     navigation.setOptions({
       headerRight: () =>
         validHistory.length > 0 ? (
-          <HeaderButton onPress={handleClearAll}>Clear All</HeaderButton>
+          <HeaderButton onPress={handleClearAll}>{t('common.clearAll')}</HeaderButton>
         ) : null,
     });
   }, [navigation, validHistory.length]);
@@ -112,11 +110,11 @@ export function HistoryScreen() {
           image={Images.emptyBasket}
           title={
             <Text className="text-title-large font-bold text-center">
-              An empty basket {'tells\u00a0no\u00a0stories'}
+              {t('history.emptyBasket')}
             </Text>
           }
-          description="Start building yours - one scan at a time!"
-          buttonText="Scan your first product"
+          description={t('history.startBuilding')}
+          buttonText={t('scanner.buttonText')}
           onButtonPress={handleGoToScanner}
         />
       ) : (

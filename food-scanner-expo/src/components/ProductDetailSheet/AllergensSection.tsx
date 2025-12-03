@@ -5,17 +5,19 @@ import { SectionLabel } from './SectionLabel';
 import { InfoCard } from './InfoCard';
 import { InfoRow } from './InfoRow';
 import { NutritionDivider } from './NutritionDivider';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface AllergensSectionProps {
   allergens: string[];
 }
 
 export function AllergensSection({ allergens }: AllergensSectionProps) {
+  const { t } = useTranslation();
   if (!allergens || allergens.length === 0) return null;
 
   return (
     <>
-      <SectionLabel>Allergens</SectionLabel>
+      <SectionLabel>{t('allergens.allergens')}</SectionLabel>
       <InfoCard>
         {allergens.map((allergen: string, index: number) => {
           const isLast = index === allergens.length - 1;

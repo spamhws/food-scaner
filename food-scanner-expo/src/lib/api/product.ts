@@ -1,6 +1,7 @@
 import type { OpenFoodFactsResponse, Product } from '@/types/product';
 import { API_URL } from '@/constants/endpoints';
 import contactInfo from '@/constants/contact.json';
+import { getOpenFoodFactsLanguage } from '@/lib/utils/language';
 import {
   parseNutrient,
   calculateNutritionScore,
@@ -14,7 +15,14 @@ export async function fetchProduct(
   if (!barcode) return null;
 
   try {
-    const response = await fetch(`${API_URL}/api/v0/product/${barcode}`, {
+    // Get device language for multilingual support
+    const language = getOpenFoodFactsLanguage();
+
+    // OpenFoodFacts API: Use ?lc= parameter for language preference
+    // This returns product_name, ingredients_text, etc. in the requested language when available
+    const apiUrl = `${API_URL}/api/v0/product/${barcode}?lc=${language}`;
+
+    const response = await fetch(apiUrl, {
       headers: {
         // User-Agent format: AppName/Version (ContactEmail)
         // This identifies your app to Open Food Facts, not individual users
@@ -120,14 +128,17 @@ export async function fetchProduct(
         product.nova_group <= 4 && {
           novascoreGrade: product.nova_group as 1 | 2 | 3 | 4,
         }),
-      ingredients: product.ingredients_text_en
-        ? product.ingredients_text_en.split(',').map((i: string) => i.trim())
-        : [],
+      // Use language-specific ingredients if available, fallback to English
+      ingredients: (product.ingredients_text || product.ingredients_text_en || '')
+        .split(',')
+        .map((i: string) => i.trim())
+        .filter((i: string) => i.length > 0),
+      // Allergens and labels: Remove language prefix (e.g., 'en:', 'fr:', 'uk:')
       allergens: product.allergens_tags
-        ? product.allergens_tags.map((a: string) => a.replace('en:', ''))
+        ? product.allergens_tags.map((a: string) => a.replace(/^[a-z]{2,3}:/, ''))
         : [],
       labels: product.labels_tags
-        ? product.labels_tags.map((l: string) => l.replace('en:', ''))
+        ? product.labels_tags.map((l: string) => l.replace(/^[a-z]{2,3}:/, ''))
         : [],
     };
 

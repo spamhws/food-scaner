@@ -15,14 +15,14 @@ export function generateAssessments(product: Product): Assessment[] {
   if (product.nutrition.fiber && product.nutrition.fiber.value > 5) {
     assessments.push({
       type: 'positive',
-      label: 'High in fiber',
+      label: 'characteristics.highInFiber',
     });
   }
 
   if (product.nutrition.protein && product.nutrition.protein.value > 10) {
     assessments.push({
       type: 'positive',
-      label: 'Rich in protein',
+      label: 'characteristics.richInProtein',
     });
   }
 
@@ -30,7 +30,7 @@ export function generateAssessments(product: Product): Assessment[] {
   if (product.nutrition.sugars && product.nutrition.sugars.value < 5) {
     assessments.push({
       type: 'positive',
-      label: 'Low in sugar',
+      label: 'characteristics.lowInSugar',
     });
   }
 
@@ -38,7 +38,7 @@ export function generateAssessments(product: Product): Assessment[] {
   if (product.nutrition.salt && product.nutrition.salt.value < 0.3) {
     assessments.push({
       type: 'positive',
-      label: 'Low in salt',
+      label: 'characteristics.lowInSalt',
     });
   }
 
@@ -46,7 +46,7 @@ export function generateAssessments(product: Product): Assessment[] {
   if (product.nutrition.fat && product.nutrition.fat.value < 3) {
     assessments.push({
       type: 'positive',
-      label: 'Low in fat',
+      label: 'characteristics.lowInFat',
     });
   }
 
@@ -54,7 +54,7 @@ export function generateAssessments(product: Product): Assessment[] {
   if (product.nutrition.saturatedFat && product.nutrition.saturatedFat.value < 1.5) {
     assessments.push({
       type: 'positive',
-      label: 'Low in saturated fat',
+      label: 'characteristics.lowInSaturatedFat',
     });
   }
 
@@ -62,7 +62,7 @@ export function generateAssessments(product: Product): Assessment[] {
   if (product.nutrition.calories && product.nutrition.calories.value < 100) {
     assessments.push({
       type: 'positive',
-      label: 'Low calorie',
+      label: 'characteristics.lowCalorie',
     });
   }
 
@@ -70,35 +70,35 @@ export function generateAssessments(product: Product): Assessment[] {
   if (product.nutrition.fat && product.nutrition.fat.value > 20) {
     assessments.push({
       type: 'negative',
-      label: 'High in fat',
+      label: 'characteristics.highInFat',
     });
   }
 
   if (product.nutrition.saturatedFat && product.nutrition.saturatedFat.value > 5) {
     assessments.push({
       type: 'negative',
-      label: 'High in saturated fat',
+      label: 'characteristics.highInSaturatedFat',
     });
   }
 
   if (product.nutrition.calories && product.nutrition.calories.value > 500) {
     assessments.push({
       type: 'negative',
-      label: 'High calorie',
+      label: 'characteristics.highCalorie',
     });
   }
 
   if (product.nutrition.sugars && product.nutrition.sugars.value > 15) {
     assessments.push({
       type: 'negative',
-      label: 'High in sugar',
+      label: 'characteristics.highInSugar',
     });
   }
 
   if (product.nutrition.salt && product.nutrition.salt.value > 1.5) {
     assessments.push({
       type: 'negative',
-      label: 'High in salt',
+      label: 'characteristics.highInSalt',
     });
   }
 
@@ -106,7 +106,7 @@ export function generateAssessments(product: Product): Assessment[] {
   if (product.nutrition.carbohydrates && product.nutrition.carbohydrates.value > 30) {
     assessments.push({
       type: 'negative',
-      label: 'High in carbohydrates',
+      label: 'characteristics.highInCarbohydrates',
     });
   }
 
@@ -114,7 +114,7 @@ export function generateAssessments(product: Product): Assessment[] {
   if (product.nutrition.sodium && product.nutrition.sodium.value > 0.6) {
     assessments.push({
       type: 'negative',
-      label: 'High in sodium',
+      label: 'characteristics.highInSodium',
     });
   }
 
@@ -122,7 +122,7 @@ export function generateAssessments(product: Product): Assessment[] {
   if (product.nutrition.addedSugars && product.nutrition.addedSugars.value > 0) {
     assessments.push({
       type: 'negative',
-      label: 'Contains added sugars',
+      label: 'characteristics.containsAddedSugars',
     });
   }
 

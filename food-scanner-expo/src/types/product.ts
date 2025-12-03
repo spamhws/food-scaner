@@ -87,7 +87,11 @@ export interface OpenFoodFactsResponse {
       proteins?: 'low' | 'moderate' | 'high';
       carbohydrates?: 'low' | 'moderate' | 'high';
     };
-    ingredients_text_en: string;
+    // Language-specific fields (fallback to _en if language not available)
+    ingredients_text?: string; // Will be ingredients_text_{lang} or ingredients_text_en
+    ingredients_text_en?: string; // Fallback
+    // Product name can be language-specific too
+    product_name?: string; // May be in requested language
     allergens_tags: string[];
     labels_tags: string[];
   };
