@@ -29,6 +29,7 @@ import { useNavigationBack } from '@/hooks/useNavigationBack';
 import { APP_STORE_LINKS, APP_STORE_REVIEW_LINKS } from '@/constants/app-store';
 import contactInfo from '@/constants/contact.json';
 import { useTranslation } from '@/hooks/useTranslation';
+import { getAvailableLanguages } from '@/constants/languages';
 
 interface SettingItemProps {
   icon: React.ReactNode;
@@ -84,13 +85,12 @@ export function SettingsScreen() {
   useNavigationBack();
   const headerHeight = useHeaderHeight();
 
-  const languages = [
-    { code: 'en' as const, name: 'English', flag: '🇺🇸' },
-    { code: 'uk' as const, name: 'Українська', flag: '🇺🇦' },
-  ];
+  // Dynamically get available languages from translation files
+  const languages = getAvailableLanguages();
 
   const handleLanguageChange = (langCode: string) => {
-    if (langCode === 'en' || langCode === 'uk') {
+    const validCodes = languages.map((lang) => lang.code);
+    if (validCodes.includes(langCode)) {
       changeLanguage(langCode);
     }
   };

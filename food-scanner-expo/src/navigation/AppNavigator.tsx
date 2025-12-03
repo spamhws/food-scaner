@@ -117,8 +117,8 @@ export function AppNavigator() {
         name="FAQDetail"
         component={FAQDetailScreen}
         options={({ route }) => {
-          const { i18n } = require('react-i18next');
-          const language = i18n.language as 'en' | 'uk';
+          const i18nInstance = require('@/lib/i18n').default;
+          const language = i18nInstance?.language || 'en';
           const faqData =
             language === 'uk' ? require('@/data/faq.uk.json') : require('@/data/faq.json');
           const item = faqData.find((i: any) => i.id === route.params?.id);

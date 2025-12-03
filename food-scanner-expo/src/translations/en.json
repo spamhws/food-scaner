@@ -1,4 +1,8 @@
 {
+  "_meta": {
+    "name": "English",
+    "flag": "🇺🇸"
+  },
   "common": {
     "cancel": "Cancel",
     "ok": "OK",
@@ -54,7 +58,18 @@
     "addedSugar": "Added Sugar, g",
     "fiber": "Fiber, g",
     "salt": "Salt, g",
-    "sodium": "Sodium, g"
+    "sodium": "Sodium, g",
+    "nutrientNames": {
+      "calories": "Calories",
+      "fat": "Fat",
+      "saturated-fat": "Saturated Fat",
+      "sugars": "Sugars",
+      "salt": "Salt",
+      "proteins": "Protein",
+      "fiber": "Fiber",
+      "carbohydrates": "Carbohydrates",
+      "sodium": "Sodium"
+    }
   },
   "scores": {
     "nutriScores": "NUTRI SCORES",

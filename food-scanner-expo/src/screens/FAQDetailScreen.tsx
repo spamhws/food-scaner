@@ -120,13 +120,19 @@ function renderNutrientTable(t: (key: string) => string) {
             <Text className="font-bold text-caption">{t('faq.nutrientTableNutrientHeader')}</Text>
           </View>
           <View className="w-20 p-2 border-r border-gray-30">
-            <Text className="font-bold text-caption text-center">{t('faq.nutrientTableLowHeader')}</Text>
+            <Text className="font-bold text-caption text-center">
+              {t('faq.nutrientTableLowHeader')}
+            </Text>
           </View>
           <View className="w-28 p-2 border-r border-gray-30">
-            <Text className="font-bold text-caption text-center">{t('faq.nutrientTableModerateHeader')}</Text>
+            <Text className="font-bold text-caption text-center">
+              {t('faq.nutrientTableModerateHeader')}
+            </Text>
           </View>
           <View className="w-20 p-2">
-            <Text className="font-bold text-caption text-center">{t('faq.nutrientTableHighHeader')}</Text>
+            <Text className="font-bold text-caption text-center">
+              {t('faq.nutrientTableHighHeader')}
+            </Text>
           </View>
         </View>
 
@@ -146,7 +152,7 @@ function renderNutrientTable(t: (key: string) => string) {
               {/* Nutrient Name with Unit */}
               <View className="flex-1 p-2 border-r border-gray-30 justify-center">
                 <Text className="text-caption font-medium">
-                  {nutrient.name} ({nutrient.unit})
+                  {t(`nutrition.nutrientNames.${key}`) || nutrient.name} ({nutrient.unit})
                 </Text>
               </View>
 
