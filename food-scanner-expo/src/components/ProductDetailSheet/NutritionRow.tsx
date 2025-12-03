@@ -21,11 +21,16 @@ export function NutritionRow({
   isSubItem = false,
 }: NutritionRowProps) {
   const formatValue = (value: number) => {
-    // Always show 1 decimal place for gram values (g), otherwise show integer if whole number
-    if (unit === 'g') {
-      return value.toFixed(1);
+    // Rounding rules:
+    // - Values <= 10: show decimals (if any)
+    // - Values > 10: round to integer
+    if (value <= 10) {
+      // Show decimals for small values
+      return value % 1 === 0 ? value.toString() : value.toFixed(1);
+    } else {
+      // Round to integer for larger values
+      return Math.round(value).toString();
     }
-    return value % 1 === 0 ? value.toString() : value.toFixed(1);
   };
 
   return (

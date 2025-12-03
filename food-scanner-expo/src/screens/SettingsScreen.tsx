@@ -19,6 +19,7 @@ import {
   IconChevronRight,
   IconSend,
   IconStar,
+  IconMessageChatbot,
 } from '@tabler/icons-react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
@@ -44,7 +45,7 @@ function SettingItem({
 }: SettingItemProps) {
   const content = (
     <>
-      <View className="mr-4">{icon}</View>
+      <View className="mr-3">{icon}</View>
       <View className="flex-1">
         <Text className="text-base font-medium text-black">{title}</Text>
         {subtitle && <Text className="text-sm text-gray-60 mt-0.5">{subtitle}</Text>}
@@ -57,7 +58,7 @@ function SettingItem({
   if (onPress) {
     return (
       <TouchableOpacity
-        className="flex-row items-center bg-white rounded-xl shadow-card px-4 py-4 mb-3"
+        className="flex-row items-center bg-white rounded-xl shadow-card px-4 py-4 mb-4"
         onPress={onPress}
         activeOpacity={0.7}
       >
@@ -112,6 +113,23 @@ export function SettingsScreen() {
     }
   };
 
+  const handleContactDevelopers = async () => {
+    try {
+      const email = 'foodid.app@gmail.com';
+      const subject = 'Food ID App - Contact';
+      const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+
+      const canOpen = await Linking.canOpenURL(mailtoUrl);
+      if (canOpen) {
+        await Linking.openURL(mailtoUrl);
+      } else {
+        Alert.alert('Error', 'Unable to open email app. Please try again.');
+      }
+    } catch (error) {
+      Alert.alert('Error', 'Unable to open email app. Please try again.');
+    }
+  };
+
   return (
     <View className="flex-1 bg-gray-10">
       <ScrollView
@@ -137,6 +155,11 @@ export function SettingsScreen() {
           icon={<IconStar size={24} stroke="#8E99AB" />}
           title="Rate the App"
           onPress={handleRateApp}
+        />
+        <SettingItem
+          icon={<IconMessageChatbot size={24} stroke="#8E99AB" />}
+          title="Contact Developers"
+          onPress={handleContactDevelopers}
         />
         <SettingItem
           icon={<IconFileText size={24} stroke="#8E99AB" />}

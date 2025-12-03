@@ -15,3 +15,4 @@ export function useHeaderHeight(): number {
   return Platform.OS === 'ios' && isLiquidGlassAvailable() ? 44 + insets.top : 0;
 }
 
+

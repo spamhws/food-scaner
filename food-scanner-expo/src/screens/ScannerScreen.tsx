@@ -11,7 +11,8 @@ import {
   TouchableOpacity,
   Linking,
 } from 'react-native';
-import { useIsFocused } from '@react-navigation/native';
+import { useIsFocused, useFocusEffect } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { BlurView } from 'expo-blur';
 import MaskedView from '@react-native-masked-view/masked-view';
@@ -22,7 +23,7 @@ import { ScannerControl } from '@/components/ScannerControl';
 import { CornerDecorations } from '@/components/ui/CornerDecorations';
 import { ProductCardSlider, type ProductCardSliderRef } from '@/components/ProductCardSlider';
 import { ProductDetailSheet } from '@/components/ProductDetailSheet/ProductDetailSheet';
-import { DevTools } from '@/components/DevTools';
+
 import { useBarcodeScanner } from '@/hooks/useBarcodeScanner';
 import { useHistory } from '@/hooks/useHistory';
 import { useProduct } from '@/hooks/useProduct';
@@ -70,7 +71,7 @@ export function ScannerScreen() {
   });
 
   const controlHeight = 64;
-  const resultCardHeight = 116;
+  const resultCardHeight = 120;
   const tabBarHeight = 60; // Height of the bottom tab bar
 
   // Window geometry - responsive to viewport
@@ -277,6 +278,9 @@ export function ScannerScreen() {
 
   return (
     <>
+      {/* Status Bar - Light content for dark background when screen is focused (iOS only) */}
+      {isFocused && Platform.OS === 'ios' && <StatusBar style="light" />}
+
       {/* Android Barcode Entry Modal */}
       <Modal
         visible={showBarcodeModal}
@@ -322,8 +326,6 @@ export function ScannerScreen() {
       </Modal>
 
       <View className="relative flex-1 bg-black">
-       
-
         {/* Camera View - only active when screen is focused and sheet is closed */}
         {isFocused && !selectedBarcode && (
           <CameraView

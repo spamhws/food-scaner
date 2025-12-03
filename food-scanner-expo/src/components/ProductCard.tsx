@@ -65,7 +65,7 @@ export function ProductCard({
   const content = (
     <View className="flex-row gap-3">
       {/* Left Section - Product Image */}
-      <View className="relative aspect-square h-[100px] w-[100px] items-center justify-center rounded-xl border border-gray-30 bg-gray-10 overflow-hidden">
+      <View className="relative aspect-square h-full items-center justify-center rounded-xl border border-gray-30 bg-gray-10 overflow-hidden">
         {isLoading ? (
           <ActivityIndicator size="large" color="#8E99AB" />
         ) : isError ? (
@@ -85,9 +85,9 @@ export function ProductCard({
       </View>
 
       {/* Right Section - Product Info */}
-      <View className="flex-1 justify-center gap-1">
+      <View className="flex-1 justify-center gap-1.5">
         {/* Product Name, Brand, and Weight */}
-        <Text className="font-medium text-base leading-5 text-black" numberOfLines={2}>
+        <Text className="font-medium text-base leading-6 text-black" numberOfLines={2}>
           {isLoading ? (
             'Loading product...'
           ) : isError ? (
@@ -128,8 +128,8 @@ export function ProductCard({
               </View>
             )}
             {/* Protein - only if provided */}
-            {product.nutrition.protein &&
-              (product.nutrition.protein.per_100g > 0 || product.nutrientLevels?.proteins) && (
+            {product.nutrition.protein 
+               && (
                 <View className="flex-row items-center gap-0.5">
                   <IconMeat
                     size={16}
@@ -143,7 +143,7 @@ export function ProductCard({
               )}
             {/* Fat - only if provided */}
             {product.nutrition.fat &&
-              (product.nutrition.fat.per_100g > 0 || product.nutrientLevels?.fat) && (
+              (
                 <View className="flex-row items-center gap-0.5">
                   <IconDroplet
                     size={16}
@@ -155,8 +155,7 @@ export function ProductCard({
               )}
             {/* Carbohydrates - only if provided */}
             {product.nutrition.carbohydrates &&
-              (product.nutrition.carbohydrates.per_100g > 0 ||
-                product.nutrientLevels?.carbohydrates) && (
+             (
                 <View className="flex-row items-center gap-0.5">
                   <IconWheat
                     size={16}
@@ -196,7 +195,7 @@ export function ProductCard({
 
   return (
     <Card
-      className={clsx('p-2 mb-0 flex-shrink-0 min-h-[116px]', inSlider ? '' : 'w-full', className)}
+      className={clsx('p-2 mb-0 flex-shrink-0 min-h-[120px]', inSlider ? '' : 'w-full', className)}
       style={inSlider && sliderWidth ? { width: sliderWidth } : undefined}
     >
       {onPress && product && !isError && !isLoading ? (

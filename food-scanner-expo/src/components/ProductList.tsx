@@ -35,8 +35,7 @@ function AnimatedSwipeableItem({
   renderRightActions: () => React.ReactNode;
 }) {
   const swipeableRef = useRef<Swipeable>(null);
-  // ProductCard has min-h-[116px], use that as initial default
-  const CARD_MIN_HEIGHT = 116;
+  const CARD_MIN_HEIGHT = 120;
   const CARD_GAP = 12; // mb-3 = 12px
   const itemHeight = useSharedValue<number>(CARD_MIN_HEIGHT);
   const marginBottom = useSharedValue<number>(index < totalItems - 1 ? CARD_GAP : 0);
@@ -65,7 +64,8 @@ function AnimatedSwipeableItem({
     height: itemHeight.value,
     marginBottom: marginBottom.value,
     opacity: opacity.value,
-    overflow: 'hidden',
+    overflow: 'visible',
+    
   }));
 
   return (
@@ -75,6 +75,9 @@ function AnimatedSwipeableItem({
         renderRightActions={renderRightActions}
         onSwipeableOpen={handleDelete}
         overshootRight={false}
+        containerStyle={{
+          overflow: 'visible',
+        }}
       >
         {children}
       </Swipeable>
@@ -134,6 +137,7 @@ export function ProductList({
               totalItems={barcodes.length}
               onDelete={onProductDelete}
               renderRightActions={() => renderRightActions(barcode)}
+              
             >
               {card}
             </AnimatedSwipeableItem>

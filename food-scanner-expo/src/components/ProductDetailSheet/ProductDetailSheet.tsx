@@ -29,7 +29,7 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
   const [isSharing, setIsSharing] = useState(false);
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
-  const snapPoints = useMemo(() => [SCREEN_HEIGHT - 150], []);
+  const snapPoints = useMemo(() => [SCREEN_HEIGHT - 64], []);
   const isFavorite = product ? checkIsFavorite(product.barcode) : false;
 
   // Ignore safe area for the sheet itself
@@ -120,7 +120,7 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
       ref={bottomSheetModalRef}
       snapPoints={snapPoints}
       enablePanDownToClose
-      enableContentPanningGesture={false}
+      enableContentPanningGesture={true}
       enableHandlePanningGesture={true}
       onChange={handleSheetChanges}
       onDismiss={handleDismiss}

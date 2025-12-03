@@ -75,7 +75,7 @@ export function HistoryScreen() {
   const handleClearAll = () => {
     Alert.alert(
       'Clear All History',
-      'Are you sure you want to clear all items from your history?',
+      "Are you sure you want to clear all the items from your history? It won't affect to favorite products list",
       [
         {
           text: 'Cancel',
