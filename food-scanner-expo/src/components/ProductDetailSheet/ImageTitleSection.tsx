@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/Badge';
 import { InfoCard } from './InfoCard';
 import { getNutriscoreBadgeVariant, getNutriscoreDescription } from '@/lib/utils/product-narrative';
 import { calculateBadgeGrade } from '@/lib/utils/badge-calculator';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface ImageTitleSectionProps {
   product: Product;
@@ -12,6 +13,7 @@ interface ImageTitleSectionProps {
 }
 
 export function ImageTitleSection({ product, onNutriscorePress }: ImageTitleSectionProps) {
+  const { t } = useTranslation();
   return (
     <InfoCard className="flex-col gap-4">
       {product.image ? (
@@ -30,7 +32,7 @@ export function ImageTitleSection({ product, onNutriscorePress }: ImageTitleSect
 
       <View className="items-center mb-2 gap-3">
         <Text className="text-title font-bold text-center -mx-2 text-black">
-          {product.name || 'Unknown Product'}
+          {product.name || t('product.unknownProduct')}
           {product.brand &&
             product.brand !== 'null' &&
             product.brand.trim() &&
@@ -41,7 +43,7 @@ export function ImageTitleSection({ product, onNutriscorePress }: ImageTitleSect
           return badgeGrade ? (
             <Badge
               variant={getNutriscoreBadgeVariant(badgeGrade)}
-              label={getNutriscoreDescription(badgeGrade)}
+              label={getNutriscoreDescription(badgeGrade, t)}
               interactive
               onPress={onNutriscorePress}
             />

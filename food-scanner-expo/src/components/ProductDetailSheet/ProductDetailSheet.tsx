@@ -15,6 +15,7 @@ import { NutriScoresSection } from './NutriScoresSection';
 import { CharacteristicsSection } from './CharacteristicsSection';
 import { AllergensSection } from './AllergensSection';
 import { IngredientsSection } from './IngredientsSection';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface ProductDetailSheetProps {
   product: Product | null;
@@ -24,6 +25,7 @@ interface ProductDetailSheetProps {
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps) {
+  const { t } = useTranslation();
   const navigation = useNavigation<NavigationProp>();
   const { isFavorite: checkIsFavorite, toggle: toggleFavorite } = useFavorites();
   const [isSharing, setIsSharing] = useState(false);
@@ -106,11 +108,16 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
   const handleNutriscorePress = () => {
     // Only show NutriScore info if it's official from OpenFoodFacts
     if (!product?.assessment) return;
-    const narrative = generateProductNarrative(product);
-    const gradeDescription = getNutriscoreDescription(product.assessment.category);
-    Alert.alert(`Nutri-Score ${product.assessment.category} - ${gradeDescription}`, narrative, [
-      { text: 'Got it', style: 'default' },
-    ]);
+    const narrative = generateProductNarrative(product, t);
+    const gradeDescription = getNutriscoreDescription(product.assessment.category, t);
+    Alert.alert(
+      t('alerts.nutriScoreTitle', {
+        grade: product.assessment.category,
+        description: gradeDescription,
+      }),
+      narrative,
+      [{ text: t('common.gotIt'), style: 'default' }]
+    );
   };
 
   const assessments = product ? generateAssessments(product) : [];
@@ -159,7 +166,7 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
                 return (
                   <View className="py-4">
                     <Text className="text-caption text-gray-70 text-center">
-                      No information on this product yet
+                      {t('product.noInformation')}
                     </Text>
                   </View>
                 );

@@ -10,8 +10,10 @@ import { Images } from '@/constants/assets';
 import { CTAScreen } from '@/components/CTAScreen';
 import { HeaderButton } from '@/navigation/AppNavigator';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export function FavouritesScreen() {
+  const { t } = useTranslation();
   const navigation = useNavigation<NavigationProp>();
   const { favorites, clear, removeItem } = useFavorites();
   const [selectedBarcode, setSelectedBarcode] = useState<string | null>(null);
@@ -53,15 +55,15 @@ export function FavouritesScreen() {
 
   const handleClearAll = () => {
     Alert.alert(
-      'Clear All Favorites',
-      'Are you sure you want to clear all items from your favorites?',
+      t('favourites.clearAllFavourites'),
+      t('favourites.clearAllFavouritesMessage'),
       [
         {
-          text: 'Cancel',
+          text: t('common.cancel'),
           style: 'cancel',
         },
         {
-          text: 'Clear All',
+          text: t('common.clearAll'),
           style: 'destructive',
           onPress: async () => {
             await clear();
@@ -76,7 +78,7 @@ export function FavouritesScreen() {
     navigation.setOptions({
       headerRight: () =>
         favorites.length > 0 ? (
-          <HeaderButton onPress={handleClearAll}>Clear All</HeaderButton>
+          <HeaderButton onPress={handleClearAll}>{t('common.clearAll')}</HeaderButton>
         ) : null,
     });
   }, [navigation, favorites.length]);
@@ -89,9 +91,9 @@ export function FavouritesScreen() {
       {isEmpty ? (
         <CTAScreen
           image={Images.brokenHeart}
-          title="Broken heart"
-          description="Your beloved snacks are all it needs to heal!"
-          buttonText="Find your favorites"
+          title={t('favourites.brokenHeart')}
+          description={t('favourites.brokenHeartDescription')}
+          buttonText={t('favourites.findFavourites')}
           onButtonPress={handleGoToScanner}
         />
       ) : (

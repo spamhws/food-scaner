@@ -7,13 +7,14 @@
     "icon": "./assets/icon/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "NSCameraUsageDescription": "This app uses the camera to scan barcodes on food products."
+        "NSCameraUsageDescription": "This app uses the camera to scan barcodes on food products.",
+        "ITSAppUsesNonExemptEncryption": false
       },
-      "icon": "./assets/icon/composer.icon"
+      "icon": "./assets/icon/composer.icon",
+      "bundleIdentifier": "com.foodid"
     },
     "android": {
       "package": "com.foodid",

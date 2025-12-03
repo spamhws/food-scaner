@@ -3,9 +3,17 @@ import { View, ScrollView, TouchableOpacity, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { IconChevronRight } from '@tabler/icons-react-native';
 import type { NavigationProp } from '@/navigation/navigation-types';
-import faqData from '@/data/faq.json';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useNavigationBack } from '@/hooks/useNavigationBack';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
+
+// Load FAQ data based on language
+const getFAQData = (language: 'en' | 'uk') => {
+  if (language === 'uk') {
+    return require('@/data/faq.uk.json');
+  }
+  return require('@/data/faq.json');
+};
 
 interface FAQItem {
   id: string;
@@ -15,9 +23,11 @@ interface FAQItem {
 }
 
 export function FAQScreen() {
+  const { currentLanguage } = useTranslation();
   const navigation = useNavigation<NavigationProp>();
   useNavigationBack();
   const headerHeight = useHeaderHeight();
+  const faqData = getFAQData(currentLanguage);
 
   const handleQuestionPress = (id: string) => {
     navigation.navigate('FAQDetail', { id });

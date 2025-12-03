@@ -4,8 +4,17 @@ import { useRoute, RouteProp } from '@react-navigation/native';
 import { IconThumbUp, IconThumbDown } from '@tabler/icons-react-native';
 import type { RootStackParamList } from '@/navigation/AppNavigator';
 import { useNavigationBack } from '@/hooks/useNavigationBack';
-import faqData from '@/data/faq.json';
+import { useTranslation } from '@/hooks/useTranslation';
 import { ScoreImage } from '@/components/ScoreImage';
+import { useTranslation as useI18nTranslation } from 'react-i18next';
+
+// Load FAQ data based on language
+const getFAQData = (language: 'en' | 'uk') => {
+  if (language === 'uk') {
+    return require('@/data/faq.uk.json');
+  }
+  return require('@/data/faq.json');
+};
 import { getTailwindColor } from '@/lib/utils/tailwind-colors';
 import nutrientThresholdsData from '@/data/nutrient-thresholds.json';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
@@ -94,7 +103,7 @@ function renderTextWithBold(text: string): React.ReactNode[] {
 /**
  * Render a nutrient thresholds table
  */
-function renderNutrientTable() {
+function renderNutrientTable(t: (key: string) => string) {
   const thresholds = nutrientThresholdsData as Record<
     string,
     { name: string; unit: string; low: number; high: number; isPositive: boolean }
@@ -108,16 +117,22 @@ function renderNutrientTable() {
         {/* Table Header */}
         <View className="flex-row bg-gray-20 border-b border-gray-30">
           <View className="flex-1 p-2 border-r border-gray-30">
-            <Text className="font-bold text-caption">Nutrient</Text>
+            <Text className="font-bold text-caption">{t('faq.nutrientTableNutrientHeader')}</Text>
           </View>
           <View className="w-20 p-2 border-r border-gray-30">
-            <Text className="font-bold text-caption text-center">Low</Text>
+            <Text className="font-bold text-caption text-center">
+              {t('faq.nutrientTableLowHeader')}
+            </Text>
           </View>
           <View className="w-28 p-2 border-r border-gray-30">
-            <Text className="font-bold text-caption text-center">Moderate</Text>
+            <Text className="font-bold text-caption text-center">
+              {t('faq.nutrientTableModerateHeader')}
+            </Text>
           </View>
           <View className="w-20 p-2">
-            <Text className="font-bold text-caption text-center">High</Text>
+            <Text className="font-bold text-caption text-center">
+              {t('faq.nutrientTableHighHeader')}
+            </Text>
           </View>
         </View>
 
@@ -137,7 +152,7 @@ function renderNutrientTable() {
               {/* Nutrient Name with Unit */}
               <View className="flex-1 p-2 border-r border-gray-30 justify-center">
                 <Text className="text-caption font-medium">
-                  {nutrient.name} ({nutrient.unit})
+                  {t(`nutrition.nutrientNames.${key}`) || nutrient.name} ({nutrient.unit})
                 </Text>
               </View>
 
@@ -174,17 +189,20 @@ function renderNutrientTable() {
 }
 
 export function FAQDetailScreen() {
+  const { currentLanguage } = useTranslation();
+  const { t } = useI18nTranslation();
   const route = useRoute<FAQDetailRouteProp>();
   const { id } = route.params || {};
   useNavigationBack();
   const headerHeight = useHeaderHeight();
+  const faqData = getFAQData(currentLanguage);
 
   const faqItem = (faqData as FAQItem[]).find((item) => item.id === id);
 
   if (!faqItem) {
     return (
       <View className="flex-1 bg-gray-10 justify-center items-center">
-        <Text className="text-gray-60">FAQ item not found</Text>
+        <Text className="text-gray-60">{t('faq.itemNotFound')}</Text>
       </View>
     );
   }
@@ -280,7 +298,7 @@ export function FAQDetailScreen() {
                     {section.title && (
                       <Text className="text-lg font-semibold mb-3">{section.title}</Text>
                     )}
-                    {section.dataSource === 'nutrient-thresholds' && renderNutrientTable()}
+                    {section.dataSource === 'nutrient-thresholds' && renderNutrientTable(t)}
                   </View>
                 );
               }

@@ -16,6 +16,7 @@ import { Badge } from '@/components/ui/Badge';
 import { getNutriscoreBadgeVariant, getNutriscoreDescription } from '@/lib/utils/product-narrative';
 import { calculateBadgeGrade } from '@/lib/utils/badge-calculator';
 import { getNutrientColor, getCaloriesColor } from '@/lib/utils/nutrient-colors';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface ProductCardProps {
   barcode: string;
@@ -34,6 +35,7 @@ export function ProductCard({
   inSlider = false,
   sliderWidth,
 }: ProductCardProps) {
+  const { t } = useTranslation();
   const { data: product, isLoading } = useProduct({
     barcode,
     enabled: !!barcode,
@@ -89,12 +91,12 @@ export function ProductCard({
         {/* Product Name, Brand, and Weight */}
         <Text className="font-medium text-base leading-6 text-black" numberOfLines={2}>
           {isLoading ? (
-            'Loading product...'
+            t('product.loadingProduct')
           ) : isError ? (
-            'Oops, nothing found'
+            t('product.nothingFound')
           ) : (
             <>
-              {product?.name || 'Unknown Product'}
+              {product?.name || t('product.unknownProduct')}
               {product?.brand &&
                 product.brand !== 'null' &&
                 product.brand.trim() &&
@@ -107,7 +109,7 @@ export function ProductCard({
 
         {(isError || isLoading) && (
           <Text className="text-sm text-gray-60">
-            {isLoading ? 'Please wait...' : 'It seems this item is not in my knowledge base'}
+            {isLoading ? t('common.pleaseWait') : t('product.notInDatabase')}
           </Text>
         )}
 
@@ -128,49 +130,44 @@ export function ProductCard({
               </View>
             )}
             {/* Protein - only if provided */}
-            {product.nutrition.protein 
-               && (
-                <View className="flex-row items-center gap-0.5">
-                  <IconMeat
-                    size={16}
-                    stroke={getNutrientColor(product.nutrientLevels, 'proteins', product.nutrition)}
-                    strokeWidth={1.75}
-                  />
-                  <Text className="font-semibold">
-                    {product.nutrition.protein.value.toFixed(1)}
-                  </Text>
-                </View>
-              )}
+            {product.nutrition.protein && (
+              <View className="flex-row items-center gap-0.5">
+                <IconMeat
+                  size={16}
+                  stroke={getNutrientColor(product.nutrientLevels, 'proteins', product.nutrition)}
+                  strokeWidth={1.75}
+                />
+                <Text className="font-semibold">{product.nutrition.protein.value.toFixed(1)}</Text>
+              </View>
+            )}
             {/* Fat - only if provided */}
-            {product.nutrition.fat &&
-              (
-                <View className="flex-row items-center gap-0.5">
-                  <IconDroplet
-                    size={16}
-                    stroke={getNutrientColor(product.nutrientLevels, 'fat', product.nutrition)}
-                    strokeWidth={1.75}
-                  />
-                  <Text className="font-semibold">{product.nutrition.fat.value.toFixed(1)}</Text>
-                </View>
-              )}
+            {product.nutrition.fat && (
+              <View className="flex-row items-center gap-0.5">
+                <IconDroplet
+                  size={16}
+                  stroke={getNutrientColor(product.nutrientLevels, 'fat', product.nutrition)}
+                  strokeWidth={1.75}
+                />
+                <Text className="font-semibold">{product.nutrition.fat.value.toFixed(1)}</Text>
+              </View>
+            )}
             {/* Carbohydrates - only if provided */}
-            {product.nutrition.carbohydrates &&
-             (
-                <View className="flex-row items-center gap-0.5">
-                  <IconWheat
-                    size={16}
-                    stroke={getNutrientColor(
-                      product.nutrientLevels,
-                      'carbohydrates',
-                      product.nutrition
-                    )}
-                    strokeWidth={1.75}
-                  />
-                  <Text className="font-semibold">
-                    {product.nutrition.carbohydrates.value.toFixed(1)}
-                  </Text>
-                </View>
-              )}
+            {product.nutrition.carbohydrates && (
+              <View className="flex-row items-center gap-0.5">
+                <IconWheat
+                  size={16}
+                  stroke={getNutrientColor(
+                    product.nutrientLevels,
+                    'carbohydrates',
+                    product.nutrition
+                  )}
+                  strokeWidth={1.75}
+                />
+                <Text className="font-semibold">
+                  {product.nutrition.carbohydrates.value.toFixed(1)}
+                </Text>
+              </View>
+            )}
           </View>
         )}
 
@@ -184,7 +181,7 @@ export function ProductCard({
               <View className="mt-1 self-start">
                 <Badge
                   variant={getNutriscoreBadgeVariant(badgeGrade)}
-                  label={getNutriscoreDescription(badgeGrade)}
+                  label={getNutriscoreDescription(badgeGrade, t)}
                 />
               </View>
             ) : null;

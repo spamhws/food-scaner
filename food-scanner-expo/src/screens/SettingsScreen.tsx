@@ -9,6 +9,7 @@ import {
   Linking,
   Alert,
 } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import Constants from 'expo-constants';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 import {
@@ -20,12 +21,15 @@ import {
   IconSend,
   IconStar,
   IconMessageChatbot,
+  IconLanguage,
 } from '@tabler/icons-react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
 import { useNavigationBack } from '@/hooks/useNavigationBack';
 import { APP_STORE_LINKS, APP_STORE_REVIEW_LINKS } from '@/constants/app-store';
 import contactInfo from '@/constants/contact.json';
+import { useTranslation } from '@/hooks/useTranslation';
+import { getAvailableLanguages } from '@/constants/languages';
 
 interface SettingItemProps {
   icon: React.ReactNode;
@@ -76,23 +80,36 @@ function SettingItem({
 }
 
 export function SettingsScreen() {
+  const { t, currentLanguage, changeLanguage } = useTranslation();
   const navigation = useNavigation<NavigationProp>();
   useNavigationBack();
   const headerHeight = useHeaderHeight();
 
+  // Dynamically get available languages from translation files
+  const languages = getAvailableLanguages();
+
+  const handleLanguageChange = (langCode: string) => {
+    const validCodes = languages.map((lang) => lang.code);
+    if (validCodes.includes(langCode)) {
+      changeLanguage(langCode);
+    }
+  };
+
+  const currentLanguageData = languages.find((lang) => lang.code === currentLanguage);
+
   const handleShareApp = async () => {
     try {
-      const message = `Check out Food ID - the app that helps you make informed food choices!
-
-🍎 App Store: ${APP_STORE_LINKS.ios}
-🤖 Google Play: ${APP_STORE_LINKS.android}`;
+      const message = t('settings.shareMessage', {
+        iosLink: APP_STORE_LINKS.ios,
+        androidLink: APP_STORE_LINKS.android,
+      });
 
       await Share.share({
         message,
-        title: 'Share Food ID',
+        title: t('settings.shareFoodId'),
       });
     } catch (error) {
-      Alert.alert('Error', 'Unable to share the app. Please try again.');
+      Alert.alert(t('common.error'), t('settings.unableToShare'));
     }
   };
 
@@ -110,13 +127,13 @@ export function SettingsScreen() {
         await Linking.openURL(fallbackLink);
       }
     } catch (error) {
-      Alert.alert('Error', 'Unable to open the app store. Please try again.');
+      Alert.alert(t('common.error'), t('settings.unableToOpenStore'));
     }
   };
 
   const handleContactDevelopers = async () => {
     try {
-      const subject = 'Food ID App - Contact';
+      const subject = t('settings.contactSubject');
       const mailtoUrl = `mailto:${contactInfo.email}?subject=${encodeURIComponent(subject)}`;
 
       // Try to open mailto: URL
@@ -132,17 +149,20 @@ export function SettingsScreen() {
 
       // Fallback: Use Share API (works in Expo Go)
       // This allows users to share the email via any app (Mail, Messages, etc.)
-      const emailMessage = `Contact Food ID Developers\n\nEmail: ${contactInfo.email}\nSubject: ${subject}`;
+      const emailMessage = t('settings.contactMessage', {
+        email: contactInfo.email,
+        subject,
+      });
       await Share.share({
         message: emailMessage,
-        title: 'Contact Food ID',
+        title: t('settings.contactFoodId'),
       });
     } catch (error) {
       // Final fallback: show email in alert
       Alert.alert(
-        'Contact Developers',
-        `Email: ${contactInfo.email}\n\nSubject: Food ID App - Contact\n\nYou can copy the email address and send us a message.`,
-        [{ text: 'OK' }]
+        t('settings.contactDevelopers'),
+        t('settings.contactFallback', { email: contactInfo.email }),
+        [{ text: t('common.ok') }]
       );
     }
   };
@@ -160,40 +180,72 @@ export function SettingsScreen() {
         {/* Information Section */}
         <SettingItem
           icon={<IconHelpHexagon size={24} stroke="#8E99AB" />}
-          title="FAQ"
+          title={t('settings.faq')}
           onPress={() => navigation.navigate('FAQ')}
         />
         <SettingItem
           icon={<IconSend size={24} stroke="#8E99AB" />}
-          title="Share the App"
+          title={t('settings.shareTheApp')}
           onPress={handleShareApp}
         />
         <SettingItem
           icon={<IconStar size={24} stroke="#8E99AB" />}
-          title="Rate the App"
+          title={t('settings.rateTheApp')}
           onPress={handleRateApp}
         />
         <SettingItem
           icon={<IconMessageChatbot size={24} stroke="#8E99AB" />}
-          title="Contact Developers"
+          title={t('settings.contactDevelopers')}
           onPress={handleContactDevelopers}
         />
         <SettingItem
           icon={<IconFileText size={24} stroke="#8E99AB" />}
-          title="User Agreement"
+          title={t('settings.userAgreement')}
           onPress={() => navigation.navigate('UserAgreement')}
-        />
-        <SettingItem
-          icon={<IconShieldLock size={24} stroke="#8E99AB" />}
-          title="Privacy Policy"
-          onPress={() => navigation.navigate('PrivacyPolicy')}
         />
 
         <SettingItem
           icon={<IconDeviceMobile size={24} stroke="#8E99AB" />}
-          title="App Version"
-          value={Constants.expoConfig?.version || 'unknown'}
+          title={t('settings.appVersion')}
+          value={Constants.expoConfig?.version || t('common.unknown')}
           showChevron={false}
+        />
+
+        {/* Language Picker - Full Card Style */}
+        <View className="flex-row items-center bg-white rounded-xl shadow-card px-4 py-1 mb-3">
+          <View className="mr-3">
+            <IconLanguage size={24} stroke="#8E99AB" />
+          </View>
+          <View className="flex-1">
+            <Text className="text-base font-medium text-black">{t('settings.language')}</Text>
+          </View>
+          <View className="flex-row items-center flex-1 justify-end">
+            <Picker
+              selectedValue={currentLanguage}
+              onValueChange={handleLanguageChange}
+              style={{
+                flex: 1,
+                minWidth: 140,
+                height: Platform.OS === 'ios' ? 100 : 50,
+              }}
+              dropdownIconColor="#8E99AB"
+              mode={Platform.OS === 'android' ? 'dropdown' : 'dialog'}
+            >
+              {languages.map((lang) => (
+                <Picker.Item
+                  key={lang.code}
+                  label={`${lang.flag}  ${lang.name}`}
+                  value={lang.code}
+                />
+              ))}
+            </Picker>
+          </View>
+        </View>
+
+        <SettingItem
+          icon={<IconShieldLock size={24} stroke="#8E99AB" />}
+          title={t('settings.privacyPolicy')}
+          onPress={() => navigation.navigate('PrivacyPolicy')}
         />
       </ScrollView>
     </View>

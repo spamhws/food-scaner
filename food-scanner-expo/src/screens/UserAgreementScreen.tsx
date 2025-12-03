@@ -2,12 +2,22 @@ import React, { useEffect } from 'react';
 import { View, Text, ScrollView, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
-import agreementData from '@/data/userAgreement.json';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 
+// Load agreement data based on language
+const getAgreementData = (language: 'en' | 'uk') => {
+  if (language === 'uk') {
+    return require('@/data/userAgreement.uk.json');
+  }
+  return require('@/data/userAgreement.json');
+};
+
 export function UserAgreementScreen() {
+  const { currentLanguage } = useTranslation();
   const navigation = useNavigation<NavigationProp>();
   const headerHeight = useHeaderHeight();
+  const agreementData = getAgreementData(currentLanguage);
 
   // Handle Android back button
   useEffect(() => {
@@ -34,7 +44,12 @@ export function UserAgreementScreen() {
         }}
       >
         <Text className="text-sm text-gray-60 mb-6 italic font-inter">
-          Last updated: {agreementData.lastUpdated}
+          {currentLanguage === 'uk' ? 'Останнє оновлення: ' : 'Last updated: '}
+          {new Intl.DateTimeFormat(currentLanguage === 'uk' ? 'uk-UA' : 'en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          }).format(new Date(agreementData.lastUpdated))}
         </Text>
 
         {agreementData.sections.map((section) => (

@@ -1,0 +1,166 @@
+{
+  "_meta": {
+    "name": "English",
+    "flag": "🇺🇸"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "ok": "OK",
+    "done": "Done",
+    "search": "Search",
+    "clearAll": "Clear All",
+    "learnMore": "Learn More",
+    "gotIt": "Got it",
+    "unknown": "Unknown",
+    "loading": "Loading...",
+    "pleaseWait": "Please wait...",
+    "error": "Error",
+    "retry": "Retry"
+  },
+  "navigation": {
+    "scanner": "Scanner",
+    "history": "History",
+    "favourites": "Favourites",
+    "info": "Info",
+    "faq": "FAQ",
+    "userAgreement": "User Agreement",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "scanner": {
+    "loadingCamera": "Loading camera...",
+    "readyToScan": "Ready to Scan?",
+    "cameraPermissionDescription": "We just need camera access to scan barcodes. Nothing is recorded.",
+    "enableCamera": "Enable Camera",
+    "openSettings": "Open Settings",
+    "openSettingsMessage": "Please go to Settings > Food ID > Camera and enable camera access.",
+    "enterBarcode": "Enter Barcode",
+    "enterBarcodeDescription": "Enter the numbers below the barcode to find the product",
+    "barcode": "Barcode",
+    "buttonText": "Scan your first product"
+  },
+  "product": {
+    "loadingProduct": "Loading product...",
+    "nothingFound": "Oops, nothing found",
+    "unknownProduct": "Unknown Product",
+    "notInDatabase": "It seems this item is not in my knowledge base",
+    "noInformation": "No information on this product yet"
+  },
+  "nutrition": {
+    "nutritionalValue": "Nutritional value",
+    "per100g": "PER 100G",
+    "per100gPerPackage": "PER 100G / PER PACKAGE",
+    "calories": "Calories, kcal",
+    "protein": "Protein, g",
+    "fats": "Fats, g",
+    "saturatedFats": "Saturated Fats, g",
+    "carbs": "Carbs, g",
+    "sugars": "Sugars, g",
+    "addedSugar": "Added Sugar, g",
+    "fiber": "Fiber, g",
+    "salt": "Salt, g",
+    "sodium": "Sodium, g",
+    "nutrientNames": {
+      "calories": "Calories",
+      "fat": "Fat",
+      "saturated-fat": "Saturated Fat",
+      "sugars": "Sugars",
+      "salt": "Salt",
+      "proteins": "Protein",
+      "fiber": "Fiber",
+      "carbohydrates": "Carbohydrates",
+      "sodium": "Sodium"
+    }
+  },
+  "scores": {
+    "nutriScores": "NUTRI SCORES",
+    "nutriScore": "Nutri-Score",
+    "nutriScoreDescription": "Rates nutritional quality (A to E) per 100g, balancing beneficial (protein, fibre) and detrimental (fat, sugar, salt) components. A is the best choice for health.",
+    "ecoscore": "ECO-Score",
+    "ecoscoreDescription": "Rates the environmental impact (A to E), considering CO2 emissions, packaging recyclability, and ingredient origins. A is the best choice for the planet.",
+    "novascore": "NOVA Score",
+    "novascoreDescription": "Rates the degree of industrial processing (Group 1 to 4). Group 4 is Ultra-Processed Food (UPF), which should be limited regardless of its nutrient content.",
+    "excellentChoice": "Excellent Choice",
+    "goodOption": "Good option",
+    "lessHealthy": "Less healthy",
+    "unhealthy": "Unhealthy"
+  },
+  "characteristics": {
+    "keyCharacteristics": "Key characteristics",
+    "highInFiber": "High in fiber",
+    "richInProtein": "Rich in protein",
+    "lowInSugar": "Low in sugar",
+    "lowInSalt": "Low in salt",
+    "lowInFat": "Low in fat",
+    "lowInSaturatedFat": "Low in saturated fat",
+    "lowCalorie": "Low calorie",
+    "highInFat": "High in fat",
+    "highInSaturatedFat": "High in saturated fat",
+    "highCalorie": "High calorie",
+    "highInSugar": "High in sugar",
+    "highInSalt": "High in salt",
+    "highInCarbohydrates": "High in carbohydrates",
+    "highInSodium": "High in sodium",
+    "containsAddedSugars": "Contains added sugars"
+  },
+  "allergens": {
+    "allergens": "Allergens"
+  },
+  "ingredients": {
+    "ingredients": "Ingredients"
+  },
+  "narrative": {
+    "balancedProfile": "This product has a balanced nutritional profile with no significant concerns or notable benefits.",
+    "productIs": "This product is ",
+    "and": " and ",
+    "howeverIt": "However, it ",
+    "excellentConsumption": "This is an excellent choice for regular consumption.",
+    "goodConsumption": "This is a good choice and can be consumed regularly in moderation.",
+    "moderateConsumption": "Consider consuming this product moderately and balance it with healthier options.",
+    "limitConsumption": "It's best to limit consumption of this product and opt for healthier alternatives when possible."
+  },
+  "history": {
+    "emptyBasket": "An empty basket tells\u00a0no\u00a0stories",
+    "startBuilding": "Start building yours - one scan at a time!",
+    "clearAllHistory": "Clear All History",
+    "clearAllHistoryMessage": "Are you sure you want to clear all the items from your history? It won't affect to favorite products list"
+  },
+  "favourites": {
+    "brokenHeart": "Broken heart",
+    "brokenHeartDescription": "Your beloved snacks are all it needs to heal!",
+    "findFavourites": "Find your favorites",
+    "clearAllFavourites": "Clear All Favorites",
+    "clearAllFavouritesMessage": "Are you sure you want to clear all items from your favorites?"
+  },
+  "settings": {
+    "language": "Language",
+    "faq": "FAQ",
+    "shareTheApp": "Share the App",
+    "rateTheApp": "Rate the App",
+    "contactDevelopers": "Contact Developers",
+    "userAgreement": "User Agreement",
+    "privacyPolicy": "Privacy Policy",
+    "appVersion": "App Version",
+    "shareFoodId": "Share Food ID",
+    "contactFoodId": "Contact Food ID",
+    "contactSubject": "Food ID App - Contact",
+    "contactMessage": "Contact Food ID Developers\n\nEmail: {email}\nSubject: {subject}",
+    "contactFallback": "Email: {email}\n\nSubject: Food ID App - Contact\n\nYou can copy the email address and send us a message.",
+    "shareMessage": "Check out Food ID - the app that helps you make informed food choices!\n\n🍎 App Store: {iosLink}\n🤖 Google Play: {androidLink}",
+    "unableToShare": "Unable to share the app. Please try again.",
+    "unableToOpenStore": "Unable to open the app store. Please try again.",
+    "unableToOpenEmail": "Unable to open email app. Please try again."
+  },
+  "alerts": {
+    "nutriScoreTitle": "Nutri-Score {grade} - {description}",
+    "shareError": "Share Error",
+    "unableToShareProduct": "Unable to share product. Please try again."
+  },
+  "faq": {
+    "itemNotFound": "FAQ item not found",
+    "nutrientTableTitle": "Nutrient Thresholds (per 100g)",
+    "nutrientTableNutrientHeader": "Nutrient",
+    "nutrientTableLowHeader": "Low",
+    "nutrientTableModerateHeader": "Moderate",
+    "nutrientTableHighHeader": "High"
+  }
+}

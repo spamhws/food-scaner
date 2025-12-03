@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pressable, Platform, Text } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useTranslation } from 'react-i18next';
 import { ScannerScreen } from '@/screens/ScannerScreen';
 import { HistoryScreen } from '@/screens/HistoryScreen';
 import { FavouritesScreen } from '@/screens/FavouritesScreen';
@@ -57,6 +58,8 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function AppNavigator() {
+  const { t } = useTranslation();
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -86,38 +89,41 @@ export function AppNavigator() {
         name="History"
         component={HistoryScreen}
         options={{
-          title: 'History',
+          title: t('navigation.history'),
         }}
       />
       <Stack.Screen
         name="Favourites"
         component={FavouritesScreen}
         options={{
-          title: 'Favourites',
+          title: t('navigation.favourites'),
         }}
       />
       <Stack.Screen
         name="Info"
         component={SettingsScreen}
         options={{
-          title: 'Info',
+          title: t('navigation.info'),
         }}
       />
       <Stack.Screen
         name="FAQ"
         component={FAQScreen}
         options={{
-          title: 'FAQ',
+          title: t('navigation.faq'),
         }}
       />
       <Stack.Screen
         name="FAQDetail"
         component={FAQDetailScreen}
         options={({ route }) => {
-          const faqData = require('@/data/faq.json');
+          const i18nInstance = require('@/lib/i18n').default;
+          const language = i18nInstance?.language || 'en';
+          const faqData =
+            language === 'uk' ? require('@/data/faq.uk.json') : require('@/data/faq.json');
           const item = faqData.find((i: any) => i.id === route.params?.id);
           return {
-            title: item?.title || item?.question || 'FAQ',
+            title: item?.title || item?.question || t('navigation.faq'),
             headerBackButtonMenuEnabled: false,
           };
         }}
@@ -126,14 +132,14 @@ export function AppNavigator() {
         name="UserAgreement"
         component={UserAgreementScreen}
         options={{
-          title: 'User Agreement',
+          title: t('navigation.userAgreement'),
         }}
       />
       <Stack.Screen
         name="PrivacyPolicy"
         component={PrivacyPolicyScreen}
         options={{
-          title: 'Privacy Policy',
+          title: t('navigation.privacyPolicy'),
         }}
       />
     </Stack.Navigator>

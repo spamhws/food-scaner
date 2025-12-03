@@ -14,6 +14,7 @@ import {
 import { useIsFocused, useFocusEffect } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { CameraView, useCameraPermissions } from 'expo-camera';
+import { useTranslation } from '@/hooks/useTranslation';
 import { BlurView } from 'expo-blur';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { CTAScreen } from '@/components/CTAScreen';
@@ -42,6 +43,7 @@ const rrectPath = (x: number, y: number, w: number, h: number, r: number) => `
 `;
 
 export function ScannerScreen() {
+  const { t } = useTranslation();
   const isFocused = useIsFocused();
   const [permission, requestPermission] = useCameraPermissions();
   const [isFlashOn, setIsFlashOn] = useState(false);
@@ -206,18 +208,18 @@ export function ScannerScreen() {
     if (Platform.OS === 'ios') {
       // iOS native prompt
       Alert.prompt(
-        'Enter Barcode',
-        'Enter the numbers below the barcode to find the product',
+        t('scanner.enterBarcode'),
+        t('scanner.enterBarcodeDescription'),
         [
           {
-            text: 'Cancel',
+            text: t('common.cancel'),
             style: 'cancel',
             onPress: () => {
               setIsManualEntryActive(false);
             },
           },
           {
-            text: 'Search',
+            text: t('common.search'),
             onPress: (barcode?: string) => {
               if (barcode) {
                 processBarcode(barcode); // Use unified pipeline
@@ -241,7 +243,7 @@ export function ScannerScreen() {
     // Camera permissions are still loading
     return (
       <View className="flex-1 items-center justify-center bg-black">
-        <Text className="text-white">Loading camera...</Text>
+        <Text className="text-white">{t('scanner.loadingCamera')}</Text>
       </View>
     );
   }
@@ -254,20 +256,18 @@ export function ScannerScreen() {
       try {
         await Linking.openSettings();
       } catch (error) {
-        Alert.alert(
-          'Open Settings',
-          'Please go to Settings > Food ID > Camera and enable camera access.',
-          [{ text: 'OK' }]
-        );
+        Alert.alert(t('scanner.openSettings'), t('scanner.openSettingsMessage'), [
+          { text: t('common.ok') },
+        ]);
       }
     };
 
     return (
       <CTAScreen
         video={Videos.handPhone}
-        title="Ready to Scan?"
-        description="We just need camera access to scan barcodes. Nothing is recorded."
-        buttonText="Enable Camera"
+        title={t('scanner.readyToScan')}
+        description={t('scanner.cameraPermissionDescription')}
+        buttonText={t('scanner.enableCamera')}
         onButtonPress={canAskAgain ? requestPermission : handleOpenSettings}
       />
     );
@@ -290,13 +290,15 @@ export function ScannerScreen() {
       >
         <View className="flex-1 items-center justify-center bg-black/50">
           <View className="w-4/5 bg-white rounded-2xl p-6">
-            <Text className="text-lg font-semibold text-center mb-2">Enter Barcode</Text>
+            <Text className="text-lg font-semibold text-center mb-2">
+              {t('scanner.enterBarcode')}
+            </Text>
             <Text className="text-sm text-gray-600 text-center mb-4">
-              Enter the numbers below the barcode to find the product
+              {t('scanner.enterBarcodeDescription')}
             </Text>
             <TextInput
               className="border border-gray-300 rounded-lg px-4 py-3 mb-4 text-base"
-              placeholder="Barcode"
+              placeholder={t('scanner.barcode')}
               value={manualBarcode}
               onChangeText={setManualBarcode}
               keyboardType="numeric"
@@ -312,13 +314,15 @@ export function ScannerScreen() {
                   setIsManualEntryActive(false);
                 }}
               >
-                <Text className="text-center font-semibold text-gray-800">Cancel</Text>
+                <Text className="text-center font-semibold text-gray-800">
+                  {t('common.cancel')}
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 className="flex-1 bg-blue-500 rounded-lg py-3"
                 onPress={handleModalSubmit}
               >
-                <Text className="text-center font-semibold text-white">Search</Text>
+                <Text className="text-center font-semibold text-white">{t('common.search')}</Text>
               </TouchableOpacity>
             </View>
           </View>

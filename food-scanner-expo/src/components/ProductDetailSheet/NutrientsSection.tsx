@@ -15,6 +15,7 @@ import { InfoCard } from './InfoCard';
 import { NutritionRow } from './NutritionRow';
 import { NutritionDivider } from './NutritionDivider';
 import { getNutrientColor, getCaloriesColor } from '@/lib/utils/nutrient-colors';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface NutrientsSectionProps {
   nutrition: NutritionData;
@@ -40,6 +41,7 @@ export function NutrientsSection({
   product_quantity,
   product_quantity_unit,
 }: NutrientsSectionProps) {
+  const { t } = useTranslation();
   const hasPackageInfo = !!product_quantity;
   const packageWeight = hasPackageInfo
     ? parseFloat(product_quantity) * (product_quantity_unit === 'kg' ? 1000 : 1)
@@ -73,7 +75,7 @@ export function NutrientsSection({
           stroke={getCaloriesColor(nutrientLevels, nutrition)}
         />
       ),
-      label: 'Calories, kcal',
+      label: t('nutrition.calories'),
       per100g: nutrition.calories.per_100g,
       perPackage: getPerPackage(nutrition.calories.per_100g),
       unit: '',
@@ -90,7 +92,7 @@ export function NutrientsSection({
           stroke={getNutrientColor(nutrientLevels, 'proteins', nutrition)}
         />
       ),
-      label: 'Protein, g',
+      label: t('nutrition.protein'),
       per100g: nutrition.protein.per_100g,
       perPackage: getPerPackage(nutrition.protein.per_100g),
       unit: 'g',
@@ -107,7 +109,7 @@ export function NutrientsSection({
           stroke={getNutrientColor(nutrientLevels, 'fat', nutrition)}
         />
       ),
-      label: 'Fats, g',
+      label: t('nutrition.fats'),
       per100g: nutrition.fat.per_100g,
       perPackage: getPerPackage(nutrition.fat.per_100g),
       unit: 'g',
@@ -116,7 +118,7 @@ export function NutrientsSection({
     // Saturated Fats - sub-item, only if provided (no icon)
     if (nutrition.saturatedFat) {
       nutrients.push({
-        label: 'Saturated Fats, g',
+        label: t('nutrition.saturatedFats'),
         per100g: nutrition.saturatedFat.per_100g,
         perPackage: getPerPackage(nutrition.saturatedFat.per_100g),
         unit: 'g',
@@ -135,7 +137,7 @@ export function NutrientsSection({
           stroke={getNutrientColor(nutrientLevels, 'carbohydrates', nutrition)}
         />
       ),
-      label: 'Carbs, g',
+      label: t('nutrition.carbs'),
       per100g: nutrition.carbohydrates.per_100g,
       perPackage: getPerPackage(nutrition.carbohydrates.per_100g),
       unit: 'g',
@@ -151,7 +153,7 @@ export function NutrientsSection({
             stroke={getNutrientColor(nutrientLevels, 'sugars', nutrition)}
           />
         ),
-        label: 'Sugars, g',
+        label: t('nutrition.sugars'),
         per100g: nutrition.sugars.per_100g,
         perPackage: getPerPackage(nutrition.sugars.per_100g),
         unit: 'g',
@@ -161,7 +163,7 @@ export function NutrientsSection({
     // Added Sugars - sub-item, only if provided (no icon)
     if (nutrition.addedSugars) {
       nutrients.push({
-        label: 'Added Sugar, g',
+        label: t('nutrition.addedSugar'),
         per100g: nutrition.addedSugars.per_100g,
         perPackage: getPerPackage(nutrition.addedSugars.per_100g),
         unit: 'g',
@@ -180,7 +182,7 @@ export function NutrientsSection({
           stroke={getNutrientColor(nutrientLevels, 'fiber', nutrition)}
         />
       ),
-      label: 'Fiber, g',
+      label: t('nutrition.fiber'),
       per100g: nutrition.fiber.per_100g,
       perPackage: getPerPackage(nutrition.fiber.per_100g),
       unit: 'g',
@@ -197,7 +199,7 @@ export function NutrientsSection({
           stroke={getNutrientColor(nutrientLevels, 'salt', nutrition)}
         />
       ),
-      label: 'Salt, g',
+      label: t('nutrition.salt'),
       per100g: nutrition.salt.per_100g,
       perPackage: getPerPackage(nutrition.salt.per_100g),
       unit: 'g',
@@ -207,7 +209,7 @@ export function NutrientsSection({
   // Sodium - only if provided (no icon, sub-item)
   if (nutrition.sodium) {
     nutrients.push({
-      label: 'Sodium, g',
+      label: t('nutrition.sodium'),
       per100g: nutrition.sodium.per_100g,
       perPackage: getPerPackage(nutrition.sodium.per_100g),
       unit: 'g',
@@ -220,8 +222,8 @@ export function NutrientsSection({
   return (
     <>
       <View className="flex-row items-center justify-between mt-2">
-        <SectionLabel>Nutritional value</SectionLabel>
-        <SectionLabel>{showPackageColumn ? 'PER 100G / PER PACKAGE' : 'PER 100G'}</SectionLabel>
+        <SectionLabel>{t('nutrition.nutritionalValue')}</SectionLabel>
+        <SectionLabel>{showPackageColumn ? t('nutrition.per100gPerPackage') : t('nutrition.per100g')}</SectionLabel>
       </View>
       <InfoCard className="pr-5">
         {nutrients.map((nutrient, index) => {

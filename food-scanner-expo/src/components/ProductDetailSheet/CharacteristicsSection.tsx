@@ -6,17 +6,19 @@ import { SectionLabel } from './SectionLabel';
 import { InfoCard } from './InfoCard';
 import { InfoRow } from './InfoRow';
 import { NutritionDivider } from './NutritionDivider';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface CharacteristicsSectionProps {
   assessments: Assessment[];
 }
 
 export function CharacteristicsSection({ assessments }: CharacteristicsSectionProps) {
+  const { t } = useTranslation();
   if (assessments.length === 0) return null;
 
   return (
     <>
-      <SectionLabel>Key characteristics</SectionLabel>
+      <SectionLabel>{t('characteristics.keyCharacteristics')}</SectionLabel>
       <InfoCard>
         {assessments.map((assessment, index) => {
           const isLast = index === assessments.length - 1;
@@ -38,7 +40,7 @@ export function CharacteristicsSection({ assessments }: CharacteristicsSectionPr
                     />
                   )
                 }
-                label={assessment.label}
+                label={t(assessment.label)}
               />
               {!isLast && <NutritionDivider />}
             </React.Fragment>
