@@ -1,5 +1,6 @@
 import type { OpenFoodFactsResponse, Product } from '@/types/product';
 import { API_URL } from '@/constants/endpoints';
+import contactInfo from '@/constants/contact.json';
 import {
   parseNutrient,
   calculateNutritionScore,
@@ -17,10 +18,8 @@ export async function fetchProduct(
       headers: {
         // User-Agent format: AppName/Version (ContactEmail)
         // This identifies your app to Open Food Facts, not individual users
-        // Note: Your email will be visible to Open Food Facts servers
-        // Consider using a dedicated app email instead of personal email
-        'User-Agent': 'Food ID/1.0.2',
-        // Alternative with email: 'FoodScanner/1.0.1 (your-app-email@example.com)'
+        // Required by OpenFoodFacts API guidelines
+        'User-Agent': `Food ID/1.0.3 (${contactInfo.email})`,
       },
     });
 

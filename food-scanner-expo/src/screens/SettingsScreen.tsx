@@ -25,6 +25,7 @@ import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
 import { useNavigationBack } from '@/hooks/useNavigationBack';
 import { APP_STORE_LINKS, APP_STORE_REVIEW_LINKS } from '@/constants/app-store';
+import contactInfo from '@/constants/contact.json';
 
 interface SettingItemProps {
   icon: React.ReactNode;
@@ -115,18 +116,34 @@ export function SettingsScreen() {
 
   const handleContactDevelopers = async () => {
     try {
-      const email = 'foodid.app@gmail.com';
       const subject = 'Food ID App - Contact';
-      const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+      const mailtoUrl = `mailto:${contactInfo.email}?subject=${encodeURIComponent(subject)}`;
 
+      // Try to open mailto: URL
       const canOpen = await Linking.canOpenURL(mailtoUrl);
       if (canOpen) {
-        await Linking.openURL(mailtoUrl);
-      } else {
-        Alert.alert('Error', 'Unable to open email app. Please try again.');
+        try {
+          await Linking.openURL(mailtoUrl);
+          return; // Successfully opened
+        } catch (openError) {
+          // If opening fails (e.g., Expo Go iOS limitation), fall back to Share
+        }
       }
+
+      // Fallback: Use Share API (works in Expo Go)
+      // This allows users to share the email via any app (Mail, Messages, etc.)
+      const emailMessage = `Contact Food ID Developers\n\nEmail: ${contactInfo.email}\nSubject: ${subject}`;
+      await Share.share({
+        message: emailMessage,
+        title: 'Contact Food ID',
+      });
     } catch (error) {
-      Alert.alert('Error', 'Unable to open email app. Please try again.');
+      // Final fallback: show email in alert
+      Alert.alert(
+        'Contact Developers',
+        `Email: ${contactInfo.email}\n\nSubject: Food ID App - Contact\n\nYou can copy the email address and send us a message.`,
+        [{ text: 'OK' }]
+      );
     }
   };
 
