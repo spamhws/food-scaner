@@ -7,10 +7,12 @@ node_modules/
 .expo/
 dist/
 web-build/
+.eas/
 
 # Native
 *.orig.*
 *.jks
+*.keystore
 *.p8
 *.p12
 *.key
