@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import { Alert, BackHandler, Dimensions } from 'react-native';
+import { Alert, BackHandler, Dimensions, View, Text } from 'react-native';
 import { BottomSheetModal, BottomSheetBackdrop, BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
@@ -104,6 +104,7 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
   );
 
   const handleNutriscorePress = () => {
+    // Only show NutriScore info if it's official from OpenFoodFacts
     if (!product?.assessment) return;
     const narrative = generateProductNarrative(product);
     const gradeDescription = getNutriscoreDescription(product.assessment.category);
@@ -139,18 +140,47 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
         {product && (
           <>
             <ImageTitleSection product={product} onNutriscorePress={handleNutriscorePress} />
-            <NutrientsSection product={product} />
-            <NutriScoresSection
-              nutriscoreGrade={product.assessment?.category}
-              ecoscoreGrade={product.ecoscoreGrade}
-              novascoreGrade={product.novascoreGrade}
-              navigation={navigation}
-              onClose={onClose}
-              productBarcode={product.barcode}
-                        />
-            <CharacteristicsSection assessments={assessments} />
-            <AllergensSection allergens={product.allergens} />
-            <IngredientsSection ingredients={product.ingredients} />
+            <NutrientsSection
+              nutrition={product.nutrition}
+              nutrientLevels={product.nutrientLevels}
+              product_quantity={product.product_quantity}
+              product_quantity_unit={product.product_quantity_unit}
+            />
+            {(() => {
+              const hasNutriScores =
+                product.assessment?.category || product.ecoscoreGrade || product.novascoreGrade;
+              const hasCharacteristics = assessments.length > 0;
+              const hasAllergens = product.allergens && product.allergens.length > 0;
+              const hasIngredients = product.ingredients && product.ingredients.length > 0;
+              const hasAnyAdditionalInfo =
+                hasNutriScores || hasCharacteristics || hasAllergens || hasIngredients;
+
+              if (!hasAnyAdditionalInfo) {
+                return (
+                  <View className="py-4">
+                    <Text className="text-caption text-gray-70 text-center">
+                      No information on this product yet
+                    </Text>
+                  </View>
+                );
+              }
+
+              return (
+                <>
+                  <NutriScoresSection
+                    nutriscoreGrade={product.assessment?.category}
+                    ecoscoreGrade={product.ecoscoreGrade}
+                    novascoreGrade={product.novascoreGrade}
+                    navigation={navigation}
+                    onClose={onClose}
+                    productBarcode={product.barcode}
+                  />
+                  <CharacteristicsSection assessments={assessments} />
+                  <AllergensSection allergens={product.allergens} />
+                  <IngredientsSection ingredients={product.ingredients} />
+                </>
+              );
+            })()}
           </>
         )}
       </BottomSheetScrollView>

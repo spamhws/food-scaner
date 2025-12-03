@@ -1,6 +1,10 @@
 import type { OpenFoodFactsResponse, Product } from '@/types/product';
 import { API_URL } from '@/constants/endpoints';
-import { parseNutrient, calculateNutritionScore } from '@/lib/utils/format';
+import {
+  parseNutrient,
+  calculateNutritionScore,
+  isNutrientValueProvided,
+} from '@/lib/utils/format';
 
 export async function fetchProduct(
   barcode: string,
@@ -15,7 +19,7 @@ export async function fetchProduct(
         // This identifies your app to Open Food Facts, not individual users
         // Note: Your email will be visible to Open Food Facts servers
         // Consider using a dedicated app email instead of personal email
-        'User-Agent': 'FoodScanner/1.0.1',
+        'User-Agent': 'Food ID/1.0.2',
         // Alternative with email: 'FoodScanner/1.0.1 (your-app-email@example.com)'
       },
     });
@@ -53,7 +57,8 @@ export async function fetchProduct(
     const validGrades = ['a', 'b', 'c', 'd', 'e'];
     const hasValidGrade = rawGrade && validGrades.includes(rawGrade);
 
-    // Build the product object
+    // Build the product object - always return product if API response is valid
+    // Even if nutrition data is missing, we still save name, image, brand, etc.
     const transformedProduct: Product = {
       id: product._id,
       barcode,
@@ -64,32 +69,43 @@ export async function fetchProduct(
       product_quantity: product.product_quantity || '',
       product_quantity_unit: product.product_quantity_unit || 'g',
       nutrition: {
-        calories: {
-          value: parseFloat(product.nutriments['energy-kcal_100g'] || '0'),
-          unit: 'kcal',
-          per_100g: parseFloat(product.nutriments['energy-kcal_100g'] || '0'),
-        },
-        fat: parseNutrient(product.nutriments.fat_100g),
-        saturatedFat: parseNutrient(product.nutriments['saturated-fat_100g']),
-        carbohydrates: parseNutrient(product.nutriments.carbohydrates_100g),
-        sugars: parseNutrient(product.nutriments.sugars_100g),
-        ...(product.nutriments['added-sugars_100g'] && {
+        // Only include calories if actually provided (not missing/undefined)
+        ...(isNutrientValueProvided(product.nutriments['energy-kcal_100g']) && {
+          calories: {
+            value: parseFloat(String(product.nutriments['energy-kcal_100g'])),
+            unit: 'kcal',
+            per_100g: parseFloat(String(product.nutriments['energy-kcal_100g'])),
+          },
+        }),
+        // Only include nutrients if actually provided (not missing/undefined)
+        ...(isNutrientValueProvided(product.nutriments.fat_100g) && {
+          fat: parseNutrient(product.nutriments.fat_100g),
+        }),
+        ...(isNutrientValueProvided(product.nutriments['saturated-fat_100g']) && {
+          saturatedFat: parseNutrient(product.nutriments['saturated-fat_100g']),
+        }),
+        ...(isNutrientValueProvided(product.nutriments.carbohydrates_100g) && {
+          carbohydrates: parseNutrient(product.nutriments.carbohydrates_100g),
+        }),
+        ...(isNutrientValueProvided(product.nutriments.sugars_100g) && {
+          sugars: parseNutrient(product.nutriments.sugars_100g),
+        }),
+        ...(isNutrientValueProvided(product.nutriments['added-sugars_100g']) && {
           addedSugars: parseNutrient(product.nutriments['added-sugars_100g']),
         }),
-        protein: parseNutrient(product.nutriments.proteins_100g),
-        salt: parseNutrient(product.nutriments.salt_100g),
-        ...(product.nutriments.sodium_100g && {
+        ...(isNutrientValueProvided(product.nutriments.proteins_100g) && {
+          protein: parseNutrient(product.nutriments.proteins_100g),
+        }),
+        ...(isNutrientValueProvided(product.nutriments.salt_100g) && {
+          salt: parseNutrient(product.nutriments.salt_100g),
+        }),
+        ...(isNutrientValueProvided(product.nutriments.sodium_100g) && {
           sodium: parseNutrient(product.nutriments.sodium_100g),
         }),
-        fiber: parseNutrient(product.nutriments.fiber_100g),
+        ...(isNutrientValueProvided(product.nutriments.fiber_100g) && {
+          fiber: parseNutrient(product.nutriments.fiber_100g),
+        }),
       },
-      // Only include assessment if we have a valid grade (a, b, c, d, e)
-      ...(hasValidGrade && {
-        assessment: {
-          score: calculateNutritionScore(rawGrade),
-          category: rawGrade.toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E',
-        },
-      }),
       // Include nutrient levels if available from API
       ...(product.nutrient_levels && {
         nutrientLevels: product.nutrient_levels,
@@ -100,9 +116,11 @@ export async function fetchProduct(
           ecoscoreGrade: product.ecoscore_grade.toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E',
         }),
       // Include NOVA Score if available (1-4)
-      ...(product.nova_group && product.nova_group >= 1 && product.nova_group <= 4 && {
-        novascoreGrade: product.nova_group as 1 | 2 | 3 | 4,
-      }),
+      ...(product.nova_group &&
+        product.nova_group >= 1 &&
+        product.nova_group <= 4 && {
+          novascoreGrade: product.nova_group as 1 | 2 | 3 | 4,
+        }),
       ingredients: product.ingredients_text_en
         ? product.ingredients_text_en.split(',').map((i: string) => i.trim())
         : [],
@@ -113,6 +131,15 @@ export async function fetchProduct(
         ? product.labels_tags.map((l: string) => l.replace('en:', ''))
         : [],
     };
+
+    // Only include assessment if OpenFoodFacts provides official NutriScore
+    // Do NOT calculate and save - badge calculation happens on-the-fly
+    if (hasValidGrade) {
+      transformedProduct.assessment = {
+        score: calculateNutritionScore(rawGrade),
+        category: rawGrade.toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E',
+      };
+    }
 
     return transformedProduct;
   } catch (error) {

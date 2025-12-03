@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, ScrollView, TouchableOpacity, Text, Platform } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { View, ScrollView, TouchableOpacity, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { IconChevronRight } from '@tabler/icons-react-native';
 import type { NavigationProp } from '@/navigation/navigation-types';
 import faqData from '@/data/faq.json';
 import { useNavigationBack } from '@/hooks/useNavigationBack';
+import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 
 interface FAQItem {
   id: string;
@@ -16,11 +16,8 @@ interface FAQItem {
 
 export function FAQScreen() {
   const navigation = useNavigation<NavigationProp>();
-  const insets = useSafeAreaInsets();
   useNavigationBack();
-
-  // Header height (44px) + status bar - only needed on iOS with transparent header
-  const headerHeight = Platform.OS === 'ios' ? 44 + insets.top : 0;
+  const headerHeight = useHeaderHeight();
 
   const handleQuestionPress = (id: string) => {
     navigation.navigate('FAQDetail', { id });

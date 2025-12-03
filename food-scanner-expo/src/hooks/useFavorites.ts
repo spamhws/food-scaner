@@ -3,6 +3,7 @@ import {
   getFavorites,
   addToFavorites,
   removeFromFavorites,
+  clearFavorites,
   toggleFavorite,
   isFavorite as checkIsFavorite,
 } from '@/lib/storage/storage';
@@ -34,6 +35,11 @@ export function useFavorites() {
     [loadFavorites]
   );
 
+  const clear = useCallback(async () => {
+    await clearFavorites();
+    await loadFavorites();
+  }, [loadFavorites]);
+
   const toggle = useCallback(
     async (barcode: string) => {
       const newState = await toggleFavorite(barcode);
@@ -59,9 +65,9 @@ export function useFavorites() {
     isLoading,
     addItem,
     removeItem,
+    clear,
     toggle,
     isFavorite,
     refresh: loadFavorites,
   };
 }
-

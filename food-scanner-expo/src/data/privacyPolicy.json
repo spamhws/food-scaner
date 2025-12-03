@@ -5,12 +5,12 @@
     {
       "id": 1,
       "title": "Overview",
-      "content": "FoodScanner is committed to protecting your privacy. This Privacy Policy explains how we handle your data and information when you use our mobile application. We believe in transparency and want you to understand exactly how your information is used and stored."
+      "content": "Food ID is committed to protecting your privacy. This Privacy Policy explains how we handle your data and information when you use our mobile application. We believe in transparency and want you to understand exactly how your information is used and stored."
     },
     {
       "id": 2,
       "title": "Data Collection",
-      "content": "FoodScanner collects minimal data necessary for the app to function. When you scan a product barcode, we retrieve product information from the OpenFoodFacts public database. We do not collect personal information such as your name, email address, phone number, or location data."
+      "content": "Food ID collects minimal data necessary for the app to function. When you scan a product barcode, we retrieve product information from the OpenFoodFacts public database. We do not collect personal information such as your name, email address, phone number, or location data."
     },
     {
       "id": 3,
@@ -20,7 +20,7 @@
     {
       "id": 4,
       "title": "No Data Transmission",
-      "content": "FoodScanner does not transmit your scan history, favorites, or any personal usage data to external servers. The only network requests made by the app are to the OpenFoodFacts API to retrieve public product information based on barcodes you scan."
+      "content": "Food ID does not transmit your scan history, favorites, or any personal usage data to external servers. The only network requests made by the app are to the OpenFoodFacts API to retrieve public product information based on barcodes you scan."
     },
     {
       "id": 5,
@@ -40,12 +40,12 @@
     {
       "id": 8,
       "title": "Third-Party Services",
-      "content": "FoodScanner uses the OpenFoodFacts API to retrieve product information. OpenFoodFacts is an independent, non-profit project. Please refer to OpenFoodFacts' privacy policy for information about their data practices."
+      "content": "Food ID uses the OpenFoodFacts API to retrieve product information. OpenFoodFacts is an independent, non-profit project. Please refer to OpenFoodFacts' privacy policy for information about their data practices."
     },
     {
       "id": 9,
       "title": "Children's Privacy",
-      "content": "FoodScanner does not knowingly collect any personal information from children. The app is designed to be used by anyone, and since no personal data is collected or transmitted, it is safe for users of all ages."
+      "content": "Food ID does not knowingly collect any personal information from children. The app is designed to be used by anyone, and since no personal data is collected or transmitted, it is safe for users of all ages."
     },
     {
       "id": 10,
@@ -59,4 +59,3 @@
     }
   ]
 }
-

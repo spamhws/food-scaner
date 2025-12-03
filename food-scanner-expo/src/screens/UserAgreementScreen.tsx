@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react';
-import { View, Text, ScrollView, BackHandler, Platform } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { View, Text, ScrollView, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
 import agreementData from '@/data/userAgreement.json';
+import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 
 export function UserAgreementScreen() {
   const navigation = useNavigation<NavigationProp>();
-  const insets = useSafeAreaInsets();
-  
-  // Header height (44px) + status bar - only needed on iOS with transparent header
-  const headerHeight = Platform.OS === 'ios' ? 44 + insets.top : 0;
+  const headerHeight = useHeaderHeight();
 
   // Handle Android back button
   useEffect(() => {
@@ -28,15 +25,15 @@ export function UserAgreementScreen() {
 
   return (
     <View className="flex-1 bg-gray-10">
-      <ScrollView 
-        className="flex-1" 
-        contentContainerStyle={{ 
+      <ScrollView
+        className="flex-1"
+        contentContainerStyle={{
           paddingTop: headerHeight + 20,
           paddingHorizontal: 20,
           paddingBottom: 40,
         }}
       >
-        <Text className="text-sm text-gray-60 mb-6 italic">
+        <Text className="text-sm text-gray-60 mb-6 italic font-inter">
           Last updated: {agreementData.lastUpdated}
         </Text>
 
@@ -45,7 +42,7 @@ export function UserAgreementScreen() {
             <Text className="text-lg font-semibold mb-3">
               {section.id}. {section.title}
             </Text>
-            <Text className="leading-6 text-gray-90">{section.content}</Text>
+            <Text className="leading-6 text-gray-90 font-inter">{section.content}</Text>
           </View>
         ))}
       </ScrollView>

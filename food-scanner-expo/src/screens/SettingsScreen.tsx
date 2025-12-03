@@ -9,8 +9,8 @@ import {
   Linking,
   Alert,
 } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
+import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 import {
   IconHelpHexagon,
   IconFileText,
@@ -75,11 +75,8 @@ function SettingItem({
 
 export function SettingsScreen() {
   const navigation = useNavigation<NavigationProp>();
-  const insets = useSafeAreaInsets();
   useNavigationBack();
-
-  // Header height (44px) + status bar - only needed on iOS with transparent header
-  const headerHeight = Platform.OS === 'ios' ? 44 + insets.top : 0;
+  const headerHeight = useHeaderHeight();
 
   const handleShareApp = async () => {
     try {

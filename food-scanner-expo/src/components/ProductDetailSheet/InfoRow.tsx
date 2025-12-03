@@ -9,12 +9,12 @@ interface InfoRowProps {
 
 export function InfoRow({ icon, label, value }: InfoRowProps) {
   return (
-    <View className="flex-row items-center justify-between gap-2">
-      <View className="flex-row items-center gap-2">
-        {icon}
-        <Text className="font-medium text-caption text-black">{label}</Text>
-      </View>
-      {value && <Text className="text-caption font-semibold text-gray-90">{value}</Text>}
+      <View className="flex-row items-center justify-between gap-2">
+        <View className="flex-row items-center gap-2">
+          {icon}
+          <Text className="font-medium text-caption text-black">{label}</Text>
+        </View>
+        {value && <Text className="text-caption font-semibold text-gray-90">{value}</Text>}
     </View>
   );
 }

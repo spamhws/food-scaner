@@ -142,12 +142,18 @@
       {
         "type": "section",
         "subtitle": "Positive Assessments",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsUp",
+        "subtitleAssessment": "positive",
         "subtitleColor": "green-60",
         "description": "Products receive positive assessments when they are high in beneficial nutrients (fiber, protein) and low in components to limit (saturated fats, sodium, sugars). These products support a balanced diet and healthy eating habits."
       },
       {
         "type": "section",
         "subtitle": "Negative Assessments",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsDown",
+        "subtitleAssessment": "negative",
         "subtitleColor": "red-60",
         "description": "Products receive negative assessments when they contain high levels of saturated fats, sodium, or sugars. These should be consumed in moderation as part of a balanced diet."
       }

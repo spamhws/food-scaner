@@ -1,13 +1,13 @@
 declare module '@tabler/icons-react-native' {
   import { SvgProps } from 'react-native-svg';
-  
+
   export interface IconProps extends SvgProps {
     size?: number | string;
     stroke?: string;
     color?: string;
     strokeWidth?: number | string;
   }
-  
+
   export const IconScan: React.FC<IconProps>;
   export const IconHistory: React.FC<IconProps>;
   export const IconUser: React.FC<IconProps>;
@@ -25,6 +25,7 @@ declare module '@tabler/icons-react-native' {
   export const IconPhotoOff: React.FC<IconProps>;
   export const IconMoodSurprised: React.FC<IconProps>;
   export const IconHeart: React.FC<IconProps>;
+  export const IconHeartOff: React.FC<IconProps>;
   export const IconBell: React.FC<IconProps>;
   export const IconLanguage: React.FC<IconProps>;
   export const IconPalette: React.FC<IconProps>;
@@ -47,5 +48,5 @@ declare module '@tabler/icons-react-native' {
   export const IconSend: React.FC<IconProps>;
   export const IconMessageChatbot: React.FC<IconProps>;
   export const IconStar: React.FC<IconProps>;
+  export const IconTrash: React.FC<IconProps>;
 }
-

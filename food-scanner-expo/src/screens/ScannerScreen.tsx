@@ -9,13 +9,12 @@ import {
   Modal,
   TextInput,
   TouchableOpacity,
+  Linking,
 } from 'react-native';
-import { useIsFocused, useRoute, RouteProp } from '@react-navigation/native';
-import type { RootStackParamList } from '@/navigation/AppNavigator';
+import { useIsFocused } from '@react-navigation/native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { BlurView } from 'expo-blur';
 import MaskedView from '@react-native-masked-view/masked-view';
-import { Button } from '@/components/ui/Button';
 import { CTAScreen } from '@/components/CTAScreen';
 import { Videos } from '@/constants/assets';
 import { NavigationButtons } from '@/components/NavigationButtons';
@@ -41,10 +40,7 @@ const rrectPath = (x: number, y: number, w: number, h: number, r: number) => `
   Z
 `;
 
-type ScannerRouteProp = RouteProp<RootStackParamList, 'Scanner'>;
-
 export function ScannerScreen() {
-  const route = useRoute<ScannerRouteProp>();
   const isFocused = useIsFocused();
   const [permission, requestPermission] = useCameraPermissions();
   const [isFlashOn, setIsFlashOn] = useState(false);
@@ -58,13 +54,13 @@ export function ScannerScreen() {
   // History management
   const { addItem: addToHistory } = useHistory();
 
-  // Check if barcode was passed as route param (from FAQ navigation)
-  useEffect(() => {
-    const routeBarcode = route.params?.barcode;
-    if (routeBarcode) {
-      setSelectedBarcode(routeBarcode);
-    }
-  }, [route.params]);
+  const handleProductPress = useCallback((barcode: string) => {
+    setSelectedBarcode(barcode);
+  }, []);
+
+  const handleBottomSheetClose = useCallback(() => {
+    setSelectedBarcode(null);
+  }, []);
 
   // Fetch selected product data (from cache for quick display)
   const { data: selectedProduct } = useProduct({
@@ -206,14 +202,11 @@ export function ScannerScreen() {
   const handleManualEntry = () => {
     setIsManualEntryActive(true);
 
-    // Test barcode for development
-    const TEST_BARCODE = '3017620429484';
-
     if (Platform.OS === 'ios') {
       // iOS native prompt
       Alert.prompt(
         'Enter Barcode',
-        'Enter the product barcode manually',
+        'Enter the numbers below the barcode to find the product',
         [
           {
             text: 'Cancel',
@@ -233,23 +226,15 @@ export function ScannerScreen() {
           },
         ],
         'plain-text',
-        TEST_BARCODE, // Pre-fill with test barcode
+        '', // No pre-filled value
         'numeric'
       );
     } else {
       // Android custom modal
-      setManualBarcode(TEST_BARCODE); // Pre-fill with test barcode
+      setManualBarcode(''); // No pre-filled value
       setShowBarcodeModal(true);
     }
   };
-
-  const handleProductPress = useCallback((barcode: string) => {
-    setSelectedBarcode(barcode);
-  }, []);
-
-  const handleBottomSheetClose = useCallback(() => {
-    setSelectedBarcode(null);
-  }, []);
 
   if (!permission) {
     // Camera permissions are still loading
@@ -261,14 +246,28 @@ export function ScannerScreen() {
   }
 
   if (!permission.granted) {
-    // Camera permissions are not granted yet
+    // Check if we can ask again (iOS: canAskAgain, Android: always true if not granted)
+    const canAskAgain = permission.canAskAgain !== false;
+
+    const handleOpenSettings = async () => {
+      try {
+        await Linking.openSettings();
+      } catch (error) {
+        Alert.alert(
+          'Open Settings',
+          'Please go to Settings > Food ID > Camera and enable camera access.',
+          [{ text: 'OK' }]
+        );
+      }
+    };
+
     return (
       <CTAScreen
         video={Videos.handPhone}
         title="Ready to Scan?"
         description="We just need camera access to scan barcodes. Nothing is recorded."
         buttonText="Enable Camera"
-        onButtonPress={requestPermission}
+        onButtonPress={canAskAgain ? requestPermission : handleOpenSettings}
       />
     );
   }
@@ -289,7 +288,7 @@ export function ScannerScreen() {
           <View className="w-4/5 bg-white rounded-2xl p-6">
             <Text className="text-lg font-semibold text-center mb-2">Enter Barcode</Text>
             <Text className="text-sm text-gray-600 text-center mb-4">
-              Enter the product barcode manually
+              Enter the numbers below the barcode to find the product
             </Text>
             <TextInput
               className="border border-gray-300 rounded-lg px-4 py-3 mb-4 text-base"
@@ -323,8 +322,7 @@ export function ScannerScreen() {
       </Modal>
 
       <View className="relative flex-1 bg-black">
-        {/* DEV TOOLS - Remove before production */}
-        <DevTools currentBarcode={scannedBarcodes.length > 0 ? scannedBarcodes[0] : null} />
+       
 
         {/* Camera View - only active when screen is focused and sheet is closed */}
         {isFocused && !selectedBarcode && (

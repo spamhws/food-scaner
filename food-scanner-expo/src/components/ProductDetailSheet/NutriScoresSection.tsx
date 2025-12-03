@@ -39,7 +39,6 @@ function showScoreAlert(
           onClose();
           navigation.navigate('FAQDetail', {
             id: faqId,
-            ...(productBarcode ? { barcode: productBarcode } : {}),
           });
         },
       },

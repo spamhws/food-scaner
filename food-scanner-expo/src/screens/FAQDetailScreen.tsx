@@ -1,13 +1,14 @@
 import React from 'react';
-import { View, Text, ScrollView, Image, Platform } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { View, Text, ScrollView, Image } from 'react-native';
 import { useRoute, RouteProp } from '@react-navigation/native';
+import { IconThumbUp, IconThumbDown } from '@tabler/icons-react-native';
 import type { RootStackParamList } from '@/navigation/AppNavigator';
 import { useNavigationBack } from '@/hooks/useNavigationBack';
 import faqData from '@/data/faq.json';
 import { ScoreImage } from '@/components/ScoreImage';
 import { getTailwindColor } from '@/lib/utils/tailwind-colors';
 import nutrientThresholdsData from '@/data/nutrient-thresholds.json';
+import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 
 type FAQDetailRouteProp = RouteProp<RootStackParamList, 'FAQDetail'>;
 
@@ -22,6 +23,9 @@ interface FAQItem {
     content?: string;
     image?: string;
     subtitle?: string;
+    subtitleType?: 'Text' | 'WithIcon';
+    subtitleIcon?: 'thumbsUp' | 'thumbsDown';
+    subtitleAssessment?: 'positive' | 'negative';
     subtitleColor?: string;
     description?: string;
     title?: string;
@@ -67,7 +71,7 @@ function renderTextWithBold(text: string): React.ReactNode[] {
     }
     // Add bold text as a nested Text component
     parts.push(
-      <Text key={`bold-${key++}`} className="font-bold">
+      <Text key={`bold-${key++}`} className="font-inter-bold">
         {match[1]}
       </Text>
     );
@@ -171,12 +175,9 @@ function renderNutrientTable() {
 
 export function FAQDetailScreen() {
   const route = useRoute<FAQDetailRouteProp>();
-  const insets = useSafeAreaInsets();
   const { id } = route.params || {};
   useNavigationBack();
-
-  // Header height (44px) + status bar - only needed on iOS with transparent header
-  const headerHeight = Platform.OS === 'ios' ? 44 + insets.top : 0;
+  const headerHeight = useHeaderHeight();
 
   const faqItem = (faqData as FAQItem[]).find((item) => item.id === id);
 
@@ -205,7 +206,7 @@ export function FAQDetailScreen() {
               if (section.type === 'text') {
                 return (
                   <View key={index}>
-                    <Text className="text-base leading-6 text-gray-90">
+                    <Text className="text-base leading-6 text-gray-90 font-inter">
                       {renderTextWithBold(section.content || '')}
                     </Text>
                   </View>
@@ -222,19 +223,50 @@ export function FAQDetailScreen() {
                       <View className="mb-4">{getScoreImageSource(section.image)}</View>
                     )}
                     {section.subtitle && (
-                      <Text
-                        className="text-lg font-semibold mb-3"
-                        style={{
-                          color: section.subtitleColor
-                            ? getTailwindColor(section.subtitleColor)
-                            : '#000000',
-                        }}
-                      >
-                        {section.subtitle}
-                      </Text>
+                      <View className="flex-row items-center mb-3 gap-1">
+                        {section.subtitleType === 'WithIcon' && section.subtitleIcon && (
+                          <View>
+                            {section.subtitleIcon === 'thumbsUp' ? (
+                              <IconThumbUp
+                                size={24}
+                                strokeWidth={2}
+                                stroke={
+                                  section.subtitleAssessment === 'positive'
+                                    ? getTailwindColor('green-60')
+                                    : section.subtitleColor
+                                    ? getTailwindColor(section.subtitleColor)
+                                    : '#000000'
+                                }
+                              />
+                            ) : (
+                              <IconThumbDown
+                                size={24}
+                                strokeWidth={2}
+                                stroke={
+                                  section.subtitleAssessment === 'negative'
+                                    ? getTailwindColor('red-60')
+                                    : section.subtitleColor
+                                    ? getTailwindColor(section.subtitleColor)
+                                    : '#000000'
+                                }
+                              />
+                            )}
+                          </View>
+                        )}
+                        <Text
+                          className="text-lg font-bold"
+                          style={{
+                            color: section.subtitleColor
+                              ? getTailwindColor(section.subtitleColor)
+                              : '#000000',
+                          }}
+                        >
+                          {section.subtitle}
+                        </Text>
+                      </View>
                     )}
                     {section.description && (
-                      <Text className="text-base leading-6 text-gray-90">
+                      <Text className="text-base leading-6 text-gray-90 font-inter">
                         {renderTextWithBold(section.description)}
                       </Text>
                     )}
@@ -246,9 +278,7 @@ export function FAQDetailScreen() {
                 return (
                   <View key={index} style={sectionSpacing}>
                     {section.title && (
-                      <Text className="text-lg font-semibold mb-3">
-                        {section.title}
-                      </Text>
+                      <Text className="text-lg font-semibold mb-3">{section.title}</Text>
                     )}
                     {section.dataSource === 'nutrient-thresholds' && renderNutrientTable()}
                   </View>
@@ -261,7 +291,7 @@ export function FAQDetailScreen() {
           // Simple question type FAQ (fallback for old format)
           <View className="mb-6">
             <Text className="text-lg font-semibold mb-3 text-black">{faqItem.question}</Text>
-            <Text className="text-base leading-6 text-gray-90">
+            <Text className="text-base leading-6 text-gray-90 font-inter">
               {renderTextWithBold(faqItem.answer || '')}
             </Text>
           </View>

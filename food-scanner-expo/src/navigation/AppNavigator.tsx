@@ -1,8 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, Platform } from 'react-native';
+import { Pressable, Platform, Text } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useNavigation } from '@react-navigation/native';
-import { IconChevronRight } from '@tabler/icons-react-native';
 import { ScannerScreen } from '@/screens/ScannerScreen';
 import { HistoryScreen } from '@/screens/HistoryScreen';
 import { FavouritesScreen } from '@/screens/FavouritesScreen';
@@ -11,33 +9,47 @@ import { FAQScreen } from '@/screens/FAQScreen';
 import { FAQDetailScreen } from '@/screens/FAQDetailScreen';
 import { UserAgreementScreen } from '@/screens/UserAgreementScreen';
 import { PrivacyPolicyScreen } from '@/screens/PrivacyPolicyScreen';
+import { isLiquidGlassAvailable } from 'expo-glass-effect';
 
-// Custom back button with just chevron (no text)
-function CustomBackButton() {
-  const navigation = useNavigation();
+// Header tint color - matches native header button styling
+const HEADER_TINT_COLOR = '#007AFF';
+const isIOS = Platform.OS === 'ios';
 
-  if (!navigation.canGoBack()) {
-    return null;
-  }
-
+// Reusable header button component using native header styling
+export function HeaderButton({
+  onPress,
+  children,
+}: {
+  onPress: () => void;
+  children: React.ReactNode;
+}) {
   return (
-    <TouchableOpacity onPress={() => navigation.goBack()} className="ml-2" activeOpacity={0.7}>
-      <IconChevronRight
-        size={32}
-        stroke="#000000"
-        style={{ transform: [{ rotate: '180deg' }], marginLeft: -6 }}
-      />
-    </TouchableOpacity>
+    <Pressable onPress={onPress}>
+      {({ pressed }) => (
+        <Text
+          style={{
+            color: isLiquidGlassAvailable() ? '#000000' : HEADER_TINT_COLOR,
+            fontWeight: isIOS ? '500' : '600',
+            fontFamily: 'Inter',
+            fontSize: isIOS ? 16 : 18,
+            padding: isLiquidGlassAvailable() ? 8 : 0,
+            opacity: pressed ? 0.5 : 1,
+          }}
+        >
+          {children}
+        </Text>
+      )}
+    </Pressable>
   );
 }
 
 export type RootStackParamList = {
-  Scanner: { barcode?: string } | undefined;
-  History: { barcode?: string } | undefined;
-  Favourites: { barcode?: string } | undefined;
+  Scanner: undefined;
+  History: undefined;
+  Favourites: undefined;
   Info: undefined;
   FAQ: undefined;
-  FAQDetail: { id: string; barcode?: string } | undefined;
+  FAQDetail: { id: string };
   UserAgreement: undefined;
   PrivacyPolicy: undefined;
 };
@@ -45,17 +57,17 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function AppNavigator() {
-  const isIOS = Platform.OS === 'ios';
-
   return (
     <Stack.Navigator
       screenOptions={{
         headerTitleAlign: 'center',
-        headerTransparent: isIOS, // Transparent only on iOS
+        headerTitleStyle: { color: '#000000' },
+        headerTransparent: isLiquidGlassAvailable(), // Transparent only on iOS with Liquid Glass
         headerBackTitle: isIOS ? '' : undefined, // Hide back title only on iOS
-        headerLeft: isIOS ? () => <CustomBackButton /> : undefined, // Custom button only on iOS
-        headerStyle: isIOS ? undefined : { backgroundColor: '#FFFFFF' }, // White background on Android
-        headerTintColor: isIOS ? undefined : '#007AFF', // Blue tint on Android
+        headerStyle: isLiquidGlassAvailable()
+          ? { backgroundColor: 'transparent' }
+          : { backgroundColor: '#FFFFFF' }, // transparent background with Liquid Glass
+        headerTintColor: HEADER_TINT_COLOR,
         contentStyle: {
           backgroundColor: '#F5F7FA',
         },
@@ -106,6 +118,7 @@ export function AppNavigator() {
           const item = faqData.find((i: any) => i.id === route.params?.id);
           return {
             title: item?.title || item?.question || 'FAQ',
+            headerBackButtonMenuEnabled: false,
           };
         }}
       />

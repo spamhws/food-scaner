@@ -1,37 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { View, ActivityIndicator, BackHandler, Platform, Text } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { View, BackHandler, Platform, Text, Alert } from 'react-native';
 import { ProductList } from '@/components/ProductList';
-import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
-import type { RootStackParamList } from '@/navigation/AppNavigator';
 import { useHistory } from '@/hooks/useHistory';
 import { ProductDetailSheet } from '@/components/ProductDetailSheet/ProductDetailSheet';
 import { useProduct } from '@/hooks/useProduct';
 import { getCachedProduct } from '@/lib/storage/storage';
 import { Images } from '@/constants/assets';
 import { CTAScreen } from '@/components/CTAScreen';
-
-type HistoryRouteProp = RouteProp<RootStackParamList, 'History'>;
+import { HeaderButton } from '@/navigation/AppNavigator';
+import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 
 export function HistoryScreen() {
   const navigation = useNavigation<NavigationProp>();
-  const route = useRoute<HistoryRouteProp>();
-  const insets = useSafeAreaInsets();
-  const { history, isLoading } = useHistory();
+  const { history, isLoading, clear, removeItem } = useHistory();
   const [selectedBarcode, setSelectedBarcode] = useState<string | null>(null);
   const [validHistory, setValidHistory] = useState<string[]>([]);
-
-  // Header height (44px) + status bar - only needed on iOS with transparent header
-  const headerHeight = Platform.OS === 'ios' ? 44 + insets.top : 0;
-
-  // Check if barcode was passed as route param (from FAQ navigation)
-  useEffect(() => {
-    const routeBarcode = route.params?.barcode;
-    if (routeBarcode) {
-      setSelectedBarcode(routeBarcode);
-    }
-  }, [route.params]);
+  const headerHeight = useHeaderHeight();
 
   // Filter history to only include products that exist (not errors)
   useEffect(() => {
@@ -86,23 +72,50 @@ export function HistoryScreen() {
     navigation.navigate('Scanner');
   };
 
-  const isEmpty = !isLoading && validHistory.length === 0;
+  const handleClearAll = () => {
+    Alert.alert(
+      'Clear All History',
+      'Are you sure you want to clear all items from your history?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Clear All',
+          style: 'destructive',
+          onPress: async () => {
+            await clear();
+          },
+        },
+      ]
+    );
+  };
+
+  // Set header right button for Clear All
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () =>
+        validHistory.length > 0 ? (
+          <HeaderButton onPress={handleClearAll}>Clear All</HeaderButton>
+        ) : null,
+    });
+  }, [navigation, validHistory.length]);
+
+  const isEmpty = validHistory.length === 0;
 
   return (
     <View className={`flex-1 ${isEmpty ? 'bg-white' : 'bg-gray-10'}`}>
       {/* Product List */}
-      {isLoading ? (
-        <View
-          className="flex-1 justify-center items-center bg-gray-10"
-          style={{ paddingTop: headerHeight }}
-        >
-          <ActivityIndicator size="large" color="#3272D9" />
-        </View>
-      ) : validHistory.length === 0 ? (
+      {isEmpty ? (
         <CTAScreen
           image={Images.emptyBasket}
-          title="An empty basket tells no stories"
-          description="Start building yours — one scan at a time!"
+          title={
+            <Text className="text-title-large font-bold text-center">
+              An empty basket {'tells\u00a0no\u00a0stories'}
+            </Text>
+          }
+          description="Start building yours - one scan at a time!"
           buttonText="Scan your first product"
           onButtonPress={handleGoToScanner}
         />
@@ -110,6 +123,7 @@ export function HistoryScreen() {
         <ProductList
           barcodes={validHistory}
           onProductPress={handleProductPress}
+          onProductDelete={removeItem}
           contentInsetTop={headerHeight}
         />
       )}

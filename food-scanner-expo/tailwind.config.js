@@ -16,6 +16,10 @@ module.exports = {
         medium: ['Montserrat-Medium'],
         semibold: ['Montserrat-SemiBold'],
         bold: ['Montserrat-Bold'],
+        inter: ['Inter-Regular'],
+        'inter-medium': ['Inter-Medium'],
+        'inter-semibold': ['Inter-SemiBold'],
+        'inter-bold': ['Inter-Bold'],
       },
       fontWeight: {
         medium: undefined,
@@ -41,19 +45,33 @@ module.exports = {
     },
   },
   plugins: [
-    // Font utilities plugin
+    // Default font family plugin - applies Montserrat-Regular to fontSize utilities
+    // This must come FIRST so font weight utilities can override it
+    function ({ addUtilities, theme }) {
+      const defaultFont = 'Montserrat-Regular';
+
+      // Add fontFamily to all fontSize utilities (text-title, text-caption, etc.)
+      const fontSizeUtilities = {};
+      Object.keys(theme('fontSize')).forEach((key) => {
+        fontSizeUtilities[`.text-${key}`] = {
+          fontFamily: defaultFont,
+        };
+      });
+
+      addUtilities(fontSizeUtilities);
+    },
+    // Font weight utilities plugin - must come AFTER fontSize utilities to override
     function ({ addUtilities }) {
       addUtilities({
         '.font-medium': { fontFamily: 'Montserrat-Medium' },
         '.font-semibold': { fontFamily: 'Montserrat-SemiBold' },
         '.font-bold': { fontFamily: 'Montserrat-Bold' },
+        // Inter font utilities
+        '.font-inter': { fontFamily: 'Inter-Regular' },
+        '.font-inter-medium': { fontFamily: 'Inter-Medium' },
+        '.font-inter-semibold': { fontFamily: 'Inter-SemiBold' },
+        '.font-inter-bold': { fontFamily: 'Inter-Bold' },
       });
     },
-    // Colors plugin (alternative approach - adds colors via plugin instead of theme.extend)
-    // Uncomment if you prefer this approach, but current approach (line 25) is simpler
-    // function ({ addBase, theme }) {
-    //   // Colors are already available via theme.extend.colors above
-    //   // This plugin approach is optional and not necessary
-    // },
   ],
 };

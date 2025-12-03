@@ -26,7 +26,7 @@ export function generateAssessments(product: Product): Assessment[] {
     });
   }
 
-  // Low sugar is good (less than 5g per 100g)
+  // Low sugar is good (less than 5g per 100g) - only if actually provided (not undefined)
   if (product.nutrition.sugars && product.nutrition.sugars.value < 5) {
     assessments.push({
       type: 'positive',
@@ -34,11 +34,35 @@ export function generateAssessments(product: Product): Assessment[] {
     });
   }
 
-  // Low salt is good (less than 0.3g per 100g)
+  // Low salt is good (less than 0.3g per 100g) - only if actually provided (not undefined)
   if (product.nutrition.salt && product.nutrition.salt.value < 0.3) {
     assessments.push({
       type: 'positive',
       label: 'Low in salt',
+    });
+  }
+
+  // Low fat is good (less than 3g per 100g)
+  if (product.nutrition.fat && product.nutrition.fat.value < 3) {
+    assessments.push({
+      type: 'positive',
+      label: 'Low in fat',
+    });
+  }
+
+  // Low saturated fat is good (less than 1.5g per 100g)
+  if (product.nutrition.saturatedFat && product.nutrition.saturatedFat.value < 1.5) {
+    assessments.push({
+      type: 'positive',
+      label: 'Low in saturated fat',
+    });
+  }
+
+  // Low calories is good (less than 100kcal per 100g)
+  if (product.nutrition.calories && product.nutrition.calories.value < 100) {
+    assessments.push({
+      type: 'positive',
+      label: 'Low calorie',
     });
   }
 
@@ -78,6 +102,29 @@ export function generateAssessments(product: Product): Assessment[] {
     });
   }
 
+  // High carbohydrates (more than 30g per 100g)
+  if (product.nutrition.carbohydrates && product.nutrition.carbohydrates.value > 30) {
+    assessments.push({
+      type: 'negative',
+      label: 'High in carbohydrates',
+    });
+  }
+
+  // High sodium (more than 0.6g per 100g, equivalent to 1.5g salt)
+  if (product.nutrition.sodium && product.nutrition.sodium.value > 0.6) {
+    assessments.push({
+      type: 'negative',
+      label: 'High in sodium',
+    });
+  }
+
+  // Added sugars present (indicates processed food)
+  if (product.nutrition.addedSugars && product.nutrition.addedSugars.value > 0) {
+    assessments.push({
+      type: 'negative',
+      label: 'Contains added sugars',
+    });
+  }
+
   return assessments;
 }
-

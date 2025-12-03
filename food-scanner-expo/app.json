@@ -1,34 +1,41 @@
 {
   "expo": {
     "name": "Food ID",
-    "slug": "food-id",
+    "slug": "food-scanner-expo",
     "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/icon/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "This app uses the camera to scan barcodes on food products."
-      }
+      },
+      "icon": "./assets/icon/composer.icon"
     },
     "android": {
       "package": "com.foodid",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "monochromeImage": "./assets/icon/adaptive-icon.png",
+        "backgroundColor": "#0f9e48"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "permissions": ["CAMERA", "android.permission.CAMERA"]
     },
     "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/icon/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#0f9e48"
+        }
+      ],
       [
         "expo-camera",
         {
@@ -42,7 +49,11 @@
             "node_modules/@expo-google-fonts/montserrat/400Regular/Montserrat_400Regular.ttf",
             "node_modules/@expo-google-fonts/montserrat/500Medium/Montserrat_500Medium.ttf",
             "node_modules/@expo-google-fonts/montserrat/600SemiBold/Montserrat_600SemiBold.ttf",
-            "node_modules/@expo-google-fonts/montserrat/700Bold/Montserrat_700Bold.ttf"
+            "node_modules/@expo-google-fonts/montserrat/700Bold/Montserrat_700Bold.ttf",
+            "node_modules/@expo-google-fonts/inter/400Regular/Inter_400Regular.ttf",
+            "node_modules/@expo-google-fonts/inter/500Medium/Inter_500Medium.ttf",
+            "node_modules/@expo-google-fonts/inter/600SemiBold/Inter_600SemiBold.ttf",
+            "node_modules/@expo-google-fonts/inter/700Bold/Inter_700Bold.ttf"
           ]
         }
       ],

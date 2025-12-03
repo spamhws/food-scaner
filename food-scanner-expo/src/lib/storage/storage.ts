@@ -39,6 +39,16 @@ export async function clearHistory(): Promise<void> {
   }
 }
 
+export async function removeFromHistory(barcode: string): Promise<void> {
+  try {
+    const history = await getHistory();
+    const newHistory = history.filter((b) => b !== barcode);
+    await AsyncStorage.setItem(KEYS.HISTORY, JSON.stringify(newHistory));
+  } catch (error) {
+    console.error('Error removing from history:', error);
+  }
+}
+
 /**
  * Favorites: Array of barcodes
  */
@@ -89,6 +99,14 @@ export async function toggleFavorite(barcode: string): Promise<boolean> {
   } catch (error) {
     console.error('Error toggling favorite:', error);
     return false;
+  }
+}
+
+export async function clearFavorites(): Promise<void> {
+  try {
+    await AsyncStorage.removeItem(KEYS.FAVORITES);
+  } catch (error) {
+    console.error('Error clearing favorites:', error);
   }
 }
 

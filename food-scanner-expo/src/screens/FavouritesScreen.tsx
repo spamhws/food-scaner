@@ -1,35 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ActivityIndicator, BackHandler, Platform } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { View, BackHandler, Platform, Text, Alert } from 'react-native';
 import { ProductList } from '@/components/ProductList';
-import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
-import type { RootStackParamList } from '@/navigation/AppNavigator';
 import { ProductDetailSheet } from '@/components/ProductDetailSheet/ProductDetailSheet';
 import { useProduct } from '@/hooks/useProduct';
 import { useFavorites } from '@/hooks/useFavorites';
 import { Images } from '@/constants/assets';
 import { CTAScreen } from '@/components/CTAScreen';
-
-type FavouritesRouteProp = RouteProp<RootStackParamList, 'Favourites'>;
+import { HeaderButton } from '@/navigation/AppNavigator';
+import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 
 export function FavouritesScreen() {
   const navigation = useNavigation<NavigationProp>();
-  const route = useRoute<FavouritesRouteProp>();
-  const insets = useSafeAreaInsets();
-  const { favorites, isLoading } = useFavorites();
+  const { favorites, clear, removeItem } = useFavorites();
   const [selectedBarcode, setSelectedBarcode] = useState<string | null>(null);
-
-  // Header height (44px) + status bar - only needed on iOS with transparent header
-  const headerHeight = Platform.OS === 'ios' ? 44 + insets.top : 0;
-
-  // Check if barcode was passed as route param (from FAQ navigation)
-  useEffect(() => {
-    const routeBarcode = route.params?.barcode;
-    if (routeBarcode) {
-      setSelectedBarcode(routeBarcode);
-    }
-  }, [route.params]);
+  const headerHeight = useHeaderHeight();
 
   // Fetch selected product data (from cache)
   const { data: selectedProduct } = useProduct({
@@ -65,19 +51,42 @@ export function FavouritesScreen() {
     navigation.navigate('Scanner');
   };
 
-  const isEmpty = !isLoading && favorites.length === 0;
+  const handleClearAll = () => {
+    Alert.alert(
+      'Clear All Favorites',
+      'Are you sure you want to clear all items from your favorites?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Clear All',
+          style: 'destructive',
+          onPress: async () => {
+            await clear();
+          },
+        },
+      ]
+    );
+  };
+
+  // Set header right button for Clear All
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () =>
+        favorites.length > 0 ? (
+          <HeaderButton onPress={handleClearAll}>Clear All</HeaderButton>
+        ) : null,
+    });
+  }, [navigation, favorites.length]);
+
+  const isEmpty = favorites.length === 0;
 
   return (
     <View className={`flex-1 ${isEmpty ? 'bg-white' : 'bg-gray-10'}`}>
       {/* Product List */}
-      {isLoading ? (
-        <View
-          className="flex-1 justify-center items-center bg-gray-10"
-          style={{ paddingTop: headerHeight }}
-        >
-          <ActivityIndicator size="large" color="#3272D9" />
-        </View>
-      ) : favorites.length === 0 ? (
+      {isEmpty ? (
         <CTAScreen
           image={Images.brokenHeart}
           title="Broken heart"
@@ -89,7 +98,9 @@ export function FavouritesScreen() {
         <ProductList
           barcodes={favorites}
           onProductPress={handleProductPress}
+          onProductDelete={removeItem}
           contentInsetTop={headerHeight}
+          deleteIcon="heart-off"
         />
       )}
 

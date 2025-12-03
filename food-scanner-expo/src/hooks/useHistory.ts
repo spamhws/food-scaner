@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { getHistory, addToHistory, clearHistory } from '@/lib/storage/storage';
+import { getHistory, addToHistory, clearHistory, removeFromHistory } from '@/lib/storage/storage';
 
 export function useHistory() {
   const [history, setHistory] = useState<string[]>([]);
@@ -12,10 +12,21 @@ export function useHistory() {
     setIsLoading(false);
   }, []);
 
-  const addItem = useCallback(async (barcode: string) => {
-    await addToHistory(barcode);
-    await loadHistory();
-  }, [loadHistory]);
+  const addItem = useCallback(
+    async (barcode: string) => {
+      await addToHistory(barcode);
+      await loadHistory();
+    },
+    [loadHistory]
+  );
+
+  const removeItem = useCallback(
+    async (barcode: string) => {
+      await removeFromHistory(barcode);
+      await loadHistory();
+    },
+    [loadHistory]
+  );
 
   const clear = useCallback(async () => {
     await clearHistory();
@@ -30,8 +41,8 @@ export function useHistory() {
     history,
     isLoading,
     addItem,
+    removeItem,
     clear,
     refresh: loadHistory,
   };
 }
-

@@ -7,7 +7,7 @@ import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-na
 export interface CTAScreenProps {
   image?: ImageSourcePropType;
   video?: any; // Video source (require() or URI)
-  title: string;
+  title: string | React.ReactNode;
   description: string;
   buttonText: string;
   onButtonPress: () => void;
@@ -63,8 +63,14 @@ export function CTAScreen({
             <Image source={image} className="w-84 h-60 mb-6" resizeMode="contain" />
           ) : null}
           <View className="px-6">
-            <Text className="text-title-large font-bold text-gray-90 mb-4 text-center">{title}</Text>
-            <Text className="text-base text-gray-70 text-center mb-8">{description}</Text>
+            {typeof title === 'string' ? (
+              <Text className="text-title-large font-bold mb-4 text-center">{title}</Text>
+            ) : (
+              <View className="mb-4">
+                <Text className="text-title-large font-bold text-center">{title}</Text>
+              </View>
+            )}
+            <Text className="font-medium text-gray-70 text-center mb-8">{description}</Text>
           </View>
         </View>
         <Animated.View style={buttonAnimatedStyle} className="w-full">

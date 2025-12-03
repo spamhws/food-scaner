@@ -9,6 +9,24 @@ export function parseNutrient(value: string | number | undefined): Nutrient {
   };
 }
 
+/**
+ * Check if a nutrient value is actually provided (not just defaulted to 0)
+ * Returns true if the value exists and is a valid number (even if 0)
+ */
+export function isNutrientValueProvided(value: string | number | undefined): boolean {
+  if (value === undefined || value === null) return false;
+  if (typeof value === 'string') {
+    const trimmed = value.trim();
+    if (trimmed === '' || trimmed === 'null' || trimmed === 'undefined') return false;
+    const numValue = parseFloat(trimmed);
+    return !isNaN(numValue);
+  }
+  if (typeof value === 'number') {
+    return !isNaN(value);
+  }
+  return false;
+}
+
 export function calculateNutritionScore(grade: string): number {
   const scores: Record<string, number> = {
     a: 90,

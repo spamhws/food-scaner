@@ -5,16 +5,16 @@ export interface Nutrient {
 }
 
 export interface NutritionData {
-  calories: Nutrient;
-  fat: Nutrient;
-  saturatedFat: Nutrient;
-  carbohydrates: Nutrient;
-  sugars: Nutrient;
+  calories?: Nutrient; // Optional - only if actually provided by API
+  fat?: Nutrient; // Optional - only if actually provided by API
+  saturatedFat?: Nutrient; // Optional - only if actually provided by API
+  carbohydrates?: Nutrient; // Optional - only if actually provided by API
+  sugars?: Nutrient; // Optional - only if actually provided by API
   addedSugars?: Nutrient; // Optional - not always available
-  protein: Nutrient;
-  salt: Nutrient;
+  protein?: Nutrient; // Optional - only if actually provided by API
+  salt?: Nutrient; // Optional - only if actually provided by API
   sodium?: Nutrient; // Optional - can be calculated from salt or provided by API
-  fiber: Nutrient;
+  fiber?: Nutrient; // Optional - only if actually provided by API
 }
 
 export interface Assessment {
