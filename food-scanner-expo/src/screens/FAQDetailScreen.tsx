@@ -7,16 +7,7 @@ import { useNavigationBack } from '@/hooks/useNavigationBack';
 import { useTranslation } from '@/hooks/useTranslation';
 import { ScoreImage } from '@/components/ScoreImage';
 import { useTranslation as useI18nTranslation } from 'react-i18next';
-
-// Load FAQ data based on language
-const getFAQData = (language: string) => {
-  try {
-    return require(`@/translations/${language}/faq.json`);
-  } catch {
-    // Fallback to English if language file doesn't exist
-    return require('@/translations/en/faq.json');
-  }
-};
+import { getFAQData } from '@/lib/translation-loaders';
 import { getTailwindColor } from '@/lib/utils/tailwind-colors';
 import nutrientThresholdsData from '@/data/nutrient-thresholds.json';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';

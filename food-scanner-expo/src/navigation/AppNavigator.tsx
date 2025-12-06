@@ -12,6 +12,7 @@ import { UserAgreementScreen } from '@/screens/UserAgreementScreen';
 import { PrivacyPolicyScreen } from '@/screens/PrivacyPolicyScreen';
 import { LanguageSelectionScreen } from '@/screens/LanguageSelectionScreen';
 import { isLiquidGlassAvailable } from 'expo-glass-effect';
+import { getFAQData } from '@/lib/translation-loaders';
 
 // Header tint color - matches native header button styling
 const HEADER_TINT_COLOR = '#007AFF';
@@ -121,12 +122,7 @@ export function AppNavigator() {
         options={({ route }) => {
           const i18nInstance = require('@/lib/i18n').default;
           const language = i18nInstance?.language || 'en';
-          let faqData;
-          try {
-            faqData = require(`@/translations/${language}/faq.json`);
-          } catch {
-            faqData = require('@/translations/en/faq.json');
-          }
+          const faqData = getFAQData(language);
           const item = faqData.find((i: any) => i.id === route.params?.id);
           return {
             title: item?.title || item?.question || t('navigation.faq'),

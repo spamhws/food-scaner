@@ -6,16 +6,7 @@ import type { NavigationProp } from '@/navigation/navigation-types';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useNavigationBack } from '@/hooks/useNavigationBack';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
-
-// Load FAQ data based on language
-const getFAQData = (language: string) => {
-  try {
-    return require(`@/translations/${language}/faq.json`);
-  } catch {
-    // Fallback to English if language file doesn't exist
-    return require('@/translations/en/faq.json');
-  }
-};
+import { getFAQData } from '@/lib/translation-loaders';
 
 interface FAQItem {
   id: string;

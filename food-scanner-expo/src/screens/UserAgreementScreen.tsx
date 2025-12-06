@@ -4,22 +4,13 @@ import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
-
-// Load agreement data based on language
-const getAgreementData = (language: string) => {
-  try {
-    return require(`@/translations/${language}/userAgreement.json`);
-  } catch {
-    // Fallback to English if language file doesn't exist
-    return require('@/translations/en/userAgreement.json');
-  }
-};
+import { getUserAgreementData } from '@/lib/translation-loaders';
 
 export function UserAgreementScreen() {
   const { currentLanguage } = useTranslation();
   const navigation = useNavigation<NavigationProp>();
   const headerHeight = useHeaderHeight();
-  const agreementData = getAgreementData(currentLanguage);
+  const agreementData = getUserAgreementData(currentLanguage);
 
   // Handle Android back button
   useEffect(() => {
