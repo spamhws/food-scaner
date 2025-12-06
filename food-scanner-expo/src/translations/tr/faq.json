@@ -1,0 +1,318 @@
+[
+  {
+    "id": "barcode-scanner",
+    "type": "question",
+    "question": "Food ID nasıl çalışır?",
+    "title": "Food ID nasıl çalışır",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID, anında ayrıntılı ürün bilgilerine erişim sağlayarak bilinçli gıda seçimleri yapmanıza yardımcı olur. Sadece bir ürünün barkodunu tarayın veya manuel olarak girin, beslenme verileri, içerikler, alerjenler ve sağlık puanlarını görün."
+      },
+      {
+        "type": "section",
+        "subtitle": "Ürünleri tarama",
+        "description": "Kameranızı herhangi bir ürünün barkoduna yöneltin. Food ID otomatik olarak algılar ve okur, ardından size anında kapsamlı ürün detaylarını gösterir. Kamera barkodu okuyamazsa, manuel olarak girmek için klavye simgesine dokunun."
+      },
+      {
+        "type": "section",
+        "subtitle": "Göreceğiniz şeyler",
+        "description": "Her ürün, renk kodlu simgelerle (iyi için yeşil, orta için turuncu, yüksek için kırmızı) beslenme değerlerini, ana özellikleri, alerjenleri, içerikleri ve Nutri-Score, Eco-Score ve NOVA Score gibi sağlık puanlarını gösterir. Bu, bir ürünün beslenme kalitesini ve çevresel etkisini hızlıca anlamanıza yardımcı olur."
+      },
+      {
+        "type": "section",
+        "subtitle": "Ürün bilgisi kaynağı",
+        "description": "Food ID, dünya çapındaki gıda ürünlerinin ücretsiz, açık, işbirlikçi bir veritabanı olan <b>OpenFoodFacts</b>'tan ürün bilgilerini kullanır. Bilgiler, küresel bir kullanıcı topluluğu tarafından katkıda bulunulan beslenme verileri, içerikler, alerjenler ve diğer ürün detaylarını içerir."
+      }
+    ]
+  },
+  {
+    "id": "scan-fails",
+    "type": "question",
+    "question": "Tarama neden bazen başarısız olur?",
+    "title": "Tarama sorunları",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Birkaç faktör başarılı barkod taramasını engelleyebilir. İşte en yaygın sorunlar ve bunların nasıl çözüleceği:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Kötü aydınlatma",
+        "description": "Barkod tarayıcıları kodları doğru okumak için yeterli ışığa ihtiyaç duyar. Daha parlak bir alana taşınmayı veya ek ışıkları açmayı deneyin. Barkodu silebilecek doğrudan güneş ışığından veya sert yansımalardan kaçının."
+      },
+      {
+        "type": "section",
+        "subtitle": "Mesafe ve açı",
+        "description": "Cihazınızı barkoddan rahat bir mesafede (yaklaşık 15-30 cm) tutun. Kamerayı barkod yüzeyine paralel tutun. Açılı veya eğik barkodlar okunması daha zordur."
+      },
+      {
+        "type": "section",
+        "subtitle": "Hasarlı veya kirli barkodlar",
+        "description": "Çizilmiş, yırtılmış veya kirli barkodlar düzgün taranmayabilir. Barkod yüzeyini temizlemeyi deneyin veya kod okunamazsa manuel giriş kullanın."
+      },
+      {
+        "type": "section",
+        "subtitle": "Veritabanında olmayan ürün",
+        "description": "Barkod başarıyla taranırsa ancak ürün bilgisi görünmezse, ürün henüz OpenFoodFacts veritabanında olmayabilir. <b>openfoodfacts.org</b>'u ziyaret ederek ve ürün bilgilerini katkıda bulunarak ekleyebilirsiniz."
+      },
+      {
+        "type": "section",
+        "subtitle": "Kamera izni",
+        "description": "Food ID'ye kamera izni verdiğinizden emin olun. Tarama çalışmazsa, cihaz ayarlarınızı kontrol edin ve uygulama için kamera erişiminin etkin olduğundan emin olun."
+      }
+    ]
+  },
+  {
+    "id": "nutrient-coloring",
+    "type": "question",
+    "question": "Besinler nasıl değerlendirilir ve renklendirilir?",
+    "title": "Besin değerlendirmesi",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID, besin seviyelerini ve renk kodlamasını belirlemek için iki yöntem kullanır:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Birincil yöntem: Resmi ürün bilgisi",
+        "description": "Mevcut olduğunda, Food ID resmi beslenme bilgilerini doğrudan Open Food Facts'ten kullanır. Bu, ürünün gerçek beslenme etiketine dayandığı için en güvenilir kaynaktır."
+      },
+      {
+        "type": "section",
+        "subtitle": "Yedek yöntem: Endüstri standartları",
+        "description": "Resmi beslenme bilgisi mevcut değilse, Food ID, <b>AB beslenme etiketleme düzenlemeleri</b> ve WHO ve EFSA'dan sağlık önerilerine dayalı endüstri standardı yönergelerini kullanarak besin seviyelerini belirler."
+      },
+      {
+        "type": "table",
+        "title": "Besin eşikleri (100g başına)",
+        "dataSource": "nutrient-thresholds"
+      },
+      {
+        "type": "section",
+        "subtitle": "Renk kodlaması",
+        "description": "Standart besinler (yağ, şeker, tuz, kalori): <b>Düşük</b> = Yeşil (iyi), <b>Orta</b> = Turuncu (dikkat), <b>Yüksek</b> = Kırmızı (sınırla). Pozitif besinler (protein, lif): <b>Yüksek</b> = Yeşil (iyi), <b>Düşük/Orta</b> = Gri (nötr). Yetersiz veri = Gri."
+      },
+      {
+        "type": "section",
+        "subtitle": "Eksik bilgi",
+        "description": "Bir besin değeri mevcut değilse veya belirlenemezse, simge bu bilginin ürün için mevcut olmadığını belirtmek için gri kalır."
+      }
+    ]
+  },
+  {
+    "id": "favorites",
+    "type": "question",
+    "question": "Ürünleri favorilere nasıl eklerim?",
+    "title": "Favoriler",
+    "answer": "Bir ürünün detaylarını görüntülerken, ekranın altındaki kalp simgesine dokunun. Kalp kırmızıya dönecek, ürünün favorilerinize eklendiğini gösterir. Favorilerinize istediğiniz zaman favoriler sekmesinden erişin."
+  },
+  {
+    "id": "data-storage",
+    "type": "question",
+    "question": "Tarama geçmişim nerede saklanır?",
+    "title": "Veri depolama",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Taranan tüm ürünleriniz ve favorileriniz cihazınızda yerel olarak saklanır. Bu, verilerinizin telefonunuzdan asla ayrılmadığı ve tamamen özel kaldığı anlamına gelir."
+      },
+      {
+        "type": "section",
+        "subtitle": "Yerel depolama",
+        "description": "Tarama geçmişiniz, favorileriniz ve ürün bilgileriniz yalnızca cihazınızda saklanır. Hiçbir şey harici hizmetlere gönderilmez veya çevrimiçi saklanmaz."
+      },
+      {
+        "type": "section",
+        "subtitle": "Gizlilik",
+        "description": "Her şey cihazınızda kaldığı için tam kontrol sizdedir. Uygulamayı kaldırırsanız, tüm bilgileriniz kaldırılır. Ürün detayları taradığınızda OpenFoodFacts'ten alınır, ancak kişisel tarama geçmişiniz ve favorileriniz cihazınızdan asla ayrılmaz."
+      }
+    ]
+  },
+  {
+    "id": "assessments",
+    "type": "question",
+    "question": "Pozitif ve negatif değerlendirmeler nasıl oluşturulur?",
+    "title": "Değerlendirmeler",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID, kalori, proteinler, yağlar, karbonhidratlar, lif, sodyum ve şekerler dahil olmak üzere ürünün beslenme içeriğini analiz eder. Bu değerleri AB düzenlemeleri ve endüstri standartlarına dayalı önerilen günlük alım yönergeleriyle karşılaştırıyoruz."
+      },
+      {
+        "type": "section",
+        "subtitle": "Pozitif değerlendirmeler",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsUp",
+        "subtitleAssessment": "positive",
+        "subtitleColor": "green-60",
+        "description": "Ürünler, faydalı besinler (lif, protein) açısından yüksek ve sınırlandırılacak bileşenler (doymuş yağlar, sodyum, şekerler) açısından düşük olduğunda pozitif değerlendirmeler alır. Bu ürünler dengeli bir diyet ve sağlıklı yeme alışkanlıklarını destekler."
+      },
+      {
+        "type": "section",
+        "subtitle": "Negatif değerlendirmeler",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsDown",
+        "subtitleAssessment": "negative",
+        "subtitleColor": "red-60",
+        "description": "Ürünler, yüksek seviyelerde doymuş yağ, sodyum veya şeker içerdiğinde negatif değerlendirmeler alır. Bunlar dengeli bir diyetin parçası olarak ölçülü tüketilmelidir."
+      }
+    ]
+  },
+  {
+    "id": "products-not-found",
+    "type": "question",
+    "question": "Neden bazı ürünleri bulamıyorum?",
+    "title": "Eksik ürünler",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Henüz tüm ürünler OpenFoodFacts'te mevcut değil. Bilgiler topluluk tarafından yönetilir ve sürekli büyür, zaten milyonlarca ürün mevcuttur."
+      },
+      {
+        "type": "section",
+        "subtitle": "Ürünlerin neden eksik olabileceği",
+        "description": "Yeni ürünler, bölgesel öğeler veya daha az yaygın markalar henüz mevcut olmayabilir. Bilgiler kapsamı genişletmek için topluluk katkılarına bağlıdır."
+      },
+      {
+        "type": "section",
+        "subtitle": "Ürün nasıl eklenir",
+        "description": "Eksik ürünleri OpenFoodFacts'e ekleyerek katkıda bulunabilirsiniz. Barkodu taramak ve beslenme gerçekleri, içerikler ve fotoğraflar dahil ürün bilgileri eklemek için <b>openfoodfacts.org</b>'u ziyaret edin."
+      }
+    ]
+  },
+  {
+    "id": "nutri-score",
+    "type": "score",
+    "question": "Nutri-Score nedir?",
+    "title": "Nutri-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Nutri-Score, Fransa'da geliştirilen ve birçok Avrupa ülkesi tarafından benimsenen resmi bir gıda etiketleme sistemidir. Tüketicilerin bir ürünün genel beslenme kalitesini hızlıca değerlendirmelerine yardımcı olan basit, grafik bir gösterge görevi görür."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-a",
+        "subtitle": "En iyi puan",
+        "subtitleColor": "green-60",
+        "description": "En yüksek beslenme kalitesine, minimal kalori, yağ, şeker ve tuz içeriğine, lif ve/veya protein açısından zengin ürünlere verilir. <b>Örnekler:</b> taze meyveler, sebzeler, tam tahıllı ürünler ve zeytinyağı."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-b",
+        "subtitle": "Çok iyi beslenme kalitesi",
+        "subtitleColor": "green-60",
+        "description": "Ürünler günlük tüketim için iyi bir seçimdir, çok iyi bir besin dengesine sahiptir, ancak A kategorisinden biraz daha fazla yağ veya şeker içerebilir. <b>Örnekler:</b> şekersiz az yağlı yoğurtlar ve belirli tam tahıllı ekmek türleri."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-c",
+        "subtitle": "Ortalama veya \"nötr\" puan",
+        "subtitleColor": "bronze-60",
+        "description": "Ürünler diyete dahil edilebilir ancak A ve B ürünleriyle dönüşümlü olarak tüketilmelidir. Orta düzeyde negatif bileşenlere sahiptir veya pozitif özellikleri yağları veya tuzu tam olarak dengelemez. <b>Örnekler:</b> çoğu peynir türü veya beyaz ekmek."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-d",
+        "subtitle": "Düşük beslenme kalitesi",
+        "subtitleColor": "bronze-60",
+        "description": "Bu tür ürünler yüksek miktarda negatif bileşen içerir ve sınırlı miktarlarda tüketilmelidir. <b>Örnekler:</b> birçok şekerli kahvaltı gevreği veya işlenmiş et ürünleri."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-e",
+        "subtitle": "En kötü puan",
+        "subtitleColor": "red-60",
+        "description": "Çok düşük beslenme kalitesine sahip, çok yüksek kalori, yağ, şeker veya tuz içeriği ile karakterize edilen ürünlere atanır. <b>Cips, çikolata kremaları veya şekerli gazlı içecekler</b> gibi bu tür ürünlerin tüketimi minimize edilmelidir."
+      }
+    ]
+  },
+  {
+    "id": "eco-score",
+    "type": "score",
+    "question": "ECO-Score nedir?",
+    "title": "ECO-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Eco-Score, gıda ürünlerinin tüm yaşam döngüsü boyunca ekolojik etkisini değerlendiren kapsamlı bir çevre etiketidir. Ürünün gezegeni nasıl etkilediği hakkında tüketicilere şeffaf bilgi sağlamak için tasarlanmıştır, basit, grafik beş renkli, beş harfli bir ölçek kullanır."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-a",
+        "subtitle": "En iyi çevre seçimi",
+        "subtitleColor": "green-60",
+        "description": "Minimal çevresel etkiyi gösterir. Ürünler genellikle düşük <b>CO2 emisyonları</b> (örneğin bitki bazlı gıdalar) nedeniyle <b>LCA</b>'da yüksek puan alır ve organik, yerel kaynaklı ve tamamen geri dönüştürülebilir veya yeniden kullanılabilir malzemelerle paketlenmiş olmaları nedeniyle maksimum bonuslar kazanır. <b>Örnek:</b> mevsimsel, organik, minimal paketlenmiş sebzeler."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-b",
+        "subtitle": "İyi çevre seçimi",
+        "subtitleColor": "green-60",
+        "description": "İyi bir genel çevre profili temsil eder. Ürünler genellikle sürdürülebilirdir ancak ambalaj veya taşıma gibi bir alanda biraz daha yüksek bir etkiye sahip olabilir. Genellikle geri dönüştürülebilir malzemeler kullanan bitki bazlı öğeler veya sürdürülebilir olarak yetiştirilmiş ürünler içerir."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-c",
+        "subtitle": "Orta çevresel etki",
+        "subtitleColor": "bronze-60",
+        "description": "Bu ortalama veya \"nötr\" puandır. Ürünler genellikle bir kategori için standardı temsil eder, ölçülebilir bir çevresel etkiye sahiptir, potansiyel olarak enerji yoğun işleme, bazı geri dönüştürülemez ambalaj bileşenleri veya daha uzun tedarik zincirleri nedeniyle. Dengeli bir tüketim yaklaşımı gerektirirler."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-d",
+        "subtitle": "Orta çevresel etki",
+        "subtitleColor": "bronze-60",
+        "description": "Ürünler ölçülebilir bir çevresel etkiye sahiptir, potansiyel olarak enerji yoğun işleme, bazı geri dönüştürülemez ambalaj bileşenleri veya daha uzun tedarik zincirleri nedeniyle. Dengeli bir tüketim yaklaşımı gerektirirler."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-e",
+        "subtitle": "En yüksek çevresel etki",
+        "subtitleColor": "red-60",
+        "description": "Bu en kötü puandır, çok yüksek bir çevresel etki anlamına gelir. Ürünler genellikle yüksek bir <b>LCA puanı</b> (örneğin <b>sığır eti</b>) ile köken izlenebilirliği eksikliği ve sorunlu, tek kullanımlık ambalaj gibi birden fazla ceza birleştirir. Bu ürünlerin tüketimi minimize edilmelidir."
+      }
+    ]
+  },
+  {
+    "id": "nova-score",
+    "type": "score",
+    "question": "NOVA-Score nedir?",
+    "title": "NOVA Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "NOVA Sınıflandırması, gıda ürünlerini yalnızca endüstriyel işleme derecelerine göre kategorize eden Brezilyalı bilim insanları tarafından geliştirilmiş bir sistemdir. Nutri-Score'un aksine, NOVA şeker, yağ veya tuz gibi besin içeriğini değerlendirmez; bunun yerine üretim yöntemlerine ve içeriklere odaklanır."
+      },
+      {
+        "type": "section",
+        "image": "novascore-1",
+        "subtitle": "İşlenmemiş veya minimal işlenmiş gıdalar",
+        "subtitleColor": "green-60",
+        "description": "Bu ürünler doğal olarak oluşur veya korumak, daha güvenli hale getirmek veya lezzetliliği artırmak için hafifçe değiştirilir. İzin verilen değişiklikler <b>yıkama, soyma, pastörizasyon, dondurma veya öğütme</b> gibi basit teknikleri içerir. Bu gıdalar temel kimliklerini ve besin profilini korur. <b>Örnekler:</b> taze, kurutulmuş veya dondurulmuş meyve ve sebzeler, tam süt, taze et, yumurta ve pirinç gibi temel tahıllar."
+      },
+      {
+        "type": "section",
+        "image": "novascore-2",
+        "subtitle": "İşlenmiş mutfak içerikleri",
+        "subtitleColor": "green-60",
+        "description": "Bu grup, doğrudan <b>Grup 1</b> gıdalardan çıkarılan veya doğadan elde edilen, esas olarak mutfakta diğer gıdaları hazırlamak, baharatlamak veya korumak için kullanılan maddelerden oluşur. Tek başına tüketilmek için tasarlanmamıştır. <b>Presleme, rafinasyon veya kurutma</b> gibi işlemlerle çıkarılırlar. <b>Yaygın örnekler:</b> bitkisel yağlar, tuz, şeker, bal ve tereyağı."
+      },
+      {
+        "type": "section",
+        "image": "novascore-3",
+        "subtitle": "İşlenmiş gıdalar",
+        "subtitleColor": "bronze-60",
+        "description": "İşlenmiş gıdalar, <b>Grup 1</b>'den gıdaları <b>Grup 2</b>'den mutfak içerikleriyle (tuz, yağ veya şeker) birleştirerek yapılan nispeten basit öğelerdir. Amaç raf ömrünü uzatmak veya duyusal özellikleri geliştirmektir. Bu ürünler tipik olarak yalnızca birkaç içerik içerir ve hala tam gıdaların modifikasyonları olarak kolayca tanınabilir. <b>Örnekler:</b> basit peynir (tuzlu fermente süt), salamuradaki konserve sebzeler, minimal içeriklerle yapılmış ekmek ve sade yoğurtlar."
+      },
+      {
+        "type": "section",
+        "image": "novascore-4",
+        "subtitle": "Ultra-işlenmiş gıdalar (UPF)",
+        "subtitleColor": "red-60",
+        "description": "Bu ürünler endüstriyel işlemenin en yüksek derecesini temsil eder. Genellikle esas olarak endüstriyel süreçlerden türetilen içeriklerden formüle edilir ve genellikle ev yemeklerinde kullanılmayan çok sayıda katkı maddesi içerir. <b>NOVA 4</b> gıdaları genellikle <b>renklendiriciler, emülgatörler</b> (örneğin <b>E407</b>), <b>lezzet artırıcılar, hidrojene yağlar, hidrolize proteinler ve modifiye nişasta</b> gibi maddeler içerir. Bu öğeler maksimum kolaylık, lezzetlilik ve uzun raf ömrü için tasarlanmıştır. Tüketimleri kesinlikle sınırlandırılmalıdır. <b>Örnekler:</b> çoğu hazır dondurulmuş yemek, şekerli gazlı içecekler, seri üretim kahvaltı gevrekleri, sosis gibi çoğu işlenmiş et ürünleri ve çeşitli paketlenmiş atıştırmalıklar ve cipsler."
+      }
+    ]
+  }
+]

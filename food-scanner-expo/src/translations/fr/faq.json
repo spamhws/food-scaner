@@ -1,0 +1,318 @@
+[
+  {
+    "id": "barcode-scanner",
+    "type": "question",
+    "question": "Comment fonctionne Food ID ?",
+    "title": "Comment fonctionne Food ID",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID vous aide à faire des choix alimentaires éclairés en fournissant un accès instantané aux informations détaillées des produits. Scannez simplement le code-barres d'un produit ou saisissez-le manuellement pour voir les données nutritionnelles, les ingrédients, les allergènes et les scores de santé."
+      },
+      {
+        "type": "section",
+        "subtitle": "Scanner les produits",
+        "description": "Pointez votre caméra vers le code-barres de n'importe quel produit. Food ID le détecte et le lit automatiquement, puis vous montre instantanément les détails complets du produit. Si la caméra ne peut pas lire le code-barres, appuyez sur l'icône du clavier pour le saisir manuellement."
+      },
+      {
+        "type": "section",
+        "subtitle": "Ce que vous verrez",
+        "description": "Chaque produit affiche les valeurs nutritionnelles avec des icônes codées par couleur (vert pour bon, orange pour modéré, rouge pour élevé), les caractéristiques clés, les allergènes, les ingrédients et les scores de santé comme Nutri-Score, Eco-Score et NOVA Score. Cela vous aide à comprendre rapidement la qualité nutritionnelle et l'impact environnemental d'un produit."
+      },
+      {
+        "type": "section",
+        "subtitle": "Source d'information sur les produits",
+        "description": "Food ID utilise les informations sur les produits de <b>OpenFoodFacts</b>, une base de données gratuite, ouverte et collaborative de produits alimentaires du monde entier. Les informations incluent les données nutritionnelles, les ingrédients, les allergènes et d'autres détails sur les produits contribués par une communauté mondiale d'utilisateurs."
+      }
+    ]
+  },
+  {
+    "id": "scan-fails",
+    "type": "question",
+    "question": "Pourquoi le scan échoue-t-il parfois ?",
+    "title": "Problèmes de scan",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Plusieurs facteurs peuvent empêcher le scan réussi des codes-barres. Voici les problèmes les plus courants et comment les résoudre :"
+      },
+      {
+        "type": "section",
+        "subtitle": "Éclairage insuffisant",
+        "description": "Les scanners de codes-barres ont besoin d'une lumière adéquate pour lire les codes avec précision. Essayez de vous déplacer vers une zone plus lumineuse ou d'allumer des lumières supplémentaires. Évitez la lumière directe du soleil ou les reflets durs qui peuvent effacer le code-barres."
+      },
+      {
+        "type": "section",
+        "subtitle": "Distance et angle",
+        "description": "Tenez votre appareil à une distance confortable (environ 15-30 cm) du code-barres. Gardez la caméra parallèle à la surface du code-barres. Les codes-barres inclinés ou penchés sont plus difficiles à lire."
+      },
+      {
+        "type": "section",
+        "subtitle": "Codes-barres endommagés ou sales",
+        "description": "Les codes-barres rayés, déchirés ou sales peuvent ne pas être scannés correctement. Essayez de nettoyer la surface du code-barres ou utilisez la saisie manuelle si le code est illisible."
+      },
+      {
+        "type": "section",
+        "subtitle": "Produit non dans la base de données",
+        "description": "Si le code-barres est scanné avec succès mais qu'aucune information sur le produit n'apparaît, le produit n'est peut-être pas encore dans la base de données OpenFoodFacts. Vous pouvez l'ajouter en visitant <b>openfoodfacts.org</b> et en contribuant aux informations sur le produit."
+      },
+      {
+        "type": "section",
+        "subtitle": "Permission de la caméra",
+        "description": "Assurez-vous d'avoir accordé la permission de la caméra à Food ID. Si le scan ne fonctionne pas, vérifiez les paramètres de votre appareil et assurez-vous que l'accès à la caméra est activé pour l'application."
+      }
+    ]
+  },
+  {
+    "id": "nutrient-coloring",
+    "type": "question",
+    "question": "Comment les nutriments sont-ils évalués et colorés ?",
+    "title": "Évaluation des nutriments",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID utilise deux méthodes pour déterminer les niveaux de nutriments et le codage couleur :"
+      },
+      {
+        "type": "section",
+        "subtitle": "Méthode principale : Informations officielles sur le produit",
+        "description": "Lorsqu'elles sont disponibles, Food ID utilise les informations nutritionnelles officielles directement de Open Food Facts. C'est la source la plus fiable car elle est basée sur l'étiquette nutritionnelle réelle du produit."
+      },
+      {
+        "type": "section",
+        "subtitle": "Méthode de secours : Normes de l'industrie",
+        "description": "Si les informations nutritionnelles officielles ne sont pas disponibles, Food ID détermine les niveaux de nutriments en utilisant des directives standard de l'industrie basées sur les <b>règlements de l'UE sur l'étiquetage nutritionnel</b> et les recommandations sanitaires de l'OMS et de l'EFSA."
+      },
+      {
+        "type": "table",
+        "title": "Seuils nutritionnels (pour 100g)",
+        "dataSource": "nutrient-thresholds"
+      },
+      {
+        "type": "section",
+        "subtitle": "Codage couleur",
+        "description": "Nutriments standard (graisse, sucre, sel, calories) : <b>Faible</b> = Vert (bon), <b>Modéré</b> = Orange (prudence), <b>Élevé</b> = Rouge (limiter). Nutriments positifs (protéine, fibres) : <b>Élevé</b> = Vert (bon), <b>Faible/Modéré</b> = Gris (neutre). Données insuffisantes = Gris."
+      },
+      {
+        "type": "section",
+        "subtitle": "Informations manquantes",
+        "description": "Si une valeur nutritionnelle n'est pas disponible ou ne peut pas être déterminée, l'icône reste grise pour indiquer que ces informations ne sont pas disponibles pour le produit."
+      }
+    ]
+  },
+  {
+    "id": "favorites",
+    "type": "question",
+    "question": "Comment ajouter des produits aux favoris ?",
+    "title": "Favoris",
+    "answer": "Lors de la visualisation des détails d'un produit, appuyez sur l'icône de cœur en bas de l'écran. Le cœur deviendra rouge, indiquant que le produit a été ajouté à vos favoris. Accédez à vos favoris à tout moment depuis l'onglet favoris."
+  },
+  {
+    "id": "data-storage",
+    "type": "question",
+    "question": "Où mon historique de scan est-il stocké ?",
+    "title": "Stockage des données",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Tous vos produits scannés et favoris sont stockés localement sur votre appareil. Cela signifie que vos données ne quittent jamais votre téléphone et restent complètement privées."
+      },
+      {
+        "type": "section",
+        "subtitle": "Stockage local",
+        "description": "Votre historique de scan, vos favoris et les informations sur les produits sont stockés uniquement sur votre appareil. Rien n'est envoyé à des services externes ou stocké en ligne."
+      },
+      {
+        "type": "section",
+        "subtitle": "Confidentialité",
+        "description": "Comme tout reste sur votre appareil, vous avez un contrôle total. Si vous désinstallez l'application, toutes vos informations sont supprimées. Les détails des produits sont récupérés depuis OpenFoodFacts lorsque vous scannez, mais votre historique personnel de scan et vos favoris ne quittent jamais votre appareil."
+      }
+    ]
+  },
+  {
+    "id": "assessments",
+    "type": "question",
+    "question": "Comment les évaluations positives et négatives sont-elles générées ?",
+    "title": "Évaluations",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID analyse le contenu nutritionnel du produit, y compris les calories, les protéines, les graisses, les glucides, les fibres, le sodium et les sucres. Nous comparons ces valeurs aux directives d'apport quotidien recommandé basées sur les règlements de l'UE et les normes de l'industrie."
+      },
+      {
+        "type": "section",
+        "subtitle": "Évaluations positives",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsUp",
+        "subtitleAssessment": "positive",
+        "subtitleColor": "green-60",
+        "description": "Les produits reçoivent des évaluations positives lorsqu'ils sont riches en nutriments bénéfiques (fibres, protéines) et faibles en composants à limiter (graisses saturées, sodium, sucres). Ces produits soutiennent une alimentation équilibrée et des habitudes alimentaires saines."
+      },
+      {
+        "type": "section",
+        "subtitle": "Évaluations négatives",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsDown",
+        "subtitleAssessment": "negative",
+        "subtitleColor": "red-60",
+        "description": "Les produits reçoivent des évaluations négatives lorsqu'ils contiennent des niveaux élevés de graisses saturées, de sodium ou de sucres. Ceux-ci doivent être consommés avec modération dans le cadre d'une alimentation équilibrée."
+      }
+    ]
+  },
+  {
+    "id": "products-not-found",
+    "type": "question",
+    "question": "Pourquoi ne puis-je pas trouver certains produits ?",
+    "title": "Produits manquants",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Tous les produits ne sont pas encore disponibles dans OpenFoodFacts. Les informations sont gérées par la communauté et croissent constamment, avec des millions de produits déjà disponibles."
+      },
+      {
+        "type": "section",
+        "subtitle": "Pourquoi les produits peuvent manquer",
+        "description": "Les nouveaux produits, les articles régionaux ou les marques moins courantes peuvent ne pas encore être disponibles. Les informations dépendent des contributions de la communauté pour étendre la couverture."
+      },
+      {
+        "type": "section",
+        "subtitle": "Comment ajouter des produits",
+        "description": "Vous pouvez contribuer en ajoutant des produits manquants à OpenFoodFacts. Visitez <b>openfoodfacts.org</b> pour scanner le code-barres et ajouter des informations sur le produit, y compris les faits nutritionnels, les ingrédients et les photos."
+      }
+    ]
+  },
+  {
+    "id": "nutri-score",
+    "type": "score",
+    "question": "Qu'est-ce que le Nutri-Score ?",
+    "title": "Nutri-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Le Nutri-Score est un système d'étiquetage alimentaire officiel, développé en France et adopté par de nombreux pays européens. Il sert d'indicateur graphique simple qui aide les consommateurs à évaluer rapidement la qualité nutritionnelle globale d'un produit."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-a",
+        "subtitle": "Le meilleur score",
+        "subtitleColor": "green-60",
+        "description": "Attribué aux produits de la plus haute qualité nutritionnelle, avec des calories, graisses, sucres et sel minimaux, riches en fibres et/ou protéines. <b>Exemples :</b> fruits frais, légumes, produits à grains entiers et huile d'olive."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-b",
+        "subtitle": "Très bonne qualité nutritionnelle",
+        "subtitleColor": "green-60",
+        "description": "Les produits sont un bon choix pour la consommation quotidienne, avec un très bon équilibre nutritionnel, bien qu'ils puissent contenir légèrement plus de graisse ou de sucre que la catégorie A. <b>Exemples :</b> yaourts allégés non sucrés et certains types de pain à grains entiers."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-c",
+        "subtitle": "Score moyen ou \"neutre\"",
+        "subtitleColor": "bronze-60",
+        "description": "Les produits peuvent être inclus dans l'alimentation mais doivent être alternés avec les produits A et B. Ils ont des composants négatifs modérés, ou leurs caractéristiques positives ne compensent pas pleinement les graisses ou le sel. <b>Exemples :</b> la plupart des types de fromage ou de pain blanc."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-d",
+        "subtitle": "Faible qualité nutritionnelle",
+        "subtitleColor": "bronze-60",
+        "description": "Ces produits ont une teneur élevée en composants négatifs et doivent être consommés en quantités limitées. <b>Exemples :</b> de nombreuses céréales de petit-déjeuner sucrées ou produits carnés transformés."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-e",
+        "subtitle": "Le pire score",
+        "subtitleColor": "red-60",
+        "description": "Attribué aux produits de très faible qualité nutritionnelle, caractérisés par une teneur très élevée en calories, graisses, sucre ou sel. La consommation de ces produits, comme les <b>chips, pâtes à tartiner au chocolat ou boissons gazeuses sucrées</b>, doit être minimisée."
+      }
+    ]
+  },
+  {
+    "id": "eco-score",
+    "type": "score",
+    "question": "Qu'est-ce que l'ECO-Score ?",
+    "title": "ECO-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "L'Eco-Score est une étiquette environnementale complète qui évalue l'impact écologique des produits alimentaires tout au long de leur cycle de vie. Il a été conçu pour fournir aux consommateurs des informations transparentes sur la façon dont le produit affecte la planète, en utilisant une échelle graphique simple à cinq couleurs et cinq lettres."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-a",
+        "subtitle": "Meilleur choix environnemental",
+        "subtitleColor": "green-60",
+        "description": "Indique un impact environnemental minimal. Les produits obtiennent généralement un score élevé sur le <b>LCA</b> en raison de faibles <b>émissions de CO2</b> (par exemple, les aliments d'origine végétale) et obtiennent des bonus maximum pour être biologiques, d'origine locale et emballés dans des matériaux entièrement recyclables ou réutilisables. <b>Exemple :</b> légumes de saison, biologiques, emballés au minimum."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-b",
+        "subtitle": "Bon choix environnemental",
+        "subtitleColor": "green-60",
+        "description": "Représente un bon profil environnemental global. Les produits sont généralement durables mais peuvent avoir un impact légèrement plus élevé dans un domaine, comme l'emballage ou le transport. Ils incluent souvent des articles d'origine végétale ou des produits cultivés de manière durable qui utilisent des matériaux recyclables."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-c",
+        "subtitle": "Impact environnemental modéré",
+        "subtitleColor": "bronze-60",
+        "description": "C'est le score moyen ou \"neutre\". Les produits représentent souvent la norme pour une catégorie, avec un impact environnemental mesurable, potentiellement dû à un traitement énergivore, certains composants d'emballage non recyclables ou des chaînes d'approvisionnement plus longues. Ils nécessitent une approche équilibrée de la consommation."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-d",
+        "subtitle": "Impact environnemental modéré",
+        "subtitleColor": "bronze-60",
+        "description": "Les produits ont un impact environnemental mesurable, potentiellement dû à un traitement énergivore, certains composants d'emballage non recyclables ou des chaînes d'approvisionnement plus longues. Ils nécessitent une approche équilibrée de la consommation."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-e",
+        "subtitle": "Impact environnemental le plus élevé",
+        "subtitleColor": "red-60",
+        "description": "C'est le pire score, signifiant un impact environnemental très élevé. Les produits combinent généralement un score <b>LCA</b> élevé (par exemple, le <b>bœuf</b>) avec plusieurs pénalités, telles qu'un manque de traçabilité d'origine et un emballage problématique et jetable. La consommation de ces produits doit être minimisée."
+      }
+    ]
+  },
+  {
+    "id": "nova-score",
+    "type": "score",
+    "question": "Qu'est-ce que le NOVA-Score ?",
+    "title": "NOVA Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "La Classification NOVA est un système développé par des scientifiques brésiliens qui catégorise les produits alimentaires exclusivement selon l'étendue de leur transformation industrielle. Contrairement au Nutri-Score, NOVA n'évalue pas le contenu nutritionnel comme le sucre, les graisses ou le sel ; au lieu de cela, il se concentre sur les méthodes de production et les ingrédients."
+      },
+      {
+        "type": "section",
+        "image": "novascore-1",
+        "subtitle": "Aliments non transformés ou minimalement transformés",
+        "subtitleColor": "green-60",
+        "description": "Ces produits sont soit naturellement présents, soit légèrement modifiés pour les préserver, les rendre plus sûrs ou améliorer leur palatabilité. Les modifications autorisées incluent des techniques simples comme le <b>lavage, l'épluchage, la pasteurisation, la congélation ou la mouture</b>. Ces aliments conservent leur identité essentielle et leur profil nutritionnel. <b>Exemples :</b> fruits et légumes frais, séchés ou congelés, lait entier, viande fraîche, œufs et céréales de base comme le riz."
+      },
+      {
+        "type": "section",
+        "image": "novascore-2",
+        "subtitle": "Ingrédients culinaires transformés",
+        "subtitleColor": "green-60",
+        "description": "Ce groupe comprend des substances extraites directement des aliments du <b>Groupe 1</b> ou obtenues de la nature, utilisées principalement en cuisine pour préparer, assaisonner ou conserver d'autres aliments. Ils ne sont pas destinés à être consommés seuls. Ils sont extraits par des processus tels que le <b>pressage, le raffinage ou le séchage</b>. <b>Exemples courants :</b> huiles végétales, sel, sucre, miel et beurre."
+      },
+      {
+        "type": "section",
+        "image": "novascore-3",
+        "subtitle": "Aliments transformés",
+        "subtitleColor": "bronze-60",
+        "description": "Les aliments transformés sont des articles relativement simples fabriqués en combinant des aliments du <b>Groupe 1</b> avec des ingrédients culinaires du <b>Groupe 2</b> (sel, huile ou sucre). L'objectif est de prolonger la durée de conservation ou d'améliorer les caractéristiques sensorielles. Ces produits contiennent généralement seulement quelques ingrédients et sont encore facilement reconnaissables comme des modifications d'aliments entiers. <b>Exemples :</b> fromage simple (lait fermenté avec sel), légumes en conserve dans la saumure, pain fait avec des ingrédients minimaux et yaourts nature."
+      },
+      {
+        "type": "section",
+        "image": "novascore-4",
+        "subtitle": "Aliments ultra-transformés (UPF)",
+        "subtitleColor": "red-60",
+        "description": "Ces produits représentent le plus haut degré de transformation industrielle. Ils sont souvent formulés à partir d'ingrédients dérivés principalement de processus industriels et incluent de nombreux additifs généralement non utilisés dans la cuisine maison. Les aliments <b>NOVA 4</b> contiennent souvent des substances comme les <b>colorants, émulsifiants</b> (tels que <b>E407</b>), <b>les exhausteurs de goût, les huiles hydrogénées, les protéines hydrolysées et l'amidon modifié</b>. Ces articles sont conçus pour une commodité maximale, une palatabilité et une longue durée de conservation. Leur consommation doit être strictement limitée. <b>Exemples :</b> la plupart des plats surgelés prêts à consommer, les boissons gazeuses sucrées, les céréales de petit-déjeuner produites en masse, la plupart des viandes transformées comme les saucisses et diverses collations et chips emballées."
+      }
+    ]
+  }
+]

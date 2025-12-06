@@ -4,20 +4,14 @@ import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
-
-// Load agreement data based on language
-const getAgreementData = (language: 'en' | 'uk') => {
-  if (language === 'uk') {
-    return require('@/data/userAgreement.uk.json');
-  }
-  return require('@/data/userAgreement.json');
-};
+import { getUserAgreementData } from '@/lib/translation-loaders';
+import { getLocaleForLanguage } from '@/constants/languages';
 
 export function UserAgreementScreen() {
   const { currentLanguage } = useTranslation();
   const navigation = useNavigation<NavigationProp>();
   const headerHeight = useHeaderHeight();
-  const agreementData = getAgreementData(currentLanguage);
+  const agreementData = getUserAgreementData(currentLanguage);
 
   // Handle Android back button
   useEffect(() => {
@@ -44,8 +38,7 @@ export function UserAgreementScreen() {
         }}
       >
         <Text className="text-sm text-gray-60 mb-6 italic font-inter">
-          {currentLanguage === 'uk' ? 'Останнє оновлення: ' : 'Last updated: '}
-          {new Intl.DateTimeFormat(currentLanguage === 'uk' ? 'uk-UA' : 'en-US', {
+          {new Intl.DateTimeFormat(getLocaleForLanguage(currentLanguage), {
             year: 'numeric',
             month: 'long',
             day: 'numeric',

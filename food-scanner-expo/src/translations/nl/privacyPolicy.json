@@ -1,0 +1,61 @@
+{
+  "title": "Privacybeleid",
+  "lastUpdated": "2025-12-03",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Overzicht",
+      "content": "Food ID is toegewijd aan het beschermen van uw privacy. Dit Privacybeleid legt uit hoe we omgaan met uw gegevens en informatie wanneer u onze mobiele applicatie gebruikt. We geloven in transparantie en willen dat u precies begrijpt hoe uw informatie wordt gebruikt en opgeslagen."
+    },
+    {
+      "id": 2,
+      "title": "Gegevensverzameling",
+      "content": "Food ID verzamelt minimale gegevens die nodig zijn voor de app om te functioneren. Wanneer u een productbarcode scant, halen we productinformatie op uit de openbare database OpenFoodFacts. We verzamelen geen persoonlijke informatie zoals uw naam, e-mailadres, telefoonnummer of locatiegegevens."
+    },
+    {
+      "id": 3,
+      "title": "Alleen lokale opslag",
+      "content": "Alle gegevens die worden gegenereerd door uw gebruik van de app worden uitsluitend op uw apparaat opgeslagen. Dit omvat:\n\n• Scanhistorie: Een lijst met producten die u heeft gescand\n• Favorieten: Producten die u als favoriet heeft gemarkeerd\n• Productcache: Voedingsinformatie van producten die u heeft bekeken\n\nDeze gegevens verlaten nooit uw apparaat en worden niet verzonden naar onze servers of derden."
+    },
+    {
+      "id": 4,
+      "title": "Geen gegevensoverdracht",
+      "content": "Food ID verzendt uw scanhistorie, favorieten of persoonlijke gebruiksgegevens niet naar externe servers. De enige netwerkverzoeken die door de app worden gedaan, zijn naar de OpenFoodFacts API om openbare productinformatie op te halen op basis van barcodes die u scant."
+    },
+    {
+      "id": 5,
+      "title": "Cameragebruik",
+      "content": "De app vereist cameratoegang om productbarcodes te scannen. De camera wordt uitsluitend gebruikt voor barcodeherkenning. Er worden geen foto's of video's vastgelegd, opgeslagen of verzonden. De camerastroom wordt lokaal op uw apparaat in realtime verwerkt."
+    },
+    {
+      "id": 6,
+      "title": "OpenFoodFacts-gegevens",
+      "content": "Productinformatie wordt opgehaald van OpenFoodFacts, een gratis en open database van voedingsproducten. Wanneer u een barcode scant, stuurt de app alleen het barcodenummer naar OpenFoodFacts om productinformatie op te halen. Er worden geen persoonlijke gegevens gedeeld met OpenFoodFacts."
+    },
+    {
+      "id": 7,
+      "title": "Gegevensverwijdering",
+      "content": "U heeft volledige controle over uw gegevens. U kunt uw scanhistorie en favorieten op elk moment in de app wissen. Het verwijderen van de app zal alle lokaal opgeslagen gegevens permanent van uw apparaat verwijderen, inclusief scanhistorie, favorieten en gecachte productinformatie."
+    },
+    {
+      "id": 8,
+      "title": "Dienstverleners van derden",
+      "content": "Food ID gebruikt de OpenFoodFacts API om productinformatie op te halen. OpenFoodFacts is een onafhankelijk, non-profitproject. Raadpleeg het privacybeleid van OpenFoodFacts voor informatie over hun gegevenspraktijken."
+    },
+    {
+      "id": 9,
+      "title": "Privacy van kinderen",
+      "content": "Food ID verzamelt opzettelijk geen persoonlijke informatie van kinderen. De app is ontworpen om door iedereen te worden gebruikt, en omdat er geen persoonlijke gegevens worden verzameld of verzonden, is het veilig voor gebruikers van alle leeftijden."
+    },
+    {
+      "id": 10,
+      "title": "Wijzigingen in het privacybeleid",
+      "content": "We kunnen dit Privacybeleid van tijd tot tijd bijwerken. We zullen u op de hoogte stellen van wijzigingen door de datum 'Laatst bijgewerkt' bovenaan dit beleid bij te werken. We moedigen u aan om dit Privacybeleid periodiek te bekijken voor wijzigingen."
+    },
+    {
+      "id": 11,
+      "title": "Neem contact met ons op",
+      "content": "Als u vragen of zorgen heeft over dit Privacybeleid of onze gegevenspraktijken, neem dan contact met ons op via de ondersteuningskanalen van de app. We zijn toegewijd aan het aanpakken van eventuele privacyzorgen die u mogelijk heeft."
+    }
+  ]
+}

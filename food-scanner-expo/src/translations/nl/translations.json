@@ -1,0 +1,169 @@
+{
+  "_meta": {
+    "name": "Nederlands",
+    "flag": "🇳🇱",
+    "locale": "nl-NL"
+  },
+  "common": {
+    "cancel": "Annuleren",
+    "ok": "OK",
+    "done": "Klaar",
+    "search": "Zoeken",
+    "clearAll": "Alles wissen",
+    "learnMore": "Meer informatie",
+    "gotIt": "Begrepen",
+    "unknown": "Onbekend",
+    "loading": "Laden...",
+    "pleaseWait": "Even geduld...",
+    "error": "Fout",
+    "retry": "Opnieuw proberen"
+  },
+  "navigation": {
+    "scanner": "Scanner",
+    "history": "Geschiedenis",
+    "favourites": "Favorieten",
+    "info": "Info",
+    "faq": "FAQ",
+    "userAgreement": "Gebruikersovereenkomst",
+    "privacyPolicy": "Privacybeleid"
+  },
+  "scanner": {
+    "loadingCamera": "Camera laden...",
+    "readyToScan": "Klaar om te scannen?",
+    "cameraPermissionDescription": "We hebben alleen cameratoegang nodig om streepjescodes te scannen. Er wordt niets opgenomen.",
+    "enableCamera": "Camera inschakelen",
+    "openSettings": "Instellingen openen",
+    "openSettingsMessage": "Ga naar Instellingen > Food ID > Camera en schakel cameratoegang in.",
+    "enterBarcode": "Streepjescode invoeren",
+    "enterBarcodeDescription": "Voer de cijfers onder de streepjescode in om het product te vinden",
+    "barcode": "Streepjescode",
+    "buttonText": "Scan je eerste product"
+  },
+  "product": {
+    "loadingProduct": "Product laden...",
+    "nothingFound": "Oeps, niets gevonden",
+    "unknownProduct": "Onbekend product",
+    "notInDatabase": "Het lijkt erop dat dit item niet in mijn kennisbank staat",
+    "noInformation": "Nog geen informatie over dit product"
+  },
+  "nutrition": {
+    "nutritionalValue": "Voedingswaarde",
+    "per100g": "PER 100G",
+    "per100gPerPackage": "PER 100G / PER VERPAKKING",
+    "calories": "Calorieën, kcal",
+    "protein": "Eiwit, g",
+    "fats": "Vetten, g",
+    "saturatedFats": "Verzadigde vetten, g",
+    "carbs": "Koolhydraten, g",
+    "sugars": "Suikers, g",
+    "addedSugar": "Toegevoegde suiker, g",
+    "fiber": "Vezels, g",
+    "salt": "Zout, g",
+    "sodium": "Natrium, g",
+    "nutrientNames": {
+      "calories": "Calorieën",
+      "fat": "Vet",
+      "saturated-fat": "Verzadigd vet",
+      "sugars": "Suikers",
+      "salt": "Zout",
+      "proteins": "Eiwit",
+      "fiber": "Vezels",
+      "carbohydrates": "Koolhydraten",
+      "sodium": "Natrium"
+    }
+  },
+  "scores": {
+    "nutriScores": "VOEDINGSWAARDE SCORES",
+    "nutriScore": "Nutri-Score",
+    "nutriScoreDescription": "Evalueert de voedingskwaliteit (A tot E) per 100g, waarbij gunstige (eiwit, vezels) en schadelijke (vet, suiker, zout) componenten in evenwicht worden gebracht. A is de beste keuze voor de gezondheid.",
+    "ecoscore": "ECO-Score",
+    "ecoscoreDescription": "Evalueert de milieu-impact (A tot E), rekening houdend met CO2-uitstoot, verpakkingsrecycleerbaarheid en oorsprong van ingrediënten. A is de beste keuze voor de planeet.",
+    "novascore": "NOVA Score",
+    "novascoreDescription": "Evalueert de mate van industriële verwerking (Groep 1 tot 4). Groep 4 is Ultra-Bewerkt Voedsel (UPF), dat beperkt moet worden ongeacht het voedingsgehalte.",
+    "excellentChoice": "Uitstekende keuze",
+    "goodOption": "Goede optie",
+    "lessHealthy": "Minder gezond",
+    "unhealthy": "Ongezond"
+  },
+  "characteristics": {
+    "keyCharacteristics": "Belangrijkste kenmerken",
+    "highInFiber": "Rijk aan vezels",
+    "richInProtein": "Rijk aan eiwit",
+    "lowInSugar": "Laag suikergehalte",
+    "lowInSalt": "Laag zoutgehalte",
+    "lowInFat": "Laag vetgehalte",
+    "lowInSaturatedFat": "Laag verzadigd vetgehalte",
+    "lowCalorie": "Laag caloriegehalte",
+    "highInFat": "Hoog vetgehalte",
+    "highInSaturatedFat": "Hoog verzadigd vetgehalte",
+    "highCalorie": "Hoog caloriegehalte",
+    "highInSugar": "Hoog suikergehalte",
+    "highInSalt": "Hoog zoutgehalte",
+    "highInCarbohydrates": "Hoog koolhydraatgehalte",
+    "highInSodium": "Hoog natriumgehalte",
+    "containsAddedSugars": "Bevat toegevoegde suikers"
+  },
+  "allergens": {
+    "allergens": "Allergenen"
+  },
+  "ingredients": {
+    "ingredients": "Ingrediënten"
+  },
+  "narrative": {
+    "balancedProfile": "Dit product heeft een gebalanceerd voedingsprofiel zonder significante zorgen of opmerkelijke voordelen.",
+    "productIs": "Dit product is ",
+    "and": " en ",
+    "howeverIt": "Echter, het ",
+    "excellentConsumption": "Dit is een uitstekende keuze voor regelmatige consumptie.",
+    "goodConsumption": "Dit is een goede keuze en kan regelmatig met mate worden geconsumeerd.",
+    "moderateConsumption": "Overweeg dit product met mate te consumeren en balanceer het met gezondere opties.",
+    "limitConsumption": "Het is het beste om de consumptie van dit product te beperken en te kiezen voor gezondere alternatieven wanneer mogelijk."
+  },
+  "history": {
+    "emptyBasket": "Een lege mand vertelt geen verhalen",
+    "startBuilding": "Begin je geschiedenis op te bouwen - één scan per keer!",
+    "clearAllHistory": "Alle geschiedenis wissen",
+    "clearAllHistoryMessage": "Weet je zeker dat je alle items uit je geschiedenis wilt wissen? Dit heeft geen invloed op de favorietenproductenlijst"
+  },
+  "favourites": {
+    "brokenHeart": "Gebroken hart",
+    "brokenHeartDescription": "Je favoriete snacks zijn alles wat het nodig heeft om te genezen!",
+    "findFavourites": "Vind je favorieten",
+    "clearAllFavourites": "Alle favorieten wissen",
+    "clearAllFavouritesMessage": "Weet je zeker dat je alle items uit je favorieten wilt wissen?"
+  },
+  "settings": {
+    "language": "Taal",
+    "faq": "FAQ",
+    "shareTheApp": "Deel de app",
+    "rateTheApp": "Beoordeel de app",
+    "contactDevelopers": "Neem contact op met ontwikkelaars",
+    "userAgreement": "Gebruikersovereenkomst",
+    "privacyPolicy": "Privacybeleid",
+    "appVersion": "App-versie",
+    "shareFoodId": "Deel Food ID",
+    "contactFoodId": "Neem contact op met Food ID",
+    "contactSubject": "Food ID App - Contact",
+    "contactMessage": "Neem contact op met Food ID ontwikkelaars\n\nE-mail: {email}\nOnderwerp: {subject}",
+    "contactFallback": "E-mail: {email}\n\nOnderwerp: Food ID App - Contact\n\nJe kunt het e-mailadres kopiëren en ons een bericht sturen.",
+    "feedbackSupportTitle": "Feedback & ondersteuning",
+    "feedbackSupportMessage": "Om feedback te geven of ondersteuning aan te vragen, stuur een e-mail naar {email}",
+    "shareMessage": "Bekijk Food ID - de app die je helpt geïnformeerde voedselkeuzes te maken!\n\n🍎 App Store: {iosLink}\n🤖 Google Play: {androidLink}",
+    "unableToShare": "Kan de app niet delen. Probeer het opnieuw.",
+    "unableToOpenStore": "Kan de app-winkel niet openen. Probeer het opnieuw.",
+    "unableToOpenEmail": "Kan de e-mailapp niet openen. Probeer het opnieuw."
+  },
+  "alerts": {
+    "nutriScoreTitle": "Nutri-Score {grade} - {description}",
+    "shareError": "Deelfout",
+    "unableToShareProduct": "Kan het product niet delen. Probeer het opnieuw."
+  },
+  "faq": {
+    "itemNotFound": "FAQ-item niet gevonden",
+    "nutrientTableTitle": "Voedingsstofdrempels (per 100g)",
+    "nutrientTableNutrientHeader": "Voedingsstof",
+    "nutrientTableLowHeader": "Laag",
+    "nutrientTableModerateHeader": "Matig",
+    "nutrientTableHighHeader": "Hoog"
+  }
+}

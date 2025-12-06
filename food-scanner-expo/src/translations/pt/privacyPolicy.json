@@ -1,0 +1,61 @@
+{
+  "title": "Política de privacidade",
+  "lastUpdated": "2025-12-03",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Visão geral",
+      "content": "Food ID está comprometido em proteger sua privacidade. Esta Política de Privacidade explica como lidamos com seus dados e informações quando você usa nosso aplicativo móvel. Acreditamos em transparência e queremos que você entenda exatamente como suas informações são usadas e armazenadas."
+    },
+    {
+      "id": 2,
+      "title": "Coleta de dados",
+      "content": "Food ID coleta dados mínimos necessários para o aplicativo funcionar. Quando você escaneia um código de barras de produto, recuperamos informações do produto do banco de dados público OpenFoodFacts. Não coletamos informações pessoais como seu nome, endereço de e-mail, número de telefone ou dados de localização."
+    },
+    {
+      "id": 3,
+      "title": "Apenas armazenamento local",
+      "content": "Todos os dados gerados pelo seu uso do aplicativo são armazenados exclusivamente no seu dispositivo. Isso inclui:\n\n• Histórico de escaneamento: Uma lista de produtos que você escaneou\n• Favoritos: Produtos que você marcou como favoritos\n• Cache de produtos: Informações nutricionais de produtos que você visualizou\n\nEsses dados nunca saem do seu dispositivo e não são transmitidos para nossos servidores ou terceiros."
+    },
+    {
+      "id": 4,
+      "title": "Sem transmissão de dados",
+      "content": "Food ID não transmite seu histórico de escaneamento, favoritos ou quaisquer dados de uso pessoal para servidores externos. As únicas solicitações de rede feitas pelo aplicativo são para a API OpenFoodFacts para recuperar informações públicas do produto com base nos códigos de barras que você escaneia."
+    },
+    {
+      "id": 5,
+      "title": "Uso da câmera",
+      "content": "O aplicativo requer acesso à câmera para escanear códigos de barras de produtos. A câmera é usada exclusivamente para reconhecimento de código de barras. Nenhuma foto ou vídeo é capturado, armazenado ou transmitido. O feed da câmera é processado localmente no seu dispositivo em tempo real."
+    },
+    {
+      "id": 6,
+      "title": "Dados do OpenFoodFacts",
+      "content": "As informações do produto são recuperadas do OpenFoodFacts, um banco de dados gratuito e aberto de produtos alimentares. Quando você escaneia um código de barras, o aplicativo envia apenas o número do código de barras para o OpenFoodFacts para recuperar informações do produto. Nenhum dado pessoal é compartilhado com o OpenFoodFacts."
+    },
+    {
+      "id": 7,
+      "title": "Exclusão de dados",
+      "content": "Você tem controle completo sobre seus dados. Você pode limpar seu histórico de escaneamento e favoritos a qualquer momento no aplicativo. Desinstalar o aplicativo excluirá permanentemente todos os dados armazenados localmente do seu dispositivo, incluindo histórico de escaneamento, favoritos e informações de produtos em cache."
+    },
+    {
+      "id": 8,
+      "title": "Serviços de terceiros",
+      "content": "Food ID usa a API OpenFoodFacts para recuperar informações do produto. OpenFoodFacts é um projeto independente sem fins lucrativos. Consulte a política de privacidade do OpenFoodFacts para obter informações sobre suas práticas de dados."
+    },
+    {
+      "id": 9,
+      "title": "Privacidade de crianças",
+      "content": "Food ID não coleta conscientemente informações pessoais de crianças. O aplicativo é projetado para ser usado por qualquer pessoa e, como nenhum dado pessoal é coletado ou transmitido, é seguro para usuários de todas as idades."
+    },
+    {
+      "id": 10,
+      "title": "Alterações na política de privacidade",
+      "content": "Podemos atualizar esta Política de Privacidade de tempos em tempos. Notificaremos você sobre quaisquer alterações atualizando a data de 'Última atualização' no topo desta política. Encorajamos você a revisar esta Política de Privacidade periodicamente para quaisquer alterações."
+    },
+    {
+      "id": 11,
+      "title": "Entre em contato",
+      "content": "Se você tiver alguma dúvida ou preocupação sobre esta Política de Privacidade ou nossas práticas de dados, entre em contato conosco através dos canais de suporte do aplicativo. Estamos comprometidos em abordar quaisquer preocupações de privacidade que você possa ter."
+    }
+  ]
+}

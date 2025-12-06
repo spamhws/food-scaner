@@ -6,14 +6,7 @@ import type { NavigationProp } from '@/navigation/navigation-types';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useNavigationBack } from '@/hooks/useNavigationBack';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
-
-// Load FAQ data based on language
-const getFAQData = (language: 'en' | 'uk') => {
-  if (language === 'uk') {
-    return require('@/data/faq.uk.json');
-  }
-  return require('@/data/faq.json');
-};
+import { getFAQData } from '@/lib/translation-loaders';
 
 interface FAQItem {
   id: string;

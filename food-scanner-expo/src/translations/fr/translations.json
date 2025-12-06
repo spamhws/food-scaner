@@ -1,0 +1,169 @@
+{
+  "_meta": {
+    "name": "Français",
+    "flag": "🇫🇷",
+    "locale": "fr-FR"
+  },
+  "common": {
+    "cancel": "Annuler",
+    "ok": "OK",
+    "done": "Terminé",
+    "search": "Rechercher",
+    "clearAll": "Tout effacer",
+    "learnMore": "En savoir plus",
+    "gotIt": "Compris",
+    "unknown": "Inconnu",
+    "loading": "Chargement...",
+    "pleaseWait": "Veuillez patienter...",
+    "error": "Erreur",
+    "retry": "Réessayer"
+  },
+  "navigation": {
+    "scanner": "Scanner",
+    "history": "Historique",
+    "favourites": "Favoris",
+    "info": "Informations",
+    "faq": "FAQ",
+    "userAgreement": "Accord utilisateur",
+    "privacyPolicy": "Politique de confidentialité"
+  },
+  "scanner": {
+    "loadingCamera": "Chargement de la caméra...",
+    "readyToScan": "Prêt à scanner ?",
+    "cameraPermissionDescription": "Nous avons juste besoin de l'accès à la caméra pour scanner les codes-barres. Rien n'est enregistré.",
+    "enableCamera": "Activer la caméra",
+    "openSettings": "Ouvrir les paramètres",
+    "openSettingsMessage": "Veuillez aller dans Paramètres > Food ID > Caméra et activer l'accès à la caméra.",
+    "enterBarcode": "Entrer le code-barres",
+    "enterBarcodeDescription": "Entrez les chiffres sous le code-barres pour trouver le produit",
+    "barcode": "Code-barres",
+    "buttonText": "Scannez votre premier produit"
+  },
+  "product": {
+    "loadingProduct": "Chargement du produit...",
+    "nothingFound": "Oups, rien trouvé",
+    "unknownProduct": "Produit inconnu",
+    "notInDatabase": "Il semble que cet article ne soit pas dans ma base de connaissances",
+    "noInformation": "Aucune information sur ce produit pour le moment"
+  },
+  "nutrition": {
+    "nutritionalValue": "Valeur nutritionnelle",
+    "per100g": "POUR 100G",
+    "per100gPerPackage": "POUR 100G / PAR EMBALLAGE",
+    "calories": "Calories, kcal",
+    "protein": "Protéines, g",
+    "fats": "Lipides, g",
+    "saturatedFats": "Acides gras saturés, g",
+    "carbs": "Glucides, g",
+    "sugars": "Sucres, g",
+    "addedSugar": "Sucres ajoutés, g",
+    "fiber": "Fibres, g",
+    "salt": "Sel, g",
+    "sodium": "Sodium, g",
+    "nutrientNames": {
+      "calories": "Calories",
+      "fat": "Matières grasses",
+      "saturated-fat": "Acides gras saturés",
+      "sugars": "Sucres",
+      "salt": "Sel",
+      "proteins": "Protéines",
+      "fiber": "Fibres",
+      "carbohydrates": "Glucides",
+      "sodium": "Sodium"
+    }
+  },
+  "scores": {
+    "nutriScores": "SCORES NUTRITIONNELS",
+    "nutriScore": "Nutri-Score",
+    "nutriScoreDescription": "Évalue la qualité nutritionnelle (A à E) pour 100g, en équilibrant les composants bénéfiques (protéines, fibres) et néfastes (graisses, sucre, sel). A est le meilleur choix pour la santé.",
+    "ecoscore": "ECO-Score",
+    "ecoscoreDescription": "Évalue l'impact environnemental (A à E), en tenant compte des émissions de CO2, de la recyclabilité de l'emballage et de l'origine des ingrédients. A est le meilleur choix pour la planète.",
+    "novascore": "NOVA Score",
+    "novascoreDescription": "Évalue le degré de transformation industrielle (Groupe 1 à 4). Le Groupe 4 est l'Aliment Ultra-Transformé (UPF), qui doit être limité indépendamment de sa teneur en nutriments.",
+    "excellentChoice": "Excellent choix",
+    "goodOption": "Bonne option",
+    "lessHealthy": "Moins sain",
+    "unhealthy": "Malsain"
+  },
+  "characteristics": {
+    "keyCharacteristics": "Caractéristiques clés",
+    "highInFiber": "Riche en fibres",
+    "richInProtein": "Riche en protéines",
+    "lowInSugar": "Faible en sucre",
+    "lowInSalt": "Faible en sel",
+    "lowInFat": "Faible en matières grasses",
+    "lowInSaturatedFat": "Faible en acides gras saturés",
+    "lowCalorie": "Faible en calories",
+    "highInFat": "Riche en matières grasses",
+    "highInSaturatedFat": "Riche en acides gras saturés",
+    "highCalorie": "Riche en calories",
+    "highInSugar": "Riche en sucre",
+    "highInSalt": "Riche en sel",
+    "highInCarbohydrates": "Riche en glucides",
+    "highInSodium": "Riche en sodium",
+    "containsAddedSugars": "Contient des sucres ajoutés"
+  },
+  "allergens": {
+    "allergens": "Allergènes"
+  },
+  "ingredients": {
+    "ingredients": "Ingrédients"
+  },
+  "narrative": {
+    "balancedProfile": "Ce produit a un profil nutritionnel équilibré sans préoccupations significatives ni avantages notables.",
+    "productIs": "Ce produit est ",
+    "and": " et ",
+    "howeverIt": "Cependant, il ",
+    "excellentConsumption": "C'est un excellent choix pour une consommation régulière.",
+    "goodConsumption": "C'est un bon choix et peut être consommé régulièrement avec modération.",
+    "moderateConsumption": "Envisagez de consommer ce produit avec modération et équilibrez-le avec des options plus saines.",
+    "limitConsumption": "Il est préférable de limiter la consommation de ce produit et d'opter pour des alternatives plus saines lorsque c'est possible."
+  },
+  "history": {
+    "emptyBasket": "Un panier vide ne\u00a0raconte\u00a0pas d'histoires",
+    "startBuilding": "Commencez à construire le vôtre - un scan à la fois !",
+    "clearAllHistory": "Effacer tout l'historique",
+    "clearAllHistoryMessage": "Êtes-vous sûr de vouloir effacer tous les éléments de votre historique ? Cela n'affectera pas la liste des produits favoris"
+  },
+  "favourites": {
+    "brokenHeart": "Cœur brisé",
+    "brokenHeartDescription": "Vos collations préférées sont tout ce dont il a besoin pour guérir !",
+    "findFavourites": "Trouvez vos favoris",
+    "clearAllFavourites": "Effacer tous les favoris",
+    "clearAllFavouritesMessage": "Êtes-vous sûr de vouloir effacer tous les éléments de vos favoris ?"
+  },
+  "settings": {
+    "language": "Langue",
+    "faq": "FAQ",
+    "shareTheApp": "Partager l'application",
+    "rateTheApp": "Noter l'application",
+    "contactDevelopers": "Contacter les développeurs",
+    "userAgreement": "Accord utilisateur",
+    "privacyPolicy": "Politique de confidentialité",
+    "appVersion": "Version de l'application",
+    "shareFoodId": "Partager Food ID",
+    "contactFoodId": "Contacter Food ID",
+    "contactSubject": "Application Food ID - Contact",
+    "contactMessage": "Contacter les développeurs de Food ID\n\nE-mail : {email}\nSujet : {subject}",
+    "contactFallback": "E-mail : {email}\n\nSujet : Application Food ID - Contact\n\nVous pouvez copier l'adresse e-mail et nous envoyer un message.",
+    "feedbackSupportTitle": "Commentaires et support",
+    "feedbackSupportMessage": "Pour fournir des commentaires ou demander de l'aide, veuillez envoyer un e-mail à {email}",
+    "shareMessage": "Découvrez Food ID - l'application qui vous aide à faire des choix alimentaires éclairés !\n\n🍎 App Store : {iosLink}\n🤖 Google Play : {androidLink}",
+    "unableToShare": "Impossible de partager l'application. Veuillez réessayer.",
+    "unableToOpenStore": "Impossible d'ouvrir le magasin d'applications. Veuillez réessayer.",
+    "unableToOpenEmail": "Impossible d'ouvrir l'application de messagerie. Veuillez réessayer."
+  },
+  "alerts": {
+    "nutriScoreTitle": "Nutri-Score {grade} - {description}",
+    "shareError": "Erreur de partage",
+    "unableToShareProduct": "Impossible de partager le produit. Veuillez réessayer."
+  },
+  "faq": {
+    "itemNotFound": "Élément FAQ introuvable",
+    "nutrientTableTitle": "Seuils nutritionnels (pour 100g)",
+    "nutrientTableNutrientHeader": "Nutriment",
+    "nutrientTableLowHeader": "Faible",
+    "nutrientTableModerateHeader": "Modéré",
+    "nutrientTableHighHeader": "Élevé"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "_meta": {
+    "name": "日本語",
+    "flag": "🇯🇵",
+    "locale": "ja-JP"
+  },
+  "common": {
+    "cancel": "キャンセル",
+    "ok": "OK",
+    "done": "完了",
+    "search": "検索",
+    "clearAll": "すべてクリア",
+    "learnMore": "詳細を見る",
+    "gotIt": "了解",
+    "unknown": "不明",
+    "loading": "読み込み中...",
+    "pleaseWait": "お待ちください...",
+    "error": "エラー",
+    "retry": "再試行"
+  },
+  "navigation": {
+    "scanner": "スキャナー",
+    "history": "履歴",
+    "favourites": "お気に入り",
+    "info": "情報",
+    "faq": "よくある質問",
+    "userAgreement": "利用規約",
+    "privacyPolicy": "プライバシーポリシー"
+  },
+  "scanner": {
+    "loadingCamera": "カメラを読み込み中...",
+    "readyToScan": "スキャンの準備はできましたか？",
+    "cameraPermissionDescription": "バーコードをスキャンするためにカメラへのアクセスが必要です。何も記録されません。",
+    "enableCamera": "カメラを有効にする",
+    "openSettings": "設定を開く",
+    "openSettingsMessage": "設定 > Food ID > カメラに移動し、カメラへのアクセスを有効にしてください。",
+    "enterBarcode": "バーコードを入力",
+    "enterBarcodeDescription": "バーコードの下の数字を入力して製品を検索",
+    "barcode": "バーコード",
+    "buttonText": "最初の製品をスキャン"
+  },
+  "product": {
+    "loadingProduct": "製品を読み込み中...",
+    "nothingFound": "申し訳ございませんが、何も見つかりませんでした",
+    "unknownProduct": "不明な製品",
+    "notInDatabase": "このアイテムは知識ベースにないようです",
+    "noInformation": "この製品についての情報はまだありません"
+  },
+  "nutrition": {
+    "nutritionalValue": "栄養価",
+    "per100g": "100gあたり",
+    "per100gPerPackage": "100gあたり / パッケージあたり",
+    "calories": "カロリー、kcal",
+    "protein": "タンパク質、g",
+    "fats": "脂質、g",
+    "saturatedFats": "飽和脂肪酸、g",
+    "carbs": "炭水化物、g",
+    "sugars": "糖類、g",
+    "addedSugar": "添加糖、g",
+    "fiber": "食物繊維、g",
+    "salt": "塩、g",
+    "sodium": "ナトリウム、g",
+    "nutrientNames": {
+      "calories": "カロリー",
+      "fat": "脂質",
+      "saturated-fat": "飽和脂肪酸",
+      "sugars": "糖類",
+      "salt": "塩",
+      "proteins": "タンパク質",
+      "fiber": "食物繊維",
+      "carbohydrates": "炭水化物",
+      "sodium": "ナトリウム"
+    }
+  },
+  "scores": {
+    "nutriScores": "栄養スコア",
+    "nutriScore": "Nutri-Score",
+    "nutriScoreDescription": "100gあたりの栄養品質（AからE）を評価し、有益な成分（タンパク質、食物繊維）と有害な成分（脂質、糖、塩）のバランスを取ります。Aは健康にとって最良の選択です。",
+    "ecoscore": "ECO-Score",
+    "ecoscoreDescription": "環境への影響（AからE）を評価し、CO2排出量、包装のリサイクル可能性、原材料の原産地を考慮します。Aは地球にとって最良の選択です。",
+    "novascore": "NOVA Score",
+    "novascoreDescription": "工業加工の程度（グループ1から4）を評価します。グループ4は超加工食品（UPF）で、栄養成分に関係なく制限すべきです。",
+    "excellentChoice": "優れた選択",
+    "goodOption": "良い選択",
+    "lessHealthy": "やや不健康",
+    "unhealthy": "不健康"
+  },
+  "characteristics": {
+    "keyCharacteristics": "主な特徴",
+    "highInFiber": "食物繊維が豊富",
+    "richInProtein": "タンパク質が豊富",
+    "lowInSugar": "低糖",
+    "lowInSalt": "低塩",
+    "lowInFat": "低脂質",
+    "lowInSaturatedFat": "低飽和脂肪酸",
+    "lowCalorie": "低カロリー",
+    "highInFat": "高脂質",
+    "highInSaturatedFat": "高飽和脂肪酸",
+    "highCalorie": "高カロリー",
+    "highInSugar": "高糖",
+    "highInSalt": "高塩",
+    "highInCarbohydrates": "高炭水化物",
+    "highInSodium": "高ナトリウム",
+    "containsAddedSugars": "添加糖を含む"
+  },
+  "allergens": {
+    "allergens": "アレルゲン"
+  },
+  "ingredients": {
+    "ingredients": "原材料"
+  },
+  "narrative": {
+    "balancedProfile": "この製品は、重大な懸念や注目すべき利点のないバランスの取れた栄養プロファイルを持っています。",
+    "productIs": "この製品は ",
+    "and": " および ",
+    "howeverIt": "ただし、",
+    "excellentConsumption": "これは定期的な摂取に最適な選択です。",
+    "goodConsumption": "これは良い選択であり、適度に定期的に摂取できます。",
+    "moderateConsumption": "この製品を適度に摂取し、より健康的な選択肢とバランスを取ることを検討してください。",
+    "limitConsumption": "この製品の摂取を制限し、可能な場合はより健康的な代替品を選ぶことが最善です。"
+  },
+  "history": {
+    "emptyBasket": "空のバスケットは物語を語らない",
+    "startBuilding": "履歴を作り始めましょう - 一度に1つのスキャン！",
+    "clearAllHistory": "すべての履歴をクリア",
+    "clearAllHistoryMessage": "履歴からすべてのアイテムをクリアしてもよろしいですか？お気に入り製品リストには影響しません"
+  },
+  "favourites": {
+    "brokenHeart": "壊れた心",
+    "brokenHeartDescription": "お気に入りのおやつが癒しに必要なすべてです！",
+    "findFavourites": "お気に入りを見つける",
+    "clearAllFavourites": "すべてのお気に入りをクリア",
+    "clearAllFavouritesMessage": "お気に入りからすべてのアイテムをクリアしてもよろしいですか？"
+  },
+  "settings": {
+    "language": "言語",
+    "faq": "よくある質問",
+    "shareTheApp": "アプリを共有",
+    "rateTheApp": "アプリを評価",
+    "contactDevelopers": "開発者に連絡",
+    "userAgreement": "利用規約",
+    "privacyPolicy": "プライバシーポリシー",
+    "appVersion": "アプリバージョン",
+    "shareFoodId": "Food IDを共有",
+    "contactFoodId": "Food IDに連絡",
+    "contactSubject": "Food IDアプリ - お問い合わせ",
+    "contactMessage": "Food ID開発者に連絡\n\nメール: {email}\n件名: {subject}",
+    "contactFallback": "メール: {email}\n\n件名: Food IDアプリ - お問い合わせ\n\nメールアドレスをコピーして、メッセージをお送りください。",
+    "feedbackSupportTitle": "フィードバックとサポート",
+    "feedbackSupportMessage": "フィードバックを提供したり、サポートをリクエストしたりするには、{email}にメールをお送りください",
+    "shareMessage": "Food IDをご覧ください - 情報に基づいた食品選択を支援するアプリ！\n\n🍎 App Store: {iosLink}\n🤖 Google Play: {androidLink}",
+    "unableToShare": "アプリを共有できませんでした。もう一度お試しください。",
+    "unableToOpenStore": "アプリストアを開けませんでした。もう一度お試しください。",
+    "unableToOpenEmail": "メールアプリを開けませんでした。もう一度お試しください。"
+  },
+  "alerts": {
+    "nutriScoreTitle": "Nutri-Score {grade} - {description}",
+    "shareError": "共有エラー",
+    "unableToShareProduct": "製品を共有できませんでした。もう一度お試しください。"
+  },
+  "faq": {
+    "itemNotFound": "FAQアイテムが見つかりません",
+    "nutrientTableTitle": "栄養素の閾値（100gあたり）",
+    "nutrientTableNutrientHeader": "栄養素",
+    "nutrientTableLowHeader": "低",
+    "nutrientTableModerateHeader": "中",
+    "nutrientTableHighHeader": "高"
+  }
+}

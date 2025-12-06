@@ -1,0 +1,51 @@
+{
+  "title": "Brugeraftale",
+  "lastUpdated": "2025-12-03",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Accept af vilkår",
+      "content": "Ved at downloade, installere eller bruge Food ID mobilapplikationen accepterer du at være bundet af disse Brugsvilkår. Hvis du ikke accepterer disse vilkår, brug venligst ikke appen."
+    },
+    {
+      "id": 2,
+      "title": "Beskrivelse af tjenesten",
+      "content": "Food ID er en mobilapplikation, der gør det muligt for brugere at scanne produktstregkoder og hente næringsoplysninger fra OpenFoodFacts-databasen. Appen giver næringsanalyse, ingredienslister, allergeninformation og personlige vurderinger for at hjælpe brugere med at træffe informerede fødevarevalg."
+    },
+    {
+      "id": 3,
+      "title": "Brugerens ansvar",
+      "content": "Du er ansvarlig for at opretholde fortroligheden af din enhed og for alle aktiviteter, der forekommer på din enhed. Du accepterer at bruge appen kun til lovlige formål og i overensstemmelse med disse Vilkår. Du accepterer ikke at misbruge appen eller forstyrre dens normale drift."
+    },
+    {
+      "id": 4,
+      "title": "Datapræcision",
+      "content": "Produktinformation kommer fra OpenFoodFacts, en fællesskabsdrevet database. Selvom vi stræber efter at give præcise oplysninger, kan vi ikke garantere fuldstændigheden eller nøjagtigheden af alle produktdata. Brugere bør verificere kritiske oplysninger, især vedrørende allergener, med produktemballagen eller producenterne."
+    },
+    {
+      "id": 5,
+      "title": "Intellektuel ejendomsret",
+      "content": "Appen og dens originale indhold, funktioner og funktionalitet ejes af Food ID og er beskyttet af internationale ophavsrets-, varemærke- og andre immaterielle rettighedslove. Produktdata leveres af OpenFoodFacts under Open Database License (ODbL)."
+    },
+    {
+      "id": 6,
+      "title": "Ansvarsbegrænsning",
+      "content": "Food ID og dets udviklere skal ikke være ansvarlige for indirekte, tilfældige, særlige, følgeskader eller straffeskader, der opstår som følge af din brug eller manglende evne til at bruge appen. Vi leverer appen 'som den er' uden garantier af nogen art, enten udtrykkelige eller underforståede."
+    },
+    {
+      "id": 7,
+      "title": "Ændringer i vilkårene",
+      "content": "Vi forbeholder os retten til at ændre disse Vilkår når som helst. Vi vil underrette brugere om eventuelle ændringer ved at opdatere datoen 'Sidst opdateret'. Din fortsatte brug af appen efter ændringer udgør accept af de ændrede Vilkår."
+    },
+    {
+      "id": 8,
+      "title": "Opsigelse",
+      "content": "Vi kan ophøre eller suspendere din adgang til appen med det samme, uden forudgående varsel, af enhver grund, herunder overtrædelse af disse Vilkår. Ved opsigelse ophører din ret til at bruge appen med det samme."
+    },
+    {
+      "id": 9,
+      "title": "Kontakt",
+      "content": "Hvis du har spørgsmål om disse Vilkår, bedes du kontakte os via appens supportkanaler."
+    }
+  ]
+}

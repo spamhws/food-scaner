@@ -1,20 +1,49 @@
-// Auto-load all translation files
-// Just add a new JSON file (e.g., de.json) and it will be automatically detected
-// Make sure each JSON has a "_meta" field with "name" and "flag"
+// translations/index.ts
 
-const translations: Record<string, any> = {};
+import en from './en/translations.json';
+import uk from './uk/translations.json';
+import es from './es/translations.json';
+import zh from './zh/translations.json';
+import hi from './hi/translations.json';
+import ar from './ar/translations.json';
+import fr from './fr/translations.json';
+import de from './de/translations.json';
+import pt from './pt/translations.json';
+import id from './id/translations.json';
+import ja from './ja/translations.json';
+import ko from './ko/translations.json';
+import it from './it/translations.json';
+import pl from './pl/translations.json';
+import nl from './nl/translations.json';
+import tr from './tr/translations.json';
+import ro from './ro/translations.json';
+import sv from './sv/translations.json';
+import da from './da/translations.json';
+import cs from './cs/translations.json';
 
-// Try to require known language files
-// Add more here as you add translation files
-try {
-  translations.en = require('./en.json');
-} catch {}
+export const translations = {
+  en,
+  uk,
+  es,
+  zh,
+  hi,
+  ar,
+  fr,
+  de,
+  pt,
+  id,
+  ja,
+  ko,
+  it,
+  pl,
+  nl,
+  tr,
+  ro,
+  sv,
+  da,
+  cs,
+} as const;
 
-try {
-  translations.uk = require('./uk.json');
-} catch {}
+export type AppLanguage = keyof typeof translations;
 
-// Add more languages by copying the pattern:
-// try { translations.de = require('./de.json'); } catch {}
-
-export { translations };
+export const SUPPORTED_LANGS = Object.keys(translations) as AppLanguage[];

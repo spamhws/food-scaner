@@ -1,0 +1,318 @@
+[
+  {
+    "id": "barcode-scanner",
+    "type": "question",
+    "question": "Bagaimana cara kerja Food ID?",
+    "title": "Cara Kerja Food ID",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID membantu Anda membuat pilihan makanan yang informatif dengan menyediakan akses instan ke informasi produk yang detail. Cukup pindai kode batang produk atau masukkan secara manual untuk melihat data nutrisi, bahan, alergen, dan skor kesehatan."
+      },
+      {
+        "type": "section",
+        "subtitle": "Memindai Produk",
+        "description": "Arahkan kamera Anda ke kode batang produk apa pun. Food ID secara otomatis mendeteksi dan membacanya, kemudian langsung menampilkan detail produk yang lengkap. Jika kamera tidak dapat membaca kode batang, ketuk ikon keyboard untuk memasukkannya secara manual."
+      },
+      {
+        "type": "section",
+        "subtitle": "Apa yang Akan Anda Lihat",
+        "description": "Setiap produk menampilkan nilai nutrisi dengan ikon yang dikodekan warna (hijau untuk baik, oranye untuk sedang, merah untuk tinggi), karakteristik utama, alergen, bahan, dan skor kesehatan seperti Nutri-Score, Eco-Score, dan NOVA Score. Ini membantu Anda dengan cepat memahami kualitas nutrisi dan dampak lingkungan suatu produk."
+      },
+      {
+        "type": "section",
+        "subtitle": "Sumber Informasi Produk",
+        "description": "Food ID menggunakan informasi produk dari <b>OpenFoodFacts</b>, database produk makanan gratis, terbuka, dan kolaboratif dari seluruh dunia. Informasi mencakup data nutrisi, bahan, alergen, dan detail produk lainnya yang disumbangkan oleh komunitas global pengguna."
+      }
+    ]
+  },
+  {
+    "id": "scan-fails",
+    "type": "question",
+    "question": "Mengapa pemindaian terkadang gagal?",
+    "title": "Masalah Pemindaian",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Beberapa faktor dapat mencegah pemindaian kode batang yang berhasil. Berikut adalah masalah paling umum dan cara mengatasinya:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Pencahayaan Buruk",
+        "description": "Pemindai kode batang memerlukan cahaya yang memadai untuk membaca kode dengan akurat. Coba pindah ke area yang lebih terang atau nyalakan lampu tambahan. Hindari sinar matahari langsung atau pantulan keras yang dapat menghapus kode batang."
+      },
+      {
+        "type": "section",
+        "subtitle": "Jarak dan Sudut",
+        "description": "Pegang perangkat Anda pada jarak yang nyaman (sekitar 15-30 cm) dari kode batang. Jaga kamera sejajar dengan permukaan kode batang. Kode batang yang miring atau tertekuk lebih sulit dibaca."
+      },
+      {
+        "type": "section",
+        "subtitle": "Kode Batang Rusak atau Kotor",
+        "description": "Kode batang yang tergores, robek, atau kotor mungkin tidak dapat dipindai dengan benar. Coba bersihkan permukaan kode batang atau gunakan entri manual jika kode tidak dapat dibaca."
+      },
+      {
+        "type": "section",
+        "subtitle": "Produk Tidak Ada di Database",
+        "description": "Jika kode batang berhasil dipindai tetapi tidak ada informasi produk yang muncul, produk mungkin belum ada di database OpenFoodFacts. Anda dapat menambahkannya dengan mengunjungi <b>openfoodfacts.org</b> dan menyumbangkan informasi produk."
+      },
+      {
+        "type": "section",
+        "subtitle": "Izin Kamera",
+        "description": "Pastikan Anda telah memberikan izin kamera ke Food ID. Jika pemindaian tidak berfungsi, periksa pengaturan perangkat Anda dan pastikan akses kamera diaktifkan untuk aplikasi."
+      }
+    ]
+  },
+  {
+    "id": "nutrient-coloring",
+    "type": "question",
+    "question": "Bagaimana nutrisi dievaluasi dan diberi warna?",
+    "title": "Evaluasi Nutrisi",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID menggunakan dua metode untuk menentukan tingkat nutrisi dan pengkodean warna:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Metode Utama: Informasi Produk Resmi",
+        "description": "Ketika tersedia, Food ID menggunakan informasi nutrisi resmi langsung dari Open Food Facts. Ini adalah sumber paling andal karena didasarkan pada label nutrisi aktual produk."
+      },
+      {
+        "type": "section",
+        "subtitle": "Metode Cadangan: Standar Industri",
+        "description": "Jika informasi nutrisi resmi tidak tersedia, Food ID menentukan tingkat nutrisi menggunakan pedoman standar industri berdasarkan <b>peraturan pelabelan nutrisi UE</b> dan rekomendasi kesehatan dari WHO dan EFSA."
+      },
+      {
+        "type": "table",
+        "title": "Ambang Batas Nutrisi (per 100g)",
+        "dataSource": "nutrient-thresholds"
+      },
+      {
+        "type": "section",
+        "subtitle": "Pengkodean Warna",
+        "description": "Nutrisi standar (lemak, gula, garam, kalori): <b>Rendah</b> = Hijau (baik), <b>Sedang</b> = Oranye (hati-hati), <b>Tinggi</b> = Merah (batasi). Nutrisi positif (protein, serat): <b>Tinggi</b> = Hijau (baik), <b>Rendah/Sedang</b> = Abu-abu (netral). Data tidak cukup = Abu-abu."
+      },
+      {
+        "type": "section",
+        "subtitle": "Informasi Hilang",
+        "description": "Jika nilai nutrisi tidak tersedia atau tidak dapat ditentukan, ikon tetap abu-abu untuk menunjukkan bahwa informasi ini tidak tersedia untuk produk."
+      }
+    ]
+  },
+  {
+    "id": "favorites",
+    "type": "question",
+    "question": "Bagaimana cara menambahkan produk ke favorit?",
+    "title": "Favorit",
+    "answer": "Saat melihat detail produk, ketuk ikon hati di bagian bawah layar. Hati akan berubah menjadi merah, menandakan produk telah ditambahkan ke favorit Anda. Akses favorit Anda kapan saja dari tab favorit."
+  },
+  {
+    "id": "data-storage",
+    "type": "question",
+    "question": "Di mana riwayat pemindaian saya disimpan?",
+    "title": "Penyimpanan Data",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Semua produk yang dipindai dan favorit Anda disimpan secara lokal di perangkat Anda. Ini berarti data Anda tidak pernah meninggalkan ponsel Anda dan tetap sepenuhnya pribadi."
+      },
+      {
+        "type": "section",
+        "subtitle": "Penyimpanan Lokal",
+        "description": "Riwayat pemindaian, favorit, dan informasi produk Anda disimpan hanya di perangkat Anda. Tidak ada yang dikirim ke layanan eksternal atau disimpan secara online."
+      },
+      {
+        "type": "section",
+        "subtitle": "Privasi",
+        "description": "Karena semuanya tetap di perangkat Anda, Anda memiliki kendali penuh. Jika Anda menghapus aplikasi, semua informasi Anda dihapus. Detail produk diambil dari OpenFoodFacts saat Anda memindai, tetapi riwayat pemindaian pribadi dan favorit Anda tidak pernah meninggalkan perangkat Anda."
+      }
+    ]
+  },
+  {
+    "id": "assessments",
+    "type": "question",
+    "question": "Bagaimana penilaian positif dan negatif dihasilkan?",
+    "title": "Penilaian",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID menganalisis kandungan nutrisi produk termasuk kalori, protein, lemak, karbohidrat, serat, natrium, dan gula. Kami membandingkan nilai-nilai ini dengan pedoman asupan harian yang direkomendasikan berdasarkan peraturan UE dan standar industri."
+      },
+      {
+        "type": "section",
+        "subtitle": "Penilaian Positif",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsUp",
+        "subtitleAssessment": "positive",
+        "subtitleColor": "green-60",
+        "description": "Produk menerima penilaian positif ketika tinggi nutrisi yang bermanfaat (serat, protein) dan rendah komponen yang harus dibatasi (lemak jenuh, natrium, gula). Produk-produk ini mendukung diet seimbang dan kebiasaan makan sehat."
+      },
+      {
+        "type": "section",
+        "subtitle": "Penilaian Negatif",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsDown",
+        "subtitleAssessment": "negative",
+        "subtitleColor": "red-60",
+        "description": "Produk menerima penilaian negatif ketika mengandung tingkat tinggi lemak jenuh, natrium, atau gula. Ini harus dikonsumsi secukupnya sebagai bagian dari diet seimbang."
+      }
+    ]
+  },
+  {
+    "id": "products-not-found",
+    "type": "question",
+    "question": "Mengapa saya tidak dapat menemukan beberapa produk?",
+    "title": "Produk yang Hilang",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Tidak semua produk tersedia di OpenFoodFacts belum. Informasi didorong oleh komunitas dan terus berkembang, dengan jutaan produk sudah tersedia."
+      },
+      {
+        "type": "section",
+        "subtitle": "Mengapa Produk Mungkin Hilang",
+        "description": "Produk baru, item regional, atau merek yang kurang umum mungkin belum tersedia. Informasi bergantung pada kontribusi komunitas untuk memperluas cakupan."
+      },
+      {
+        "type": "section",
+        "subtitle": "Cara Menambahkan Produk",
+        "description": "Anda dapat berkontribusi dengan menambahkan produk yang hilang ke OpenFoodFacts. Kunjungi <b>openfoodfacts.org</b> untuk memindai kode batang dan menambahkan informasi produk termasuk fakta nutrisi, bahan, dan foto."
+      }
+    ]
+  },
+  {
+    "id": "nutri-score",
+    "type": "score",
+    "question": "Apa itu Nutri-Score?",
+    "title": "Nutri-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Nutri-Score adalah sistem pelabelan makanan resmi, dikembangkan di Prancis dan diadopsi oleh banyak negara Eropa. Ini berfungsi sebagai indikator grafis sederhana yang membantu konsumen dengan cepat menilai kualitas nutrisi keseluruhan suatu produk."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-a",
+        "subtitle": "Skor terbaik",
+        "subtitleColor": "green-60",
+        "description": "Diberikan kepada produk dengan kualitas nutrisi tertinggi, kalori minimal, lemak, gula, dan garam, kaya serat dan/atau protein. <b>Contoh:</b> buah segar, sayuran, produk gandum utuh, dan minyak zaitun."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-b",
+        "subtitle": "Kualitas nutrisi sangat baik",
+        "subtitleColor": "green-60",
+        "description": "Produk adalah pilihan yang baik untuk konsumsi harian, dengan keseimbangan nutrisi yang sangat baik, meskipun mungkin mengandung sedikit lebih banyak lemak atau gula daripada kategori A. <b>Contoh:</b> yogurt rendah lemak tanpa pemanis dan jenis roti gandum utuh tertentu."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-c",
+        "subtitle": "Skor rata-rata atau \"netral\"",
+        "subtitleColor": "bronze-60",
+        "description": "Produk dapat dimasukkan dalam diet tetapi harus diganti dengan produk A dan B. Mereka memiliki komponen negatif sedang, atau karakteristik positif mereka tidak sepenuhnya mengimbangi lemak atau garam. <b>Contoh:</b> sebagian besar jenis keju atau roti putih."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-d",
+        "subtitle": "Kualitas nutrisi rendah",
+        "subtitleColor": "bronze-60",
+        "description": "Produk seperti itu memiliki kandungan komponen negatif yang tinggi dan harus dikonsumsi dalam jumlah terbatas. <b>Contoh:</b> banyak sereal sarapan yang dimaniskan atau produk daging olahan."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-e",
+        "subtitle": "Skor terburuk",
+        "subtitleColor": "red-60",
+        "description": "Diberikan kepada produk dengan kualitas nutrisi sangat rendah, ditandai dengan kandungan kalori, lemak, gula, atau garam yang sangat tinggi. Konsumsi produk seperti itu, seperti <b>keripik, selai cokelat, atau minuman ringan bergula</b>, harus diminimalkan."
+      }
+    ]
+  },
+  {
+    "id": "eco-score",
+    "type": "score",
+    "question": "Apa itu ECO-Score?",
+    "title": "ECO-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Eco-Score adalah label lingkungan yang komprehensif yang menilai dampak ekologis produk makanan sepanjang seluruh siklus hidupnya. Ini dirancang untuk memberikan konsumen informasi transparan tentang bagaimana produk mempengaruhi planet, menggunakan skala grafis sederhana lima warna, lima huruf."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-a",
+        "subtitle": "Pilihan Lingkungan Terbaik",
+        "subtitleColor": "green-60",
+        "description": "Menunjukkan dampak lingkungan minimal. Produk biasanya mendapat skor tinggi pada <b>LCA</b> karena <b>emisi CO2</b> rendah (misalnya, makanan berbasis tanaman) dan mendapatkan bonus maksimum karena organik, bersumber lokal, dan dikemas dalam bahan yang sepenuhnya dapat didaur ulang atau dapat digunakan kembali. <b>Contoh:</b> sayuran musiman, organik, dikemas minimal."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-b",
+        "subtitle": "Pilihan Lingkungan yang Baik",
+        "subtitleColor": "green-60",
+        "description": "Mewakili profil lingkungan keseluruhan yang baik. Produk umumnya berkelanjutan tetapi mungkin memiliki dampak sedikit lebih tinggi di satu area, seperti kemasan atau transportasi. Mereka sering mencakup item berbasis tanaman atau barang yang dibudidayakan secara berkelanjutan yang menggunakan bahan daur ulang."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-c",
+        "subtitle": "Dampak Lingkungan Sedang",
+        "subtitleColor": "bronze-60",
+        "description": "Ini adalah skor rata-rata atau \"netral\". Produk sering mewakili standar untuk suatu kategori, dengan dampak lingkungan yang terukur, berpotensi karena pemrosesan intensif energi, beberapa komponen kemasan yang tidak dapat didaur ulang, atau rantai pasokan yang lebih panjang. Mereka memerlukan pendekatan seimbang untuk konsumsi."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-d",
+        "subtitle": "Dampak Lingkungan Sedang",
+        "subtitleColor": "bronze-60",
+        "description": "Produk memiliki dampak lingkungan yang terukur, berpotensi karena pemrosesan intensif energi, beberapa komponen kemasan yang tidak dapat didaur ulang, atau rantai pasokan yang lebih panjang. Mereka memerlukan pendekatan seimbang untuk konsumsi."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-e",
+        "subtitle": "Dampak Lingkungan Tertinggi",
+        "subtitleColor": "red-60",
+        "description": "Ini adalah skor terburuk, menandakan dampak lingkungan yang sangat tinggi. Produk biasanya menggabungkan skor <b>LCA</b> tinggi (misalnya, <b>daging sapi</b>) dengan beberapa penalti, seperti kurangnya keterlacakan asal dan kemasan sekali pakai yang bermasalah. Konsumsi produk-produk ini harus diminimalkan."
+      }
+    ]
+  },
+  {
+    "id": "nova-score",
+    "type": "score",
+    "question": "Apa itu NOVA-Score?",
+    "title": "NOVA Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Klasifikasi NOVA adalah sistem yang dikembangkan oleh ilmuwan Brasil yang mengkategorikan produk makanan secara eksklusif menurut tingkat pengolahan industrinya. Tidak seperti Nutri-Score, NOVA tidak menilai kandungan nutrisi seperti gula, lemak, atau garam; sebaliknya, ini berfokus pada metode produksi dan bahan."
+      },
+      {
+        "type": "section",
+        "image": "novascore-1",
+        "subtitle": "Makanan Tidak Diolah atau Minim Diolah",
+        "subtitleColor": "green-60",
+        "description": "Produk-produk ini adalah alami atau sedikit diubah untuk mengawetkannya, membuatnya lebih aman, atau meningkatkan rasa. Perubahan yang diizinkan termasuk teknik sederhana seperti <b>mencuci, mengupas, pasteurisasi, pembekuan, atau penggilingan</b>. Makanan ini mempertahankan identitas esensial dan profil nutrisinya. <b>Contoh:</b> buah dan sayuran segar, kering, atau beku, susu murni, daging segar, telur, dan sereal dasar seperti beras."
+      },
+      {
+        "type": "section",
+        "image": "novascore-2",
+        "subtitle": "Bahan Kuliner yang Diolah",
+        "subtitleColor": "green-60",
+        "description": "Kelompok ini terdiri dari zat yang diekstraksi langsung dari makanan <b>Grup 1</b> atau diperoleh dari alam, digunakan terutama di dapur untuk menyiapkan, membumbui, atau mengawetkan makanan lain. Mereka tidak dimaksudkan untuk dikonsumsi sendiri. Mereka diekstraksi melalui proses seperti <b>penekanan, pemurnian, atau pengeringan</b>. <b>Contoh umum:</b> minyak nabati, garam, gula, madu, dan mentega."
+      },
+      {
+        "type": "section",
+        "image": "novascore-3",
+        "subtitle": "Makanan Olahan",
+        "subtitleColor": "bronze-60",
+        "description": "Makanan olahan adalah item yang relatif sederhana yang dibuat dengan menggabungkan makanan dari <b>Grup 1</b> dengan bahan kuliner dari <b>Grup 2</b> (garam, minyak, atau gula). Tujuannya adalah untuk memperpanjang umur simpan atau meningkatkan karakteristik sensorik. Produk-produk ini biasanya hanya mengandung beberapa bahan dan masih mudah dikenali sebagai modifikasi makanan utuh. <b>Contoh:</b> keju sederhana (susu fermentasi dengan garam), sayuran kaleng dalam air garam, roti yang dibuat dengan bahan minimal, dan yogurt polos."
+      },
+      {
+        "type": "section",
+        "image": "novascore-4",
+        "subtitle": "Makanan Ultra-Olahan (UPF)",
+        "subtitleColor": "red-60",
+        "description": "Produk-produk ini mewakili tingkat pengolahan industri tertinggi. Mereka sering diformulasikan dari bahan yang berasal terutama dari proses industri dan mencakup banyak aditif yang biasanya tidak digunakan dalam memasak di rumah. Makanan <b>NOVA 4</b> sering mengandung zat seperti <b>pewarna, pengemulsi</b> (seperti <b>E407</b>), <b>peningkat rasa, minyak terhidrogenasi, protein terhidrolisis, dan pati yang dimodifikasi</b>. Item-item ini dirancang untuk kenyamanan maksimal, rasa, dan umur simpan yang lama. Konsumsinya harus dibatasi secara ketat. <b>Contoh:</b> sebagian besar makanan beku siap saji, minuman ringan bergula, sereal sarapan yang diproduksi massal, sebagian besar daging olahan seperti sosis, dan berbagai camilan dan keripik kemasan."
+      }
+    ]
+  }
+]

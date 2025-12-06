@@ -1,0 +1,318 @@
+[
+  {
+    "id": "barcode-scanner",
+    "type": "question",
+    "question": "Hvordan virker Food ID?",
+    "title": "Hvordan Food ID virker",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID hjælper dig med at træffe informerede fødevarevalg ved at give øjeblikkelig adgang til detaljerede produktoplysninger. Scan blot en produkts stregkode eller indtast den manuelt for at se ernæringsdata, ingredienser, allergener og sundhedsscore."
+      },
+      {
+        "type": "section",
+        "subtitle": "Scanning af produkter",
+        "description": "Ret din kamera mod en produkts stregkode. Food ID registrerer og læser den automatisk, og viser derefter øjeblikkeligt omfattende produktdetaljer. Hvis kameraet ikke kan læse stregkoden, tryk på tastaturikonet for at indtaste den manuelt."
+      },
+      {
+        "type": "section",
+        "subtitle": "Hvad du vil se",
+        "description": "Hvert produkt viser ernæringsværdier med farvekodede ikoner (grøn for god, orange for moderat, rød for høj), nøglegenskaber, allergener, ingredienser og sundhedsscore som Nutri-Score, Eco-Score og NOVA Score. Dette hjælper dig med hurtigt at forstå et produkts ernæringskvalitet og miljøpåvirkning."
+      },
+      {
+        "type": "section",
+        "subtitle": "Kilde til produktinformation",
+        "description": "Food ID bruger produktinformation fra <b>OpenFoodFacts</b>, en gratis, åben, kollaborativ database med fødevareprodukter fra hele verden. Information inkluderer ernæringsdata, ingredienser, allergener og andre produktdetaljer bidraget af et globalt fællesskab af brugere."
+      }
+    ]
+  },
+  {
+    "id": "scan-fails",
+    "type": "question",
+    "question": "Hvorfor fejler scanningen nogle gange?",
+    "title": "Scanproblemer",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Flere faktorer kan forhindre succesfuld stregkodescanning. Her er de mest almindelige problemer og hvordan man løser dem:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Dårlig belysning",
+        "description": "Stregkodescannere har brug for tilstrækkeligt lys for at læse koder nøjagtigt. Prøv at flytte til et lysere område eller tænde ekstra lys. Undgå direkte sollys eller hårde reflektioner, der kan udviske stregkoden."
+      },
+      {
+        "type": "section",
+        "subtitle": "Afstand og vinkel",
+        "description": "Hold din enhed i en behagelig afstand (cirka 15-30 cm) fra stregkoden. Hold kameraet parallelt med stregkodens overflade. Vinklede eller hældede stregkoder er sværere at læse."
+      },
+      {
+        "type": "section",
+        "subtitle": "Beskadigede eller beskidte stregkoder",
+        "description": "Ridser, revnede eller beskidte stregkoder kan muligvis ikke scannes korrekt. Prøv at rengøre stregkodens overflade eller brug manuel indtastning, hvis koden er ulæselig."
+      },
+      {
+        "type": "section",
+        "subtitle": "Produkt ikke i databasen",
+        "description": "Hvis stregkoden scannes succesfuldt, men ingen produktinformation vises, er produktet muligvis ikke i OpenFoodFacts-databasen endnu. Du kan tilføje det ved at besøge <b>openfoodfacts.org</b> og bidrage med produktinformation."
+      },
+      {
+        "type": "section",
+        "subtitle": "Kameratilladelse",
+        "description": "Sørg for, at du har givet Food ID kameratilladelse. Hvis scanningen ikke virker, tjek din enheds indstillinger og sørg for, at kameradgang er aktiveret til appen."
+      }
+    ]
+  },
+  {
+    "id": "nutrient-coloring",
+    "type": "question",
+    "question": "Hvordan evalueres og farvekodes næringsstoffer?",
+    "title": "Næringsstofevaluering",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID bruger to metoder til at bestemme næringsstofniveauer og farvekodning:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Primær metode: Officiel produktinformation",
+        "description": "Når tilgængelig bruger Food ID officiel ernæringsinformation direkte fra Open Food Facts. Dette er den mest pålidelige kilde, da den er baseret på produktets faktiske ernæringsmærkat."
+      },
+      {
+        "type": "section",
+        "subtitle": "Reservemetode: Industristandarder",
+        "description": "Hvis officiel ernæringsinformation ikke er tilgængelig, bestemmer Food ID næringsstofniveauer ved hjælp af branchestandardretningslinjer baseret på <b>EU's ernæringsmærkningsregler</b> og sundhedsanbefalinger fra WHO og EFSA."
+      },
+      {
+        "type": "table",
+        "title": "Næringsstoftærskler (per 100g)",
+        "dataSource": "nutrient-thresholds"
+      },
+      {
+        "type": "section",
+        "subtitle": "Farvekodning",
+        "description": "Standardnæringsstoffer (fedt, sukker, salt, kalorier): <b>Lav</b> = Grøn (god), <b>Moderat</b> = Orange (forsigtighed), <b>Høj</b> = Rød (begræns). Positive næringsstoffer (protein, fiber): <b>Høj</b> = Grøn (god), <b>Lav/Moderat</b> = Grå (neutral). Utilstrækkelige data = Grå."
+      },
+      {
+        "type": "section",
+        "subtitle": "Manglende information",
+        "description": "Hvis en næringsstofværdi ikke er tilgængelig eller ikke kan bestemmes, forbliver ikonet gråt for at indikere, at denne information ikke er tilgængelig for produktet."
+      }
+    ]
+  },
+  {
+    "id": "favorites",
+    "type": "question",
+    "question": "Hvordan tilføjer jeg produkter til favoritter?",
+    "title": "Favoritter",
+    "answer": "Når du viser en produkts detaljer, tryk på hjerteikonet nederst på skærmen. Hjertet bliver rødt, hvilket indikerer, at produktet er blevet tilføjet til dine favoritter. Få adgang til dine favoritter når som helst fra fanen favoritter."
+  },
+  {
+    "id": "data-storage",
+    "type": "question",
+    "question": "Hvor gemmes min scanhistorik?",
+    "title": "Datagemme",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Alle dine scannede produkter og favoritter gemmes lokalt på din enhed. Dette betyder, at dine data aldrig forlader din telefon og forbliver helt private."
+      },
+      {
+        "type": "section",
+        "subtitle": "Lokal lagring",
+        "description": "Din scanhistorik, favoritter og produktinformation gemmes kun på din enhed. Intet sendes til eksterne tjenester eller gemmes online."
+      },
+      {
+        "type": "section",
+        "subtitle": "Privatliv",
+        "description": "Da alt forbliver på din enhed, har du fuld kontrol. Hvis du afinstallerer appen, fjernes alle dine oplysninger. Produktdetaljer hentes fra OpenFoodFacts, når du scanner, men din personlige scanhistorik og favoritter forlader aldrig din enhed."
+      }
+    ]
+  },
+  {
+    "id": "assessments",
+    "type": "question",
+    "question": "Hvordan genereres positive og negative vurderinger?",
+    "title": "Vurderinger",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID analyserer produktets ernæringsindhold, herunder kalorier, proteiner, fedtstoffer, kulhydrater, fiber, natrium og sukkerarter. Vi sammenligner disse værdier med anbefalede daglige indtagsretningslinjer baseret på EU-forskrifter og branchestandarder."
+      },
+      {
+        "type": "section",
+        "subtitle": "Positive vurderinger",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsUp",
+        "subtitleAssessment": "positive",
+        "subtitleColor": "green-60",
+        "description": "Produkter modtager positive vurderinger, når de er rig på fordelagtige næringsstoffer (fiber, protein) og lave i komponenter at begrænse (mættede fedtstoffer, natrium, sukkerarter). Disse produkter støtter en afbalanceret kost og sunde spisevaner."
+      },
+      {
+        "type": "section",
+        "subtitle": "Negative vurderinger",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsDown",
+        "subtitleAssessment": "negative",
+        "subtitleColor": "red-60",
+        "description": "Produkter modtager negative vurderinger, når de indeholder høje niveauer af mættede fedtstoffer, natrium eller sukkerarter. Disse bør indtages med måde som en del af en afbalanceret kost."
+      }
+    ]
+  },
+  {
+    "id": "products-not-found",
+    "type": "question",
+    "question": "Hvorfor kan jeg ikke finde nogle produkter?",
+    "title": "Manglende produkter",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Ikke alle produkter er tilgængelige i OpenFoodFacts endnu. Information er fællesskabsdrevet og vokser konstant, med millioner af produkter allerede tilgængelige."
+      },
+      {
+        "type": "section",
+        "subtitle": "Hvorfor produkter kan mangle",
+        "description": "Nye produkter, regionale varer eller mindre almindelige mærker er muligvis ikke tilgængelige endnu. Information er afhængig af fællesskabsbidrag for at udvide dækningen."
+      },
+      {
+        "type": "section",
+        "subtitle": "Hvordan man tilføjer produkter",
+        "description": "Du kan bidrage ved at tilføje manglende produkter til OpenFoodFacts. Besøg <b>openfoodfacts.org</b> for at scanne stregkoden og tilføje produktinformation, herunder ernæringsfakta, ingredienser og fotos."
+      }
+    ]
+  },
+  {
+    "id": "nutri-score",
+    "type": "score",
+    "question": "Hvad er Nutri-Score?",
+    "title": "Nutri-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Nutri-Score er et officielt fødevaremærkningssystem, udviklet i Frankrig og vedtaget af mange europæiske lande. Det fungerer som en enkel, grafisk indikator, der hjælper forbrugere med hurtigt at vurdere en produkts overordnede ernæringskvalitet."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-a",
+        "subtitle": "Den bedste score",
+        "subtitleColor": "green-60",
+        "description": "Tildelt produkter med højeste ernæringskvalitet, minimale kalorier, fedtstoffer, sukkerarter og salt, rig på fiber og/eller protein. <b>Eksempler:</b> friske frugter, grøntsager, fuldkornsprodukter og olivenolie."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-b",
+        "subtitle": "Meget god ernæringskvalitet",
+        "subtitleColor": "green-60",
+        "description": "Produkter er et godt valg til daglig forbrug, med en meget god næringsbalance, selvom de kan indeholde lidt mere fedt eller sukker end kategori A. <b>Eksempler:</b> usødede fedtfattige yoghurt og visse typer fuldkornsbrød."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-c",
+        "subtitle": "Gennemsnitlig eller \"neutral\" score",
+        "subtitleColor": "bronze-60",
+        "description": "Produkter kan inkluderes i kosten, men bør veksles med A- og B-produkter. De har moderate negative komponenter, eller deres positive egenskaber kompenserer ikke fuldt ud for fedtstoffer eller salt. <b>Eksempler:</b> de fleste typer ost eller hvidt brød."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-d",
+        "subtitle": "Lav ernæringskvalitet",
+        "subtitleColor": "bronze-60",
+        "description": "Sådanne produkter har et højt indhold af negative komponenter og bør indtages i begrænsede mængder. <b>Eksempler:</b> mange sødede morgenmadsprodukter eller forarbejdede kødprodukter."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-e",
+        "subtitle": "Den værste score",
+        "subtitleColor": "red-60",
+        "description": "Tildelt produkter med meget lav ernæringskvalitet, karakteriseret ved meget højt indhold af kalorier, fedtstoffer, sukker eller salt. Forbrug af sådanne produkter, som <b>chips, chokoladepålæg eller sukkerholdige læskedrikke</b>, bør minimeres."
+      }
+    ]
+  },
+  {
+    "id": "eco-score",
+    "type": "score",
+    "question": "Hvad er ECO-Score?",
+    "title": "ECO-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Eco-Score er et omfattende miljømærke, der vurderer den økologiske påvirkning af fødevareprodukter gennem hele deres livscyklus. Det blev designet til at give forbrugere gennemsigtige oplysninger om, hvordan produktet påvirker planeten, ved hjælp af en enkel, grafisk femfarve-, fembogstavsskala."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-a",
+        "subtitle": "Bedste miljøvalg",
+        "subtitleColor": "green-60",
+        "description": "Indikerer minimal miljøpåvirkning. Produkter scorer typisk højt på <b>LCA</b> på grund af lave <b>CO2-emissioner</b> (f.eks. plantebaserede fødevarer) og får maksimale bonusser for at være økologiske, lokalt producerede og pakket i fuldt genanvendelige eller genbrugelige materialer. <b>Eksempel:</b> sæsonbestemte, økologiske, minimalt pakkede grøntsager."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-b",
+        "subtitle": "Godt miljøvalg",
+        "subtitleColor": "green-60",
+        "description": "Repræsenterer en god overordnet miljøprofil. Produkter er generelt bæredygtige, men kan have en lidt højere påvirkning i ét område, såsom emballage eller transport. De inkluderer ofte plantebaserede artikler eller bæredygtigt dyrkede varer, der bruger genanvendelige materialer."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-c",
+        "subtitle": "Moderat miljøpåvirkning",
+        "subtitleColor": "bronze-60",
+        "description": "Dette er den gennemsnitlige eller \"neutrale\" score. Produkter repræsenterer ofte standarden for en kategori, med målbar miljøpåvirkning, potentielt på grund af energikrævende behandling, nogle ikke-genanvendelige emballagekomponenter eller længere forsyningskæder. De kræver en afbalanceret tilgang til forbrug."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-d",
+        "subtitle": "Moderat miljøpåvirkning",
+        "subtitleColor": "bronze-60",
+        "description": "Produkter har målbar miljøpåvirkning, potentielt på grund af energikrævende behandling, nogle ikke-genanvendelige emballagekomponenter eller længere forsyningskæder. De kræver en afbalanceret tilgang til forbrug."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-e",
+        "subtitle": "Højeste miljøpåvirkning",
+        "subtitleColor": "red-60",
+        "description": "Dette er den værste score, hvilket betyder meget høj miljøpåvirkning. Produkter kombinerer typisk en høj <b>LCA-score</b> (f.eks. <b>oksekød</b>) med flere straffe, såsom mangel på oprindelsessporbarhed og problematisk, engangsemballage. Forbrug af disse produkter bør minimeres."
+      }
+    ]
+  },
+  {
+    "id": "nova-score",
+    "type": "score",
+    "question": "Hvad er NOVA-Score?",
+    "title": "NOVA Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "NOVA-klassificeringen er et system udviklet af brasilianske forskere, der kategoriserer fødevareprodukter udelukkende efter omfanget af deres industrielle forarbejdning. I modsætning til Nutri-Score vurderer NOVA ikke næringsstofindhold som sukker, fedt eller salt; i stedet fokuserer det på produktionsmetoder og ingredienser."
+      },
+      {
+        "type": "section",
+        "image": "novascore-1",
+        "subtitle": "Uforarbejdede eller minimalt forarbejdede fødevarer",
+        "subtitleColor": "green-60",
+        "description": "Disse produkter er enten naturligt forekommende eller let modificerede for at bevare dem, gøre dem sikrere eller forbedre smag. Tilladte ændringer inkluderer enkle teknikker som <b>vask, skrælning, pasteurisering, nedfrysning eller maling</b>. Disse fødevarer bevarer deres væsentlige identitet og næringsprofil. <b>Eksempler:</b> friske, tørrede eller frosne frugter og grøntsager, fuldmælk, frisk kød, æg og grundlæggende korn som ris."
+      },
+      {
+        "type": "section",
+        "image": "novascore-2",
+        "subtitle": "Forarbejdede kulinariske ingredienser",
+        "subtitleColor": "green-60",
+        "description": "Denne gruppe omfatter stoffer ekstraheret direkte fra <b>Gruppe 1</b>-fødevarer eller opnået fra naturen, primært brugt i køkkenet til at forberede, krydre eller konservere andre fødevarer. De er ikke beregnet til at blive konsumeret alene. De ekstraheres gennem processer som <b>pressning, raffinering eller tørring</b>. <b>Almindelige eksempler:</b> vegetabilske olier, salt, sukker, honning og smør."
+      },
+      {
+        "type": "section",
+        "image": "novascore-3",
+        "subtitle": "Forarbejdede fødevarer",
+        "subtitleColor": "bronze-60",
+        "description": "Forarbejdede fødevarer er relativt enkle artikler lavet ved at kombinere fødevarer fra <b>Gruppe 1</b> med kulinariske ingredienser fra <b>Gruppe 2</b> (salt, olie eller sukker). Målet er at forlænge holdbarheden eller forbedre sensoriske egenskaber. Disse produkter indeholder typisk kun få ingredienser og er stadig let genkendelige som modificeringer af fuldkornsfødevarer. <b>Eksempler:</b> simpel ost (fermenteret mælk med salt), konserverede grøntsager i saltlage, brød lavet med minimale ingredienser og almindelige yoghurt."
+      },
+      {
+        "type": "section",
+        "image": "novascore-4",
+        "subtitle": "Ultra-forarbejdede fødevarer (UPF)",
+        "subtitleColor": "red-60",
+        "description": "Disse produkter repræsenterer den højeste grad af industriel forarbejdning. De er ofte formuleret fra ingredienser afledt primært fra industrielle processer og inkluderer talrige tilsætningsstoffer, der normalt ikke bruges i hjemmekogning. <b>NOVA 4</b>-fødevarer indeholder ofte stoffer som <b>farvestoffer, emulgatorer</b> (såsom <b>E407</b>), <b>smagsforstærkere, hærdet olie, hydrolyseret protein og modificeret stivelse</b>. Disse artikler er designet til maksimal bekvemmelighed, smag og lang holdbarhed. Deres forbrug bør strengt begrænses. <b>Eksempler:</b> de fleste klar-til-at-spise frosne måltider, sukkerholdige læskedrikke, masseproducerede morgenmadsprodukter, de fleste forarbejdede kødprodukter som pølser og forskellige pakkede snacks og chips."
+      }
+    ]
+  }
+]

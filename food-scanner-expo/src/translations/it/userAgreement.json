@@ -1,0 +1,51 @@
+{
+  "title": "Accordo utente",
+  "lastUpdated": "2025-12-03",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Accettazione dei termini",
+      "content": "Scaricando, installando o utilizzando l'applicazione mobile Food ID, accetti di essere vincolato da questi Termini di utilizzo. Se non accetti questi termini, ti preghiamo di non utilizzare l'app."
+    },
+    {
+      "id": 2,
+      "title": "Descrizione del servizio",
+      "content": "Food ID è un'applicazione mobile che consente agli utenti di scansionare i codici a barre dei prodotti e recuperare informazioni nutrizionali dal database OpenFoodFacts. L'app fornisce analisi nutrizionali, elenchi di ingredienti, informazioni sugli allergeni e valutazioni personalizzate per aiutare gli utenti a fare scelte alimentari informate."
+    },
+    {
+      "id": 3,
+      "title": "Responsabilità dell'utente",
+      "content": "Sei responsabile di mantenere la riservatezza del tuo dispositivo e di tutte le attività che si verificano sul tuo dispositivo. Accetti di utilizzare l'app solo per scopi legali e in conformità con questi Termini. Accetti di non abusare dell'app o interferire con il suo normale funzionamento."
+    },
+    {
+      "id": 4,
+      "title": "Accuratezza dei dati",
+      "content": "Le informazioni sui prodotti provengono da OpenFoodFacts, un database guidato dalla comunità. Sebbene ci sforziamo di fornire informazioni accurate, non possiamo garantire la completezza o l'accuratezza di tutti i dati del prodotto. Gli utenti dovrebbero verificare informazioni critiche, specialmente riguardo agli allergeni, con l'imballaggio del prodotto o i produttori."
+    },
+    {
+      "id": 5,
+      "title": "Proprietà intellettuale",
+      "content": "L'app e il suo contenuto originale, caratteristiche e funzionalità sono di proprietà di Food ID e sono protetti da leggi internazionali sul copyright, marchi e altre leggi sulla proprietà intellettuale. I dati del prodotto sono forniti da OpenFoodFacts sotto la Licenza Open Database (ODbL)."
+    },
+    {
+      "id": 6,
+      "title": "Limitazione di responsabilità",
+      "content": "Food ID e i suoi sviluppatori non saranno responsabili per eventuali danni indiretti, incidentali, speciali, consequenziali o punitivi derivanti dal tuo utilizzo o incapacità di utilizzare l'app. Forniamo l'app 'così com'è' senza garanzie di alcun tipo, espresse o implicite."
+    },
+    {
+      "id": 7,
+      "title": "Modifiche ai termini",
+      "content": "Ci riserviamo il diritto di modificare questi Termini in qualsiasi momento. Informeremo gli utenti di eventuali modifiche aggiornando la data 'Ultimo aggiornamento'. Il tuo utilizzo continuato dell'app dopo le modifiche costituisce l'accettazione dei Termini modificati."
+    },
+    {
+      "id": 8,
+      "title": "Risoluzione",
+      "content": "Possiamo terminare o sospendere il tuo accesso all'app immediatamente, senza preavviso, per qualsiasi motivo, incluso la violazione di questi Termini. Al momento della risoluzione, il tuo diritto di utilizzare l'app cesserà immediatamente."
+    },
+    {
+      "id": 9,
+      "title": "Contatto",
+      "content": "Se hai domande su questi Termini, ti preghiamo di contattarci tramite i canali di supporto dell'app."
+    }
+  ]
+}

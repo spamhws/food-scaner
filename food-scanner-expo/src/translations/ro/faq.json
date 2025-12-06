@@ -1,0 +1,318 @@
+[
+  {
+    "id": "barcode-scanner",
+    "type": "question",
+    "question": "Cum funcționează Food ID?",
+    "title": "Cum funcționează Food ID",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID vă ajută să faceți alegeri alimentare informate oferind acces instant la informații detaliate despre produs. Pur și simplu scanați codul de bare al unui produs sau introduceți-l manual pentru a vedea datele nutriționale, ingredientele, alergenii și scorurile de sănătate."
+      },
+      {
+        "type": "section",
+        "subtitle": "Scanarea produselor",
+        "description": "Îndreptați camera către codul de bare al oricărui produs. Food ID îl detectează și citește automat, apoi vă arată instant detalii complete despre produs. Dacă camera nu poate citi codul de bare, atingeți pictograma tastaturii pentru a-l introduce manual."
+      },
+      {
+        "type": "section",
+        "subtitle": "Ce veți vedea",
+        "description": "Fiecare produs afișează valori nutriționale cu pictograme codate pe culori (verde pentru bun, portocaliu pentru moderat, roșu pentru ridicat), caracteristici cheie, alergeni, ingrediente și scoruri de sănătate precum Nutri-Score, Eco-Score și NOVA Score. Acest lucru vă ajută să înțelegeți rapid calitatea nutrițională și impactul asupra mediului al unui produs."
+      },
+      {
+        "type": "section",
+        "subtitle": "Sursa de informații despre produs",
+        "description": "Food ID folosește informații despre produse de la <b>OpenFoodFacts</b>, o bază de date gratuită, deschisă, colaborativă de produse alimentare din întreaga lume. Informațiile includ date nutriționale, ingrediente, alergeni și alte detalii despre produs contribuite de o comunitate globală de utilizatori."
+      }
+    ]
+  },
+  {
+    "id": "scan-fails",
+    "type": "question",
+    "question": "De ce scanarea eșuează uneori?",
+    "title": "Probleme de scanare",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Mai mulți factori pot împiedica scanarea cu succes a codurilor de bare. Iată cele mai comune probleme și cum să le rezolvați:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Iluminare slabă",
+        "description": "Scanerele de coduri de bare au nevoie de lumină adecvată pentru a citi codurile cu precizie. Încercați să vă mutați într-o zonă mai luminoasă sau să aprindeți lumină suplimentară. Evitați lumina solară directă sau reflexiile dure care pot șterge codul de bare."
+      },
+      {
+        "type": "section",
+        "subtitle": "Distanță și unghi",
+        "description": "Țineți dispozitivul la o distanță confortabilă (aproximativ 15-30 cm) de codul de bare. Mențineți camera paralelă cu suprafața codului de bare. Codurile de bare înclinate sau înclinate sunt mai greu de citit."
+      },
+      {
+        "type": "section",
+        "subtitle": "Coduri de bare deteriorate sau murdare",
+        "description": "Codurile de bare zgâriate, rupte sau murdare pot să nu se scaneze corect. Încercați să curățați suprafața codului de bare sau folosiți introducerea manuală dacă codul este ilizibil."
+      },
+      {
+        "type": "section",
+        "subtitle": "Produsul nu este în baza de date",
+        "description": "Dacă codul de bare se scanează cu succes dar nu apare nicio informație despre produs, produsul poate să nu fie încă în baza de date OpenFoodFacts. Puteți să îl adăugați vizitând <b>openfoodfacts.org</b> și contribuind cu informații despre produs."
+      },
+      {
+        "type": "section",
+        "subtitle": "Permisiunea camerei",
+        "description": "Asigurați-vă că ați acordat permisiunea camerei pentru Food ID. Dacă scanarea nu funcționează, verificați setările dispozitivului și asigurați-vă că accesul la cameră este activat pentru aplicație."
+      }
+    ]
+  },
+  {
+    "id": "nutrient-coloring",
+    "type": "question",
+    "question": "Cum sunt evaluate și colorate nutrienții?",
+    "title": "Evaluarea nutrienților",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID folosește două metode pentru a determina nivelurile de nutrienți și codificarea culorilor:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Metoda principală: Informații oficiale despre produs",
+        "description": "Când este disponibilă, Food ID folosește informații nutriționale oficiale direct de la Open Food Facts. Aceasta este cea mai fiabilă sursă, deoarece se bazează pe eticheta nutrițională reală a produsului."
+      },
+      {
+        "type": "section",
+        "subtitle": "Metoda de rezervă: Standarde industriale",
+        "description": "Dacă informațiile nutriționale oficiale nu sunt disponibile, Food ID determină nivelurile de nutrienți folosind directive standard ale industriei bazate pe <b>regulamentele UE privind etichetarea nutrițională</b> și recomandările de sănătate de la OMS și EFSA."
+      },
+      {
+        "type": "table",
+        "title": "Praguri nutriționale (pentru 100g)",
+        "dataSource": "nutrient-thresholds"
+      },
+      {
+        "type": "section",
+        "subtitle": "Codificarea culorilor",
+        "description": "Nutrienți standard (grăsimi, zahăr, sare, calorii): <b>Scăzut</b> = Verde (bun), <b>Moderat</b> = Portocaliu (precauție), <b>Ridicat</b> = Roșu (limitați). Nutrienți pozitivi (proteine, fibre): <b>Ridicat</b> = Verde (bun), <b>Scăzut/Moderat</b> = Gri (neutru). Date insuficiente = Gri."
+      },
+      {
+        "type": "section",
+        "subtitle": "Informații lipsă",
+        "description": "Dacă o valoare nutrițională nu este disponibilă sau nu poate fi determinată, pictograma rămâne gri pentru a indica că aceste informații nu sunt disponibile pentru produs."
+      }
+    ]
+  },
+  {
+    "id": "favorites",
+    "type": "question",
+    "question": "Cum adaug produse la favorite?",
+    "title": "Favorite",
+    "answer": "Când vizualizați detaliile unui produs, atingeți pictograma inimii în partea de jos a ecranului. Inima va deveni roșie, indicând că produsul a fost adăugat la favoritele dvs. Accesați favoritele dvs. oricând din fila de favorite."
+  },
+  {
+    "id": "data-storage",
+    "type": "question",
+    "question": "Unde este stocată istoria mea de scanare?",
+    "title": "Stocarea datelor",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Toate produsele dvs. scanate și favoritele sunt stocate local pe dispozitivul dvs. Aceasta înseamnă că datele dvs. nu părăsesc niciodată telefonul și rămân complet private."
+      },
+      {
+        "type": "section",
+        "subtitle": "Stocare locală",
+        "description": "Istoria dvs. de scanare, favoritele și informațiile despre produs sunt stocate doar pe dispozitivul dvs. Nimic nu este trimis către servicii externe sau stocat online."
+      },
+      {
+        "type": "section",
+        "subtitle": "Confidențialitate",
+        "description": "Deoarece totul rămâne pe dispozitivul dvs., aveți control complet. Dacă dezinstalați aplicația, toate informațiile dvs. sunt eliminate. Detaliile produsului sunt preluate de la OpenFoodFacts când scanați, dar istoria personală de scanare și favoritele dvs. nu părăsesc niciodată dispozitivul dvs."
+      }
+    ]
+  },
+  {
+    "id": "assessments",
+    "type": "question",
+    "question": "Cum sunt generate evaluările pozitive și negative?",
+    "title": "Evaluări",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID analizează conținutul nutrițional al produsului, inclusiv calorii, proteine, grăsimi, carbohidrați, fibre, sodiu și zaharuri. Comparăm aceste valori cu recomandările de aport zilnic recomandat bazate pe reglementările UE și standardele industriei."
+      },
+      {
+        "type": "section",
+        "subtitle": "Evaluări pozitive",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsUp",
+        "subtitleAssessment": "positive",
+        "subtitleColor": "green-60",
+        "description": "Produsele primesc evaluări pozitive când sunt bogate în nutrienți benefici (fibre, proteine) și scăzute în componente de limitat (grăsimi saturate, sodiu, zaharuri). Aceste produse susțin o dietă echilibrată și obiceiuri alimentare sănătoase."
+      },
+      {
+        "type": "section",
+        "subtitle": "Evaluări negative",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsDown",
+        "subtitleAssessment": "negative",
+        "subtitleColor": "red-60",
+        "description": "Produsele primesc evaluări negative când conțin niveluri ridicate de grăsimi saturate, sodiu sau zaharuri. Acestea ar trebui consumate cu moderație ca parte a unei diete echilibrate."
+      }
+    ]
+  },
+  {
+    "id": "products-not-found",
+    "type": "question",
+    "question": "De ce nu pot găsi unele produse?",
+    "title": "Produse lipsă",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Nu toate produsele sunt încă disponibile în OpenFoodFacts. Informațiile sunt conduse de comunitate și cresc constant, cu milioane de produse deja disponibile."
+      },
+      {
+        "type": "section",
+        "subtitle": "De ce produsele ar putea lipsi",
+        "description": "Produse noi, articole regionale sau mărci mai puțin comune pot să nu fie încă disponibile. Informațiile se bazează pe contribuțiile comunității pentru a extinde acoperirea."
+      },
+      {
+        "type": "section",
+        "subtitle": "Cum se adaugă produse",
+        "description": "Puteți contribui adăugând produse lipsă la OpenFoodFacts. Vizitați <b>openfoodfacts.org</b> pentru a scana codul de bare și a adăuga informații despre produs, inclusiv fapte nutriționale, ingrediente și fotografii."
+      }
+    ]
+  },
+  {
+    "id": "nutri-score",
+    "type": "score",
+    "question": "Ce este Nutri-Score?",
+    "title": "Nutri-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Nutri-Score este un sistem oficial de etichetare alimentară, dezvoltat în Franța și adoptat de multe țări europene. Servește ca indicator grafic simplu care ajută consumatorii să evalueze rapid calitatea nutrițională generală a unui produs."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-a",
+        "subtitle": "Cel mai bun scor",
+        "subtitleColor": "green-60",
+        "description": "Acordat produselor cu cea mai înaltă calitate nutrițională, calorii minime, grăsimi, zaharuri și sare, bogate în fibre și/sau proteine. <b>Exemple:</b> fructe proaspete, legume, produse integrale și ulei de măsline."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-b",
+        "subtitle": "Calitate nutrițională foarte bună",
+        "subtitleColor": "green-60",
+        "description": "Produsele sunt o alegere bună pentru consumul zilnic, cu un echilibru nutrițional foarte bun, deși pot conține puțin mai multă grăsime sau zahăr decât categoria A. <b>Exemple:</b> iaurturi nesărate cu conținut redus de grăsimi și anumite tipuri de pâine integrală."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-c",
+        "subtitle": "Scor mediu sau \"neutru\"",
+        "subtitleColor": "bronze-60",
+        "description": "Produsele pot fi incluse în dietă, dar ar trebui alternat cu produsele A și B. Au componente negative moderate, sau caracteristicile lor pozitive nu compensează pe deplin grăsimile sau sarea. <b>Exemple:</b> majoritatea tipurilor de brânză sau pâinea albă."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-d",
+        "subtitle": "Calitate nutrițională scăzută",
+        "subtitleColor": "bronze-60",
+        "description": "Astfel de produse au un conținut ridicat de componente negative și ar trebui consumate în cantități limitate. <b>Exemple:</b> multe cereale pentru micul dejun îndulcite sau produse de carne procesate."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-e",
+        "subtitle": "Cel mai rău scor",
+        "subtitleColor": "red-60",
+        "description": "Atribuit produselor cu calitate nutrițională foarte scăzută, caracterizate prin conținut foarte ridicat de calorii, grăsimi, zahăr sau sare. Consumul unor astfel de produse, cum ar fi <b>chipsuri, unturi de ciocolată sau băuturi răcoritoare zaharuroase</b>, ar trebui minimizat."
+      }
+    ]
+  },
+  {
+    "id": "eco-score",
+    "type": "score",
+    "question": "Ce este ECO-Score?",
+    "title": "ECO-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Eco-Score este o etichetă ambientală cuprinzătoare care evaluează impactul ecologic al produselor alimentare pe tot parcursul ciclului lor de viață. A fost proiectat pentru a oferi consumatorilor informații transparente despre modul în care produsul afectează planeta, folosind o scală grafică simplă cu cinci culori și cinci litere."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-a",
+        "subtitle": "Cea mai bună alegere pentru mediu",
+        "subtitleColor": "green-60",
+        "description": "Indică un impact ambiental minimal. Produsele obțin de obicei scoruri mari la <b>LCA</b> datorită emisiilor scăzute de <b>CO2</b> (de ex., alimente pe bază de plante) și câștigă bonusuri maxime pentru faptul că sunt organice, de origine locală și ambalate în materiale complet reciclabile sau reutilizabile. <b>Exemplu:</b> legume sezoniere, organice, minim ambalate."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-b",
+        "subtitle": "Alegere bună pentru mediu",
+        "subtitleColor": "green-60",
+        "description": "Reprezintă un profil ambiental general bun. Produsele sunt în general durabile, dar pot avea un impact ușor mai mare într-un domeniu, cum ar fi ambalarea sau transportul. Adesea includ articole pe bază de plante sau bunuri cultivate în mod durabil care folosesc materiale reciclabile."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-c",
+        "subtitle": "Impact ambiental moderat",
+        "subtitleColor": "bronze-60",
+        "description": "Acesta este scorul mediu sau \"neutru\". Produsele reprezintă adesea standardul pentru o categorie, cu un impact ambiental măsurabil, potențial datorită procesării intensive în energie, unor componente de ambalare nereciclabile sau lanțuri de aprovizionare mai lungi. Acestea necesită o abordare echilibrată a consumului."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-d",
+        "subtitle": "Impact ambiental moderat",
+        "subtitleColor": "bronze-60",
+        "description": "Produsele au un impact ambiental măsurabil, potențial datorită procesării intensive în energie, unor componente de ambalare nereciclabile sau lanțuri de aprovizionare mai lungi. Acestea necesită o abordare echilibrată a consumului."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-e",
+        "subtitle": "Cel mai mare impact ambiental",
+        "subtitleColor": "red-60",
+        "description": "Acesta este cel mai rău scor, semnificând un impact ambiental foarte ridicat. Produsele combină de obicei un scor <b>LCA</b> ridicat (de ex., <b>carne de vită</b>) cu multiple penalități, cum ar fi lipsa urmăririi originii și ambalarea problematică, de unică folosință. Consumul acestor produse ar trebui minimizat."
+      }
+    ]
+  },
+  {
+    "id": "nova-score",
+    "type": "score",
+    "question": "Ce este NOVA-Score?",
+    "title": "NOVA Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Clasificarea NOVA este un sistem dezvoltat de oameni de știință brazilieni care categorizează produsele alimentare exclusiv în funcție de gradul de procesare industrială. Spre deosebire de Nutri-Score, NOVA nu evaluează conținutul de nutrienți precum zahăr, grăsimi sau sare; în schimb, se concentrează pe metodele de producție și ingrediente."
+      },
+      {
+        "type": "section",
+        "image": "novascore-1",
+        "subtitle": "Alimente neprocesate sau minim procesate",
+        "subtitleColor": "green-60",
+        "description": "Aceste produse sunt fie natural apărute, fie ușor modificate pentru a le conserva, a le face mai sigure sau a îmbunătăți palatabilitatea. Modificările permise includ tehnici simple precum <b>spălarea, decojirea, pasteurizarea, înghețarea sau măcinarea</b>. Aceste alimente își păstrează identitatea esențială și profilul nutrițional. <b>Exemple:</b> fructe și legume proaspete, uscate sau congelate, lapte integral, carne proaspătă, ouă și cereale de bază precum orezul."
+      },
+      {
+        "type": "section",
+        "image": "novascore-2",
+        "subtitle": "Ingrediente culinare procesate",
+        "subtitleColor": "green-60",
+        "description": "Acest grup cuprinde substanțe extrase direct din alimentele <b>Grupului 1</b> sau obținute din natură, folosite în principal în bucătărie pentru pregătirea, condimentarea sau conservarea altor alimente. Nu sunt destinate consumului singure. Sunt extrase prin procese precum <b>presarea, rafinarea sau uscarea</b>. <b>Exemple comune:</b> uleiuri vegetale, sare, zahăr, miere și unt."
+      },
+      {
+        "type": "section",
+        "image": "novascore-3",
+        "subtitle": "Alimente procesate",
+        "subtitleColor": "bronze-60",
+        "description": "Alimentele procesate sunt articole relativ simple făcute prin combinarea alimentelor din <b>Grupul 1</b> cu ingrediente culinare din <b>Grupul 2</b> (sare, ulei sau zahăr). Scopul este de a prelungi durata de valabilitate sau de a îmbunătăți caracteristicile senzoriale. Aceste produse conțin de obicei doar câteva ingrediente și sunt încă ușor de recunoscut ca modificări ale alimentelor integrale. <b>Exemple:</b> brânză simplă (lapte fermentat cu sare), legume conservate în saramură, pâine făcută cu ingrediente minime și iaurturi simple."
+      },
+      {
+        "type": "section",
+        "image": "novascore-4",
+        "subtitle": "Alimente ultra-procesate (UPF)",
+        "subtitleColor": "red-60",
+        "description": "Aceste produse reprezintă cel mai înalt grad de procesare industrială. Sunt adesea formulate din ingrediente derivate în principal din procese industriale și includ numeroși aditivi de obicei nefolosiți în gătitul de acasă. Alimentele <b>NOVA 4</b> conțin adesea substanțe precum <b>coloranți, emulgatori</b> (cum ar fi <b>E407</b>), <b>întăritori de aromă, uleiuri hidrogenate, proteine hidrolizate și amidon modificat</b>. Aceste articole sunt proiectate pentru confort maxim, palatabilitate și durată lungă de valabilitate. Consumul lor ar trebui strict limitat. <b>Exemple:</b> majoritatea meselor congelate gata de mâncat, băuturi răcoritoare zaharuroase, cereale pentru micul dejun produse în masă, majoritatea produselor de carne procesate precum cârnații și diverse snack-uri și chipsuri ambalate."
+      }
+    ]
+  }
+]

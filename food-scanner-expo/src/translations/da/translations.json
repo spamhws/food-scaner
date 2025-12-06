@@ -1,0 +1,169 @@
+{
+  "_meta": {
+    "name": "Dansk",
+    "flag": "🇩🇰",
+    "locale": "da-DK"
+  },
+  "common": {
+    "cancel": "Annuller",
+    "ok": "OK",
+    "done": "Færdig",
+    "search": "Søg",
+    "clearAll": "Ryd alt",
+    "learnMore": "Lær mere",
+    "gotIt": "Forstået",
+    "unknown": "Ukendt",
+    "loading": "Indlæser...",
+    "pleaseWait": "Vent venligst...",
+    "error": "Fejl",
+    "retry": "Prøv igen"
+  },
+  "navigation": {
+    "scanner": "Scanner",
+    "history": "Historik",
+    "favourites": "Favoritter",
+    "info": "Info",
+    "faq": "Ofte stillede spørgsmål",
+    "userAgreement": "Brugeraftale",
+    "privacyPolicy": "Fortrolighedspolitik"
+  },
+  "scanner": {
+    "loadingCamera": "Indlæser kamera...",
+    "readyToScan": "Klar til at scanne?",
+    "cameraPermissionDescription": "Vi har kun brug for kameraadgang til at scanne stregkoder. Intet optages.",
+    "enableCamera": "Aktiver kamera",
+    "openSettings": "Åbn indstillinger",
+    "openSettingsMessage": "Gå til Indstillinger > Food ID > Kamera og aktivér kameraadgang.",
+    "enterBarcode": "Indtast stregkode",
+    "enterBarcodeDescription": "Indtast tallene under stregkoden for at finde produktet",
+    "barcode": "Stregkode",
+    "buttonText": "Scan dit første produkt"
+  },
+  "product": {
+    "loadingProduct": "Indlæser produkt...",
+    "nothingFound": "Ups, intet fundet",
+    "unknownProduct": "Ukendt produkt",
+    "notInDatabase": "Det ser ud til, at denne vare ikke er i min vidensbase",
+    "noInformation": "Ingen information om dette produkt endnu"
+  },
+  "nutrition": {
+    "nutritionalValue": "Næringsværdi",
+    "per100g": "PR. 100G",
+    "per100gPerPackage": "PR. 100G / PR. EMBALLAGE",
+    "calories": "Kalorier, kcal",
+    "protein": "Protein, g",
+    "fats": "Fedt, g",
+    "saturatedFats": "Mættet fedt, g",
+    "carbs": "Kulhydrater, g",
+    "sugars": "Sukker, g",
+    "addedSugar": "Tilsat sukker, g",
+    "fiber": "Fiber, g",
+    "salt": "Salt, g",
+    "sodium": "Natrium, g",
+    "nutrientNames": {
+      "calories": "Kalorier",
+      "fat": "Fedt",
+      "saturated-fat": "Mættet fedt",
+      "sugars": "Sukker",
+      "salt": "Salt",
+      "proteins": "Protein",
+      "fiber": "Fiber",
+      "carbohydrates": "Kulhydrater",
+      "sodium": "Natrium"
+    }
+  },
+  "scores": {
+    "nutriScores": "NÆRINGSVÆRDI SCORINGER",
+    "nutriScore": "Nutri-Score",
+    "nutriScoreDescription": "Vurderer næringskvaliteten (A til E) pr. 100g, balancerer gavnlige (protein, fiber) og skadelige (fedt, sukker, salt) komponenter. A er det bedste valg for sundheden.",
+    "ecoscore": "ECO-Score",
+    "ecoscoreDescription": "Vurderer miljøpåvirkningen (A til E), tager højde for CO2-emissioner, emballagens genanvendelighed og ingrediensernes oprindelse. A er det bedste valg for planeten.",
+    "novascore": "NOVA Score",
+    "novascoreDescription": "Vurderer graden af industriel forarbejdning (Gruppe 1 til 4). Gruppe 4 er Ultra-Forarbejdet Mad (UPF), som bør begrænses uanset dets næringsindhold.",
+    "excellentChoice": "Fremragende valg",
+    "goodOption": "God mulighed",
+    "lessHealthy": "Mindre sundt",
+    "unhealthy": "Usundt"
+  },
+  "characteristics": {
+    "keyCharacteristics": "Nøgleegenskaber",
+    "highInFiber": "Højt fiberindhold",
+    "richInProtein": "Rig på protein",
+    "lowInSugar": "Lavt sukkerindhold",
+    "lowInSalt": "Lavt saltindhold",
+    "lowInFat": "Lavt fedtindhold",
+    "lowInSaturatedFat": "Lavt mættet fedtindhold",
+    "lowCalorie": "Lavt kalorieindhold",
+    "highInFat": "Højt fedtindhold",
+    "highInSaturatedFat": "Højt mættet fedtindhold",
+    "highCalorie": "Højt kalorieindhold",
+    "highInSugar": "Højt sukkerindhold",
+    "highInSalt": "Højt saltindhold",
+    "highInCarbohydrates": "Højt kulhydratindhold",
+    "highInSodium": "Højt natriumindhold",
+    "containsAddedSugars": "Indholder tilsat sukker"
+  },
+  "allergens": {
+    "allergens": "Allergener"
+  },
+  "ingredients": {
+    "ingredients": "Ingredienser"
+  },
+  "narrative": {
+    "balancedProfile": "Dette produkt har en afbalanceret næringsprofil uden betydelige bekymringer eller bemærkelsesværdige fordele.",
+    "productIs": "Dette produkt er ",
+    "and": " og ",
+    "howeverIt": "Men det ",
+    "excellentConsumption": "Dette er et fremragende valg til regelmæssig forbrug.",
+    "goodConsumption": "Dette er et godt valg og kan indtages regelmæssigt med måde.",
+    "moderateConsumption": "Overvej at indtage dette produkt med måde og balancere det med sundere muligheder.",
+    "limitConsumption": "Det er bedst at begrænse indtaget af dette produkt og vælge sundere alternativer, når det er muligt."
+  },
+  "history": {
+    "emptyBasket": "En tom kurv fortæller ingen historier",
+    "startBuilding": "Begynd at bygge din historik - ét scan ad gangen!",
+    "clearAllHistory": "Ryd al historik",
+    "clearAllHistoryMessage": "Er du sikker på, at du vil rydde alle elementer fra din historik? Det påvirker ikke listen over favoritprodukter"
+  },
+  "favourites": {
+    "brokenHeart": "Knust hjerte",
+    "brokenHeartDescription": "Dine yndlingssnacks er alt, hvad det har brug for for at hele!",
+    "findFavourites": "Find dine favoritter",
+    "clearAllFavourites": "Ryd alle favoritter",
+    "clearAllFavouritesMessage": "Er du sikker på, at du vil rydde alle elementer fra dine favoritter?"
+  },
+  "settings": {
+    "language": "Sprog",
+    "faq": "Ofte stillede spørgsmål",
+    "shareTheApp": "Del appen",
+    "rateTheApp": "Bedøm appen",
+    "contactDevelopers": "Kontakt udviklere",
+    "userAgreement": "Brugeraftale",
+    "privacyPolicy": "Fortrolighedspolitik",
+    "appVersion": "App-version",
+    "shareFoodId": "Del Food ID",
+    "contactFoodId": "Kontakt Food ID",
+    "contactSubject": "Food ID App - Kontakt",
+    "contactMessage": "Kontakt Food ID udviklere\n\nE-mail: {email}\nEmne: {subject}",
+    "contactFallback": "E-mail: {email}\n\nEmne: Food ID App - Kontakt\n\nDu kan kopiere e-mailadressen og sende os en besked.",
+    "feedbackSupportTitle": "Feedback & support",
+    "feedbackSupportMessage": "For at give feedback eller anmode om support, send venligst en e-mail til {email}",
+    "shareMessage": "Tjek Food ID ud - appen, der hjælper dig med at træffe informerede fødevarevalg!\n\n🍎 App Store: {iosLink}\n🤖 Google Play: {androidLink}",
+    "unableToShare": "Kunne ikke dele appen. Prøv igen.",
+    "unableToOpenStore": "Kunne ikke åbne app-butikken. Prøv igen.",
+    "unableToOpenEmail": "Kunne ikke åbne e-mail-appen. Prøv igen."
+  },
+  "alerts": {
+    "nutriScoreTitle": "Nutri-Score {grade} - {description}",
+    "shareError": "Delfejl",
+    "unableToShareProduct": "Kunne ikke dele produktet. Prøv igen."
+  },
+  "faq": {
+    "itemNotFound": "FAQ-element ikke fundet",
+    "nutrientTableTitle": "Næringsstoftærskler (pr. 100g)",
+    "nutrientTableNutrientHeader": "Næringsstof",
+    "nutrientTableLowHeader": "Lav",
+    "nutrientTableModerateHeader": "Moderat",
+    "nutrientTableHighHeader": "Høj"
+  }
+}
