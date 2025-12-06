@@ -20,7 +20,7 @@ import {
   IconSend,
   IconStar,
   IconMessageChatbot,
-  IconLanguage,
+  IconWorld,
 } from '@tabler/icons-react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/navigation-types';
@@ -37,6 +37,7 @@ interface SettingItemProps {
   value?: string;
   onPress?: () => void;
   showChevron?: boolean;
+  className?: string;
 }
 
 function SettingItem({
@@ -46,6 +47,7 @@ function SettingItem({
   value,
   onPress,
   showChevron = true,
+  className = '',
 }: SettingItemProps) {
   const content = (
     <>
@@ -59,10 +61,12 @@ function SettingItem({
     </>
   );
 
+  const baseClassName = 'flex-row items-center bg-white rounded-xl shadow-card px-4 py-5 mb-3';
+  
   if (onPress) {
     return (
       <TouchableOpacity
-        className="flex-row items-center bg-white rounded-xl shadow-card px-4 py-4 mb-4"
+        className={`${baseClassName} ${className}`}
         onPress={onPress}
         activeOpacity={0.7}
       >
@@ -72,7 +76,7 @@ function SettingItem({
   }
 
   return (
-    <View className="flex-row items-center bg-white rounded-xl shadow-card px-4 py-4 mb-3">
+    <View className={`${baseClassName} ${className}`}>
       {content}
     </View>
   );
@@ -184,14 +188,12 @@ export function SettingsScreen() {
           title={t('settings.appVersion')}
           value={Constants.expoConfig?.version || t('common.unknown')}
           showChevron={false}
+          className="pr-5"
         />
 
         <SettingItem
-          icon={<IconLanguage size={24} stroke="#8E99AB" />}
+          icon={<IconWorld size={24} stroke="#8E99AB" />}
           title={t('settings.language')}
-          value={
-            currentLanguageData ? `${currentLanguageData.flag} ${currentLanguageData.name}` : ''
-          }
           onPress={() => navigation.navigate('LanguageSelection')}
         />
 
