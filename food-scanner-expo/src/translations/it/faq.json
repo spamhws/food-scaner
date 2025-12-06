@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Prodotto non nel database",
-        "description": "Se il codice a barre viene scansionato con successo ma non appare alcuna informazione sul prodotto, il prodotto potrebbe non essere ancora nel database OpenFoodFacts. Puoi aggiungerlo visitando <b>openfoodfacts.org</b> e contribuendo alle informazioni sul prodotto."
+        "description": "Se il codice a barre viene scansionato con successo ma non appare alcuna informazione sul prodotto, il prodotto potrebbe non essere ancora nel database OpenFoodFacts. Tocca il pulsante <b>Invia Prodotto</b> per aggiungerlo al database."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "Come aggiungere prodotti",
-        "description": "Puoi contribuire aggiungendo prodotti mancanti a OpenFoodFacts. Visita <b>openfoodfacts.org</b> per scansionare il codice a barre e aggiungere informazioni sul prodotto, inclusi fatti nutrizionali, ingredienti e foto."
+        "description": "Se un prodotto non viene trovato, tocca il pulsante <b>Invia Prodotto</b> sulla scheda del prodotto. Questo aprirà un modulo nel tuo browser dove puoi aggiungere le informazioni del prodotto al database OpenFoodFacts. Il tuo contributo aiuta ad espandere il database per tutti."
       }
     ]
   },

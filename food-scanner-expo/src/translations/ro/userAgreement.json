@@ -23,6 +23,11 @@
       "content": "Informațiile despre produse provin din OpenFoodFacts, o bază de date condusă de comunitate. Deși ne străduim să oferim informații precise, nu putem garanta completitudinea sau acuratețea tuturor datelor despre produse. Utilizatorii ar trebui să verifice informațiile critice, în special cu privire la alergeni, cu ambalajul produsului sau producătorii."
     },
     {
+      "id": 4.5,
+      "title": "Contribuirea la datele despre produse",
+      "content": "Puteți ajuta la îmbunătățirea bazei de date prin trimiterea produselor lipsă prin aplicație. Când un produs nu este găsit, folosiți funcția Trimite Produs pentru a-l adăuga la OpenFoodFacts. Contribuind, acceptați că trimiterile dvs. vor fi disponibile public sub licența Open Database License (ODbL)."
+    },
+    {
       "id": 5,
       "title": "Proprietate intelectuală",
       "content": "Aplicația și conținutul, caracteristicile și funcționalitatea sa originală aparțin Food ID și sunt protejate de legile internaționale privind drepturile de autor, mărcile comerciale și alte legi de proprietate intelectuală. Datele despre produse sunt furnizate de OpenFoodFacts sub licența Open Database License (ODbL)."

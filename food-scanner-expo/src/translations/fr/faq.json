@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Produit non dans la base de données",
-        "description": "Si le code-barres est scanné avec succès mais qu'aucune information sur le produit n'apparaît, le produit n'est peut-être pas encore dans la base de données OpenFoodFacts. Vous pouvez l'ajouter en visitant <b>openfoodfacts.org</b> et en contribuant aux informations sur le produit."
+        "description": "Si le code-barres est scanné avec succès mais qu'aucune information sur le produit n'apparaît, le produit n'est peut-être pas encore dans la base de données OpenFoodFacts. Appuyez sur le bouton <b>Soumettre le Produit</b> pour l'ajouter à la base de données."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "Comment ajouter des produits",
-        "description": "Vous pouvez contribuer en ajoutant des produits manquants à OpenFoodFacts. Visitez <b>openfoodfacts.org</b> pour scanner le code-barres et ajouter des informations sur le produit, y compris les faits nutritionnels, les ingrédients et les photos."
+        "description": "Si un produit n'est pas trouvé, appuyez sur le bouton <b>Soumettre le Produit</b> sur la carte du produit. Cela ouvrira un formulaire dans votre navigateur où vous pourrez ajouter les informations du produit à la base de données OpenFoodFacts. Votre contribution aide à étendre la base de données pour tous."
       }
     ]
   },

@@ -16,7 +16,8 @@
     "loading": "Loading...",
     "pleaseWait": "Please wait...",
     "error": "Error",
-    "retry": "Retry"
+    "retry": "Retry",
+    "open": "Open"
   },
   "navigation": {
     "scanner": "Scanner",
@@ -44,7 +45,10 @@
     "nothingFound": "Oops, nothing found",
     "unknownProduct": "Unknown Product",
     "notInDatabase": "It seems this item is not in my knowledge base",
-    "noInformation": "No information on this product yet"
+    "noInformation": "No information on this product yet",
+    "submitProduct": "Submit Product",
+    "submitProductTitle": "Add Product",
+    "submitProductMessage": "To add a product to the database, we will open the data entry form in your browser."
   },
   "nutrition": {
     "nutritionalValue": "Nutritional value",

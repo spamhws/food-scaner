@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Produsul nu este în baza de date",
-        "description": "Dacă codul de bare se scanează cu succes dar nu apare nicio informație despre produs, produsul poate să nu fie încă în baza de date OpenFoodFacts. Puteți să îl adăugați vizitând <b>openfoodfacts.org</b> și contribuind cu informații despre produs."
+        "description": "Dacă codul de bare se scanează cu succes dar nu apare nicio informație despre produs, produsul poate să nu fie încă în baza de date OpenFoodFacts. Apăsați butonul <b>Trimite Produs</b> pentru a-l adăuga în baza de date."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "Cum se adaugă produse",
-        "description": "Puteți contribui adăugând produse lipsă la OpenFoodFacts. Vizitați <b>openfoodfacts.org</b> pentru a scana codul de bare și a adăuga informații despre produs, inclusiv fapte nutriționale, ingrediente și fotografii."
+        "description": "Dacă un produs nu este găsit, apăsați butonul <b>Trimite Produs</b> pe cardul produsului. Aceasta va deschide un formular în browser-ul dvs. unde puteți adăuga informațiile despre produs în baza de date OpenFoodFacts. Contribuția dvs. ajută la extinderea bazei de date pentru toți."
       }
     ]
   },

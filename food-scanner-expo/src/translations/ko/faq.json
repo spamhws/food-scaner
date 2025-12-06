@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "데이터베이스에 없는 제품",
-        "description": "바코드가 성공적으로 스캔되었지만 제품 정보가 나타나지 않으면 제품이 아직 OpenFoodFacts 데이터베이스에 없을 수 있습니다. <b>openfoodfacts.org</b>를 방문하여 제품 정보를 기여하여 추가할 수 있습니다."
+        "description": "바코드가 성공적으로 스캔되었지만 제품 정보가 나타나지 않으면 제품이 아직 OpenFoodFacts 데이터베이스에 없을 수 있습니다. 데이터베이스에 추가하려면 <b>제품 제출</b> 버튼을 누르세요."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "제품 추가 방법",
-        "description": "누락된 제품을 OpenFoodFacts에 추가하여 기여할 수 있습니다. <b>openfoodfacts.org</b>를 방문하여 바코드를 스캔하고 영양 사실, 성분 및 사진을 포함한 제품 정보를 추가하세요."
+        "description": "제품을 찾을 수 없으면 제품 카드의 <b>제품 제출</b> 버튼을 누르세요. 이렇게 하면 브라우저에서 양식이 열리고 제품 정보를 OpenFoodFacts 데이터베이스에 추가할 수 있습니다. 귀하의 기여는 모든 사람을 위해 데이터베이스를 확장하는 데 도움이 됩니다."
       }
     ]
   },

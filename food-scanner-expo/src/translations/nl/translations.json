@@ -16,7 +16,8 @@
     "loading": "Laden...",
     "pleaseWait": "Even geduld...",
     "error": "Fout",
-    "retry": "Opnieuw proberen"
+    "retry": "Opnieuw proberen",
+    "open": "Openen"
   },
   "navigation": {
     "scanner": "Scanner",
@@ -44,7 +45,10 @@
     "nothingFound": "Oeps, niets gevonden",
     "unknownProduct": "Onbekend product",
     "notInDatabase": "Het lijkt erop dat dit item niet in mijn kennisbank staat",
-    "noInformation": "Nog geen informatie over dit product"
+    "noInformation": "Nog geen informatie over dit product",
+    "submitProduct": "Product indienen",
+    "submitProductTitle": "Product toevoegen",
+    "submitProductMessage": "Om een product aan de database toe te voegen, openen we het gegevensinvoerformulier in uw browser."
   },
   "nutrition": {
     "nutritionalValue": "Voedingswaarde",

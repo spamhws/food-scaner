@@ -23,6 +23,11 @@
       "content": "Produktinformationen stammen von OpenFoodFacts, einer gemeinschaftsgesteuerten Datenbank. Obwohl wir uns bemühen, genaue Informationen bereitzustellen, können wir nicht die Vollständigkeit oder Genauigkeit aller Produktdaten garantieren. Benutzer sollten kritische Informationen, insbesondere bezüglich Allergenen, mit der Produktverpackung oder den Herstellern überprüfen."
     },
     {
+      "id": 4.5,
+      "title": "Beitragen von Produktdaten",
+      "content": "Sie können helfen, die Datenbank zu verbessern, indem Sie fehlende Produkte über die App einreichen. Wenn ein Produkt nicht gefunden wird, verwenden Sie die Funktion Produkt einreichen, um es zu OpenFoodFacts hinzuzufügen. Durch Ihre Beiträge stimmen Sie zu, dass Ihre Einreichungen öffentlich unter der Open Database License (ODbL) verfügbar sind."
+    },
+    {
       "id": 5,
       "title": "Geistiges Eigentum",
       "content": "Die App und ihr ursprünglicher Inhalt, Funktionen und Funktionalität gehören Food ID und sind durch internationale Urheberrechts-, Marken- und andere Gesetze zum geistigen Eigentum geschützt. Produktdaten werden von OpenFoodFacts unter der Open Database License (ODbL) bereitgestellt."

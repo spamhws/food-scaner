@@ -23,6 +23,11 @@
       "content": "Informasi produk berasal dari OpenFoodFacts, database yang dikelola komunitas. Meskipun kami berusaha memberikan informasi yang akurat, kami tidak dapat menjamin kelengkapan atau akurasi semua data produk. Pengguna harus memverifikasi informasi penting, terutama mengenai alergen, dengan kemasan produk atau produsen."
     },
     {
+      "id": 4.5,
+      "title": "Berkontribusi pada data produk",
+      "content": "Anda dapat membantu meningkatkan database dengan mengirimkan produk yang hilang melalui aplikasi. Ketika produk tidak ditemukan, gunakan fitur Kirim Produk untuk menambahkannya ke OpenFoodFacts. Dengan berkontribusi, Anda setuju bahwa kiriman Anda akan tersedia untuk umum di bawah Open Database License (ODbL)."
+    },
+    {
       "id": 5,
       "title": "Kekayaan intelektual",
       "content": "Aplikasi dan konten asli, fitur, dan fungsionalitasnya dimiliki oleh Food ID dan dilindungi oleh hukum hak cipta internasional, merek dagang, dan hukum kekayaan intelektual lainnya. Data produk disediakan oleh OpenFoodFacts di bawah Lisensi Database Terbuka (ODbL)."

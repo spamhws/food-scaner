@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Produto não está no banco de dados",
-        "description": "Se o código de barras for escaneado com sucesso, mas nenhuma informação do produto aparecer, o produto pode não estar no banco de dados OpenFoodFacts ainda. Você pode adicioná-lo visitando <b>openfoodfacts.org</b> e contribuindo com as informações do produto."
+        "description": "Se o código de barras for escaneado com sucesso, mas nenhuma informação do produto aparecer, o produto pode não estar no banco de dados OpenFoodFacts ainda. Toque no botão <b>Enviar Produto</b> para adicioná-lo ao banco de dados."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "Como adicionar produtos",
-        "description": "Você pode contribuir adicionando produtos ausentes ao OpenFoodFacts. Visite <b>openfoodfacts.org</b> para escanear o código de barras e adicionar informações do produto, incluindo fatos nutricionais, ingredientes e fotos."
+        "description": "Se um produto não for encontrado, toque no botão <b>Enviar Produto</b> no cartão do produto. Isso abrirá um formulário no seu navegador onde você pode adicionar as informações do produto ao banco de dados OpenFoodFacts. Sua contribuição ajuda a expandir o banco de dados para todos."
       }
     ]
   },

@@ -16,7 +16,8 @@
     "loading": "Memuat...",
     "pleaseWait": "Harap tunggu...",
     "error": "Kesalahan",
-    "retry": "Coba lagi"
+    "retry": "Coba lagi",
+    "open": "Buka"
   },
   "navigation": {
     "scanner": "Pemindai",
@@ -44,7 +45,10 @@
     "nothingFound": "Ups, tidak ada yang ditemukan",
     "unknownProduct": "Produk tidak dikenal",
     "notInDatabase": "Sepertinya item ini tidak ada dalam basis pengetahuan saya",
-    "noInformation": "Belum ada informasi tentang produk ini"
+    "noInformation": "Belum ada informasi tentang produk ini",
+    "submitProduct": "Kirim Produk",
+    "submitProductTitle": "Tambah Produk",
+    "submitProductMessage": "Untuk menambahkan produk ke database, kami akan membuka formulir entri data di browser Anda."
   },
   "nutrition": {
     "nutritionalValue": "Nilai gizi",

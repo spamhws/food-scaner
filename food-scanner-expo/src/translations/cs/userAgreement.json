@@ -23,6 +23,11 @@
       "content": "Informace o produktech pocházejí z OpenFoodFacts, databáze řízené komunitou. I když se snažíme poskytovat přesné informace, nemůžeme zaručit úplnost nebo přesnost všech dat produktů. Uživatelé by měli ověřit kritické informace, zejména týkající se alergenů, s obalem produktu nebo výrobci."
     },
     {
+      "id": 4.5,
+      "title": "Přispívání k datům produktů",
+      "content": "Můžete pomoci zlepšit databázi odesíláním chybějících produktů prostřednictvím aplikace. Když produkt není nalezen, použijte funkci Odeslat produkt pro přidání do OpenFoodFacts. Přispíváním souhlasíte, že vaše příspěvky budou veřejně dostupné pod licencí Open Database License (ODbL)."
+    },
+    {
       "id": 5,
       "title": "Duševní vlastnictví",
       "content": "Aplikace a její původní obsah, funkce a funkcionalita jsou vlastnictvím Food ID a jsou chráněny mezinárodními autorskými právy, ochrannými známkami a dalšími zákony o duševním vlastnictví. Data produktů jsou poskytována společností OpenFoodFacts pod licencí Open Database License (ODbL)."

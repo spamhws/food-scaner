@@ -23,6 +23,11 @@
       "content": "Productinformatie is afkomstig van OpenFoodFacts, een door de gemeenschap gedreven database. Hoewel we ernaar streven nauwkeurige informatie te verstrekken, kunnen we niet de volledigheid of nauwkeurigheid van alle productgegevens garanderen. Gebruikers moeten kritische informatie, vooral met betrekking tot allergenen, verifiëren met productverpakkingen of fabrikanten."
     },
     {
+      "id": 4.5,
+      "title": "Bijdragen aan productgegevens",
+      "content": "U kunt helpen de database te verbeteren door ontbrekende producten via de app in te dienen. Wanneer een product niet wordt gevonden, gebruikt u de functie Product indienen om het toe te voegen aan OpenFoodFacts. Door bij te dragen, gaat u akkoord dat uw inzendingen publiekelijk beschikbaar zullen zijn onder de Open Database License (ODbL)."
+    },
+    {
       "id": 5,
       "title": "Intellectueel eigendom",
       "content": "De app en de oorspronkelijke inhoud, functies en functionaliteit zijn eigendom van Food ID en worden beschermd door internationale auteursrechten, handelsmerken en andere wetten op intellectueel eigendom. Productgegevens worden verstrekt door OpenFoodFacts onder de Open Database License (ODbL)."

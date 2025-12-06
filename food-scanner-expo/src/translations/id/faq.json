@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Produk Tidak Ada di Database",
-        "description": "Jika kode batang berhasil dipindai tetapi tidak ada informasi produk yang muncul, produk mungkin belum ada di database OpenFoodFacts. Anda dapat menambahkannya dengan mengunjungi <b>openfoodfacts.org</b> dan menyumbangkan informasi produk."
+        "description": "Jika kode batang berhasil dipindai tetapi tidak ada informasi produk yang muncul, produk mungkin belum ada di database OpenFoodFacts. Ketuk tombol <b>Kirim Produk</b> untuk menambahkannya ke database."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "Cara Menambahkan Produk",
-        "description": "Anda dapat berkontribusi dengan menambahkan produk yang hilang ke OpenFoodFacts. Kunjungi <b>openfoodfacts.org</b> untuk memindai kode batang dan menambahkan informasi produk termasuk fakta nutrisi, bahan, dan foto."
+        "description": "Jika produk tidak ditemukan, ketuk tombol <b>Kirim Produk</b> pada kartu produk. Ini akan membuka formulir di browser Anda di mana Anda dapat menambahkan informasi produk ke database OpenFoodFacts. Kontribusi Anda membantu memperluas database untuk semua orang."
       }
     ]
   },

@@ -16,7 +16,8 @@
     "loading": "Indlæser...",
     "pleaseWait": "Vent venligst...",
     "error": "Fejl",
-    "retry": "Prøv igen"
+    "retry": "Prøv igen",
+    "open": "Åbn"
   },
   "navigation": {
     "scanner": "Scanner",
@@ -44,7 +45,10 @@
     "nothingFound": "Ups, intet fundet",
     "unknownProduct": "Ukendt produkt",
     "notInDatabase": "Det ser ud til, at denne vare ikke er i min vidensbase",
-    "noInformation": "Ingen information om dette produkt endnu"
+    "noInformation": "Ingen information om dette produkt endnu",
+    "submitProduct": "Indsend produkt",
+    "submitProductTitle": "Tilføj produkt",
+    "submitProductMessage": "For at tilføje et produkt til databasen åbner vi dataindtastningsformularen i din browser."
   },
   "nutrition": {
     "nutritionalValue": "Næringsværdi",

@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Product niet in database",
-        "description": "Als de streepjescode succesvol wordt gescand maar er geen productinformatie verschijnt, is het product mogelijk nog niet in de OpenFoodFacts database. U kunt het toevoegen door <b>openfoodfacts.org</b> te bezoeken en productinformatie bij te dragen."
+        "description": "Als de streepjescode succesvol wordt gescand maar er geen productinformatie verschijnt, is het product mogelijk nog niet in de OpenFoodFacts database. Tik op de knop <b>Product indienen</b> om het toe te voegen aan de database."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "Hoe producten toe te voegen",
-        "description": "U kunt bijdragen door ontbrekende producten toe te voegen aan OpenFoodFacts. Bezoek <b>openfoodfacts.org</b> om de streepjescode te scannen en productinformatie toe te voegen, inclusief voedingsfeiten, ingrediënten en foto's."
+        "description": "Als een product niet wordt gevonden, tik op de knop <b>Product indienen</b> op de productkaart. Dit opent een formulier in uw browser waar u productinformatie kunt toevoegen aan de OpenFoodFacts database. Uw bijdrage helpt de database voor iedereen uit te breiden."
       }
     ]
   },

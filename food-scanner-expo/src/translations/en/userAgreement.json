@@ -23,6 +23,11 @@
       "content": "Product information is sourced from OpenFoodFacts, a community-driven database. While we strive to provide accurate information, we cannot guarantee the completeness or accuracy of all product data. Users should verify critical information, especially regarding allergens, with product packaging or manufacturers."
     },
     {
+      "id": 4.5,
+      "title": "Contributing Product Data",
+      "content": "You can help improve the database by submitting missing products through the app. When a product is not found, use the Submit Product feature to add it to OpenFoodFacts. By contributing, you agree that your submissions will be publicly available under the Open Database License (ODbL)."
+    },
+    {
       "id": 5,
       "title": "Intellectual Property",
       "content": "The app and its original content, features, and functionality are owned by Food ID and are protected by international copyright, trademark, and other intellectual property laws. Product data is provided by OpenFoodFacts under the Open Database License (ODbL)."
