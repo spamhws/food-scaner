@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "中文",
-    "flag": "🇨🇳"
+    "flag": "🇨🇳",
+    "locale": "zh-CN"
   },
   "common": {
     "cancel": "取消",

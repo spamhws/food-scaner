@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "Bahasa Indonesia",
-    "flag": "🇮🇩"
+    "flag": "🇮🇩",
+    "locale": "id-ID"
   },
   "common": {
     "cancel": "Batal",

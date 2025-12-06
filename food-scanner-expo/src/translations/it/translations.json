@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "Italiano",
-    "flag": "🇮🇹"
+    "flag": "🇮🇹",
+    "locale": "it-IT"
   },
   "common": {
     "cancel": "Annulla",

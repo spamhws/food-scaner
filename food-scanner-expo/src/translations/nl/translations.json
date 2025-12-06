@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "Nederlands",
-    "flag": "🇳🇱"
+    "flag": "🇳🇱",
+    "locale": "nl-NL"
   },
   "common": {
     "cancel": "Annuleren",

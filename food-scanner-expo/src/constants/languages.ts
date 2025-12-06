@@ -47,3 +47,16 @@ export function getAvailableLanguages() {
       return a.name.localeCompare(b.name);
     });
 }
+
+/**
+ * Get the locale string for a given language code
+ * Falls back to the language code itself if locale is not available
+ */
+export function getLocaleForLanguage(languageCode: string): string {
+  const translation = translations[languageCode as keyof typeof translations];
+  if (translation?._meta?.locale) {
+    return translation._meta.locale;
+  }
+  // Fallback to language code if locale not found
+  return languageCode;
+}

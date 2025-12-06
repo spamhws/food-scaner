@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "Română",
-    "flag": "🇷🇴"
+    "flag": "🇷🇴",
+    "locale": "ro-RO"
   },
   "common": {
     "cancel": "Anulează",

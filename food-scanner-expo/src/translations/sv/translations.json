@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "Svenska",
-    "flag": "🇸🇪"
+    "flag": "🇸🇪",
+    "locale": "sv-SE"
   },
   "common": {
     "cancel": "Avbryt",

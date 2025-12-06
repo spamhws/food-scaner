@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "Українська",
-    "flag": "🇺🇦"
+    "flag": "🇺🇦",
+    "locale": "uk-UA"
   },
   "common": {
     "cancel": "Скасувати",

@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "Türkçe",
-    "flag": "🇹🇷"
+    "flag": "🇹🇷",
+    "locale": "tr-TR"
   },
   "common": {
     "cancel": "İptal",

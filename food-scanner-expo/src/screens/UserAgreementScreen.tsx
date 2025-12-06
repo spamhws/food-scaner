@@ -5,6 +5,7 @@ import type { NavigationProp } from '@/navigation/navigation-types';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 import { getUserAgreementData } from '@/lib/translation-loaders';
+import { getLocaleForLanguage } from '@/constants/languages';
 
 export function UserAgreementScreen() {
   const { currentLanguage } = useTranslation();
@@ -37,18 +38,11 @@ export function UserAgreementScreen() {
         }}
       >
         <Text className="text-sm text-gray-60 mb-6 italic font-inter">
-          {new Intl.DateTimeFormat(
-            currentLanguage === 'uk'
-              ? 'uk-UA'
-              : currentLanguage === 'en'
-              ? 'en-US'
-              : currentLanguage,
-            {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            }
-          ).format(new Date(agreementData.lastUpdated))}
+          {new Intl.DateTimeFormat(getLocaleForLanguage(currentLanguage), {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          }).format(new Date(agreementData.lastUpdated))}
         </Text>
 
         {agreementData.sections.map((section) => (

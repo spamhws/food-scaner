@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "Čeština",
-    "flag": "🇨🇿"
+    "flag": "🇨🇿",
+    "locale": "cs-CZ"
   },
   "common": {
     "cancel": "Zrušit",

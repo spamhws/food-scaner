@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "Deutsch",
-    "flag": "🇩🇪"
+    "flag": "🇩🇪",
+    "locale": "de-DE"
   },
   "common": {
     "cancel": "Abbrechen",

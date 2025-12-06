@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "Dansk",
-    "flag": "🇩🇰"
+    "flag": "🇩🇰",
+    "locale": "da-DK"
   },
   "common": {
     "cancel": "Annuller",

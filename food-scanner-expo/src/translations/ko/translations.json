@@ -1,7 +1,8 @@
 {
   "_meta": {
     "name": "한국어",
-    "flag": "🇰🇷"
+    "flag": "🇰🇷",
+    "locale": "ko-KR"
   },
   "common": {
     "cancel": "취소",
