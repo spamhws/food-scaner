@@ -39,14 +39,16 @@ export function FAQScreen() {
         {(faqData as FAQItem[]).map((item) => (
           <TouchableOpacity
             key={item.id}
-            className="flex-row items-center bg-white rounded-xl shadow-card px-4 py-4 mb-3"
+            className="flex-row items-center bg-white rounded-xl shadow-card px-4 py-5 mb-3"
             onPress={() => handleQuestionPress(item.id)}
             activeOpacity={0.7}
           >
             <View className="flex-1">
               <Text className="text-base font-medium text-black">{item.question}</Text>
             </View>
-            <IconChevronRight size={20} stroke="#8E99AB" />
+            <View className="ml-1">
+              <IconChevronRight size={20} stroke="#8E99AB" />
+            </View>
           </TouchableOpacity>
         ))}
       </ScrollView>

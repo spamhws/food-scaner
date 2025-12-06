@@ -148,10 +148,10 @@ export function ProductCard({
             {isError && !isLoading && (
               <TouchableOpacity
                 onPress={handleSubmitProduct}
-                className="flex-row items-center gap-1 border border-blue-60 px-2 py-3 mt-1.5 rounded-lg"
+                className="flex-row items-center gap-1 border border-blue-60 px-2 py-2 mt-1.5 rounded-lg"
                 activeOpacity={0.7}
               >
-                <IconPlus size={24} strokeWidth={2} stroke={getColor('blue.60')} />
+                <IconPlus size={24} strokeWidth={1.75} stroke={getColor('blue.60')} />
                 <Text className="text-blue-60 text-base font-semibold">
                   {t('product.submitProduct')}
                 </Text>
@@ -169,7 +169,7 @@ export function ProductCard({
                 <IconFlame
                   size={16}
                   stroke={getCaloriesColor(product.nutrientLevels, product.nutrition)}
-                  strokeWidth={1.75}
+                  strokeWidth={2}
                 />
                 <Text className="font-semibold">
                   {Math.round(product.nutrition.calories.value)}
@@ -182,7 +182,7 @@ export function ProductCard({
                 <IconMeat
                   size={16}
                   stroke={getNutrientColor(product.nutrientLevels, 'proteins', product.nutrition)}
-                  strokeWidth={1.75}
+                  strokeWidth={2}
                 />
                 <Text className="font-semibold">{product.nutrition.protein.value.toFixed(1)}</Text>
               </View>
@@ -193,7 +193,7 @@ export function ProductCard({
                 <IconDroplet
                   size={16}
                   stroke={getNutrientColor(product.nutrientLevels, 'fat', product.nutrition)}
-                  strokeWidth={1.75}
+                  strokeWidth={2}
                 />
                 <Text className="font-semibold">{product.nutrition.fat.value.toFixed(1)}</Text>
               </View>
@@ -208,7 +208,7 @@ export function ProductCard({
                     'carbohydrates',
                     product.nutrition
                   )}
-                  strokeWidth={1.75}
+                  strokeWidth={2}
                 />
                 <Text className="font-semibold">
                   {product.nutrition.carbohydrates.value.toFixed(1)}
@@ -239,7 +239,7 @@ export function ProductCard({
 
   return (
     <Card
-      className={clsx('p-2 mb-0 flex-shrink-0 min-h-[120px]', inSlider ? '' : 'w-full', className)}
+      className={clsx('pl-2 pt-2 pb-2 pr-3 mb-0 flex-shrink-0 min-h-[120px]', inSlider ? '' : 'w-full', className)}
       style={inSlider && sliderWidth ? { width: sliderWidth } : undefined}
     >
       {onPress && product && !isError && !isLoading ? (

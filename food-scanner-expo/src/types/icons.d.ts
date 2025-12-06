@@ -28,6 +28,7 @@ declare module '@tabler/icons-react-native' {
   export const IconHeartOff: React.FC<IconProps>;
   export const IconBell: React.FC<IconProps>;
   export const IconLanguage: React.FC<IconProps>;
+  export const IconWorld: React.FC<IconProps>;
   export const IconPalette: React.FC<IconProps>;
   export const IconShieldCheck: React.FC<IconProps>;
   export const IconInfoCircle: React.FC<IconProps>;
@@ -50,4 +51,6 @@ declare module '@tabler/icons-react-native' {
   export const IconStar: React.FC<IconProps>;
   export const IconTrash: React.FC<IconProps>;
   export const IconPlus: React.FC<IconProps>;
+  export const IconKeyboard: React.FC<IconProps>;
+  export const IconCheck: React.FC<IconProps>;
 }

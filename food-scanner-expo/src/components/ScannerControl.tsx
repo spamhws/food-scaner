@@ -27,9 +27,7 @@ export function ScannerControl({
         className="flex-1 h-full items-center justify-center bg-white/10"
         activeOpacity={0.7}
       >
-        <Text className="text-white text-2xl font-bold">
-          <IconKeyboard size={24} strokeWidth={1.5} color="white" />
-        </Text>
+        <IconKeyboard size={24} strokeWidth={1.5} color="white" />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={onFlashClick}

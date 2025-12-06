@@ -47,7 +47,7 @@ function AnimatedSwipeableItem({
 }) {
   const swipeableRef = useRef<Swipeable>(null);
   const CARD_MIN_HEIGHT = 120;
-  const CARD_GAP = 12; // mb-3 = 12px
+  const CARD_GAP = 8; // mb-3 = 12px
   const itemHeight = useSharedValue<number>(CARD_MIN_HEIGHT);
   const marginBottom = useSharedValue<number>(index < totalItems - 1 ? CARD_GAP : 0);
   const opacity = useSharedValue<number>(1);
