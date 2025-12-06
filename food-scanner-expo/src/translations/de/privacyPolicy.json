@@ -1,0 +1,61 @@
+{
+  "title": "Datenschutzerklärung",
+  "lastUpdated": "2025-12-03",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Übersicht",
+      "content": "Food ID ist dem Schutz Ihrer Privatsphäre verpflichtet. Diese Datenschutzerklärung erläutert, wie wir mit Ihren Daten und Informationen umgehen, wenn Sie unsere mobile Anwendung verwenden. Wir glauben an Transparenz und möchten, dass Sie genau verstehen, wie Ihre Informationen verwendet und gespeichert werden."
+    },
+    {
+      "id": 2,
+      "title": "Datenerfassung",
+      "content": "Food ID erfasst nur die für die Funktionsfähigkeit der App erforderlichen Mindestdaten. Wenn Sie einen Produktbarcode scannen, rufen wir Produktinformationen aus der öffentlichen Datenbank OpenFoodFacts ab. Wir erfassen keine persönlichen Informationen wie Ihren Namen, Ihre E-Mail-Adresse, Telefonnummer oder Standortdaten."
+    },
+    {
+      "id": 3,
+      "title": "Nur lokale Speicherung",
+      "content": "Alle durch Ihre Nutzung der App generierten Daten werden ausschließlich auf Ihrem Gerät gespeichert. Dies umfasst:\n\n• Scan-Verlauf: Eine Liste der von Ihnen gescannten Produkte\n• Favoriten: Produkte, die Sie als Favoriten markiert haben\n• Produkt-Cache: Nährwertinformationen der von Ihnen angesehenen Produkte\n\nDiese Daten verlassen niemals Ihr Gerät und werden nicht an unsere Server oder Dritte übertragen."
+    },
+    {
+      "id": 4,
+      "title": "Keine Datenübertragung",
+      "content": "Food ID überträgt Ihren Scan-Verlauf, Ihre Favoriten oder persönliche Nutzungsdaten nicht an externe Server. Die einzigen Netzwerkanfragen, die von der App gestellt werden, sind an die OpenFoodFacts-API, um öffentliche Produktinformationen basierend auf den von Ihnen gescannten Barcodes abzurufen."
+    },
+    {
+      "id": 5,
+      "title": "Kameranutzung",
+      "content": "Die App benötigt Kamerazugriff zum Scannen von Produktbarcodes. Die Kamera wird ausschließlich zur Barcode-Erkennung verwendet. Es werden keine Fotos oder Videos aufgenommen, gespeichert oder übertragen. Der Kamerastream wird lokal auf Ihrem Gerät in Echtzeit verarbeitet."
+    },
+    {
+      "id": 6,
+      "title": "OpenFoodFacts-Daten",
+      "content": "Produktinformationen werden von OpenFoodFacts abgerufen, einer kostenlosen und offenen Datenbank von Lebensmitteln. Wenn Sie einen Barcode scannen, sendet die App nur die Barcode-Nummer an OpenFoodFacts, um Produktinformationen abzurufen. Es werden keine persönlichen Daten an OpenFoodFacts weitergegeben."
+    },
+    {
+      "id": 7,
+      "title": "Löschung von Daten",
+      "content": "Sie haben vollständige Kontrolle über Ihre Daten. Sie können Ihren Scan-Verlauf und Ihre Favoriten jederzeit in der App löschen. Durch Deinstallieren der App werden alle lokal auf Ihrem Gerät gespeicherten Daten dauerhaft gelöscht, einschließlich Scan-Verlauf, Favoriten und zwischengespeicherter Produktinformationen."
+    },
+    {
+      "id": 8,
+      "title": "Drittanbieterdienste",
+      "content": "Food ID verwendet die OpenFoodFacts-API zum Abrufen von Produktinformationen. OpenFoodFacts ist ein unabhängiges, gemeinnütziges Projekt. Bitte lesen Sie die Datenschutzerklärung von OpenFoodFacts für Informationen zu ihren Datenpraktiken."
+    },
+    {
+      "id": 9,
+      "title": "Datenschutz für Kinder",
+      "content": "Food ID sammelt wissentlich keine persönlichen Informationen von Kindern. Die App ist für die Nutzung durch jedermann konzipiert, und da keine persönlichen Daten erfasst oder übertragen werden, ist sie für Benutzer aller Altersgruppen sicher."
+    },
+    {
+      "id": 10,
+      "title": "Änderungen der Datenschutzerklärung",
+      "content": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Wir werden Sie über Änderungen informieren, indem wir das Datum 'Zuletzt aktualisiert' oben in dieser Richtlinie aktualisieren. Wir empfehlen Ihnen, diese Datenschutzerklärung regelmäßig auf Änderungen zu überprüfen."
+    },
+    {
+      "id": 11,
+      "title": "Kontaktieren Sie uns",
+      "content": "Wenn Sie Fragen oder Bedenken zu dieser Datenschutzerklärung oder unseren Datenpraktiken haben, kontaktieren Sie uns bitte über die Support-Kanäle der App. Wir sind bestrebt, alle Datenschutzbedenken zu beheben, die Sie möglicherweise haben."
+    }
+  ]
+}

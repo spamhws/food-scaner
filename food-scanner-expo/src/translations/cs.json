@@ -1,0 +1,168 @@
+{
+  "_meta": {
+    "name": "Čeština",
+    "flag": "🇨🇿"
+  },
+  "common": {
+    "cancel": "Zrušit",
+    "ok": "OK",
+    "done": "Hotovo",
+    "search": "Hledat",
+    "clearAll": "Vymazat vše",
+    "learnMore": "Zjistit více",
+    "gotIt": "Rozumím",
+    "unknown": "Neznámé",
+    "loading": "Načítání...",
+    "pleaseWait": "Prosím čekejte...",
+    "error": "Chyba",
+    "retry": "Zkusit znovu"
+  },
+  "navigation": {
+    "scanner": "Skener",
+    "history": "Historie",
+    "favourites": "Oblíbené",
+    "info": "Informace",
+    "faq": "Často kladené otázky",
+    "userAgreement": "Uživatelská smlouva",
+    "privacyPolicy": "Zásady ochrany osobních údajů"
+  },
+  "scanner": {
+    "loadingCamera": "Načítání kamery...",
+    "readyToScan": "Připraveni skenovat?",
+    "cameraPermissionDescription": "Potřebujeme pouze přístup ke kameře pro skenování čárových kódů. Nic se nahrává.",
+    "enableCamera": "Povolit kameru",
+    "openSettings": "Otevřít nastavení",
+    "openSettingsMessage": "Přejděte do Nastavení > Food ID > Kamera a povolte přístup ke kameře.",
+    "enterBarcode": "Zadat čárový kód",
+    "enterBarcodeDescription": "Zadejte čísla pod čárovým kódem pro nalezení produktu",
+    "barcode": "Čárový kód",
+    "buttonText": "Naskenujte svůj první produkt"
+  },
+  "product": {
+    "loadingProduct": "Načítání produktu...",
+    "nothingFound": "Ups, nic nenalezeno",
+    "unknownProduct": "Neznámý produkt",
+    "notInDatabase": "Zdá se, že tato položka není v mé znalostní bázi",
+    "noInformation": "Zatím žádné informace o tomto produktu"
+  },
+  "nutrition": {
+    "nutritionalValue": "Výživová hodnota",
+    "per100g": "NA 100G",
+    "per100gPerPackage": "NA 100G / NA BALENÍ",
+    "calories": "Kalorie, kcal",
+    "protein": "Bílkoviny, g",
+    "fats": "Tuky, g",
+    "saturatedFats": "Nasycené tuky, g",
+    "carbs": "Sacharidy, g",
+    "sugars": "Cukry, g",
+    "addedSugar": "Přidaný cukr, g",
+    "fiber": "Vláknina, g",
+    "salt": "Sůl, g",
+    "sodium": "Sodík, g",
+    "nutrientNames": {
+      "calories": "Kalorie",
+      "fat": "Tuk",
+      "saturated-fat": "Nasycené tuky",
+      "sugars": "Cukry",
+      "salt": "Sůl",
+      "proteins": "Bílkoviny",
+      "fiber": "Vláknina",
+      "carbohydrates": "Sacharidy",
+      "sodium": "Sodík"
+    }
+  },
+  "scores": {
+    "nutriScores": "VÝŽIVOVÉ HODNOCENÍ",
+    "nutriScore": "Nutri-Score",
+    "nutriScoreDescription": "Hodnotí nutriční kvalitu (A až E) na 100g, vyvažuje prospěšné (bílkoviny, vláknina) a škodlivé (tuk, cukr, sůl) složky. A je nejlepší volba pro zdraví.",
+    "ecoscore": "ECO-Score",
+    "ecoscoreDescription": "Hodnotí dopad na životní prostředí (A až E), zohledňuje emise CO2, recyklovatelnost obalu a původ složek. A je nejlepší volba pro planetu.",
+    "novascore": "NOVA Score",
+    "novascoreDescription": "Hodnotí stupeň průmyslového zpracování (Skupina 1 až 4). Skupina 4 je Ultra-Zpracované Jídlo (UPF), které by mělo být omezeno bez ohledu na jeho nutriční obsah.",
+    "excellentChoice": "Výborná volba",
+    "goodOption": "Dobrá volba",
+    "lessHealthy": "Méně zdravé",
+    "unhealthy": "Nezdravé"
+  },
+  "characteristics": {
+    "keyCharacteristics": "Klíčové vlastnosti",
+    "highInFiber": "Vysoký obsah vlákniny",
+    "richInProtein": "Bohaté na bílkoviny",
+    "lowInSugar": "Nízký obsah cukru",
+    "lowInSalt": "Nízký obsah soli",
+    "lowInFat": "Nízký obsah tuku",
+    "lowInSaturatedFat": "Nízký obsah nasycených tuků",
+    "lowCalorie": "Nízkokalorické",
+    "highInFat": "Vysoký obsah tuku",
+    "highInSaturatedFat": "Vysoký obsah nasycených tuků",
+    "highCalorie": "Vysokokalorické",
+    "highInSugar": "Vysoký obsah cukru",
+    "highInSalt": "Vysoký obsah soli",
+    "highInCarbohydrates": "Vysoký obsah sacharidů",
+    "highInSodium": "Vysoký obsah sodíku",
+    "containsAddedSugars": "Obsahuje přidané cukry"
+  },
+  "allergens": {
+    "allergens": "Alergeny"
+  },
+  "ingredients": {
+    "ingredients": "Složení"
+  },
+  "narrative": {
+    "balancedProfile": "Tento produkt má vyvážený nutriční profil bez významných obav nebo pozoruhodných výhod.",
+    "productIs": "Tento produkt je ",
+    "and": " a ",
+    "howeverIt": "Nicméně ",
+    "excellentConsumption": "Toto je výborná volba pro pravidelné konzumování.",
+    "goodConsumption": "Toto je dobrá volba a může být konzumováno pravidelně s mírou.",
+    "moderateConsumption": "Zvažte konzumaci tohoto produktu s mírou a vyvažte ho zdravějšími možnostmi.",
+    "limitConsumption": "Nejlépe je omezit konzumaci tohoto produktu a volit zdravější alternativy, když je to možné."
+  },
+  "history": {
+    "emptyBasket": "Prázdný košík nevypráví žádné příběhy",
+    "startBuilding": "Začněte budovat svou historii - jeden sken najednou!",
+    "clearAllHistory": "Vymazat celou historii",
+    "clearAllHistoryMessage": "Jste si jisti, že chcete vymazat všechny položky ze své historie? Neovlivní to seznam oblíbených produktů"
+  },
+  "favourites": {
+    "brokenHeart": "Zlomené srdce",
+    "brokenHeartDescription": "Vaše oblíbené svačiny jsou vše, co potřebuje k uzdravení!",
+    "findFavourites": "Najděte své oblíbené",
+    "clearAllFavourites": "Vymazat všechny oblíbené",
+    "clearAllFavouritesMessage": "Jste si jisti, že chcete vymazat všechny položky ze svých oblíbených?"
+  },
+  "settings": {
+    "language": "Jazyk",
+    "faq": "Často kladené otázky",
+    "shareTheApp": "Sdílet aplikaci",
+    "rateTheApp": "Ohodnotit aplikaci",
+    "contactDevelopers": "Kontaktovat vývojáře",
+    "userAgreement": "Uživatelská smlouva",
+    "privacyPolicy": "Zásady ochrany osobních údajů",
+    "appVersion": "Verze aplikace",
+    "shareFoodId": "Sdílet Food ID",
+    "contactFoodId": "Kontaktovat Food ID",
+    "contactSubject": "Food ID App - Kontakt",
+    "contactMessage": "Kontaktovat vývojáře Food ID\n\nE-mail: {email}\nPředmět: {subject}",
+    "contactFallback": "E-mail: {email}\n\nPředmět: Food ID App - Kontakt\n\nMůžete zkopírovat e-mailovou adresu a poslat nám zprávu.",
+    "feedbackSupportTitle": "Zpětná vazba a podpora",
+    "feedbackSupportMessage": "Pro poskytnutí zpětné vazby nebo požádání o podporu, prosím pošlete e-mail na {email}",
+    "shareMessage": "Podívejte se na Food ID - aplikaci, která vám pomáhá činit informovaná rozhodnutí o jídle!\n\n🍎 App Store: {iosLink}\n🤖 Google Play: {androidLink}",
+    "unableToShare": "Aplikaci nelze sdílet. Zkuste to prosím znovu.",
+    "unableToOpenStore": "Obchod s aplikacemi nelze otevřít. Zkuste to prosím znovu.",
+    "unableToOpenEmail": "E-mailovou aplikaci nelze otevřít. Zkuste to prosím znovu."
+  },
+  "alerts": {
+    "nutriScoreTitle": "Nutri-Score {grade} - {description}",
+    "shareError": "Chyba sdílení",
+    "unableToShareProduct": "Produkt nelze sdílet. Zkuste to prosím znovu."
+  },
+  "faq": {
+    "itemNotFound": "Položka FAQ nenalezena",
+    "nutrientTableTitle": "Prahové hodnoty živin (na 100g)",
+    "nutrientTableNutrientHeader": "Živina",
+    "nutrientTableLowHeader": "Nízký",
+    "nutrientTableModerateHeader": "Střední",
+    "nutrientTableHighHeader": "Vysoký"
+  }
+}

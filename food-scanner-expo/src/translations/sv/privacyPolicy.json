@@ -1,0 +1,61 @@
+{
+  "title": "Integritetspolicy",
+  "lastUpdated": "2025-12-03",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Översikt",
+      "content": "Food ID är engagerat i att skydda din integritet. Denna Integritetspolicy förklarar hur vi hanterar dina data och information när du använder vår mobilapplikation. Vi tror på transparens och vill att du ska förstå exakt hur din information används och lagras."
+    },
+    {
+      "id": 2,
+      "title": "Datainsamling",
+      "content": "Food ID samlar in minimala data som behövs för att appen ska fungera. När du skannar en produktstreckkod hämtar vi produktinformation från OpenFoodFacts offentliga databas. Vi samlar inte in personlig information som ditt namn, e-postadress, telefonnummer eller platsdata."
+    },
+    {
+      "id": 3,
+      "title": "Endast lokal lagring",
+      "content": "All data som genereras av din användning av appen lagras endast på din enhet. Detta inkluderar:\n\n• Skanningshistorik: En lista över produkter du har skannat\n• Favoriter: Produkter du har markerat som favoriter\n• Produktcache: Näringsinformation om produkter du har visat\n\nDenna data lämnar aldrig din enhet och överförs inte till våra servrar eller tredje parter."
+    },
+    {
+      "id": 4,
+      "title": "Ingen dataöverföring",
+      "content": "Food ID överför inte din skanningshistorik, favoriter eller personliga användningsdata till externa servrar. De enda nätverksförfrågningar som görs av appen är till OpenFoodFacts API för att hämta offentlig produktinformation baserat på streckkoder du skannar."
+    },
+    {
+      "id": 5,
+      "title": "Kameranvändning",
+      "content": "Appen kräver kameråtkomst för att skanna produktstreckkoder. Kameran används endast för streckkodsigenkänning. Inga foton eller videor fångas, lagras eller överförs. Kameraströmmen bearbetas lokalt på din enhet i realtid."
+    },
+    {
+      "id": 6,
+      "title": "OpenFoodFacts-data",
+      "content": "Produktinformation hämtas från OpenFoodFacts, en gratis och öppen databas med livsmedelsprodukter. När du skannar en streckkod skickar appen endast streckkodsnumret till OpenFoodFacts för att hämta produktinformation. Ingen personlig data delas med OpenFoodFacts."
+    },
+    {
+      "id": 7,
+      "title": "Raderande av data",
+      "content": "Du har full kontroll över dina data. Du kan rensa din skanningshistorik och favoriter när som helst i appen. Avinstallering av appen kommer permanent att radera all lokalt lagrad data från din enhet, inklusive skanningshistorik, favoriter och cachad produktinformation."
+    },
+    {
+      "id": 8,
+      "title": "Tredjepartstjänster",
+      "content": "Food ID använder OpenFoodFacts API för att hämta produktinformation. OpenFoodFacts är ett oberoende, ideellt projekt. Se OpenFoodFacts integritetspolicy för information om deras datapraxis."
+    },
+    {
+      "id": 9,
+      "title": "Barns integritet",
+      "content": "Food ID samlar inte medvetet in personlig information från barn. Appen är designad för att användas av vem som helst, och eftersom ingen personlig data samlas in eller överförs är den säker för användare i alla åldrar."
+    },
+    {
+      "id": 10,
+      "title": "Ändringar av integritetspolicyn",
+      "content": "Vi kan uppdatera denna Integritetspolicy från tid till annan. Vi kommer att meddela dig om eventuella ändringar genom att uppdatera datumet 'Senast uppdaterad' högst upp i denna policy. Vi uppmuntrar dig att granska denna Integritetspolicy regelbundet för eventuella ändringar."
+    },
+    {
+      "id": 11,
+      "title": "Kontakta oss",
+      "content": "Om du har frågor eller funderingar om denna Integritetspolicy eller våra datapraxis, vänligen kontakta oss via appens supportkanaler. Vi är engagerade i att ta itu med eventuella integritetsfrågor du kan ha."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "title": "Kebijakan privasi",
+  "lastUpdated": "2025-12-03",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Ikhtisar",
+      "content": "Food ID berkomitmen untuk melindungi privasi Anda. Kebijakan Privasi ini menjelaskan bagaimana kami menangani data dan informasi Anda saat Anda menggunakan aplikasi mobile kami. Kami percaya pada transparansi dan ingin Anda memahami dengan tepat bagaimana informasi Anda digunakan dan disimpan."
+    },
+    {
+      "id": 2,
+      "title": "Pengumpulan data",
+      "content": "Food ID mengumpulkan data minimal yang diperlukan agar aplikasi berfungsi. Saat Anda memindai barcode produk, kami mengambil informasi produk dari database publik OpenFoodFacts. Kami tidak mengumpulkan informasi pribadi seperti nama, alamat email, nomor telepon, atau data lokasi Anda."
+    },
+    {
+      "id": 3,
+      "title": "Hanya penyimpanan lokal",
+      "content": "Semua data yang dihasilkan dari penggunaan aplikasi Anda disimpan secara eksklusif di perangkat Anda. Ini termasuk:\n\n• Riwayat pemindaian: Daftar produk yang telah Anda pindai\n• Favorit: Produk yang telah Anda tandai sebagai favorit\n• Cache produk: Informasi nutrisi produk yang telah Anda lihat\n\nData ini tidak pernah meninggalkan perangkat Anda dan tidak dikirim ke server kami atau pihak ketiga."
+    },
+    {
+      "id": 4,
+      "title": "Tidak ada transmisi data",
+      "content": "Food ID tidak mengirimkan riwayat pemindaian, favorit, atau data penggunaan pribadi Anda ke server eksternal. Satu-satunya permintaan jaringan yang dilakukan oleh aplikasi adalah ke API OpenFoodFacts untuk mengambil informasi produk publik berdasarkan barcode yang Anda pindai."
+    },
+    {
+      "id": 5,
+      "title": "Penggunaan kamera",
+      "content": "Aplikasi memerlukan akses kamera untuk memindai barcode produk. Kamera digunakan semata-mata untuk pengenalan barcode. Tidak ada foto atau video yang diambil, disimpan, atau dikirim. Feed kamera diproses secara lokal di perangkat Anda secara real-time."
+    },
+    {
+      "id": 6,
+      "title": "Data OpenFoodFacts",
+      "content": "Informasi produk diambil dari OpenFoodFacts, database produk makanan gratis dan terbuka. Saat Anda memindai barcode, aplikasi hanya mengirim nomor barcode ke OpenFoodFacts untuk mengambil informasi produk. Tidak ada data pribadi yang dibagikan dengan OpenFoodFacts."
+    },
+    {
+      "id": 7,
+      "title": "Penghapusan data",
+      "content": "Anda memiliki kontrol penuh atas data Anda. Anda dapat menghapus riwayat pemindaian dan favorit kapan saja dari dalam aplikasi. Menghapus aplikasi akan secara permanen menghapus semua data yang disimpan secara lokal dari perangkat Anda, termasuk riwayat pemindaian, favorit, dan informasi produk yang di-cache."
+    },
+    {
+      "id": 8,
+      "title": "Layanan pihak ketiga",
+      "content": "Food ID menggunakan API OpenFoodFacts untuk mengambil informasi produk. OpenFoodFacts adalah proyek independen nirlaba. Silakan merujuk ke kebijakan privasi OpenFoodFacts untuk informasi tentang praktik data mereka."
+    },
+    {
+      "id": 9,
+      "title": "Privasi anak-anak",
+      "content": "Food ID tidak secara sengaja mengumpulkan informasi pribadi dari anak-anak. Aplikasi dirancang untuk digunakan oleh siapa saja, dan karena tidak ada data pribadi yang dikumpulkan atau dikirim, aman untuk pengguna dari segala usia."
+    },
+    {
+      "id": 10,
+      "title": "Perubahan kebijakan privasi",
+      "content": "Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu. Kami akan memberi tahu Anda tentang perubahan dengan memperbarui tanggal 'Terakhir Diperbarui' di bagian atas kebijakan ini. Kami mendorong Anda untuk meninjau Kebijakan Privasi ini secara berkala untuk perubahan apa pun."
+    },
+    {
+      "id": 11,
+      "title": "Hubungi kami",
+      "content": "Jika Anda memiliki pertanyaan atau kekhawatiran tentang Kebijakan Privasi ini atau praktik data kami, silakan hubungi kami melalui saluran dukungan aplikasi. Kami berkomitmen untuk menangani kekhawatiran privasi yang mungkin Anda miliki."
+    }
+  ]
+}

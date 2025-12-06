@@ -1,0 +1,168 @@
+{
+  "_meta": {
+    "name": "Türkçe",
+    "flag": "🇹🇷"
+  },
+  "common": {
+    "cancel": "İptal",
+    "ok": "Tamam",
+    "done": "Tamamlandı",
+    "search": "Ara",
+    "clearAll": "Tümünü temizle",
+    "learnMore": "Daha fazla bilgi",
+    "gotIt": "Anladım",
+    "unknown": "Bilinmeyen",
+    "loading": "Yükleniyor...",
+    "pleaseWait": "Lütfen bekleyin...",
+    "error": "Hata",
+    "retry": "Tekrar dene"
+  },
+  "navigation": {
+    "scanner": "Tarayıcı",
+    "history": "Geçmiş",
+    "favourites": "Favoriler",
+    "info": "Bilgi",
+    "faq": "SSS",
+    "userAgreement": "Kullanıcı sözleşmesi",
+    "privacyPolicy": "Gizlilik politikası"
+  },
+  "scanner": {
+    "loadingCamera": "Kamera yükleniyor...",
+    "readyToScan": "Taramaya hazır mısınız?",
+    "cameraPermissionDescription": "Barkod taramak için sadece kamera erişimine ihtiyacımız var. Hiçbir şey kaydedilmez.",
+    "enableCamera": "Kamerayı etkinleştir",
+    "openSettings": "Ayarları aç",
+    "openSettingsMessage": "Lütfen Ayarlar > Food ID > Kamera'ya gidin ve kamera erişimini etkinleştirin.",
+    "enterBarcode": "Barkod girin",
+    "enterBarcodeDescription": "Ürünü bulmak için barkodun altındaki sayıları girin",
+    "barcode": "Barkod",
+    "buttonText": "İlk ürününüzü tarayın"
+  },
+  "product": {
+    "loadingProduct": "Ürün yükleniyor...",
+    "nothingFound": "Üzgünüz, hiçbir şey bulunamadı",
+    "unknownProduct": "Bilinmeyen ürün",
+    "notInDatabase": "Görünüşe göre bu öğe bilgi tabanımda yok",
+    "noInformation": "Bu ürün hakkında henüz bilgi yok"
+  },
+  "nutrition": {
+    "nutritionalValue": "Besin değeri",
+    "per100g": "100G BAŞINA",
+    "per100gPerPackage": "100G BAŞINA / PAKET BAŞINA",
+    "calories": "Kalori, kcal",
+    "protein": "Protein, g",
+    "fats": "Yağ, g",
+    "saturatedFats": "Doymuş yağ, g",
+    "carbs": "Karbonhidrat, g",
+    "sugars": "Şeker, g",
+    "addedSugar": "Eklenen şeker, g",
+    "fiber": "Lif, g",
+    "salt": "Tuz, g",
+    "sodium": "Sodyum, g",
+    "nutrientNames": {
+      "calories": "Kalori",
+      "fat": "Yağ",
+      "saturated-fat": "Doymuş yağ",
+      "sugars": "Şeker",
+      "salt": "Tuz",
+      "proteins": "Protein",
+      "fiber": "Lif",
+      "carbohydrates": "Karbonhidrat",
+      "sodium": "Sodyum"
+    }
+  },
+  "scores": {
+    "nutriScores": "BESLENME PUANLARI",
+    "nutriScore": "Nutri-Score",
+    "nutriScoreDescription": "100g başına beslenme kalitesini (A'dan E'ye) değerlendirir, faydalı (protein, lif) ve zararlı (yağ, şeker, tuz) bileşenleri dengeler. A sağlık için en iyi seçimdir.",
+    "ecoscore": "ECO-Score",
+    "ecoscoreDescription": "Çevresel etkiyi (A'dan E'ye) değerlendirir, CO2 emisyonları, ambalaj geri dönüşümü ve malzeme kökenlerini dikkate alır. A gezegen için en iyi seçimdir.",
+    "novascore": "NOVA Score",
+    "novascoreDescription": "Endüstriyel işleme derecesini (Grup 1'den 4'e) değerlendirir. Grup 4 Ultra İşlenmiş Gıda (UPF)'dir ve besin içeriğinden bağımsız olarak sınırlandırılmalıdır.",
+    "excellentChoice": "Mükemmel seçim",
+    "goodOption": "İyi seçenek",
+    "lessHealthy": "Daha az sağlıklı",
+    "unhealthy": "Sağlıksız"
+  },
+  "characteristics": {
+    "keyCharacteristics": "Temel özellikler",
+    "highInFiber": "Yüksek lif",
+    "richInProtein": "Protein açısından zengin",
+    "lowInSugar": "Düşük şeker",
+    "lowInSalt": "Düşük tuz",
+    "lowInFat": "Düşük yağ",
+    "lowInSaturatedFat": "Düşük doymuş yağ",
+    "lowCalorie": "Düşük kalori",
+    "highInFat": "Yüksek yağ",
+    "highInSaturatedFat": "Yüksek doymuş yağ",
+    "highCalorie": "Yüksek kalori",
+    "highInSugar": "Yüksek şeker",
+    "highInSalt": "Yüksek tuz",
+    "highInCarbohydrates": "Yüksek karbonhidrat",
+    "highInSodium": "Yüksek sodyum",
+    "containsAddedSugars": "Eklenen şeker içerir"
+  },
+  "allergens": {
+    "allergens": "Alerjenler"
+  },
+  "ingredients": {
+    "ingredients": "İçindekiler"
+  },
+  "narrative": {
+    "balancedProfile": "Bu ürün, önemli endişeler veya dikkate değer faydalar olmadan dengeli bir beslenme profiline sahiptir.",
+    "productIs": "Bu ürün ",
+    "and": " ve ",
+    "howeverIt": "Ancak, ",
+    "excellentConsumption": "Bu, düzenli tüketim için mükemmel bir seçimdir.",
+    "goodConsumption": "Bu iyi bir seçimdir ve ölçülü olarak düzenli olarak tüketilebilir.",
+    "moderateConsumption": "Bu ürünü ölçülü olarak tüketmeyi ve daha sağlıklı seçeneklerle dengelemeyi düşünün.",
+    "limitConsumption": "Bu ürünün tüketimini sınırlamak ve mümkün olduğunda daha sağlıklı alternatifleri seçmek en iyisidir."
+  },
+  "history": {
+    "emptyBasket": "Boş bir sepet hikaye anlatmaz",
+    "startBuilding": "Geçmişinizi oluşturmaya başlayın - her seferinde bir tarama!",
+    "clearAllHistory": "Tüm geçmişi temizle",
+    "clearAllHistoryMessage": "Geçmişinizdeki tüm öğeleri temizlemek istediğinizden emin misiniz? Bu, favori ürünler listesini etkilemeyecek"
+  },
+  "favourites": {
+    "brokenHeart": "Kırık kalp",
+    "brokenHeartDescription": "Favori atıştırmalıklarınız iyileşmesi için gereken her şey!",
+    "findFavourites": "Favorilerinizi bulun",
+    "clearAllFavourites": "Tüm favorileri temizle",
+    "clearAllFavouritesMessage": "Favorilerinizdeki tüm öğeleri temizlemek istediğinizden emin misiniz?"
+  },
+  "settings": {
+    "language": "Dil",
+    "faq": "SSS",
+    "shareTheApp": "Uygulamayı paylaş",
+    "rateTheApp": "Uygulamayı değerlendir",
+    "contactDevelopers": "Geliştiricilerle iletişime geç",
+    "userAgreement": "Kullanıcı sözleşmesi",
+    "privacyPolicy": "Gizlilik politikası",
+    "appVersion": "Uygulama sürümü",
+    "shareFoodId": "Food ID'yi paylaş",
+    "contactFoodId": "Food ID ile iletişime geç",
+    "contactSubject": "Food ID Uygulaması - İletişim",
+    "contactMessage": "Food ID geliştiricileriyle iletişime geçin\n\nE-posta: {email}\nKonu: {subject}",
+    "contactFallback": "E-posta: {email}\n\nKonu: Food ID Uygulaması - İletişim\n\nE-posta adresini kopyalayıp bize mesaj gönderebilirsiniz.",
+    "feedbackSupportTitle": "Geri bildirim ve destek",
+    "feedbackSupportMessage": "Geri bildirim sağlamak veya destek istemek için lütfen {email} adresine e-posta gönderin",
+    "shareMessage": "Food ID'ye göz atın - bilinçli gıda seçimleri yapmanıza yardımcı olan uygulama!\n\n🍎 App Store: {iosLink}\n🤖 Google Play: {androidLink}",
+    "unableToShare": "Uygulama paylaşılamadı. Lütfen tekrar deneyin.",
+    "unableToOpenStore": "Uygulama mağazası açılamadı. Lütfen tekrar deneyin.",
+    "unableToOpenEmail": "E-posta uygulaması açılamadı. Lütfen tekrar deneyin."
+  },
+  "alerts": {
+    "nutriScoreTitle": "Nutri-Score {grade} - {description}",
+    "shareError": "Paylaşma hatası",
+    "unableToShareProduct": "Ürün paylaşılamadı. Lütfen tekrar deneyin."
+  },
+  "faq": {
+    "itemNotFound": "SSS öğesi bulunamadı",
+    "nutrientTableTitle": "Besin eşikleri (100g başına)",
+    "nutrientTableNutrientHeader": "Besin",
+    "nutrientTableLowHeader": "Düşük",
+    "nutrientTableModerateHeader": "Orta",
+    "nutrientTableHighHeader": "Yüksek"
+  }
+}

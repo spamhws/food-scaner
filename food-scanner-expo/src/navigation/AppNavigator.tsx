@@ -121,8 +121,12 @@ export function AppNavigator() {
         options={({ route }) => {
           const i18nInstance = require('@/lib/i18n').default;
           const language = i18nInstance?.language || 'en';
-          const faqData =
-            language === 'uk' ? require('@/data/faq.uk.json') : require('@/data/faq.json');
+          let faqData;
+          try {
+            faqData = require(`@/translations/${language}/faq.json`);
+          } catch {
+            faqData = require('@/translations/en/faq.json');
+          }
           const item = faqData.find((i: any) => i.id === route.params?.id);
           return {
             title: item?.title || item?.question || t('navigation.faq'),

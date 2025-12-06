@@ -1,0 +1,51 @@
+{
+  "title": "Perjanjian pengguna",
+  "lastUpdated": "2025-12-03",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Penerimaan syarat",
+      "content": "Dengan mengunduh, menginstal, atau menggunakan aplikasi mobile Food ID, Anda setuju untuk terikat oleh Ketentuan Penggunaan ini. Jika Anda tidak setuju dengan ketentuan ini, harap jangan gunakan aplikasi."
+    },
+    {
+      "id": 2,
+      "title": "Deskripsi layanan",
+      "content": "Food ID adalah aplikasi mobile yang memungkinkan pengguna untuk memindai barcode produk dan mengambil informasi nutrisi dari database OpenFoodFacts. Aplikasi menyediakan analisis nutrisi, daftar bahan, informasi alergen, dan penilaian yang dipersonalisasi untuk membantu pengguna membuat pilihan makanan yang tepat."
+    },
+    {
+      "id": 3,
+      "title": "Tanggung jawab pengguna",
+      "content": "Anda bertanggung jawab untuk menjaga kerahasiaan perangkat Anda dan untuk semua aktivitas yang terjadi di perangkat Anda. Anda setuju untuk menggunakan aplikasi hanya untuk tujuan yang sah dan sesuai dengan Ketentuan ini. Anda setuju untuk tidak menyalahgunakan aplikasi atau mengganggu operasi normalnya."
+    },
+    {
+      "id": 4,
+      "title": "Akurasi data",
+      "content": "Informasi produk berasal dari OpenFoodFacts, database yang dikelola komunitas. Meskipun kami berusaha memberikan informasi yang akurat, kami tidak dapat menjamin kelengkapan atau akurasi semua data produk. Pengguna harus memverifikasi informasi penting, terutama mengenai alergen, dengan kemasan produk atau produsen."
+    },
+    {
+      "id": 5,
+      "title": "Kekayaan intelektual",
+      "content": "Aplikasi dan konten asli, fitur, dan fungsionalitasnya dimiliki oleh Food ID dan dilindungi oleh hukum hak cipta internasional, merek dagang, dan hukum kekayaan intelektual lainnya. Data produk disediakan oleh OpenFoodFacts di bawah Lisensi Database Terbuka (ODbL)."
+    },
+    {
+      "id": 6,
+      "title": "Pembatasan tanggung jawab",
+      "content": "Food ID dan pengembangnya tidak akan bertanggung jawab atas kerugian tidak langsung, insidental, khusus, konsekuensial, atau hukuman yang diakibatkan dari penggunaan atau ketidakmampuan Anda untuk menggunakan aplikasi. Kami menyediakan aplikasi 'sebagaimana adanya' tanpa jaminan apa pun, baik tersurat maupun tersirat."
+    },
+    {
+      "id": 7,
+      "title": "Perubahan ketentuan",
+      "content": "Kami berhak mengubah Ketentuan ini kapan saja. Kami akan memberi tahu pengguna tentang perubahan dengan memperbarui tanggal 'Terakhir Diperbarui'. Penggunaan aplikasi Anda yang berkelanjutan setelah perubahan merupakan penerimaan Ketentuan yang dimodifikasi."
+    },
+    {
+      "id": 8,
+      "title": "Pengakhiran",
+      "content": "Kami dapat mengakhiri atau menangguhkan akses Anda ke aplikasi segera, tanpa pemberitahuan sebelumnya, karena alasan apa pun, termasuk pelanggaran Ketentuan ini. Setelah pengakhiran, hak Anda untuk menggunakan aplikasi akan segera berakhir."
+    },
+    {
+      "id": 9,
+      "title": "Kontak",
+      "content": "Jika Anda memiliki pertanyaan tentang Ketentuan ini, silakan hubungi kami melalui saluran dukungan aplikasi."
+    }
+  ]
+}

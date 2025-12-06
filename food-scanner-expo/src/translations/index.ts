@@ -1,20 +1,49 @@
-// Auto-load all translation files
-// Just add a new JSON file (e.g., de.json) and it will be automatically detected
-// Make sure each JSON has a "_meta" field with "name" and "flag"
+// translations/index.ts
 
-const translations: Record<string, any> = {};
+import en from './en.json';
+import uk from './uk.json';
+import es from './es.json';
+import zh from './zh.json';
+import hi from './hi.json';
+import ar from './ar.json';
+import fr from './fr.json';
+import de from './de.json';
+import pt from './pt.json';
+import id from './id.json';
+import ja from './ja.json';
+import ko from './ko.json';
+import it from './it.json';
+import pl from './pl.json';
+import nl from './nl.json';
+import tr from './tr.json';
+import ro from './ro.json';
+import sv from './sv.json';
+import da from './da.json';
+import cs from './cs.json';
 
-// Try to require known language files
-// Add more here as you add translation files
-try {
-  translations.en = require('./en.json');
-} catch {}
+export const translations = {
+  en,
+  uk,
+  es,
+  zh,
+  hi,
+  ar,
+  fr,
+  de,
+  pt,
+  id,
+  ja,
+  ko,
+  it,
+  pl,
+  nl,
+  tr,
+  ro,
+  sv,
+  da,
+  cs,
+} as const;
 
-try {
-  translations.uk = require('./uk.json');
-} catch {}
+export type AppLanguage = keyof typeof translations;
 
-// Add more languages by copying the pattern:
-// try { translations.de = require('./de.json'); } catch {}
-
-export { translations };
+export const SUPPORTED_LANGS = Object.keys(translations) as AppLanguage[];

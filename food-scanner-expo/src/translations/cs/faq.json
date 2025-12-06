@@ -1,0 +1,318 @@
+[
+  {
+    "id": "barcode-scanner",
+    "type": "question",
+    "question": "Jak funguje Food ID?",
+    "title": "Jak Food ID funguje",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID vám pomáhá činit informovaná rozhodnutí o jídle tím, že poskytuje okamžitý přístup k detailním informacím o produktech. Jednoduše naskenujte čárový kód produktu nebo jej zadejte ručně, abyste viděli nutriční údaje, složení, alergeny a zdravotní skóre."
+      },
+      {
+        "type": "section",
+        "subtitle": "Skenování produktů",
+        "description": "Namiřte kameru na čárový kód jakéhokoli produktu. Food ID jej automaticky detekuje a přečte, poté vám okamžitě zobrazí komplexní detaily produktu. Pokud kamera nemůže přečíst čárový kód, klepněte na ikonu klávesnice a zadejte jej ručně."
+      },
+      {
+        "type": "section",
+        "subtitle": "Co uvidíte",
+        "description": "Každý produkt zobrazuje nutriční hodnoty s barevně kódovanými ikonami (zelená pro dobré, oranžová pro střední, červená pro vysoké), klíčové vlastnosti, alergeny, složení a zdravotní skóre jako Nutri-Score, Eco-Score a NOVA Score. To vám pomáhá rychle pochopit nutriční kvalitu a dopad na životní prostředí produktu."
+      },
+      {
+        "type": "section",
+        "subtitle": "Zdroj informací o produktu",
+        "description": "Food ID používá informace o produktech z <b>OpenFoodFacts</b>, bezplatné, otevřené, spolupracující databáze potravinářských produktů z celého světa. Informace zahrnují nutriční údaje, složení, alergeny a další detaily produktu přispěné globální komunitou uživatelů."
+      }
+    ]
+  },
+  {
+    "id": "scan-fails",
+    "type": "question",
+    "question": "Proč skenování někdy selže?",
+    "title": "Problémy se skenováním",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Několik faktorů může zabránit úspěšnému skenování čárových kódů. Zde jsou nejčastější problémy a jak je vyřešit:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Špatné osvětlení",
+        "description": "Skenovací zařízení čárových kódů potřebují dostatečné světlo pro přesné čtení kódů. Zkuste se přesunout do světlejší oblasti nebo zapnout další světla. Vyhněte se přímému slunečnímu světlu nebo ostrým odrazům, které mohou vyplavit čárový kód."
+      },
+      {
+        "type": "section",
+        "subtitle": "Vzdálenost a úhel",
+        "description": "Držte zařízení v pohodlné vzdálenosti (přibližně 15-30 cm) od čárového kódu. Udržujte kameru rovnoběžně s povrchem čárového kódu. Úhlové nebo nakloněné čárové kódy jsou obtížnější ke čtení."
+      },
+      {
+        "type": "section",
+        "subtitle": "Poškozené nebo špinavé čárové kódy",
+        "description": "Poškrábané, roztrhané nebo špinavé čárové kódy nemusí být správně naskenovány. Zkuste vyčistit povrch čárového kódu nebo použijte ruční zadání, pokud je kód nečitelný."
+      },
+      {
+        "type": "section",
+        "subtitle": "Produkt není v databázi",
+        "description": "Pokud se čárový kód úspěšně naskenuje, ale nezobrazí se žádné informace o produktu, produkt možná ještě není v databázi OpenFoodFacts. Můžete jej přidat návštěvou <b>openfoodfacts.org</b> a přispěním informací o produktu."
+      },
+      {
+        "type": "section",
+        "subtitle": "Oprávnění kamery",
+        "description": "Ujistěte se, že jste udělili Food ID oprávnění ke kameře. Pokud skenování nefunguje, zkontrolujte nastavení zařízení a ujistěte se, že je přístup ke kameře povolen pro aplikaci."
+      }
+    ]
+  },
+  {
+    "id": "nutrient-coloring",
+    "type": "question",
+    "question": "Jak se hodnotí a barevně označují živiny?",
+    "title": "Hodnocení živin",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID používá dvě metody k určení úrovní živin a barevného kódování:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Primární metoda: Oficiální informace o produktu",
+        "description": "Když je k dispozici, Food ID používá oficiální nutriční informace přímo z Open Food Facts. Toto je nejspolehlivější zdroj, protože je založen na skutečné nutriční etiketě produktu."
+      },
+      {
+        "type": "section",
+        "subtitle": "Záložní metoda: Průmyslové standardy",
+        "description": "Pokud oficiální nutriční informace nejsou k dispozici, Food ID určuje úrovně živin pomocí směrnic průmyslových standardů založených na <b>předpisech EU o označování výživy</b> a zdravotních doporučeních WHO a EFSA."
+      },
+      {
+        "type": "table",
+        "title": "Prahové hodnoty živin (na 100g)",
+        "dataSource": "nutrient-thresholds"
+      },
+      {
+        "type": "section",
+        "subtitle": "Barevné kódování",
+        "description": "Standardní živiny (tuk, cukr, sůl, kalorie): <b>Nízký</b> = Zelená (dobré), <b>Střední</b> = Oranžová (opatrnost), <b>Vysoký</b> = Červená (omezit). Pozitivní živiny (bílkoviny, vláknina): <b>Vysoký</b> = Zelená (dobré), <b>Nízký/Střední</b> = Šedá (neutrální). Nedostatečné údaje = Šedá."
+      },
+      {
+        "type": "section",
+        "subtitle": "Chybějící informace",
+        "description": "Pokud hodnota živiny není k dispozici nebo nemůže být určena, ikona zůstane šedá, aby indikovala, že tyto informace nejsou k dispozici pro produkt."
+      }
+    ]
+  },
+  {
+    "id": "favorites",
+    "type": "question",
+    "question": "Jak přidám produkty do oblíbených?",
+    "title": "Oblíbené",
+    "answer": "Při zobrazení detailů produktu klepněte na ikonu srdce v dolní části obrazovky. Srdce se změní na červené, což indikuje, že produkt byl přidán do vašich oblíbených. Přístup k oblíbeným kdykoli z karty oblíbených."
+  },
+  {
+    "id": "data-storage",
+    "type": "question",
+    "question": "Kde je uložena moje historie skenování?",
+    "title": "Ukládání dat",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Všechny vaše naskenované produkty a oblíbené jsou uloženy lokálně na vašem zařízení. To znamená, že vaše data nikdy neopustí váš telefon a zůstávají zcela soukromá."
+      },
+      {
+        "type": "section",
+        "subtitle": "Lokální úložiště",
+        "description": "Vaše historie skenování, oblíbené a informace o produktech jsou uloženy pouze na vašem zařízení. Nic není odesláno externím službám ani uloženo online."
+      },
+      {
+        "type": "section",
+        "subtitle": "Soukromí",
+        "description": "Protože vše zůstává na vašem zařízení, máte plnou kontrolu. Pokud odinstalujete aplikaci, všechny vaše informace budou odstraněny. Detaily produktu jsou načteny z OpenFoodFacts při skenování, ale vaše osobní historie skenování a oblíbené nikdy neopustí vaše zařízení."
+      }
+    ]
+  },
+  {
+    "id": "assessments",
+    "type": "question",
+    "question": "Jak se generují pozitivní a negativní hodnocení?",
+    "title": "Hodnocení",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID analyzuje nutriční obsah produktu včetně kalorií, bílkovin, tuků, sacharidů, vlákniny, sodíku a cukrů. Porovnáváme tyto hodnoty s doporučenými směrnicemi pro denní příjem založenými na předpisech EU a průmyslových standardech."
+      },
+      {
+        "type": "section",
+        "subtitle": "Pozitivní hodnocení",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsUp",
+        "subtitleAssessment": "positive",
+        "subtitleColor": "green-60",
+        "description": "Produkty získávají pozitivní hodnocení, když jsou bohaté na prospěšné živiny (vláknina, bílkoviny) a nízké v komponentách k omezení (nasycené tuky, sodík, cukry). Tyto produkty podporují vyváženou stravu a zdravé stravovací návyky."
+      },
+      {
+        "type": "section",
+        "subtitle": "Negativní hodnocení",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsDown",
+        "subtitleAssessment": "negative",
+        "subtitleColor": "red-60",
+        "description": "Produkty získávají negativní hodnocení, když obsahují vysoké hladiny nasycených tuků, sodíku nebo cukrů. Tyto by měly být konzumovány s mírou jako součást vyvážené stravy."
+      }
+    ]
+  },
+  {
+    "id": "products-not-found",
+    "type": "question",
+    "question": "Proč nemohu najít některé produkty?",
+    "title": "Chybějící produkty",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Ne všechny produkty jsou ještě k dispozici v OpenFoodFacts. Informace jsou řízeny komunitou a neustále rostou, s miliony produktů již k dispozici."
+      },
+      {
+        "type": "section",
+        "subtitle": "Proč mohou produkty chybět",
+        "description": "Nové produkty, regionální položky nebo méně běžné značky možná ještě nejsou k dispozici. Informace závisí na příspěvcích komunity k rozšíření pokrytí."
+      },
+      {
+        "type": "section",
+        "subtitle": "Jak přidat produkty",
+        "description": "Můžete přispět přidáním chybějících produktů do OpenFoodFacts. Navštivte <b>openfoodfacts.org</b> pro skenování čárového kódu a přidání informací o produktu včetně nutričních faktů, složení a fotografií."
+      }
+    ]
+  },
+  {
+    "id": "nutri-score",
+    "type": "score",
+    "question": "Co je Nutri-Score?",
+    "title": "Nutri-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Nutri-Score je oficiální systém označování potravin, vyvinutý ve Francii a přijatý mnoha evropskými zeměmi. Slouží jako jednoduchý, grafický indikátor, který pomáhá spotřebitelům rychle posoudit celkovou nutriční kvalitu produktu."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-a",
+        "subtitle": "Nejlepší skóre",
+        "subtitleColor": "green-60",
+        "description": "Uděleno produktům s nejvyšší nutriční kvalitou, minimálními kaloriemi, tuky, cukry a solí, bohatými na vlákninu a/nebo bílkoviny. <b>Příklady:</b> čerstvé ovoce, zelenina, celozrnné produkty a olivový olej."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-b",
+        "subtitle": "Velmi dobrá nutriční kvalita",
+        "subtitleColor": "green-60",
+        "description": "Produkty jsou dobrou volbou pro denní spotřebu, s velmi dobrou nutriční rovnováhou, i když mohou obsahovat o něco více tuku nebo cukru než kategorie A. <b>Příklady:</b> neslazené nízkotučné jogurty a určité typy celozrnného chleba."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-c",
+        "subtitle": "Průměrné nebo \"neutrální\" skóre",
+        "subtitleColor": "bronze-60",
+        "description": "Produkty mohou být zahrnuty do stravy, ale měly by být střídány s produkty A a B. Mají střední negativní složky, nebo jejich pozitivní vlastnosti plně nekompenzují tuky nebo sůl. <b>Příklady:</b> většina typů sýrů nebo bílý chléb."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-d",
+        "subtitle": "Nízká nutriční kvalita",
+        "subtitleColor": "bronze-60",
+        "description": "Takové produkty mají vysoký obsah negativních složek a měly by být konzumovány v omezeném množství. <b>Příklady:</b> mnoho slazených snídaňových cereálií nebo zpracovaných masných výrobků."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-e",
+        "subtitle": "Nejhorší skóre",
+        "subtitleColor": "red-60",
+        "description": "Přiděleno produktům s velmi nízkou nutriční kvalitou, charakterizovaným velmi vysokým obsahem kalorií, tuků, cukru nebo soli. Spotřeba takových produktů, jako jsou <b>chipsy, čokoládové pomazánky nebo sladké nealkoholické nápoje</b>, by měla být minimalizována."
+      }
+    ]
+  },
+  {
+    "id": "eco-score",
+    "type": "score",
+    "question": "Co je ECO-Score?",
+    "title": "ECO-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Eco-Score je komplexní environmentální štítek, který hodnotí ekologický dopad potravinářských produktů v průběhu celého jejich životního cyklu. Byl navržen tak, aby poskytoval spotřebitelům transparentní informace o tom, jak produkt ovlivňuje planetu, pomocí jednoduché, grafické pětibarevné, pětipísmenné stupnice."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-a",
+        "subtitle": "Nejlepší environmentální volba",
+        "subtitleColor": "green-60",
+        "description": "Indikuje minimální dopad na životní prostředí. Produkty obvykle dosahují vysokých skóre na <b>LCA</b> kvůli nízkým <b>emisím CO2</b> (např. rostlinné potraviny) a získávají maximální bonusy za to, že jsou organické, lokálně získané a balené v plně recyklovatelných nebo znovu použitelných materiálech. <b>Příklad:</b> sezónní, organická, minimálně balená zelenina."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-b",
+        "subtitle": "Dobrá environmentální volba",
+        "subtitleColor": "green-60",
+        "description": "Reprezentuje dobrý celkový environmentální profil. Produkty jsou obecně udržitelné, ale mohou mít o něco vyšší dopad v jedné oblasti, jako je balení nebo doprava. Často zahrnují rostlinné položky nebo udržitelně pěstované zboží, které používá recyklovatelné materiály."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-c",
+        "subtitle": "Střední dopad na životní prostředí",
+        "subtitleColor": "bronze-60",
+        "description": "Toto je průměrné nebo \"neutrální\" skóre. Produkty často reprezentují standard pro kategorii, s měřitelným dopadem na životní prostředí, potenciálně kvůli energeticky náročnému zpracování, některým nerecyklovatelným balicím komponentům nebo delším dodavatelským řetězcům. Vyžadují vyvážený přístup ke spotřebě."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-d",
+        "subtitle": "Střední dopad na životní prostředí",
+        "subtitleColor": "bronze-60",
+        "description": "Produkty mají měřitelný dopad na životní prostředí, potenciálně kvůli energeticky náročnému zpracování, některým nerecyklovatelným balicím komponentům nebo delším dodavatelským řetězcům. Vyžadují vyvážený přístup ke spotřebě."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-e",
+        "subtitle": "Nejvyšší dopad na životní prostředí",
+        "subtitleColor": "red-60",
+        "description": "Toto je nejhorší skóre, což znamená velmi vysoký dopad na životní prostředí. Produkty obvykle kombinují vysoké <b>LCA skóre</b> (např. <b>hovězí maso</b>) s více penalizacemi, jako je nedostatek sledovatelnosti původu a problematické, jednorázové balení. Spotřeba těchto produktů by měla být minimalizována."
+      }
+    ]
+  },
+  {
+    "id": "nova-score",
+    "type": "score",
+    "question": "Co je NOVA-Score?",
+    "title": "NOVA Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "NOVA klasifikace je systém vyvinutý brazilskými vědci, který kategorizuje potravinářské produkty výhradně podle rozsahu jejich průmyslového zpracování. Na rozdíl od Nutri-Score NOVA nehodnotí obsah živin jako cukr, tuk nebo sůl; místo toho se zaměřuje na výrobní metody a složky."
+      },
+      {
+        "type": "section",
+        "image": "novascore-1",
+        "subtitle": "Nezpracované nebo minimálně zpracované potraviny",
+        "subtitleColor": "green-60",
+        "description": "Tyto produkty jsou buď přirozeně se vyskytující, nebo mírně upravené, aby byly zachovány, bezpečnější nebo zlepšily chuť. Povolené úpravy zahrnují jednoduché techniky jako <b>mytí, loupání, pasterizace, zmrazení nebo mletí</b>. Tyto potraviny si zachovávají svou základní identitu a nutriční profil. <b>Příklady:</b> čerstvé, sušené nebo zmrazené ovoce a zelenina, plnotučné mléko, čerstvé maso, vejce a základní obiloviny jako rýže."
+      },
+      {
+        "type": "section",
+        "image": "novascore-2",
+        "subtitle": "Zpracované kulinářské ingredience",
+        "subtitleColor": "green-60",
+        "description": "Tato skupina zahrnuje látky extrahované přímo z potravin <b>Skupiny 1</b> nebo získané z přírody, používané primárně v kuchyni pro přípravu, kořenění nebo konzervování jiných potravin. Nejsou určeny k samostatné konzumaci. Jsou extrahovány procesy jako <b>lisování, rafinace nebo sušení</b>. <b>Běžné příklady:</b> rostlinné oleje, sůl, cukr, med a máslo."
+      },
+      {
+        "type": "section",
+        "image": "novascore-3",
+        "subtitle": "Zpracované potraviny",
+        "subtitleColor": "bronze-60",
+        "description": "Zpracované potraviny jsou relativně jednoduché položky vyrobené kombinací potravin ze <b>Skupiny 1</b> s kulinářskými ingrediencemi ze <b>Skupiny 2</b> (sůl, olej nebo cukr). Cílem je prodloužit trvanlivost nebo zlepšit senzorické vlastnosti. Tyto produkty typicky obsahují pouze několik ingrediencí a jsou stále snadno rozpoznatelné jako modifikace celých potravin. <b>Příklady:</b> jednoduchý sýr (fermentované mléko se solí), konzervovaná zelenina v solance, chléb vyrobený s minimálními ingrediencemi a prosté jogurty."
+      },
+      {
+        "type": "section",
+        "image": "novascore-4",
+        "subtitle": "Ultra-zpracované potraviny (UPF)",
+        "subtitleColor": "red-60",
+        "description": "Tyto produkty představují nejvyšší stupeň průmyslového zpracování. Často jsou formulovány z ingrediencí odvozených primárně z průmyslových procesů a zahrnují četné přísady obvykle nepoužívané v domácím vaření. Potraviny <b>NOVA 4</b> často obsahují látky jako <b>barviva, emulgátory</b> (jako <b>E407</b>), <b>látky zvýrazňující chuť, hydrogenované oleje, hydrolyzované bílkoviny a modifikovaný škrob</b>. Tyto položky jsou navrženy pro maximální pohodlí, chuť a dlouhou trvanlivost. Jejich spotřeba by měla být přísně omezena. <b>Příklady:</b> většina hotových zmrazených jídel, sladké nealkoholické nápoje, hromadně vyráběné snídaňové cereálie, většina zpracovaných masných výrobků jako klobásy a různé balené svačiny a chipsy."
+      }
+    ]
+  }
+]

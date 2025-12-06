@@ -1,0 +1,168 @@
+{
+  "_meta": {
+    "name": "Română",
+    "flag": "🇷🇴"
+  },
+  "common": {
+    "cancel": "Anulează",
+    "ok": "OK",
+    "done": "Gata",
+    "search": "Căutare",
+    "clearAll": "Șterge tot",
+    "learnMore": "Află mai multe",
+    "gotIt": "Înțeles",
+    "unknown": "Necunoscut",
+    "loading": "Se încarcă...",
+    "pleaseWait": "Te rugăm să aștepți...",
+    "error": "Eroare",
+    "retry": "Încearcă din nou"
+  },
+  "navigation": {
+    "scanner": "Scaner",
+    "history": "Istoric",
+    "favourites": "Favorite",
+    "info": "Informații",
+    "faq": "Întrebări frecvente",
+    "userAgreement": "Acordul utilizatorului",
+    "privacyPolicy": "Politica de confidențialitate"
+  },
+  "scanner": {
+    "loadingCamera": "Se încarcă camera...",
+    "readyToScan": "Gata să scanezi?",
+    "cameraPermissionDescription": "Avem nevoie doar de acces la cameră pentru a scana codurile de bare. Nimic nu este înregistrat.",
+    "enableCamera": "Activează camera",
+    "openSettings": "Deschide setările",
+    "openSettingsMessage": "Te rugăm să mergi la Setări > Food ID > Cameră și să activezi accesul la cameră.",
+    "enterBarcode": "Introdu codul de bare",
+    "enterBarcodeDescription": "Introdu numerele de sub codul de bare pentru a găsi produsul",
+    "barcode": "Cod de bare",
+    "buttonText": "Scanează primul tău produs"
+  },
+  "product": {
+    "loadingProduct": "Se încarcă produsul...",
+    "nothingFound": "Ups, nu s-a găsit nimic",
+    "unknownProduct": "Produs necunoscut",
+    "notInDatabase": "Se pare că acest articol nu este în baza mea de cunoștințe",
+    "noInformation": "Încă nu există informații despre acest produs"
+  },
+  "nutrition": {
+    "nutritionalValue": "Valoare nutrițională",
+    "per100g": "PENTRU 100G",
+    "per100gPerPackage": "PENTRU 100G / PENTRU AMBALAJ",
+    "calories": "Calorii, kcal",
+    "protein": "Proteine, g",
+    "fats": "Grăsimi, g",
+    "saturatedFats": "Grăsimi saturate, g",
+    "carbs": "Carbohidrați, g",
+    "sugars": "Zahăr, g",
+    "addedSugar": "Zahăr adăugat, g",
+    "fiber": "Fibre, g",
+    "salt": "Sare, g",
+    "sodium": "Sodiu, g",
+    "nutrientNames": {
+      "calories": "Calorii",
+      "fat": "Grăsimi",
+      "saturated-fat": "Grăsimi saturate",
+      "sugars": "Zahăr",
+      "salt": "Sare",
+      "proteins": "Proteine",
+      "fiber": "Fibre",
+      "carbohydrates": "Carbohidrați",
+      "sodium": "Sodiu"
+    }
+  },
+  "scores": {
+    "nutriScores": "SCORURI NUTRIȚIONALE",
+    "nutriScore": "Nutri-Score",
+    "nutriScoreDescription": "Evaluează calitatea nutrițională (A până la E) pentru 100g, echilibrând componentele benefice (proteine, fibre) și dăunătoare (grăsimi, zahăr, sare). A este cea mai bună alegere pentru sănătate.",
+    "ecoscore": "ECO-Score",
+    "ecoscoreDescription": "Evaluează impactul asupra mediului (A până la E), luând în considerare emisiile de CO2, reciclabilitatea ambalajului și originea ingredientelor. A este cea mai bună alegere pentru planetă.",
+    "novascore": "NOVA Score",
+    "novascoreDescription": "Evaluează gradul de procesare industrială (Grupul 1 până la 4). Grupul 4 este Aliment Ultra-Procesat (UPF), care ar trebui limitat indiferent de conținutul său nutrițional.",
+    "excellentChoice": "Alegere excelentă",
+    "goodOption": "Opțiune bună",
+    "lessHealthy": "Mai puțin sănătos",
+    "unhealthy": "Nesănătos"
+  },
+  "characteristics": {
+    "keyCharacteristics": "Caracteristici cheie",
+    "highInFiber": "Mare conținut de fibre",
+    "richInProtein": "Bogat în proteine",
+    "lowInSugar": "Conținut scăzut de zahăr",
+    "lowInSalt": "Conținut scăzut de sare",
+    "lowInFat": "Conținut scăzut de grăsimi",
+    "lowInSaturatedFat": "Conținut scăzut de grăsimi saturate",
+    "lowCalorie": "Conținut scăzut de calorii",
+    "highInFat": "Mare conținut de grăsimi",
+    "highInSaturatedFat": "Mare conținut de grăsimi saturate",
+    "highCalorie": "Mare conținut de calorii",
+    "highInSugar": "Mare conținut de zahăr",
+    "highInSalt": "Mare conținut de sare",
+    "highInCarbohydrates": "Mare conținut de carbohidrați",
+    "highInSodium": "Mare conținut de sodiu",
+    "containsAddedSugars": "Conține zahăr adăugat"
+  },
+  "allergens": {
+    "allergens": "Alergeni"
+  },
+  "ingredients": {
+    "ingredients": "Ingrediente"
+  },
+  "narrative": {
+    "balancedProfile": "Acest produs are un profil nutrițional echilibrat fără preocupări semnificative sau beneficii notabile.",
+    "productIs": "Acest produs este ",
+    "and": " și ",
+    "howeverIt": "Cu toate acestea, ",
+    "excellentConsumption": "Aceasta este o alegere excelentă pentru consumul regulat.",
+    "goodConsumption": "Aceasta este o alegere bună și poate fi consumată regulat cu moderație.",
+    "moderateConsumption": "Luați în considerare consumarea acestui produs cu moderație și echilibrați-l cu opțiuni mai sănătoase.",
+    "limitConsumption": "Cel mai bine este să limitați consumul acestui produs și să optați pentru alternative mai sănătoase când este posibil."
+  },
+  "history": {
+    "emptyBasket": "Un coș gol nu spune povești",
+    "startBuilding": "Începe să-ți construiești istoricul - un scan la rând!",
+    "clearAllHistory": "Șterge tot istoricul",
+    "clearAllHistoryMessage": "Ești sigur că vrei să ștergi toate articolele din istoricul tău? Nu va afecta lista de produse favorite"
+  },
+  "favourites": {
+    "brokenHeart": "Inimă frântă",
+    "brokenHeartDescription": "Gustările tale preferate sunt tot ce are nevoie pentru a se vindeca!",
+    "findFavourites": "Găsește-ți favoritele",
+    "clearAllFavourites": "Șterge toate favoritele",
+    "clearAllFavouritesMessage": "Ești sigur că vrei să ștergi toate articolele din favoritele tale?"
+  },
+  "settings": {
+    "language": "Limbă",
+    "faq": "Întrebări frecvente",
+    "shareTheApp": "Distribuie aplicația",
+    "rateTheApp": "Evaluează aplicația",
+    "contactDevelopers": "Contactează dezvoltatorii",
+    "userAgreement": "Acordul utilizatorului",
+    "privacyPolicy": "Politica de confidențialitate",
+    "appVersion": "Versiunea aplicației",
+    "shareFoodId": "Distribuie Food ID",
+    "contactFoodId": "Contactează Food ID",
+    "contactSubject": "Aplicația Food ID - Contact",
+    "contactMessage": "Contactează dezvoltatorii Food ID\n\nE-mail: {email}\nSubiect: {subject}",
+    "contactFallback": "E-mail: {email}\n\nSubiect: Aplicația Food ID - Contact\n\nPoți copia adresa de e-mail și să ne trimiți un mesaj.",
+    "feedbackSupportTitle": "Feedback și suport",
+    "feedbackSupportMessage": "Pentru a oferi feedback sau a solicita suport, te rugăm să trimiți un e-mail la {email}",
+    "shareMessage": "Verifică Food ID - aplicația care te ajută să faci alegeri alimentare informate!\n\n🍎 App Store: {iosLink}\n🤖 Google Play: {androidLink}",
+    "unableToShare": "Nu s-a putut distribui aplicația. Te rugăm să încerci din nou.",
+    "unableToOpenStore": "Nu s-a putut deschide magazinul de aplicații. Te rugăm să încerci din nou.",
+    "unableToOpenEmail": "Nu s-a putut deschide aplicația de e-mail. Te rugăm să încerci din nou."
+  },
+  "alerts": {
+    "nutriScoreTitle": "Nutri-Score {grade} - {description}",
+    "shareError": "Eroare la distribuire",
+    "unableToShareProduct": "Nu s-a putut distribui produsul. Te rugăm să încerci din nou."
+  },
+  "faq": {
+    "itemNotFound": "Elementul FAQ nu a fost găsit",
+    "nutrientTableTitle": "Praguri nutriționale (pentru 100g)",
+    "nutrientTableNutrientHeader": "Nutrient",
+    "nutrientTableLowHeader": "Scăzut",
+    "nutrientTableModerateHeader": "Moderat",
+    "nutrientTableHighHeader": "Ridicat"
+  }
+}

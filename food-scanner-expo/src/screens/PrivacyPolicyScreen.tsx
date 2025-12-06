@@ -6,11 +6,13 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 
 // Load privacy policy data based on language
-const getPrivacyData = (language: 'en' | 'uk') => {
-  if (language === 'uk') {
-    return require('@/data/privacyPolicy.uk.json');
+const getPrivacyData = (language: string) => {
+  try {
+    return require(`@/translations/${language}/privacyPolicy.json`);
+  } catch {
+    // Fallback to English if language file doesn't exist
+    return require('@/translations/en/privacyPolicy.json');
   }
-  return require('@/data/privacyPolicy.json');
 };
 
 export function PrivacyPolicyScreen() {
@@ -44,12 +46,18 @@ export function PrivacyPolicyScreen() {
         }}
       >
         <Text className="text-sm text-gray-60 mb-6 italic font-inter">
-          {currentLanguage === 'uk' ? 'Останнє оновлення: ' : 'Last updated: '}
-          {new Intl.DateTimeFormat(currentLanguage === 'uk' ? 'uk-UA' : 'en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          }).format(new Date(privacyData.lastUpdated))}
+          {new Intl.DateTimeFormat(
+            currentLanguage === 'uk'
+              ? 'uk-UA'
+              : currentLanguage === 'en'
+              ? 'en-US'
+              : currentLanguage,
+            {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            }
+          ).format(new Date(privacyData.lastUpdated))}
         </Text>
 
         {privacyData.sections.map((section) => (

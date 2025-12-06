@@ -6,11 +6,13 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 
 // Load agreement data based on language
-const getAgreementData = (language: 'en' | 'uk') => {
-  if (language === 'uk') {
-    return require('@/data/userAgreement.uk.json');
+const getAgreementData = (language: string) => {
+  try {
+    return require(`@/translations/${language}/userAgreement.json`);
+  } catch {
+    // Fallback to English if language file doesn't exist
+    return require('@/translations/en/userAgreement.json');
   }
-  return require('@/data/userAgreement.json');
 };
 
 export function UserAgreementScreen() {
@@ -44,12 +46,18 @@ export function UserAgreementScreen() {
         }}
       >
         <Text className="text-sm text-gray-60 mb-6 italic font-inter">
-          {currentLanguage === 'uk' ? 'Останнє оновлення: ' : 'Last updated: '}
-          {new Intl.DateTimeFormat(currentLanguage === 'uk' ? 'uk-UA' : 'en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          }).format(new Date(agreementData.lastUpdated))}
+          {new Intl.DateTimeFormat(
+            currentLanguage === 'uk'
+              ? 'uk-UA'
+              : currentLanguage === 'en'
+              ? 'en-US'
+              : currentLanguage,
+            {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            }
+          ).format(new Date(agreementData.lastUpdated))}
         </Text>
 
         {agreementData.sections.map((section) => (

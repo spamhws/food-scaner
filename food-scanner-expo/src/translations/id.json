@@ -1,0 +1,168 @@
+{
+  "_meta": {
+    "name": "Bahasa Indonesia",
+    "flag": "🇮🇩"
+  },
+  "common": {
+    "cancel": "Batal",
+    "ok": "OK",
+    "done": "Selesai",
+    "search": "Cari",
+    "clearAll": "Hapus semua",
+    "learnMore": "Pelajari lebih lanjut",
+    "gotIt": "Mengerti",
+    "unknown": "Tidak diketahui",
+    "loading": "Memuat...",
+    "pleaseWait": "Harap tunggu...",
+    "error": "Kesalahan",
+    "retry": "Coba lagi"
+  },
+  "navigation": {
+    "scanner": "Pemindai",
+    "history": "Riwayat",
+    "favourites": "Favorit",
+    "info": "Info",
+    "faq": "FAQ",
+    "userAgreement": "Perjanjian pengguna",
+    "privacyPolicy": "Kebijakan privasi"
+  },
+  "scanner": {
+    "loadingCamera": "Memuat kamera...",
+    "readyToScan": "Siap memindai?",
+    "cameraPermissionDescription": "Kami hanya memerlukan akses kamera untuk memindai barcode. Tidak ada yang direkam.",
+    "enableCamera": "Aktifkan kamera",
+    "openSettings": "Buka pengaturan",
+    "openSettingsMessage": "Silakan buka Pengaturan > Food ID > Kamera dan aktifkan akses kamera.",
+    "enterBarcode": "Masukkan barcode",
+    "enterBarcodeDescription": "Masukkan angka di bawah barcode untuk menemukan produk",
+    "barcode": "Barcode",
+    "buttonText": "Pindai produk pertama Anda"
+  },
+  "product": {
+    "loadingProduct": "Memuat produk...",
+    "nothingFound": "Ups, tidak ada yang ditemukan",
+    "unknownProduct": "Produk tidak dikenal",
+    "notInDatabase": "Sepertinya item ini tidak ada dalam basis pengetahuan saya",
+    "noInformation": "Belum ada informasi tentang produk ini"
+  },
+  "nutrition": {
+    "nutritionalValue": "Nilai gizi",
+    "per100g": "PER 100G",
+    "per100gPerPackage": "PER 100G / PER KEMASAN",
+    "calories": "Kalori, kkal",
+    "protein": "Protein, g",
+    "fats": "Lemak, g",
+    "saturatedFats": "Lemak jenuh, g",
+    "carbs": "Karbohidrat, g",
+    "sugars": "Gula, g",
+    "addedSugar": "Gula tambahan, g",
+    "fiber": "Serat, g",
+    "salt": "Garam, g",
+    "sodium": "Natrium, g",
+    "nutrientNames": {
+      "calories": "Kalori",
+      "fat": "Lemak",
+      "saturated-fat": "Lemak jenuh",
+      "sugars": "Gula",
+      "salt": "Garam",
+      "proteins": "Protein",
+      "fiber": "Serat",
+      "carbohydrates": "Karbohidrat",
+      "sodium": "Natrium"
+    }
+  },
+  "scores": {
+    "nutriScores": "SKOR NUTRISI",
+    "nutriScore": "Nutri-Score",
+    "nutriScoreDescription": "Menilai kualitas nutrisi (A hingga E) per 100g, menyeimbangkan komponen bermanfaat (protein, serat) dan merugikan (lemak, gula, garam). A adalah pilihan terbaik untuk kesehatan.",
+    "ecoscore": "ECO-Score",
+    "ecoscoreDescription": "Menilai dampak lingkungan (A hingga E), mempertimbangkan emisi CO2, kemampuan daur ulang kemasan, dan asal bahan. A adalah pilihan terbaik untuk planet.",
+    "novascore": "NOVA Score",
+    "novascoreDescription": "Menilai tingkat pemrosesan industri (Grup 1 hingga 4). Grup 4 adalah Makanan Ultra-Proses (UPF), yang harus dibatasi terlepas dari kandungan nutrisinya.",
+    "excellentChoice": "Pilihan yang sangat baik",
+    "goodOption": "Pilihan yang baik",
+    "lessHealthy": "Kurang sehat",
+    "unhealthy": "Tidak sehat"
+  },
+  "characteristics": {
+    "keyCharacteristics": "Karakteristik utama",
+    "highInFiber": "Tinggi serat",
+    "richInProtein": "Kaya protein",
+    "lowInSugar": "Rendah gula",
+    "lowInSalt": "Rendah garam",
+    "lowInFat": "Rendah lemak",
+    "lowInSaturatedFat": "Rendah lemak jenuh",
+    "lowCalorie": "Rendah kalori",
+    "highInFat": "Tinggi lemak",
+    "highInSaturatedFat": "Tinggi lemak jenuh",
+    "highCalorie": "Tinggi kalori",
+    "highInSugar": "Tinggi gula",
+    "highInSalt": "Tinggi garam",
+    "highInCarbohydrates": "Tinggi karbohidrat",
+    "highInSodium": "Tinggi natrium",
+    "containsAddedSugars": "Mengandung gula tambahan"
+  },
+  "allergens": {
+    "allergens": "Alergen"
+  },
+  "ingredients": {
+    "ingredients": "Bahan"
+  },
+  "narrative": {
+    "balancedProfile": "Produk ini memiliki profil nutrisi seimbang tanpa kekhawatiran signifikan atau manfaat yang menonjol.",
+    "productIs": "Produk ini ",
+    "and": " dan ",
+    "howeverIt": "Namun, produk ini ",
+    "excellentConsumption": "Ini adalah pilihan yang sangat baik untuk konsumsi rutin.",
+    "goodConsumption": "Ini adalah pilihan yang baik dan dapat dikonsumsi secara rutin dalam jumlah sedang.",
+    "moderateConsumption": "Pertimbangkan untuk mengonsumsi produk ini dalam jumlah sedang dan seimbangkan dengan pilihan yang lebih sehat.",
+    "limitConsumption": "Sebaiknya batasi konsumsi produk ini dan pilih alternatif yang lebih sehat jika memungkinkan."
+  },
+  "history": {
+    "emptyBasket": "Keranjang kosong tidak menceritakan kisah",
+    "startBuilding": "Mulai membangun riwayat Anda - satu pemindaian pada satu waktu!",
+    "clearAllHistory": "Hapus semua riwayat",
+    "clearAllHistoryMessage": "Apakah Anda yakin ingin menghapus semua item dari riwayat Anda? Ini tidak akan mempengaruhi daftar produk favorit"
+  },
+  "favourites": {
+    "brokenHeart": "Hati yang patah",
+    "brokenHeartDescription": "Camilan favorit Anda adalah semua yang dibutuhkan untuk menyembuhkannya!",
+    "findFavourites": "Temukan favorit Anda",
+    "clearAllFavourites": "Hapus semua favorit",
+    "clearAllFavouritesMessage": "Apakah Anda yakin ingin menghapus semua item dari favorit Anda?"
+  },
+  "settings": {
+    "language": "Bahasa",
+    "faq": "FAQ",
+    "shareTheApp": "Bagikan aplikasi",
+    "rateTheApp": "Beri rating aplikasi",
+    "contactDevelopers": "Hubungi pengembang",
+    "userAgreement": "Perjanjian pengguna",
+    "privacyPolicy": "Kebijakan privasi",
+    "appVersion": "Versi aplikasi",
+    "shareFoodId": "Bagikan Food ID",
+    "contactFoodId": "Hubungi Food ID",
+    "contactSubject": "Food ID App - Kontak",
+    "contactMessage": "Hubungi pengembang Food ID\n\nEmail: {email}\nSubjek: {subject}",
+    "contactFallback": "Email: {email}\n\nSubjek: Food ID App - Kontak\n\nAnda dapat menyalin alamat email dan mengirimkan pesan kepada kami.",
+    "feedbackSupportTitle": "Umpan balik & dukungan",
+    "feedbackSupportMessage": "Untuk memberikan umpan balik atau meminta dukungan, silakan kirim email ke {email}",
+    "shareMessage": "Lihat Food ID - aplikasi yang membantu Anda membuat pilihan makanan yang tepat!\n\n🍎 App Store: {iosLink}\n🤖 Google Play: {androidLink}",
+    "unableToShare": "Tidak dapat membagikan aplikasi. Silakan coba lagi.",
+    "unableToOpenStore": "Tidak dapat membuka toko aplikasi. Silakan coba lagi.",
+    "unableToOpenEmail": "Tidak dapat membuka aplikasi email. Silakan coba lagi."
+  },
+  "alerts": {
+    "nutriScoreTitle": "Nutri-Score {grade} - {description}",
+    "shareError": "Kesalahan berbagi",
+    "unableToShareProduct": "Tidak dapat membagikan produk. Silakan coba lagi."
+  },
+  "faq": {
+    "itemNotFound": "Item FAQ tidak ditemukan",
+    "nutrientTableTitle": "Ambang batas nutrisi (per 100g)",
+    "nutrientTableNutrientHeader": "Nutrisi",
+    "nutrientTableLowHeader": "Rendah",
+    "nutrientTableModerateHeader": "Sedang",
+    "nutrientTableHighHeader": "Tinggi"
+  }
+}

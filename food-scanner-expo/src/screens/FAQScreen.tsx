@@ -8,11 +8,13 @@ import { useNavigationBack } from '@/hooks/useNavigationBack';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 
 // Load FAQ data based on language
-const getFAQData = (language: 'en' | 'uk') => {
-  if (language === 'uk') {
-    return require('@/data/faq.uk.json');
+const getFAQData = (language: string) => {
+  try {
+    return require(`@/translations/${language}/faq.json`);
+  } catch {
+    // Fallback to English if language file doesn't exist
+    return require('@/translations/en/faq.json');
   }
-  return require('@/data/faq.json');
 };
 
 interface FAQItem {

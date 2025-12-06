@@ -1,0 +1,51 @@
+{
+  "title": "User Agreement",
+  "lastUpdated": "2025-12-03",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Acceptance of Terms",
+      "content": "By downloading, installing, or using the Food ID mobile application, you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use the app."
+    },
+    {
+      "id": 2,
+      "title": "Description of Service",
+      "content": "Food ID is a mobile application that allows users to scan product barcodes and retrieve nutritional information from the OpenFoodFacts database. The app provides nutritional analysis, ingredient lists, allergen information, and personalized assessments to help users make informed food choices."
+    },
+    {
+      "id": 3,
+      "title": "User Responsibilities",
+      "content": "You are responsible for maintaining the confidentiality of your device and for all activities that occur on your device. You agree to use the app only for lawful purposes and in accordance with these Terms. You agree not to misuse the app or interfere with its normal operation."
+    },
+    {
+      "id": 4,
+      "title": "Data Accuracy",
+      "content": "Product information is sourced from OpenFoodFacts, a community-driven database. While we strive to provide accurate information, we cannot guarantee the completeness or accuracy of all product data. Users should verify critical information, especially regarding allergens, with product packaging or manufacturers."
+    },
+    {
+      "id": 5,
+      "title": "Intellectual Property",
+      "content": "The app and its original content, features, and functionality are owned by Food ID and are protected by international copyright, trademark, and other intellectual property laws. Product data is provided by OpenFoodFacts under the Open Database License (ODbL)."
+    },
+    {
+      "id": 6,
+      "title": "Limitation of Liability",
+      "content": "Food ID and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use the app. We provide the app 'as is' without warranties of any kind, either express or implied."
+    },
+    {
+      "id": 7,
+      "title": "Changes to Terms",
+      "content": "We reserve the right to modify these Terms at any time. We will notify users of any changes by updating the 'Last Updated' date. Your continued use of the app after changes constitutes acceptance of the modified Terms."
+    },
+    {
+      "id": 8,
+      "title": "Termination",
+      "content": "We may terminate or suspend your access to the app immediately, without prior notice, for any reason, including breach of these Terms. Upon termination, your right to use the app will immediately cease."
+    },
+    {
+      "id": 9,
+      "title": "Contact",
+      "content": "If you have any questions about these Terms, please contact us through the app's support channels."
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "_meta": {
+    "name": "한국어",
+    "flag": "🇰🇷"
+  },
+  "common": {
+    "cancel": "취소",
+    "ok": "확인",
+    "done": "완료",
+    "search": "검색",
+    "clearAll": "모두 지우기",
+    "learnMore": "자세히 알아보기",
+    "gotIt": "알겠습니다",
+    "unknown": "알 수 없음",
+    "loading": "로딩 중...",
+    "pleaseWait": "잠시만 기다려 주세요...",
+    "error": "오류",
+    "retry": "다시 시도"
+  },
+  "navigation": {
+    "scanner": "스캐너",
+    "history": "기록",
+    "favourites": "즐겨찾기",
+    "info": "정보",
+    "faq": "자주 묻는 질문",
+    "userAgreement": "사용자 약관",
+    "privacyPolicy": "개인정보 보호정책"
+  },
+  "scanner": {
+    "loadingCamera": "카메라 로딩 중...",
+    "readyToScan": "스캔할 준비가 되셨나요?",
+    "cameraPermissionDescription": "바코드를 스캔하기 위해 카메라 접근 권한만 필요합니다. 아무것도 녹화되지 않습니다.",
+    "enableCamera": "카메라 활성화",
+    "openSettings": "설정 열기",
+    "openSettingsMessage": "설정 > Food ID > 카메라로 이동하여 카메라 접근 권한을 활성화하세요.",
+    "enterBarcode": "바코드 입력",
+    "enterBarcodeDescription": "제품을 찾으려면 바코드 아래의 숫자를 입력하세요",
+    "barcode": "바코드",
+    "buttonText": "첫 번째 제품 스캔"
+  },
+  "product": {
+    "loadingProduct": "제품 로딩 중...",
+    "nothingFound": "죄송합니다. 찾을 수 없습니다",
+    "unknownProduct": "알 수 없는 제품",
+    "notInDatabase": "이 항목이 지식 베이스에 없는 것 같습니다",
+    "noInformation": "이 제품에 대한 정보가 아직 없습니다"
+  },
+  "nutrition": {
+    "nutritionalValue": "영양가",
+    "per100g": "100g당",
+    "per100gPerPackage": "100g당 / 포장당",
+    "calories": "칼로리, kcal",
+    "protein": "단백질, g",
+    "fats": "지방, g",
+    "saturatedFats": "포화 지방, g",
+    "carbs": "탄수화물, g",
+    "sugars": "당류, g",
+    "addedSugar": "첨가당, g",
+    "fiber": "식이섬유, g",
+    "salt": "소금, g",
+    "sodium": "나트륨, g",
+    "nutrientNames": {
+      "calories": "칼로리",
+      "fat": "지방",
+      "saturated-fat": "포화 지방",
+      "sugars": "당류",
+      "salt": "소금",
+      "proteins": "단백질",
+      "fiber": "식이섬유",
+      "carbohydrates": "탄수화물",
+      "sodium": "나트륨"
+    }
+  },
+  "scores": {
+    "nutriScores": "영양 점수",
+    "nutriScore": "Nutri-Score",
+    "nutriScoreDescription": "100g당 영양 품질(A~E)을 평가하며, 유익한 성분(단백질, 식이섬유)과 유해한 성분(지방, 당, 소금)의 균형을 맞춥니다. A는 건강에 가장 좋은 선택입니다.",
+    "ecoscore": "ECO-Score",
+    "ecoscoreDescription": "환경 영향(A~E)을 평가하며, CO2 배출량, 포장 재활용 가능성 및 원재료 원산지를 고려합니다. A는 지구를 위한 최선의 선택입니다.",
+    "novascore": "NOVA Score",
+    "novascoreDescription": "산업 가공 정도(그룹 1~4)를 평가합니다. 그룹 4는 초가공 식품(UPF)으로, 영양 성분과 관계없이 제한해야 합니다.",
+    "excellentChoice": "훌륭한 선택",
+    "goodOption": "좋은 선택",
+    "lessHealthy": "덜 건강함",
+    "unhealthy": "건강에 해로움"
+  },
+  "characteristics": {
+    "keyCharacteristics": "주요 특성",
+    "highInFiber": "식이섬유 함량 높음",
+    "richInProtein": "단백질 함량 높음",
+    "lowInSugar": "당 함량 낮음",
+    "lowInSalt": "소금 함량 낮음",
+    "lowInFat": "지방 함량 낮음",
+    "lowInSaturatedFat": "포화 지방 함량 낮음",
+    "lowCalorie": "칼로리 낮음",
+    "highInFat": "지방 함량 높음",
+    "highInSaturatedFat": "포화 지방 함량 높음",
+    "highCalorie": "칼로리 높음",
+    "highInSugar": "당 함량 높음",
+    "highInSalt": "소금 함량 높음",
+    "highInCarbohydrates": "탄수화물 함량 높음",
+    "highInSodium": "나트륨 함량 높음",
+    "containsAddedSugars": "첨가당 함유"
+  },
+  "allergens": {
+    "allergens": "알레르기 유발 물질"
+  },
+  "ingredients": {
+    "ingredients": "원재료"
+  },
+  "narrative": {
+    "balancedProfile": "이 제품은 중요한 우려사항이나 주목할 만한 이점이 없는 균형 잡힌 영양 프로필을 가지고 있습니다.",
+    "productIs": "이 제품은 ",
+    "and": " 및 ",
+    "howeverIt": "그러나 ",
+    "excellentConsumption": "정기적인 섭취에 훌륭한 선택입니다.",
+    "goodConsumption": "좋은 선택이며 적당히 정기적으로 섭취할 수 있습니다.",
+    "moderateConsumption": "이 제품을 적당히 섭취하고 더 건강한 선택과 균형을 맞추는 것을 고려하세요.",
+    "limitConsumption": "이 제품의 섭취를 제한하고 가능한 경우 더 건강한 대안을 선택하는 것이 가장 좋습니다."
+  },
+  "history": {
+    "emptyBasket": "빈 바구니는 이야기를 들려주지 않습니다",
+    "startBuilding": "기록을 쌓아가기 시작하세요 - 한 번에 하나씩 스캔하세요!",
+    "clearAllHistory": "모든 기록 지우기",
+    "clearAllHistoryMessage": "기록에서 모든 항목을 지우시겠습니까? 즐겨찾기 제품 목록에는 영향을 주지 않습니다"
+  },
+  "favourites": {
+    "brokenHeart": "상처받은 마음",
+    "brokenHeartDescription": "좋아하는 간식이 치유에 필요한 모든 것입니다!",
+    "findFavourites": "즐겨찾기 찾기",
+    "clearAllFavourites": "모든 즐겨찾기 지우기",
+    "clearAllFavouritesMessage": "즐겨찾기에서 모든 항목을 지우시겠습니까?"
+  },
+  "settings": {
+    "language": "언어",
+    "faq": "자주 묻는 질문",
+    "shareTheApp": "앱 공유",
+    "rateTheApp": "앱 평가",
+    "contactDevelopers": "개발자에게 문의",
+    "userAgreement": "사용자 약관",
+    "privacyPolicy": "개인정보 보호정책",
+    "appVersion": "앱 버전",
+    "shareFoodId": "Food ID 공유",
+    "contactFoodId": "Food ID 문의",
+    "contactSubject": "Food ID 앱 - 문의",
+    "contactMessage": "Food ID 개발자에게 문의\n\n이메일: {email}\n제목: {subject}",
+    "contactFallback": "이메일: {email}\n\n제목: Food ID 앱 - 문의\n\n이메일 주소를 복사하여 메시지를 보낼 수 있습니다.",
+    "feedbackSupportTitle": "피드백 및 지원",
+    "feedbackSupportMessage": "피드백을 제공하거나 지원을 요청하려면 {email}로 이메일을 보내주세요",
+    "shareMessage": "Food ID를 확인하세요 - 정보에 기반한 식품 선택을 돕는 앱!\n\n🍎 App Store: {iosLink}\n🤖 Google Play: {androidLink}",
+    "unableToShare": "앱을 공유할 수 없습니다. 다시 시도해 주세요.",
+    "unableToOpenStore": "앱 스토어를 열 수 없습니다. 다시 시도해 주세요.",
+    "unableToOpenEmail": "이메일 앱을 열 수 없습니다. 다시 시도해 주세요."
+  },
+  "alerts": {
+    "nutriScoreTitle": "Nutri-Score {grade} - {description}",
+    "shareError": "공유 오류",
+    "unableToShareProduct": "제품을 공유할 수 없습니다. 다시 시도해 주세요."
+  },
+  "faq": {
+    "itemNotFound": "FAQ 항목을 찾을 수 없습니다",
+    "nutrientTableTitle": "영양소 임계값 (100g당)",
+    "nutrientTableNutrientHeader": "영양소",
+    "nutrientTableLowHeader": "낮음",
+    "nutrientTableModerateHeader": "보통",
+    "nutrientTableHighHeader": "높음"
+  }
+}

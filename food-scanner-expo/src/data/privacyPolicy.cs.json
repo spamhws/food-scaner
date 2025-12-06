@@ -1,0 +1,61 @@
+{
+  "title": "Zásady ochrany osobních údajů",
+  "lastUpdated": "2025-12-03",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Přehled",
+      "content": "Food ID se zavazuje chránit vaše soukromí. Tyto Zásady ochrany osobních údajů vysvětlují, jak zacházíme s vašimi daty a informacemi při používání naší mobilní aplikace. Věříme v transparentnost a chceme, abyste přesně rozuměli, jak jsou vaše informace používány a ukládány."
+    },
+    {
+      "id": 2,
+      "title": "Shromažďování dat",
+      "content": "Food ID shromažďuje minimální data nezbytná pro fungování aplikace. Když skenujete čárový kód produktu, získáváme informace o produktu z veřejné databáze OpenFoodFacts. Neshromažďujeme osobní informace, jako je vaše jméno, e-mailová adresa, telefonní číslo nebo údaje o poloze."
+    },
+    {
+      "id": 3,
+      "title": "Pouze místní úložiště",
+      "content": "Všechna data generovaná vaším používáním aplikace jsou ukládána výhradně na vašem zařízení. To zahrnuje:\n\n• Historie skenování: Seznam produktů, které jste naskenovali\n• Oblíbené: Produkty, které jste označili jako oblíbené\n• Mezipaměť produktů: Nutriční informace o produktech, které jste zobrazili\n\nTato data nikdy neopustí vaše zařízení a nejsou přenášena na naše servery ani třetím stranám."
+    },
+    {
+      "id": 4,
+      "title": "Žádný přenos dat",
+      "content": "Food ID nepřenáší vaši historii skenování, oblíbené nebo jakákoli osobní data o používání na externí servery. Jediné síťové požadavky prováděné aplikací jsou na API OpenFoodFacts pro získání veřejných informací o produktech na základě čárových kódů, které skenujete."
+    },
+    {
+      "id": 5,
+      "title": "Použití kamery",
+      "content": "Aplikace vyžaduje přístup ke kameře pro skenování čárových kódů produktů. Kamera se používá výhradně pro rozpoznávání čárových kódů. Žádné fotografie ani videa nejsou zachyceny, uloženy nebo přeneseny. Přenos kamery je zpracováván lokálně na vašem zařízení v reálném čase."
+    },
+    {
+      "id": 6,
+      "title": "Data OpenFoodFacts",
+      "content": "Informace o produktech jsou získávány z OpenFoodFacts, bezplatné a otevřené databáze potravinářských produktů. Když skenujete čárový kód, aplikace odešle pouze číslo čárového kódu do OpenFoodFacts pro získání informací o produktu. Žádná osobní data nejsou sdílena s OpenFoodFacts."
+    },
+    {
+      "id": 7,
+      "title": "Mazání dat",
+      "content": "Máte plnou kontrolu nad svými daty. Můžete vymazat svou historii skenování a oblíbené kdykoli v aplikaci. Odinstalace aplikace trvale odstraní všechna lokálně uložená data z vašeho zařízení, včetně historie skenování, oblíbených a informací o produktech v mezipaměti."
+    },
+    {
+      "id": 8,
+      "title": "Služby třetích stran",
+      "content": "Food ID používá API OpenFoodFacts pro získání informací o produktech. OpenFoodFacts je nezávislý, neziskový projekt. Pro informace o jejich datových praktikách se prosím podívejte na zásady ochrany osobních údajů OpenFoodFacts."
+    },
+    {
+      "id": 9,
+      "title": "Soukromí dětí",
+      "content": "Food ID vědomě neshromažďuje žádné osobní informace od dětí. Aplikace je navržena pro použití kýmkoli, a protože nejsou shromažďována ani přenášena žádná osobní data, je bezpečná pro uživatele všech věkových kategorií."
+    },
+    {
+      "id": 10,
+      "title": "Změny zásad ochrany osobních údajů",
+      "content": "Můžeme tyto Zásady ochrany osobních údajů čas od času aktualizovat. O jakýchkoli změnách vás budeme informovat aktualizací data 'Poslední aktualizace' v horní části těchto zásad. Doporučujeme vám pravidelně kontrolovat tyto Zásady ochrany osobních údajů kvůli změnám."
+    },
+    {
+      "id": 11,
+      "title": "Kontaktujte nás",
+      "content": "Pokud máte jakékoli dotazy nebo obavy týkající se těchto Zásad ochrany osobních údajů nebo našich datových praktik, kontaktujte nás prosím prostřednictvím kanálů podpory aplikace. Jsme odhodláni řešit jakékoli obavy týkající se soukromí, které můžete mít."
+    }
+  ]
+}

@@ -1,0 +1,318 @@
+[
+  {
+    "id": "barcode-scanner",
+    "type": "question",
+    "question": "Food ID는 어떻게 작동하나요?",
+    "title": "Food ID 작동 방식",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID는 상세한 제품 정보에 즉시 액세스할 수 있도록 하여 정보에 기반한 식품 선택을 돕습니다. 제품의 바코드를 스캔하거나 수동으로 입력하여 영양 데이터, 성분, 알레르기 유발 물질 및 건강 점수를 확인할 수 있습니다."
+      },
+      {
+        "type": "section",
+        "subtitle": "제품 스캔",
+        "description": "카메라를 제품의 바코드에 향하게 하세요. Food ID가 자동으로 감지하고 읽은 다음 즉시 포괄적인 제품 세부 정보를 표시합니다. 카메라가 바코드를 읽을 수 없는 경우 키보드 아이콘을 눌러 수동으로 입력하세요."
+      },
+      {
+        "type": "section",
+        "subtitle": "표시되는 내용",
+        "description": "각 제품은 색상으로 구분된 아이콘(좋음은 녹색, 보통은 주황색, 높음은 빨간색)으로 영양 가치, 주요 특성, 알레르기 유발 물질, 성분 및 Nutri-Score, Eco-Score, NOVA Score와 같은 건강 점수를 표시합니다. 이를 통해 제품의 영양 품질과 환경 영향을 빠르게 이해할 수 있습니다."
+      },
+      {
+        "type": "section",
+        "subtitle": "제품 정보 출처",
+        "description": "Food ID는 전 세계 식품 제품의 무료, 오픈, 협력 데이터베이스인 <b>OpenFoodFacts</b>의 제품 정보를 사용합니다. 정보에는 글로벌 사용자 커뮤니티가 기여한 영양 데이터, 성분, 알레르기 유발 물질 및 기타 제품 세부 정보가 포함됩니다."
+      }
+    ]
+  },
+  {
+    "id": "scan-fails",
+    "type": "question",
+    "question": "스캔이 때때로 실패하는 이유는 무엇인가요?",
+    "title": "스캔 문제",
+    "sections": [
+      {
+        "type": "text",
+        "content": "여러 요인이 바코드 스캔 성공을 방해할 수 있습니다. 가장 일반적인 문제와 해결 방법은 다음과 같습니다:"
+      },
+      {
+        "type": "section",
+        "subtitle": "조명 부족",
+        "description": "바코드 스캐너는 코드를 정확하게 읽기 위해 충분한 빛이 필요합니다. 더 밝은 영역으로 이동하거나 추가 조명을 켜보세요. 바코드를 지울 수 있는 직사광선이나 강한 반사를 피하세요."
+      },
+      {
+        "type": "section",
+        "subtitle": "거리와 각도",
+        "description": "기기를 바코드에서 편안한 거리(약 15-30cm)에 유지하세요. 카메라를 바코드 표면과 평행하게 유지하세요. 각도가 있거나 기울어진 바코드는 읽기 어렵습니다."
+      },
+      {
+        "type": "section",
+        "subtitle": "손상되거나 더러운 바코드",
+        "description": "긁히거나 찢어지거나 더러운 바코드는 제대로 스캔되지 않을 수 있습니다. 바코드 표면을 청소하거나 코드를 읽을 수 없는 경우 수동 입력을 사용하세요."
+      },
+      {
+        "type": "section",
+        "subtitle": "데이터베이스에 없는 제품",
+        "description": "바코드가 성공적으로 스캔되었지만 제품 정보가 나타나지 않으면 제품이 아직 OpenFoodFacts 데이터베이스에 없을 수 있습니다. <b>openfoodfacts.org</b>를 방문하여 제품 정보를 기여하여 추가할 수 있습니다."
+      },
+      {
+        "type": "section",
+        "subtitle": "카메라 권한",
+        "description": "Food ID에 카메라 권한을 부여했는지 확인하세요. 스캔이 작동하지 않으면 기기 설정을 확인하고 앱에 대한 카메라 액세스가 활성화되어 있는지 확인하세요."
+      }
+    ]
+  },
+  {
+    "id": "nutrient-coloring",
+    "type": "question",
+    "question": "영양소는 어떻게 평가되고 색상이 지정되나요?",
+    "title": "영양소 평가",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID는 영양소 수준과 색상 코딩을 결정하기 위해 두 가지 방법을 사용합니다:"
+      },
+      {
+        "type": "section",
+        "subtitle": "주요 방법: 공식 제품 정보",
+        "description": "사용 가능한 경우 Food ID는 Open Food Facts에서 직접 공식 영양 정보를 사용합니다. 이것은 제품의 실제 영양 라벨을 기반으로 하기 때문에 가장 신뢰할 수 있는 소스입니다."
+      },
+      {
+        "type": "section",
+        "subtitle": "대체 방법: 업계 표준",
+        "description": "공식 영양 정보를 사용할 수 없는 경우 Food ID는 <b>EU 영양 표시 규정</b> 및 WHO와 EFSA의 건강 권장 사항을 기반으로 한 업계 표준 지침을 사용하여 영양소 수준을 결정합니다."
+      },
+      {
+        "type": "table",
+        "title": "영양소 임계값(100g당)",
+        "dataSource": "nutrient-thresholds"
+      },
+      {
+        "type": "section",
+        "subtitle": "색상 코딩",
+        "description": "표준 영양소(지방, 설탕, 소금, 칼로리): <b>낮음</b> = 녹색(좋음), <b>보통</b> = 주황색(주의), <b>높음</b> = 빨간색(제한). 긍정적 영양소(단백질, 섬유): <b>높음</b> = 녹색(좋음), <b>낮음/보통</b> = 회색(중립). 데이터 부족 = 회색."
+      },
+      {
+        "type": "section",
+        "subtitle": "누락된 정보",
+        "description": "영양소 값이 사용할 수 없거나 결정할 수 없는 경우 아이콘은 회색으로 유지되어 이 정보가 제품에 사용할 수 없음을 나타냅니다."
+      }
+    ]
+  },
+  {
+    "id": "favorites",
+    "type": "question",
+    "question": "제품을 즐겨찾기에 추가하는 방법은 무엇인가요?",
+    "title": "즐겨찾기",
+    "answer": "제품 세부 정보를 볼 때 화면 하단의 하트 아이콘을 누르세요. 하트가 빨간색으로 변하여 제품이 즐겨찾기에 추가되었음을 나타냅니다. 즐겨찾기 탭에서 언제든지 즐겨찾기에 액세스할 수 있습니다."
+  },
+  {
+    "id": "data-storage",
+    "type": "question",
+    "question": "스캔 기록은 어디에 저장되나요?",
+    "title": "데이터 저장",
+    "sections": [
+      {
+        "type": "text",
+        "content": "스캔한 모든 제품과 즐겨찾기는 기기에 로컬로 저장됩니다. 이는 데이터가 전화를 떠나지 않고 완전히 비공개로 유지됨을 의미합니다."
+      },
+      {
+        "type": "section",
+        "subtitle": "로컬 저장",
+        "description": "스캔 기록, 즐겨찾기 및 제품 정보는 기기에만 저장됩니다. 외부 서비스로 전송되거나 온라인에 저장되는 것은 없습니다."
+      },
+      {
+        "type": "section",
+        "subtitle": "개인정보 보호",
+        "description": "모든 것이 기기에 유지되므로 완전한 제어가 가능합니다. 앱을 제거하면 모든 정보가 제거됩니다. 제품 세부 정보는 스캔할 때 OpenFoodFacts에서 검색되지만 개인 스캔 기록과 즐겨찾기는 기기를 떠나지 않습니다."
+      }
+    ]
+  },
+  {
+    "id": "assessments",
+    "type": "question",
+    "question": "긍정적 및 부정적 평가는 어떻게 생성되나요?",
+    "title": "평가",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID는 칼로리, 단백질, 지방, 탄수화물, 섬유, 나트륨 및 설탕을 포함한 제품의 영양 함량을 분석합니다. 우리는 이러한 값을 EU 규정 및 업계 표준을 기반으로 한 권장 일일 섭취량 지침과 비교합니다."
+      },
+      {
+        "type": "section",
+        "subtitle": "긍정적 평가",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsUp",
+        "subtitleAssessment": "positive",
+        "subtitleColor": "green-60",
+        "description": "제품은 유익한 영양소(섬유, 단백질)가 많고 제한해야 할 성분(포화 지방, 나트륨, 설탕)이 적을 때 긍정적 평가를 받습니다. 이러한 제품은 균형 잡힌 식단과 건강한 식습관을 지원합니다."
+      },
+      {
+        "type": "section",
+        "subtitle": "부정적 평가",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsDown",
+        "subtitleAssessment": "negative",
+        "subtitleColor": "red-60",
+        "description": "제품은 포화 지방, 나트륨 또는 설탕 수준이 높을 때 부정적 평가를 받습니다. 이러한 제품은 균형 잡힌 식단의 일부로 적당히 섭취해야 합니다."
+      }
+    ]
+  },
+  {
+    "id": "products-not-found",
+    "type": "question",
+    "question": "일부 제품을 찾을 수 없는 이유는 무엇인가요?",
+    "title": "누락된 제품",
+    "sections": [
+      {
+        "type": "text",
+        "content": "아직 모든 제품이 OpenFoodFacts에서 사용 가능한 것은 아닙니다. 정보는 커뮤니티 주도이며 이미 수백만 개의 제품이 사용 가능한 상태로 지속적으로 성장하고 있습니다."
+      },
+      {
+        "type": "section",
+        "subtitle": "제품이 누락될 수 있는 이유",
+        "description": "새 제품, 지역 항목 또는 덜 일반적인 브랜드는 아직 사용할 수 없을 수 있습니다. 정보는 범위를 확장하기 위한 커뮤니티 기여에 의존합니다."
+      },
+      {
+        "type": "section",
+        "subtitle": "제품 추가 방법",
+        "description": "누락된 제품을 OpenFoodFacts에 추가하여 기여할 수 있습니다. <b>openfoodfacts.org</b>를 방문하여 바코드를 스캔하고 영양 사실, 성분 및 사진을 포함한 제품 정보를 추가하세요."
+      }
+    ]
+  },
+  {
+    "id": "nutri-score",
+    "type": "score",
+    "question": "Nutri-Score란 무엇인가요?",
+    "title": "Nutri-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Nutri-Score는 프랑스에서 개발되어 많은 유럽 국가에서 채택된 공식 식품 라벨링 시스템입니다. 소비자가 제품의 전반적인 영양 품질을 빠르게 평가하는 데 도움이 되는 간단한 그래픽 지표로 작동합니다."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-a",
+        "subtitle": "최고 점수",
+        "subtitleColor": "green-60",
+        "description": "최고의 영양 품질, 최소 칼로리, 지방, 설탕 및 소금, 섬유 및/또는 단백질이 풍부한 제품에 수여됩니다. <b>예:</b> 신선한 과일, 채소, 통곡물 제품 및 올리브 오일."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-b",
+        "subtitle": "매우 좋은 영양 품질",
+        "subtitleColor": "green-60",
+        "description": "제품은 일일 소비에 좋은 선택이며 매우 좋은 영양 균형을 가지고 있지만 카테고리 A보다 약간 더 많은 지방 또는 설탕을 포함할 수 있습니다. <b>예:</b> 무가당 저지방 요구르트 및 특정 유형의 통곡물 빵."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-c",
+        "subtitle": "평균 또는 \"중립\" 점수",
+        "subtitleColor": "bronze-60",
+        "description": "제품은 식단에 포함될 수 있지만 A 및 B 제품과 교대로 섭취해야 합니다. 중간 정도의 부정적 성분이 있거나 긍정적 특성이 지방이나 소금을 완전히 상쇄하지 않습니다. <b>예:</b> 대부분의 유형의 치즈 또는 흰 빵."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-d",
+        "subtitle": "낮은 영양 품질",
+        "subtitleColor": "bronze-60",
+        "description": "이러한 제품은 부정적 성분의 함량이 높으며 제한된 양으로 섭취해야 합니다. <b>예:</b> 많은 당이 첨가된 아침 식사 시리얼 또는 가공 육류 제품."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-e",
+        "subtitle": "최악의 점수",
+        "subtitleColor": "red-60",
+        "description": "매우 낮은 영양 품질의 제품에 할당되며 매우 높은 칼로리, 지방, 설탕 또는 소금 함량이 특징입니다. <b>칩, 초콜릿 스프레드 또는 당이 많은 탄산음료</b>와 같은 이러한 제품의 소비는 최소화해야 합니다."
+      }
+    ]
+  },
+  {
+    "id": "eco-score",
+    "type": "score",
+    "question": "ECO-Score란 무엇인가요?",
+    "title": "ECO-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Eco-Score는 전체 생명주기에 걸쳐 식품 제품의 생태학적 영향을 평가하는 포괄적인 환경 라벨입니다. 제품이 행성에 어떤 영향을 미치는지에 대한 투명한 정보를 소비자에게 제공하도록 설계되었으며 간단한 그래픽 5색, 5글자 척도를 사용합니다."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-a",
+        "subtitle": "최고의 환경 선택",
+        "subtitleColor": "green-60",
+        "description": "최소한의 환경 영향을 나타냅니다. 제품은 일반적으로 낮은 <b>CO2 배출</b>(예: 식물 기반 식품)로 인해 <b>LCA</b>에서 높은 점수를 받으며 유기농, 현지 조달 및 완전히 재활용 가능하거나 재사용 가능한 재료로 포장되어 최대 보너스를 받습니다. <b>예:</b> 계절성, 유기농, 최소 포장 채소."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-b",
+        "subtitle": "좋은 환경 선택",
+        "subtitleColor": "green-60",
+        "description": "전반적으로 좋은 환경 프로필을 나타냅니다. 제품은 일반적으로 지속 가능하지만 포장 또는 운송과 같은 한 영역에서 약간 더 높은 영향을 가질 수 있습니다. 재활용 가능한 재료를 사용하는 식물 기반 항목 또는 지속 가능하게 재배된 상품을 포함하는 경우가 많습니다."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-c",
+        "subtitle": "중간 환경 영향",
+        "subtitleColor": "bronze-60",
+        "description": "이것은 평균 또는 \"중립\" 점수입니다. 제품은 종종 카테고리의 표준을 나타내며 측정 가능한 환경 영향을 가지며 잠재적으로 에너지 집약적 처리, 일부 재활용 불가능한 포장 구성 요소 또는 더 긴 공급망 때문일 수 있습니다. 소비에 균형 잡힌 접근이 필요합니다."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-d",
+        "subtitle": "중간 환경 영향",
+        "subtitleColor": "bronze-60",
+        "description": "제품은 측정 가능한 환경 영향을 가지며 잠재적으로 에너지 집약적 처리, 일부 재활용 불가능한 포장 구성 요소 또는 더 긴 공급망 때문일 수 있습니다. 소비에 균형 잡힌 접근이 필요합니다."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-e",
+        "subtitle": "최고의 환경 영향",
+        "subtitleColor": "red-60",
+        "description": "이것은 최악의 점수로 매우 높은 환경 영향을 의미합니다. 제품은 일반적으로 높은 <b>LCA 점수</b>(예: <b>쇠고기</b>)와 원산지 추적성 부족 및 문제가 있는 일회용 포장과 같은 여러 페널티를 결합합니다. 이러한 제품의 소비는 최소화해야 합니다."
+      }
+    ]
+  },
+  {
+    "id": "nova-score",
+    "type": "score",
+    "question": "NOVA-Score란 무엇인가요?",
+    "title": "NOVA Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "NOVA 분류는 브라질 과학자들이 개발한 시스템으로 산업 가공 정도에 따라 식품 제품을 독점적으로 분류합니다. Nutri-Score와 달리 NOVA는 설탕, 지방 또는 소금과 같은 영양소 함량을 평가하지 않습니다. 대신 생산 방법과 성분에 중점을 둡니다."
+      },
+      {
+        "type": "section",
+        "image": "novascore-1",
+        "subtitle": "가공되지 않았거나 최소한으로 가공된 식품",
+        "subtitleColor": "green-60",
+        "description": "이러한 제품은 자연적으로 발생하거나 보존, 안전성 향상 또는 맛 개선을 위해 약간 변경됩니다. 허용된 변경 사항에는 <b>세척, 껍질 벗기기, 저온 살균, 냉동 또는 분쇄</b>와 같은 간단한 기술이 포함됩니다. 이러한 식품은 필수 정체성과 영양 프로필을 유지합니다. <b>예:</b> 신선하거나 건조하거나 냉동된 과일 및 채소, 전유, 신선한 고기, 달걀 및 쌀과 같은 기본 곡물."
+      },
+      {
+        "type": "section",
+        "image": "novascore-2",
+        "subtitle": "가공된 요리 성분",
+        "subtitleColor": "green-60",
+        "description": "이 그룹은 <b>그룹 1</b> 식품에서 직접 추출되거나 자연에서 얻은 물질로 구성되며 주로 주방에서 다른 식품을 준비, 조미 또는 보존하는 데 사용됩니다. 단독으로 소비하기 위한 것이 아닙니다. <b>압착, 정제 또는 건조</b>와 같은 프로세스를 통해 추출됩니다. <b>일반적인 예:</b> 식물성 오일, 소금, 설탕, 꿀 및 버터."
+      },
+      {
+        "type": "section",
+        "image": "novascore-3",
+        "subtitle": "가공 식품",
+        "subtitleColor": "bronze-60",
+        "description": "가공 식품은 <b>그룹 1</b>의 식품을 <b>그룹 2</b>의 요리 성분(소금, 오일 또는 설탕)과 결합하여 만든 비교적 간단한 항목입니다. 목표는 유통 기한을 연장하거나 감각 특성을 향상시키는 것입니다. 이러한 제품은 일반적으로 몇 가지 성분만 포함하며 여전히 통곡물 식품의 수정으로 쉽게 인식할 수 있습니다. <b>예:</b> 간단한 치즈(소금이 있는 발효 우유), 염수에 담근 통조림 채소, 최소한의 성분으로 만든 빵 및 일반 요구르트."
+      },
+      {
+        "type": "section",
+        "image": "novascore-4",
+        "subtitle": "초가공 식품(UPF)",
+        "subtitleColor": "red-60",
+        "description": "이러한 제품은 산업 가공의 최고 수준을 나타냅니다. 주로 산업 프로세스에서 파생된 성분으로 제조되며 일반적으로 가정 요리에서 사용되지 않는 수많은 첨가제를 포함합니다. <b>NOVA 4</b> 식품은 종종 <b>착색제, 유화제</b>(<b>E407</b> 등), <b>향미 증진제, 수소화 오일, 가수분해 단백질 및 변성 전분</b>과 같은 물질을 포함합니다. 이러한 항목은 최대 편의성, 맛 및 긴 유통 기한을 위해 설계되었습니다. 소비는 엄격히 제한되어야 합니다. <b>예:</b> 대부분의 즉석 냉동 식사, 당이 많은 탄산음료, 대량 생산 아침 식사 시리얼, 소시지와 같은 대부분의 가공 육류 제품 및 다양한 포장 스낵 및 칩."
+      }
+    ]
+  }
+]

@@ -1,0 +1,318 @@
+[
+  {
+    "id": "barcode-scanner",
+    "type": "question",
+    "question": "Food ID 如何工作？",
+    "title": "Food ID 如何工作",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID 通过提供即时访问详细产品信息来帮助您做出明智的食物选择。只需扫描产品的条形码或手动输入即可查看营养数据、成分、过敏原和健康评分。"
+      },
+      {
+        "type": "section",
+        "subtitle": "扫描产品",
+        "description": "将相机对准任何产品的条形码。Food ID 会自动检测并读取它，然后立即显示完整的产品详情。如果相机无法读取条形码，请点击键盘图标手动输入。"
+      },
+      {
+        "type": "section",
+        "subtitle": "您将看到的内容",
+        "description": "每个产品显示带有颜色编码图标（绿色表示良好，橙色表示中等，红色表示高）的营养值、主要特征、过敏原、成分以及健康评分，如 Nutri-Score、Eco-Score 和 NOVA Score。这有助于您快速了解产品的营养质量和环境影响。"
+      },
+      {
+        "type": "section",
+        "subtitle": "产品信息来源",
+        "description": "Food ID 使用来自 <b>OpenFoodFacts</b> 的产品信息，这是一个免费、开放、协作的全球食品产品数据库。信息包括营养数据、成分、过敏原和其他产品详情，由全球用户社区贡献。"
+      }
+    ]
+  },
+  {
+    "id": "scan-fails",
+    "type": "question",
+    "question": "为什么扫描有时会失败？",
+    "title": "扫描问题",
+    "sections": [
+      {
+        "type": "text",
+        "content": "有几个因素可能导致条形码扫描失败。以下是最常见的问题及其解决方法："
+      },
+      {
+        "type": "section",
+        "subtitle": "光线不足",
+        "description": "条形码扫描器需要充足的光线才能准确读取代码。尝试移动到更亮的区域或打开额外的灯光。避免直射阳光或可能使条形码模糊的强烈反射。"
+      },
+      {
+        "type": "section",
+        "subtitle": "距离和角度",
+        "description": "将设备保持在距离条形码舒适的距离（约15-30厘米）。保持相机与条形码表面平行。倾斜或倾斜的条形码更难读取。"
+      },
+      {
+        "type": "section",
+        "subtitle": "损坏或脏污的条形码",
+        "description": "划痕、撕裂或脏污的条形码可能无法正确扫描。尝试清洁条形码表面，如果代码不可读，请使用手动输入。"
+      },
+      {
+        "type": "section",
+        "subtitle": "产品不在数据库中",
+        "description": "如果条形码扫描成功但没有出现产品信息，该产品可能尚未在 OpenFoodFacts 数据库中。您可以访问 <b>openfoodfacts.org</b> 并贡献产品信息来添加它。"
+      },
+      {
+        "type": "section",
+        "subtitle": "相机权限",
+        "description": "确保您已授予 Food ID 相机权限。如果扫描不起作用，请检查设备设置并确保为应用启用了相机访问权限。"
+      }
+    ]
+  },
+  {
+    "id": "nutrient-coloring",
+    "type": "question",
+    "question": "营养素如何评估和着色？",
+    "title": "营养素评估",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID 使用两种方法来确定营养素水平和颜色编码："
+      },
+      {
+        "type": "section",
+        "subtitle": "主要方法：官方产品信息",
+        "description": "当可用时，Food ID 直接使用来自 Open Food Facts 的官方营养信息。这是最可靠的来源，因为它基于产品的实际营养标签。"
+      },
+      {
+        "type": "section",
+        "subtitle": "备用方法：行业标准",
+        "description": "如果官方营养信息不可用，Food ID 使用基于 <b>欧盟营养标签法规</b> 以及 WHO 和 EFSA 健康建议的行业标准指南来确定营养素水平。"
+      },
+      {
+        "type": "table",
+        "title": "营养素阈值（每100克）",
+        "dataSource": "nutrient-thresholds"
+      },
+      {
+        "type": "section",
+        "subtitle": "颜色编码",
+        "description": "标准营养素（脂肪、糖、盐、卡路里）：<b>低</b> = 绿色（良好），<b>中等</b> = 橙色（注意），<b>高</b> = 红色（限制）。积极营养素（蛋白质、纤维）：<b>高</b> = 绿色（良好），<b>低/中等</b> = 灰色（中性）。数据不足 = 灰色。"
+      },
+      {
+        "type": "section",
+        "subtitle": "缺失信息",
+        "description": "如果营养素值不可用或无法确定，图标保持灰色，表示该产品的此信息不可用。"
+      }
+    ]
+  },
+  {
+    "id": "favorites",
+    "type": "question",
+    "question": "如何将产品添加到收藏？",
+    "title": "收藏",
+    "answer": "查看产品详情时，点击屏幕底部的心形图标。心形将变为红色，表示产品已添加到您的收藏。您可以随时从收藏标签访问您的收藏。"
+  },
+  {
+    "id": "data-storage",
+    "type": "question",
+    "question": "我的扫描历史记录存储在哪里？",
+    "title": "数据存储",
+    "sections": [
+      {
+        "type": "text",
+        "content": "您扫描的所有产品和收藏都本地存储在您的设备上。这意味着您的数据永远不会离开您的手机，并保持完全私密。"
+      },
+      {
+        "type": "section",
+        "subtitle": "本地存储",
+        "description": "您的扫描历史、收藏和产品信息仅存储在您的设备上。不会发送到外部服务或在线存储。"
+      },
+      {
+        "type": "section",
+        "subtitle": "隐私",
+        "description": "由于所有内容都保留在您的设备上，您拥有完全控制权。如果您卸载应用，您的所有信息都会被删除。产品详情在您扫描时从 OpenFoodFacts 检索，但您的个人扫描历史和收藏永远不会离开您的设备。"
+      }
+    ]
+  },
+  {
+    "id": "assessments",
+    "type": "question",
+    "question": "如何生成正面和负面评估？",
+    "title": "评估",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID 分析产品的营养含量，包括卡路里、蛋白质、脂肪、碳水化合物、纤维、钠和糖。我们将这些值与基于欧盟法规和行业标准的推荐每日摄入指南进行比较。"
+      },
+      {
+        "type": "section",
+        "subtitle": "正面评估",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsUp",
+        "subtitleAssessment": "positive",
+        "subtitleColor": "green-60",
+        "description": "当产品富含有益营养素（纤维、蛋白质）且限制成分（饱和脂肪、钠、糖）含量低时，会获得正面评估。这些产品支持均衡饮食和健康的饮食习惯。"
+      },
+      {
+        "type": "section",
+        "subtitle": "负面评估",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsDown",
+        "subtitleAssessment": "negative",
+        "subtitleColor": "red-60",
+        "description": "当产品含有高水平的饱和脂肪、钠或糖时，会获得负面评估。这些应作为均衡饮食的一部分适量食用。"
+      }
+    ]
+  },
+  {
+    "id": "products-not-found",
+    "type": "question",
+    "question": "为什么我找不到某些产品？",
+    "title": "缺失产品",
+    "sections": [
+      {
+        "type": "text",
+        "content": "并非所有产品都已在 OpenFoodFacts 中可用。信息由社区驱动并不断增长，已有数百万产品可用。"
+      },
+      {
+        "type": "section",
+        "subtitle": "为什么产品可能缺失",
+        "description": "新产品、区域商品或不太常见的品牌可能尚未可用。信息依赖于社区贡献来扩大覆盖范围。"
+      },
+      {
+        "type": "section",
+        "subtitle": "如何添加产品",
+        "description": "您可以通过向 OpenFoodFacts 添加缺失的产品来做出贡献。访问 <b>openfoodfacts.org</b> 扫描条形码并添加产品信息，包括营养成分、成分和照片。"
+      }
+    ]
+  },
+  {
+    "id": "nutri-score",
+    "type": "score",
+    "question": "什么是 Nutri-Score？",
+    "title": "Nutri-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Nutri-Score 是一个官方的食品标签系统，在法国开发并被许多欧洲国家采用。它作为一个简单的图形指标，帮助消费者快速评估产品的整体营养质量。"
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-a",
+        "subtitle": "最佳评分",
+        "subtitleColor": "green-60",
+        "description": "授予具有最高营养质量、最少卡路里、脂肪、糖和盐、富含纤维和/或蛋白质的产品。<b>示例：</b>新鲜水果、蔬菜、全谷物产品和橄榄油。"
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-b",
+        "subtitle": "非常好的营养质量",
+        "subtitleColor": "green-60",
+        "description": "产品是日常消费的良好选择，具有非常好的营养平衡，尽管它们可能比 A 类含有稍多的脂肪或糖。<b>示例：</b>无糖低脂酸奶和某些类型的全麦面包。"
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-c",
+        "subtitle": "平均或\"中性\"评分",
+        "subtitleColor": "bronze-60",
+        "description": "产品可以包含在饮食中，但应与 A 和 B 产品交替使用。它们具有中等负面成分，或者它们的正面特征不能完全抵消脂肪或盐。<b>示例：</b>大多数类型的奶酪或白面包。"
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-d",
+        "subtitle": "低营养质量",
+        "subtitleColor": "bronze-60",
+        "description": "此类产品具有高含量的负面成分，应限量食用。<b>示例：</b>许多加糖早餐谷物或加工肉类产品。"
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-e",
+        "subtitle": "最差评分",
+        "subtitleColor": "red-60",
+        "description": "分配给营养质量非常低的产品，其特征是卡路里、脂肪、糖或盐含量非常高。应尽量减少此类产品的消费，如 <b>薯片、巧克力酱或含糖软饮料</b>。"
+      }
+    ]
+  },
+  {
+    "id": "eco-score",
+    "type": "score",
+    "question": "什么是 ECO-Score？",
+    "title": "ECO-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Eco-Score 是一个全面的环境标签，评估食品产品在整个生命周期中的生态影响。它旨在为消费者提供关于产品如何影响地球的透明信息，使用简单的图形五色、五字母量表。"
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-a",
+        "subtitle": "最佳环境选择",
+        "subtitleColor": "green-60",
+        "description": "表示环境影响最小。产品通常在 <b>LCA</b> 上得分高，因为 <b>CO2 排放</b> 低（例如，植物性食品），并且因有机、本地采购和完全可回收或可重复使用的材料包装而获得最大奖励。<b>示例：</b>季节性、有机、最少包装的蔬菜。"
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-b",
+        "subtitle": "良好的环境选择",
+        "subtitleColor": "green-60",
+        "description": "代表良好的整体环境概况。产品通常是可持续的，但在某个领域（如包装或运输）可能影响稍高。它们通常包括植物性物品或使用可回收材料的可持续种植商品。"
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-c",
+        "subtitle": "中等环境影响",
+        "subtitleColor": "bronze-60",
+        "description": "这是平均或\"中性\"评分。产品通常代表类别的标准，具有可测量的环境影响，可能由于能源密集型加工、一些不可回收的包装组件或更长的供应链。它们需要平衡的消费方法。"
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-d",
+        "subtitle": "中等环境影响",
+        "subtitleColor": "bronze-60",
+        "description": "产品具有可测量的环境影响，可能由于能源密集型加工、一些不可回收的包装组件或更长的供应链。它们需要平衡的消费方法。"
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-e",
+        "subtitle": "最高环境影响",
+        "subtitleColor": "red-60",
+        "description": "这是最差的评分，表示非常高的环境影响。产品通常结合高 <b>LCA 评分</b>（例如，<b>牛肉</b>）和多项惩罚，如缺乏原产地可追溯性和有问题的、一次性包装。应尽量减少这些产品的消费。"
+      }
+    ]
+  },
+  {
+    "id": "nova-score",
+    "type": "score",
+    "question": "什么是 NOVA-Score？",
+    "title": "NOVA Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "NOVA 分类是由巴西科学家开发的系统，专门根据工业加工程度对食品进行分类。与 Nutri-Score 不同，NOVA 不评估糖、脂肪或盐等营养成分；相反，它专注于生产方法和成分。"
+      },
+      {
+        "type": "section",
+        "image": "novascore-1",
+        "subtitle": "未加工或最少加工食品",
+        "subtitleColor": "green-60",
+        "description": "这些产品是天然存在的或经过轻微改变以保存它们、使其更安全或改善适口性。允许的改变包括简单技术，如 <b>清洗、去皮、巴氏杀菌、冷冻或研磨</b>。这些食物保留其基本特性和营养特征。<b>示例：</b>新鲜、干燥或冷冻的水果和蔬菜、全脂牛奶、新鲜肉类、鸡蛋和基本谷物如大米。"
+      },
+      {
+        "type": "section",
+        "image": "novascore-2",
+        "subtitle": "加工烹饪配料",
+        "subtitleColor": "green-60",
+        "description": "该组包括直接从 <b>第1组</b> 食物中提取或从自然界获得的物质，主要用于厨房中准备、调味或保存其他食物。它们不打算单独食用。它们通过 <b>压榨、精炼或干燥</b> 等过程提取。<b>常见示例：</b>植物油、盐、糖、蜂蜜和黄油。"
+      },
+      {
+        "type": "section",
+        "image": "novascore-3",
+        "subtitle": "加工食品",
+        "subtitleColor": "bronze-60",
+        "description": "加工食品是通过将 <b>第1组</b> 的食物与 <b>第2组</b> 的烹饪配料（盐、油或糖）结合制成的相对简单的物品。目标是延长保质期或增强感官特性。这些产品通常只包含少量成分，仍然很容易识别为全食物的修改。<b>示例：</b>简单奶酪（加盐的发酵牛奶）、盐水中的罐装蔬菜、用最少成分制成的面包和普通酸奶。"
+      },
+      {
+        "type": "section",
+        "image": "novascore-4",
+        "subtitle": "超加工食品 (UPF)",
+        "subtitleColor": "red-60",
+        "description": "这些产品代表工业加工的最高程度。它们通常由主要来自工业过程的成分配制，并包括许多通常不在家庭烹饪中使用的添加剂。<b>NOVA 4</b> 食品通常含有 <b>着色剂、乳化剂</b>（如 <b>E407</b>）、<b>风味增强剂、氢化油、水解蛋白质和改性淀粉</b> 等物质。这些物品设计用于最大便利性、适口性和长保质期。应严格限制其消费。<b>示例：</b>大多数即食冷冻餐、含糖软饮料、大规模生产的早餐谷物、大多数加工肉类如香肠，以及各种包装零食和薯片。"
+      }
+    ]
+  }
+]

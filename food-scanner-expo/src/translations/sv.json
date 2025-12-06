@@ -1,0 +1,168 @@
+{
+  "_meta": {
+    "name": "Svenska",
+    "flag": "🇸🇪"
+  },
+  "common": {
+    "cancel": "Avbryt",
+    "ok": "OK",
+    "done": "Klar",
+    "search": "Sök",
+    "clearAll": "Rensa allt",
+    "learnMore": "Läs mer",
+    "gotIt": "Jag förstår",
+    "unknown": "Okänt",
+    "loading": "Laddar...",
+    "pleaseWait": "Vänligen vänta...",
+    "error": "Fel",
+    "retry": "Försök igen"
+  },
+  "navigation": {
+    "scanner": "Skanner",
+    "history": "Historik",
+    "favourites": "Favoriter",
+    "info": "Info",
+    "faq": "Vanliga frågor",
+    "userAgreement": "Användaravtal",
+    "privacyPolicy": "Integritetspolicy"
+  },
+  "scanner": {
+    "loadingCamera": "Laddar kamera...",
+    "readyToScan": "Redo att skanna?",
+    "cameraPermissionDescription": "Vi behöver bara kameratillgång för att skanna streckkoder. Ingenting spelas in.",
+    "enableCamera": "Aktivera kamera",
+    "openSettings": "Öppna inställningar",
+    "openSettingsMessage": "Gå till Inställningar > Food ID > Kamera och aktivera kameratillgång.",
+    "enterBarcode": "Ange streckkod",
+    "enterBarcodeDescription": "Ange siffrorna under streckkoden för att hitta produkten",
+    "barcode": "Streckkod",
+    "buttonText": "Skanna din första produkt"
+  },
+  "product": {
+    "loadingProduct": "Laddar produkt...",
+    "nothingFound": "Hoppsan, ingenting hittades",
+    "unknownProduct": "Okänd produkt",
+    "notInDatabase": "Det verkar som att denna artikel inte finns i min kunskapsdatabas",
+    "noInformation": "Ingen information om denna produkt ännu"
+  },
+  "nutrition": {
+    "nutritionalValue": "Näringsvärde",
+    "per100g": "PER 100G",
+    "per100gPerPackage": "PER 100G / PER FÖRPACKNING",
+    "calories": "Kalorier, kcal",
+    "protein": "Protein, g",
+    "fats": "Fett, g",
+    "saturatedFats": "Mättat fett, g",
+    "carbs": "Kolhydrater, g",
+    "sugars": "Socker, g",
+    "addedSugar": "Tillsatt socker, g",
+    "fiber": "Fiber, g",
+    "salt": "Salt, g",
+    "sodium": "Natrium, g",
+    "nutrientNames": {
+      "calories": "Kalorier",
+      "fat": "Fett",
+      "saturated-fat": "Mättat fett",
+      "sugars": "Socker",
+      "salt": "Salt",
+      "proteins": "Protein",
+      "fiber": "Fiber",
+      "carbohydrates": "Kolhydrater",
+      "sodium": "Natrium"
+    }
+  },
+  "scores": {
+    "nutriScores": "NÄRINGSVÄRDEBEDÖMNINGAR",
+    "nutriScore": "Nutri-Score",
+    "nutriScoreDescription": "Bedömer näringskvaliteten (A till E) per 100g, balanserar fördelaktiga (protein, fiber) och skadliga (fett, socker, salt) komponenter. A är det bästa valet för hälsan.",
+    "ecoscore": "ECO-Score",
+    "ecoscoreDescription": "Bedömer miljöpåverkan (A till E), med hänsyn till CO2-utsläpp, förpackningens återvinningsbarhet och ingrediensernas ursprung. A är det bästa valet för planeten.",
+    "novascore": "NOVA Score",
+    "novascoreDescription": "Bedömer graden av industriell bearbetning (Grupp 1 till 4). Grupp 4 är Ultra-Bearbetad Mat (UPF), som bör begränsas oavsett dess näringsinnehåll.",
+    "excellentChoice": "Utmärkt val",
+    "goodOption": "Bra alternativ",
+    "lessHealthy": "Mindre hälsosamt",
+    "unhealthy": "Ohälsosamt"
+  },
+  "characteristics": {
+    "keyCharacteristics": "Nyckelegenskaper",
+    "highInFiber": "Högt fiberinnehåll",
+    "richInProtein": "Rikt på protein",
+    "lowInSugar": "Lågt sockerinnehåll",
+    "lowInSalt": "Lågt saltinnehåll",
+    "lowInFat": "Lågt fettinnehåll",
+    "lowInSaturatedFat": "Lågt mättat fettinnehåll",
+    "lowCalorie": "Lågt kaloriinnehåll",
+    "highInFat": "Högt fettinnehåll",
+    "highInSaturatedFat": "Högt mättat fettinnehåll",
+    "highCalorie": "Högt kaloriinnehåll",
+    "highInSugar": "Högt sockerinnehåll",
+    "highInSalt": "Högt saltinnehåll",
+    "highInCarbohydrates": "Högt kolhydratinnehåll",
+    "highInSodium": "Högt natriuminnehåll",
+    "containsAddedSugars": "Innehåller tillsatt socker"
+  },
+  "allergens": {
+    "allergens": "Allergener"
+  },
+  "ingredients": {
+    "ingredients": "Ingredienser"
+  },
+  "narrative": {
+    "balancedProfile": "Denna produkt har en balanserad näringsprofil utan betydande bekymmer eller anmärkningsvärda fördelar.",
+    "productIs": "Denna produkt är ",
+    "and": " och ",
+    "howeverIt": "Men den ",
+    "excellentConsumption": "Detta är ett utmärkt val för regelbunden konsumtion.",
+    "goodConsumption": "Detta är ett bra val och kan konsumeras regelbundet med måtta.",
+    "moderateConsumption": "Överväg att konsumera denna produkt med måtta och balansera den med hälsosammare alternativ.",
+    "limitConsumption": "Det är bäst att begränsa konsumtionen av denna produkt och välja hälsosammare alternativ när det är möjligt."
+  },
+  "history": {
+    "emptyBasket": "En tom korg berättar inga historier",
+    "startBuilding": "Börja bygga din historik - en skanning i taget!",
+    "clearAllHistory": "Rensa all historik",
+    "clearAllHistoryMessage": "Är du säker på att du vill rensa alla objekt från din historik? Det påverkar inte listan över favoritprodukter"
+  },
+  "favourites": {
+    "brokenHeart": "Brutet hjärta",
+    "brokenHeartDescription": "Dina favoritsnacks är allt det behöver för att läka!",
+    "findFavourites": "Hitta dina favoriter",
+    "clearAllFavourites": "Rensa alla favoriter",
+    "clearAllFavouritesMessage": "Är du säker på att du vill rensa alla objekt från dina favoriter?"
+  },
+  "settings": {
+    "language": "Språk",
+    "faq": "Vanliga frågor",
+    "shareTheApp": "Dela appen",
+    "rateTheApp": "Betygsätt appen",
+    "contactDevelopers": "Kontakta utvecklare",
+    "userAgreement": "Användaravtal",
+    "privacyPolicy": "Integritetspolicy",
+    "appVersion": "Appversion",
+    "shareFoodId": "Dela Food ID",
+    "contactFoodId": "Kontakta Food ID",
+    "contactSubject": "Food ID App - Kontakt",
+    "contactMessage": "Kontakta Food ID utvecklare\n\nE-post: {email}\nÄmne: {subject}",
+    "contactFallback": "E-post: {email}\n\nÄmne: Food ID App - Kontakt\n\nDu kan kopiera e-postadressen och skicka oss ett meddelande.",
+    "feedbackSupportTitle": "Feedback & support",
+    "feedbackSupportMessage": "För att ge feedback eller begära support, vänligen skicka ett e-postmeddelande till {email}",
+    "shareMessage": "Kolla in Food ID - appen som hjälper dig att fatta informerade matval!\n\n🍎 App Store: {iosLink}\n🤖 Google Play: {androidLink}",
+    "unableToShare": "Kunde inte dela appen. Försök igen.",
+    "unableToOpenStore": "Kunde inte öppna appbutiken. Försök igen.",
+    "unableToOpenEmail": "Kunde inte öppna e-postappen. Försök igen."
+  },
+  "alerts": {
+    "nutriScoreTitle": "Nutri-Score {grade} - {description}",
+    "shareError": "Delningsfel",
+    "unableToShareProduct": "Kunde inte dela produkten. Försök igen."
+  },
+  "faq": {
+    "itemNotFound": "FAQ-objekt hittades inte",
+    "nutrientTableTitle": "Näringsämneströsklar (per 100g)",
+    "nutrientTableNutrientHeader": "Näringsämne",
+    "nutrientTableLowHeader": "Låg",
+    "nutrientTableModerateHeader": "Måttlig",
+    "nutrientTableHighHeader": "Hög"
+  }
+}

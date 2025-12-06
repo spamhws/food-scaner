@@ -1,0 +1,318 @@
+[
+  {
+    "id": "barcode-scanner",
+    "type": "question",
+    "question": "Hur fungerar Food ID?",
+    "title": "Hur Food ID fungerar",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID hjälper dig att fatta informerade matval genom att ge omedelbar åtkomst till detaljerad produktinformation. Skanna helt enkelt en produkts streckkod eller ange den manuellt för att se näringsvärden, ingredienser, allergener och hälsopoäng."
+      },
+      {
+        "type": "section",
+        "subtitle": "Skanna produkter",
+        "description": "Rikta din kamera mot en produkts streckkod. Food ID upptäcker och läser den automatiskt, sedan visar den dig omedelbart omfattande produktdetaljer. Om kameran inte kan läsa streckkoden, tryck på tangentbordsikonen för att ange den manuellt."
+      },
+      {
+        "type": "section",
+        "subtitle": "Vad du kommer att se",
+        "description": "Varje produkt visar näringsvärden med färgkodade ikoner (grönt för bra, orange för måttligt, rött för högt), nyckelegenskaper, allergener, ingredienser och hälsopoäng som Nutri-Score, Eco-Score och NOVA Score. Detta hjälper dig att snabbt förstå en produkts näringskvalitet och miljöpåverkan."
+      },
+      {
+        "type": "section",
+        "subtitle": "Källa till produktinformation",
+        "description": "Food ID använder produktinformation från <b>OpenFoodFacts</b>, en gratis, öppen, kollaborativ databas med livsmedelsprodukter från hela världen. Information inkluderar näringsdata, ingredienser, allergener och andra produktdetaljer som bidragits av en global gemenskap av användare."
+      }
+    ]
+  },
+  {
+    "id": "scan-fails",
+    "type": "question",
+    "question": "Varför misslyckas skanningen ibland?",
+    "title": "Skanproblem",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Flera faktorer kan förhindra framgångsrik streckkodsskanning. Här är de vanligaste problemen och hur man löser dem:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Dålig belysning",
+        "description": "Streckkodsskannrar behöver tillräckligt ljus för att läsa koder korrekt. Försök flytta till ett ljusare område eller slå på extra ljus. Undvik direkt solljus eller hårda reflektioner som kan utplåna streckkoden."
+      },
+      {
+        "type": "section",
+        "subtitle": "Avstånd och vinkel",
+        "description": "Håll din enhet på ett bekvämt avstånd (cirka 15-30 cm) från streckkoden. Håll kameran parallell med streckkodens yta. Vinklade eller lutade streckkoder är svårare att läsa."
+      },
+      {
+        "type": "section",
+        "subtitle": "Skadade eller smutsiga streckkoder",
+        "description": "Repade, rivna eller smutsiga streckkoder kanske inte skannas korrekt. Försök rengöra streckkodens yta eller använd manuell inmatning om koden är oläsbar."
+      },
+      {
+        "type": "section",
+        "subtitle": "Produkt inte i databasen",
+        "description": "Om streckkoden skannas framgångsrikt men ingen produktinformation visas, kan produkten inte finnas i OpenFoodFacts-databasen ännu. Du kan lägga till den genom att besöka <b>openfoodfacts.org</b> och bidra med produktinformation."
+      },
+      {
+        "type": "section",
+        "subtitle": "Kameratillstånd",
+        "description": "Se till att du har beviljat kameratillstånd till Food ID. Om skanningen inte fungerar, kontrollera enhetens inställningar och se till att kameråtkomst är aktiverad för appen."
+      }
+    ]
+  },
+  {
+    "id": "nutrient-coloring",
+    "type": "question",
+    "question": "Hur utvärderas och färgkodas näringsämnen?",
+    "title": "Näringsämnesutvärdering",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID använder två metoder för att bestämma näringsämnesnivåer och färgkodning:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Primär metod: Officiell produktinformation",
+        "description": "När tillgänglig använder Food ID officiell näringsinformation direkt från Open Food Facts. Detta är den mest pålitliga källan eftersom den är baserad på produktens faktiska näringsdeklaration."
+      },
+      {
+        "type": "section",
+        "subtitle": "Reservmetod: Industristandarder",
+        "description": "Om officiell näringsinformation inte är tillgänglig bestämmer Food ID näringsämnesnivåer med hjälp av branschstandardriktlinjer baserade på <b>EU:s näringsmärkningsförordningar</b> och hälsorekommendationer från WHO och EFSA."
+      },
+      {
+        "type": "table",
+        "title": "Näringsämneströsklar (per 100g)",
+        "dataSource": "nutrient-thresholds"
+      },
+      {
+        "type": "section",
+        "subtitle": "Färgkodning",
+        "description": "Standardnäringsämnen (fett, socker, salt, kalorier): <b>Låg</b> = Grönt (bra), <b>Måttlig</b> = Orange (försiktighet), <b>Hög</b> = Rött (begränsa). Positiva näringsämnen (protein, fiber): <b>Hög</b> = Grönt (bra), <b>Låg/Måttlig</b> = Grått (neutralt). Otillräckliga data = Grått."
+      },
+      {
+        "type": "section",
+        "subtitle": "Saknad information",
+        "description": "Om ett näringsvärde inte är tillgängligt eller inte kan bestämmas förblir ikonen grå för att indikera att denna information inte är tillgänglig för produkten."
+      }
+    ]
+  },
+  {
+    "id": "favorites",
+    "type": "question",
+    "question": "Hur lägger jag till produkter i favoriter?",
+    "title": "Favoriter",
+    "answer": "När du visar en produkts detaljer, tryck på hjärtikonen längst ner på skärmen. Hjärtat blir rött, vilket indikerar att produkten har lagts till i dina favoriter. Öppna dina favoriter när som helst från fliken favoriter."
+  },
+  {
+    "id": "data-storage",
+    "type": "question",
+    "question": "Var lagras min skanningshistorik?",
+    "title": "Datalagring",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Alla dina skannade produkter och favoriter lagras lokalt på din enhet. Detta betyder att dina data aldrig lämnar din telefon och förblir helt privata."
+      },
+      {
+        "type": "section",
+        "subtitle": "Lokal lagring",
+        "description": "Din skanningshistorik, favoriter och produktinformation lagras endast på din enhet. Inget skickas till externa tjänster eller lagras online."
+      },
+      {
+        "type": "section",
+        "subtitle": "Integritet",
+        "description": "Eftersom allt stannar på din enhet har du full kontroll. Om du avinstallerar appen tas all din information bort. Produktdetaljer hämtas från OpenFoodFacts när du skannar, men din personliga skanningshistorik och favoriter lämnar aldrig din enhet."
+      }
+    ]
+  },
+  {
+    "id": "assessments",
+    "type": "question",
+    "question": "Hur genereras positiva och negativa bedömningar?",
+    "title": "Bedömningar",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID analyserar produktens näringsinnehåll inklusive kalorier, proteiner, fetter, kolhydrater, fiber, natrium och sockerarter. Vi jämför dessa värden med rekommenderade dagliga intagsriktlinjer baserade på EU-förordningar och branschstandarder."
+      },
+      {
+        "type": "section",
+        "subtitle": "Positiva bedömningar",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsUp",
+        "subtitleAssessment": "positive",
+        "subtitleColor": "green-60",
+        "description": "Produkter får positiva bedömningar när de är rika på fördelaktiga näringsämnen (fiber, protein) och låga i komponenter att begränsa (mättade fetter, natrium, sockerarter). Dessa produkter stödjer en balanserad kost och hälsosamma ätvanor."
+      },
+      {
+        "type": "section",
+        "subtitle": "Negativa bedömningar",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsDown",
+        "subtitleAssessment": "negative",
+        "subtitleColor": "red-60",
+        "description": "Produkter får negativa bedömningar när de innehåller höga nivåer av mättade fetter, natrium eller sockerarter. Dessa bör konsumeras med måtta som en del av en balanserad kost."
+      }
+    ]
+  },
+  {
+    "id": "products-not-found",
+    "type": "question",
+    "question": "Varför kan jag inte hitta vissa produkter?",
+    "title": "Saknade produkter",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Inte alla produkter finns tillgängliga i OpenFoodFacts ännu. Information drivs av gemenskapen och växer ständigt, med miljontals produkter redan tillgängliga."
+      },
+      {
+        "type": "section",
+        "subtitle": "Varför produkter kan saknas",
+        "description": "Nya produkter, regionala artiklar eller mindre vanliga varumärken kanske inte är tillgängliga ännu. Information är beroende av gemenskapsbidrag för att utöka täckningen."
+      },
+      {
+        "type": "section",
+        "subtitle": "Hur man lägger till produkter",
+        "description": "Du kan bidra genom att lägga till saknade produkter till OpenFoodFacts. Besök <b>openfoodfacts.org</b> för att skanna streckkoden och lägga till produktinformation inklusive näringsfakta, ingredienser och foton."
+      }
+    ]
+  },
+  {
+    "id": "nutri-score",
+    "type": "score",
+    "question": "Vad är Nutri-Score?",
+    "title": "Nutri-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Nutri-Score är ett officiellt livsmedelsmärkningssystem, utvecklat i Frankrike och antaget av många europeiska länder. Det fungerar som en enkel, grafisk indikator som hjälper konsumenter att snabbt bedöma en produkts övergripande näringskvalitet."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-a",
+        "subtitle": "Det bästa resultatet",
+        "subtitleColor": "green-60",
+        "description": "Tilldelas produkter med högsta näringskvalitet, minimala kalorier, fetter, sockerarter och salt, rika på fiber och/eller protein. <b>Exempel:</b> färska frukter, grönsaker, fullkornsprodukter och olivolja."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-b",
+        "subtitle": "Mycket bra näringskvalitet",
+        "subtitleColor": "green-60",
+        "description": "Produkter är ett bra val för daglig konsumtion, med mycket bra näringsbalans, även om de kan innehålla något mer fett eller socker än kategori A. <b>Exempel:</b> osötade fettfattiga yoghurtar och vissa typer av fullkornsbröd."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-c",
+        "subtitle": "Genomsnittligt eller \"neutralt\" resultat",
+        "subtitleColor": "bronze-60",
+        "description": "Produkter kan inkluderas i kosten men bör växlas med A- och B-produkter. De har måttliga negativa komponenter, eller deras positiva egenskaper kompenserar inte fullt ut fetter eller salt. <b>Exempel:</b> de flesta typer av ost eller vitt bröd."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-d",
+        "subtitle": "Låg näringskvalitet",
+        "subtitleColor": "bronze-60",
+        "description": "Sådana produkter har ett högt innehåll av negativa komponenter och bör konsumeras i begränsade mängder. <b>Exempel:</b> många sötade frukostflingor eller bearbetade köttprodukter."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-e",
+        "subtitle": "Det sämsta resultatet",
+        "subtitleColor": "red-60",
+        "description": "Tilldelas produkter med mycket låg näringskvalitet, kännetecknade av mycket högt innehåll av kalorier, fetter, socker eller salt. Konsumtion av sådana produkter, som <b>chips, chokladpasta eller sockerhaltiga läskedrycker</b>, bör minimeras."
+      }
+    ]
+  },
+  {
+    "id": "eco-score",
+    "type": "score",
+    "question": "Vad är ECO-Score?",
+    "title": "ECO-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Eco-Score är en omfattande miljömärkning som bedömer den ekologiska påverkan av livsmedelsprodukter under hela deras livscykel. Den utformades för att ge konsumenter transparent information om hur produkten påverkar planeten, med hjälp av en enkel, grafisk femfärgs-, fembokstavsskala."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-a",
+        "subtitle": "Bästa miljövalet",
+        "subtitleColor": "green-60",
+        "description": "Indikerar minimal miljöpåverkan. Produkter får vanligtvis höga poäng på <b>LCA</b> på grund av låga <b>CO2-utsläpp</b> (t.ex. växtbaserade livsmedel) och får maximala bonusar för att vara ekologiska, lokalt producerade och förpackade i helt återvinningsbara eller återanvändbara material. <b>Exempel:</b> säsongsbetonade, ekologiska, minimalt förpackade grönsaker."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-b",
+        "subtitle": "Bra miljöval",
+        "subtitleColor": "green-60",
+        "description": "Representerar en bra övergripande miljöprofil. Produkter är generellt hållbara men kan ha en något högre påverkan inom ett område, såsom förpackning eller transport. De inkluderar ofta växtbaserade artiklar eller hållbart odlade varor som använder återvinningsbara material."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-c",
+        "subtitle": "Måttlig miljöpåverkan",
+        "subtitleColor": "bronze-60",
+        "description": "Detta är genomsnittligt eller \"neutralt\" resultat. Produkter representerar ofta standarden för en kategori, med mätbar miljöpåverkan, potentiellt på grund av energikrävande bearbetning, vissa icke-återvinningsbara förpackningskomponenter eller längre leveranskedjor. De kräver en balanserad konsumtionsstrategi."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-d",
+        "subtitle": "Måttlig miljöpåverkan",
+        "subtitleColor": "bronze-60",
+        "description": "Produkter har mätbar miljöpåverkan, potentiellt på grund av energikrävande bearbetning, vissa icke-återvinningsbara förpackningskomponenter eller längre leveranskedjor. De kräver en balanserad konsumtionsstrategi."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-e",
+        "subtitle": "Högsta miljöpåverkan",
+        "subtitleColor": "red-60",
+        "description": "Detta är det sämsta resultatet, vilket betyder mycket hög miljöpåverkan. Produkter kombinerar vanligtvis ett högt <b>LCA-resultat</b> (t.ex. <b>nötkött</b>) med flera straff, såsom brist på ursprungsspårbarhet och problematisk, engångsförpackning. Konsumtion av dessa produkter bör minimeras."
+      }
+    ]
+  },
+  {
+    "id": "nova-score",
+    "type": "score",
+    "question": "Vad är NOVA-Score?",
+    "title": "NOVA Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "NOVA-klassificeringen är ett system utvecklat av brasilianska forskare som kategoriserar livsmedelsprodukter uteslutande enligt graden av deras industriella bearbetning. Till skillnad från Nutri-Score bedömer NOVA inte näringsämnesinnehåll som socker, fett eller salt; istället fokuserar det på produktionsmetoder och ingredienser."
+      },
+      {
+        "type": "section",
+        "image": "novascore-1",
+        "subtitle": "Obearbetade eller minimalt bearbetade livsmedel",
+        "subtitleColor": "green-60",
+        "description": "Dessa produkter är antingen naturligt förekommande eller lätt modifierade för att bevaras, göras säkrare eller förbättra smakligheten. Tillåtna ändringar inkluderar enkla tekniker som <b>tvättning, skalning, pastörisering, frysning eller malning</b>. Dessa livsmedel behåller sin väsentliga identitet och näringsprofil. <b>Exempel:</b> färska, torkade eller frysta frukter och grönsaker, helmjölk, färskt kött, ägg och grundläggande spannmål som ris."
+      },
+      {
+        "type": "section",
+        "image": "novascore-2",
+        "subtitle": "Bearbetade kulinariska ingredienser",
+        "subtitleColor": "green-60",
+        "description": "Denna grupp omfattar ämnen extraherade direkt från <b>Grupp 1</b>-livsmedel eller erhållna från naturen, används främst i köket för att förbereda, krydda eller konservera andra livsmedel. De är inte avsedda att konsumeras ensamma. De extraheras genom processer som <b>pressning, raffinering eller torkning</b>. <b>Vanliga exempel:</b> vegetabiliska oljor, salt, socker, honung och smör."
+      },
+      {
+        "type": "section",
+        "image": "novascore-3",
+        "subtitle": "Bearbetade livsmedel",
+        "subtitleColor": "bronze-60",
+        "description": "Bearbetade livsmedel är relativt enkla artiklar gjorda genom att kombinera livsmedel från <b>Grupp 1</b> med kulinariska ingredienser från <b>Grupp 2</b> (salt, olja eller socker). Målet är att förlänga hållbarheten eller förbättra sensoriska egenskaper. Dessa produkter innehåller vanligtvis bara några ingredienser och är fortfarande lätt igenkännbara som modifieringar av fullkornslivsmedel. <b>Exempel:</b> enkel ost (fermenterad mjölk med salt), konserverade grönsaker i saltlake, bröd gjort med minimala ingredienser och vanliga yoghurtar."
+      },
+      {
+        "type": "section",
+        "image": "novascore-4",
+        "subtitle": "Ultra-bearbetade livsmedel (UPF)",
+        "subtitleColor": "red-60",
+        "description": "Dessa produkter representerar den högsta graden av industriell bearbetning. De är ofta formulerade från ingredienser härrörande främst från industriella processer och inkluderar många tillsatser som normalt inte används i hemkokning. <b>NOVA 4</b>-livsmedel innehåller ofta ämnen som <b>färgämnen, emulgatorer</b> (såsom <b>E407</b>), <b>smakförstärkare, härdade oljor, hydrolyserade proteiner och modifierad stärkelse</b>. Dessa artiklar är utformade för maximal bekvämlighet, smaklighet och lång hållbarhet. Deras konsumtion bör strikt begränsas. <b>Exempel:</b> de flesta färdiga frysta måltider, sockerhaltiga läskedrycker, massproducerade frukostflingor, de flesta bearbetade köttprodukter som korvar och olika förpackade snacks och chips."
+      }
+    ]
+  }
+]

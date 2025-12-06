@@ -1,0 +1,318 @@
+[
+  {
+    "id": "barcode-scanner",
+    "type": "question",
+    "question": "Hoe werkt Food ID?",
+    "title": "Hoe Food ID werkt",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID helpt u geïnformeerde voedselkeuzes te maken door directe toegang te bieden tot gedetailleerde productinformatie. Scan gewoon de streepjescode van een product of voer deze handmatig in om voedingsgegevens, ingrediënten, allergenen en gezondheidsscores te zien."
+      },
+      {
+        "type": "section",
+        "subtitle": "Producten scannen",
+        "description": "Richt uw camera op de streepjescode van een product. Food ID detecteert en leest deze automatisch, en toont u vervolgens direct uitgebreide productdetails. Als de camera de streepjescode niet kan lezen, tik dan op het toetsenbordpictogram om deze handmatig in te voeren."
+      },
+      {
+        "type": "section",
+        "subtitle": "Wat u zult zien",
+        "description": "Elk product toont voedingswaarden met kleurgecodeerde pictogrammen (groen voor goed, oranje voor matig, rood voor hoog), belangrijke kenmerken, allergenen, ingrediënten en gezondheidsscores zoals Nutri-Score, Eco-Score en NOVA Score. Dit helpt u snel de voedingskwaliteit en milieueffect van een product te begrijpen."
+      },
+      {
+        "type": "section",
+        "subtitle": "Bron van productinformatie",
+        "description": "Food ID gebruikt productinformatie van <b>OpenFoodFacts</b>, een gratis, open, collaboratieve database van voedingsproducten van over de hele wereld. De informatie omvat voedingsgegevens, ingrediënten, allergenen en andere productdetails bijgedragen door een wereldwijde gemeenschap van gebruikers."
+      }
+    ]
+  },
+  {
+    "id": "scan-fails",
+    "type": "question",
+    "question": "Waarom faalt het scannen soms?",
+    "title": "Scanproblemen",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Verschillende factoren kunnen succesvolle streepjescode scanning voorkomen. Hier zijn de meest voorkomende problemen en hoe u ze kunt oplossen:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Slechte verlichting",
+        "description": "Streepjescode scanners hebben voldoende licht nodig om codes nauwkeurig te lezen. Probeer naar een lichtere plek te gaan of extra verlichting aan te zetten. Vermijd direct zonlicht of harde reflecties die de streepjescode kunnen uitwassen."
+      },
+      {
+        "type": "section",
+        "subtitle": "Afstand en hoek",
+        "description": "Houd uw apparaat op een comfortabele afstand (ongeveer 15-30 cm) van de streepjescode. Houd de camera parallel aan het oppervlak van de streepjescode. Schuin of gekantelde streepjescodes zijn moeilijker te lezen."
+      },
+      {
+        "type": "section",
+        "subtitle": "Beschadigde of vuile streepjescodes",
+        "description": "Gekraste, gescheurde of vuile streepjescodes kunnen mogelijk niet correct worden gescand. Probeer het oppervlak van de streepjescode schoon te maken of gebruik handmatige invoer als de code onleesbaar is."
+      },
+      {
+        "type": "section",
+        "subtitle": "Product niet in database",
+        "description": "Als de streepjescode succesvol wordt gescand maar er geen productinformatie verschijnt, is het product mogelijk nog niet in de OpenFoodFacts database. U kunt het toevoegen door <b>openfoodfacts.org</b> te bezoeken en productinformatie bij te dragen."
+      },
+      {
+        "type": "section",
+        "subtitle": "Cameratoegang",
+        "description": "Zorg ervoor dat u Food ID cameratoegang heeft verleend. Als scannen niet werkt, controleer de instellingen van uw apparaat en zorg ervoor dat cameratoegang is ingeschakeld voor de app."
+      }
+    ]
+  },
+  {
+    "id": "nutrient-coloring",
+    "type": "question",
+    "question": "Hoe worden voedingsstoffen geëvalueerd en gekleurd?",
+    "title": "Evaluatie van voedingsstoffen",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID gebruikt twee methoden om voedingsstofniveaus en kleurcodering te bepalen:"
+      },
+      {
+        "type": "section",
+        "subtitle": "Primaire methode: Officiële productinformatie",
+        "description": "Wanneer beschikbaar, gebruikt Food ID officiële voedingsinformatie direct van Open Food Facts. Dit is de meest betrouwbare bron omdat deze gebaseerd is op het werkelijke voedingsetiket van het product."
+      },
+      {
+        "type": "section",
+        "subtitle": "Fallback-methode: Industriestandaarden",
+        "description": "Als officiële voedingsinformatie niet beschikbaar is, bepaalt Food ID voedingsstofniveaus met behulp van industriestandaardrichtlijnen gebaseerd op <b>EU-voedingsetiketteringsvoorschriften</b> en gezondheidsaanbevelingen van WHO en EFSA."
+      },
+      {
+        "type": "table",
+        "title": "Voedingsstofdrempels (per 100g)",
+        "dataSource": "nutrient-thresholds"
+      },
+      {
+        "type": "section",
+        "subtitle": "Kleurcodering",
+        "description": "Standaard voedingsstoffen (vet, suiker, zout, calorieën): <b>Laag</b> = Groen (goed), <b>Matig</b> = Oranje (voorzichtigheid), <b>Hoog</b> = Rood (beperken). Positieve voedingsstoffen (eiwit, vezels): <b>Hoog</b> = Groen (goed), <b>Laag/Matig</b> = Grijs (neutraal). Onvoldoende gegevens = Grijs."
+      },
+      {
+        "type": "section",
+        "subtitle": "Ontbrekende informatie",
+        "description": "Als een voedingsstofwaarde niet beschikbaar is of niet kan worden bepaald, blijft het pictogram grijs om aan te geven dat deze informatie niet beschikbaar is voor het product."
+      }
+    ]
+  },
+  {
+    "id": "favorites",
+    "type": "question",
+    "question": "Hoe voeg ik producten toe aan favorieten?",
+    "title": "Favorieten",
+    "answer": "Bij het bekijken van de details van een product, tik op het hartpictogram onderaan het scherm. Het hart wordt rood, wat aangeeft dat het product aan uw favorieten is toegevoegd. Open uw favorieten op elk moment via het favorieten tabblad."
+  },
+  {
+    "id": "data-storage",
+    "type": "question",
+    "question": "Waar wordt mijn scanhistorie opgeslagen?",
+    "title": "Gegevensopslag",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Al uw gescande producten en favorieten worden lokaal op uw apparaat opgeslagen. Dit betekent dat uw gegevens uw telefoon nooit verlaten en volledig privé blijven."
+      },
+      {
+        "type": "section",
+        "subtitle": "Lokale opslag",
+        "description": "Uw scanhistorie, favorieten en productinformatie worden alleen op uw apparaat opgeslagen. Er wordt niets naar externe services verzonden of online opgeslagen."
+      },
+      {
+        "type": "section",
+        "subtitle": "Privacy",
+        "description": "Omdat alles op uw apparaat blijft, heeft u volledige controle. Als u de app verwijdert, worden al uw gegevens verwijderd. Productdetails worden opgehaald van OpenFoodFacts wanneer u scant, maar uw persoonlijke scanhistorie en favorieten verlaten nooit uw apparaat."
+      }
+    ]
+  },
+  {
+    "id": "assessments",
+    "type": "question",
+    "question": "Hoe worden positieve en negatieve beoordelingen gegenereerd?",
+    "title": "Beoordelingen",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Food ID analyseert de voedingsinhoud van het product, inclusief calorieën, eiwitten, vetten, koolhydraten, vezels, natrium en suikers. We vergelijken deze waarden met aanbevolen dagelijkse inname richtlijnen gebaseerd op EU-voorschriften en industriestandaarden."
+      },
+      {
+        "type": "section",
+        "subtitle": "Positieve beoordelingen",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsUp",
+        "subtitleAssessment": "positive",
+        "subtitleColor": "green-60",
+        "description": "Producten ontvangen positieve beoordelingen wanneer ze rijk zijn aan gunstige voedingsstoffen (vezels, eiwit) en laag in componenten om te beperken (verzadigde vetten, natrium, suikers). Deze producten ondersteunen een uitgebalanceerd dieet en gezonde eetgewoonten."
+      },
+      {
+        "type": "section",
+        "subtitle": "Negatieve beoordelingen",
+        "subtitleType": "WithIcon",
+        "subtitleIcon": "thumbsDown",
+        "subtitleAssessment": "negative",
+        "subtitleColor": "red-60",
+        "description": "Producten ontvangen negatieve beoordelingen wanneer ze hoge niveaus van verzadigde vetten, natrium of suikers bevatten. Deze moeten met mate worden geconsumeerd als onderdeel van een uitgebalanceerd dieet."
+      }
+    ]
+  },
+  {
+    "id": "products-not-found",
+    "type": "question",
+    "question": "Waarom kan ik sommige producten niet vinden?",
+    "title": "Ontbrekende producten",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Nog niet alle producten zijn beschikbaar in OpenFoodFacts. De informatie wordt door de gemeenschap gedreven en groeit constant, met miljoenen producten al beschikbaar."
+      },
+      {
+        "type": "section",
+        "subtitle": "Waarom producten mogelijk ontbreken",
+        "description": "Nieuwe producten, regionale items of minder voorkomende merken zijn mogelijk nog niet beschikbaar. De informatie is afhankelijk van gemeenschapsbijdragen om de dekking uit te breiden."
+      },
+      {
+        "type": "section",
+        "subtitle": "Hoe producten toe te voegen",
+        "description": "U kunt bijdragen door ontbrekende producten toe te voegen aan OpenFoodFacts. Bezoek <b>openfoodfacts.org</b> om de streepjescode te scannen en productinformatie toe te voegen, inclusief voedingsfeiten, ingrediënten en foto's."
+      }
+    ]
+  },
+  {
+    "id": "nutri-score",
+    "type": "score",
+    "question": "Wat is Nutri-Score?",
+    "title": "Nutri-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Nutri-Score is een officieel voedseletiketteringssysteem, ontwikkeld in Frankrijk en aangenomen door veel Europese landen. Het dient als een eenvoudige, grafische indicator die consumenten helpt snel de algehele voedingskwaliteit van een product te beoordelen."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-a",
+        "subtitle": "De beste score",
+        "subtitleColor": "green-60",
+        "description": "Toegekend aan producten met de hoogste voedingskwaliteit, minimale calorieën, vetten, suikers en zout, rijk aan vezels en/of eiwit. <b>Voorbeelden:</b> verse vruchten, groenten, volkorenproducten en olijfolie."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-b",
+        "subtitle": "Zeer goede voedingskwaliteit",
+        "subtitleColor": "green-60",
+        "description": "Producten zijn een goede keuze voor dagelijkse consumptie, met een zeer goede voedingsbalans, hoewel ze mogelijk iets meer vet of suiker bevatten dan categorie A. <b>Voorbeelden:</b> ongezoete magere yoghurts en bepaalde soorten volkorenbrood."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-c",
+        "subtitle": "Gemiddelde of \"neutrale\" score",
+        "subtitleColor": "bronze-60",
+        "description": "Producten kunnen in het dieet worden opgenomen, maar moeten worden afgewisseld met A- en B-producten. Ze hebben matige negatieve componenten, of hun positieve kenmerken compenseren vetten of zout niet volledig. <b>Voorbeelden:</b> de meeste soorten kaas of witbrood."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-d",
+        "subtitle": "Lage voedingskwaliteit",
+        "subtitleColor": "bronze-60",
+        "description": "Dergelijke producten hebben een hoog gehalte aan negatieve componenten en moeten in beperkte hoeveelheden worden geconsumeerd. <b>Voorbeelden:</b> veel gezoete ontbijtgranen of verwerkte vleesproducten."
+      },
+      {
+        "type": "section",
+        "image": "nutriscore-e",
+        "subtitle": "De slechtste score",
+        "subtitleColor": "red-60",
+        "description": "Toegewezen aan producten met zeer lage voedingskwaliteit, gekenmerkt door zeer hoog gehalte aan calorieën, vetten, suiker of zout. Consumptie van dergelijke producten, zoals <b>chips, chocoladepasta's of suikerhoudende frisdranken</b>, moet worden geminimaliseerd."
+      }
+    ]
+  },
+  {
+    "id": "eco-score",
+    "type": "score",
+    "question": "Wat is ECO-Score?",
+    "title": "ECO-Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "De Eco-Score is een uitgebreide milieulabel die de ecologische impact van voedingsproducten gedurende hun hele levenscyclus beoordeelt. Het is ontworpen om consumenten transparante informatie te geven over hoe het product de planeet beïnvloedt, met behulp van een eenvoudige, grafische vijfkleuren-, vijfletter schaal."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-a",
+        "subtitle": "Beste milieukeuze",
+        "subtitleColor": "green-60",
+        "description": "Geeft een minimale milieueffect aan. Producten scoren meestal hoog op <b>LCA</b> vanwege lage <b>CO2-emissies</b> (bijv. plantaardig voedsel) en verdienen maximale bonussen voor biologisch, lokaal geproduceerd en verpakt in volledig recyclebare of herbruikbare materialen. <b>Voorbeeld:</b> seizoensgebonden, biologische, minimaal verpakte groenten."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-b",
+        "subtitle": "Goede milieukeuze",
+        "subtitleColor": "green-60",
+        "description": "Vertegenwoordigt een goed algemeen milieuprofiel. Producten zijn over het algemeen duurzaam maar kunnen een iets hogere impact hebben in één gebied, zoals verpakking of transport. Ze omvatten vaak plantaardige items of duurzaam geteelde goederen die recyclebare materialen gebruiken."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-c",
+        "subtitle": "Matige milieueffect",
+        "subtitleColor": "bronze-60",
+        "description": "Dit is de gemiddelde of \"neutrale\" score. Producten vertegenwoordigen vaak de standaard voor een categorie, met een meetbaar milieueffect, mogelijk door energie-intensieve verwerking, sommige niet-recyclebare verpakkingscomponenten of langere toeleveringsketens. Ze vereisen een gebalanceerde benadering van consumptie."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-d",
+        "subtitle": "Matige milieueffect",
+        "subtitleColor": "bronze-60",
+        "description": "Producten hebben een meetbaar milieueffect, mogelijk door energie-intensieve verwerking, sommige niet-recyclebare verpakkingscomponenten of langere toeleveringsketens. Ze vereisen een gebalanceerde benadering van consumptie."
+      },
+      {
+        "type": "section",
+        "image": "ecoscore-e",
+        "subtitle": "Hoogste milieueffect",
+        "subtitleColor": "red-60",
+        "description": "Dit is de slechtste score, wat een zeer hoog milieueffect betekent. Producten combineren meestal een hoge <b>LCA-score</b> (bijv. <b>rundvlees</b>) met meerdere straffen, zoals gebrek aan oorsprongstraceerbaarheid en problematische, wegwerpverpakking. Consumptie van deze producten moet worden geminimaliseerd."
+      }
+    ]
+  },
+  {
+    "id": "nova-score",
+    "type": "score",
+    "question": "Wat is NOVA-Score?",
+    "title": "NOVA Score",
+    "sections": [
+      {
+        "type": "text",
+        "content": "De NOVA-classificatie is een systeem ontwikkeld door Braziliaanse wetenschappers dat voedingsproducten uitsluitend categoriseert volgens de mate van hun industriële verwerking. In tegenstelling tot Nutri-Score beoordeelt NOVA niet de voedingsstofinhoud zoals suiker, vet of zout; in plaats daarvan richt het zich op productiemethoden en ingrediënten."
+      },
+      {
+        "type": "section",
+        "image": "novascore-1",
+        "subtitle": "Onbewerkte of minimaal bewerkte voedingsmiddelen",
+        "subtitleColor": "green-60",
+        "description": "Deze producten zijn natuurlijk voorkomend of licht gewijzigd om ze te bewaren, veiliger te maken of de smakelijkheid te verbeteren. Toegestane wijzigingen omvatten eenvoudige technieken zoals <b>wassen, schillen, pasteuriseren, invriezen of malen</b>. Deze voedingsmiddelen behouden hun essentiële identiteit en voedingsprofiel. <b>Voorbeelden:</b> verse, gedroogde of bevroren vruchten en groenten, volle melk, vers vlees, eieren en basisgranen zoals rijst."
+      },
+      {
+        "type": "section",
+        "image": "novascore-2",
+        "subtitle": "Bewerkte culinaire ingrediënten",
+        "subtitleColor": "green-60",
+        "description": "Deze groep omvat stoffen die direct uit <b>Groep 1</b>-voedingsmiddelen worden geëxtraheerd of uit de natuur worden verkregen, voornamelijk gebruikt in de keuken voor het bereiden, kruiden of conserveren van andere voedingsmiddelen. Ze zijn niet bedoeld om alleen te worden geconsumeerd. Ze worden geëxtraheerd via processen zoals <b>persen, raffineren of drogen</b>. <b>Veelvoorkomende voorbeelden:</b> plantaardige oliën, zout, suiker, honing en boter."
+      },
+      {
+        "type": "section",
+        "image": "novascore-3",
+        "subtitle": "Bewerkte voedingsmiddelen",
+        "subtitleColor": "bronze-60",
+        "description": "Bewerkte voedingsmiddelen zijn relatief eenvoudige items gemaakt door voedingsmiddelen uit <b>Groep 1</b> te combineren met culinaire ingrediënten uit <b>Groep 2</b> (zout, olie of suiker). Het doel is om de houdbaarheid te verlengen of sensorische kenmerken te verbeteren. Deze producten bevatten typisch slechts enkele ingrediënten en zijn nog steeds gemakkelijk herkenbaar als modificaties van volwaardige voedingsmiddelen. <b>Voorbeelden:</b> eenvoudige kaas (gefermenteerde melk met zout), ingeblikte groenten in pekel, brood gemaakt met minimale ingrediënten en gewone yoghurts."
+      },
+      {
+        "type": "section",
+        "image": "novascore-4",
+        "subtitle": "Ultra-bewerkte voedingsmiddelen (UPF)",
+        "subtitleColor": "red-60",
+        "description": "Deze producten vertegenwoordigen de hoogste graad van industriële verwerking. Ze worden vaak geformuleerd uit ingrediënten die voornamelijk afkomstig zijn van industriële processen en bevatten talrijke additieven die normaal niet worden gebruikt bij het thuis koken. <b>NOVA 4</b>-voedingsmiddelen bevatten vaak stoffen zoals <b>kleurstoffen, emulgatoren</b> (zoals <b>E407</b>), <b>smaakversterkers, gehydrogeneerde oliën, gehydrolyseerde eiwitten en gemodificeerd zetmeel</b>. Deze items zijn ontworpen voor maximale gemak, smakelijkheid en lange houdbaarheid. Hun consumptie moet strikt worden beperkt. <b>Voorbeelden:</b> de meeste kant-en-klaar bevroren maaltijden, suikerhoudende frisdranken, massaproductie ontbijtgranen, de meeste verwerkte vleesproducten zoals worstjes en verschillende verpakte snacks en chips."
+      }
+    ]
+  }
+]

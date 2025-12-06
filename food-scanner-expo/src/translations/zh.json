@@ -1,0 +1,168 @@
+{
+  "_meta": {
+    "name": "中文",
+    "flag": "🇨🇳"
+  },
+  "common": {
+    "cancel": "取消",
+    "ok": "确定",
+    "done": "完成",
+    "search": "搜索",
+    "clearAll": "清除全部",
+    "learnMore": "了解更多",
+    "gotIt": "知道了",
+    "unknown": "未知",
+    "loading": "加载中...",
+    "pleaseWait": "请稍候...",
+    "error": "错误",
+    "retry": "重试"
+  },
+  "navigation": {
+    "scanner": "扫描器",
+    "history": "历史记录",
+    "favourites": "收藏",
+    "info": "信息",
+    "faq": "常见问题",
+    "userAgreement": "用户协议",
+    "privacyPolicy": "隐私政策"
+  },
+  "scanner": {
+    "loadingCamera": "正在加载相机...",
+    "readyToScan": "准备扫描？",
+    "cameraPermissionDescription": "我们只需要相机权限来扫描条形码。不会录制任何内容。",
+    "enableCamera": "启用相机",
+    "openSettings": "打开设置",
+    "openSettingsMessage": "请前往 设置 > Food ID > 相机 并启用相机访问权限。",
+    "enterBarcode": "输入条形码",
+    "enterBarcodeDescription": "输入条形码下方的数字以查找产品",
+    "barcode": "条形码",
+    "buttonText": "扫描您的第一个产品"
+  },
+  "product": {
+    "loadingProduct": "正在加载产品...",
+    "nothingFound": "哎呀，什么都没找到",
+    "unknownProduct": "未知产品",
+    "notInDatabase": "看起来此商品不在我的知识库中",
+    "noInformation": "此产品暂无信息"
+  },
+  "nutrition": {
+    "nutritionalValue": "营养价值",
+    "per100g": "每100克",
+    "per100gPerPackage": "每100克 / 每包装",
+    "calories": "卡路里，千卡",
+    "protein": "蛋白质，克",
+    "fats": "脂肪，克",
+    "saturatedFats": "饱和脂肪，克",
+    "carbs": "碳水化合物，克",
+    "sugars": "糖，克",
+    "addedSugar": "添加糖，克",
+    "fiber": "纤维，克",
+    "salt": "盐，克",
+    "sodium": "钠，克",
+    "nutrientNames": {
+      "calories": "卡路里",
+      "fat": "脂肪",
+      "saturated-fat": "饱和脂肪",
+      "sugars": "糖",
+      "salt": "盐",
+      "proteins": "蛋白质",
+      "fiber": "纤维",
+      "carbohydrates": "碳水化合物",
+      "sodium": "钠"
+    }
+  },
+  "scores": {
+    "nutriScores": "营养评分",
+    "nutriScore": "营养评分",
+    "nutriScoreDescription": "评估每100克的营养质量（A到E），平衡有益成分（蛋白质、纤维）和有害成分（脂肪、糖、盐）。A是健康的最佳选择。",
+    "ecoscore": "生态评分",
+    "ecoscoreDescription": "评估环境影响（A到E），考虑二氧化碳排放、包装可回收性和成分来源。A是对地球的最佳选择。",
+    "novascore": "NOVA评分",
+    "novascoreDescription": "评估工业加工程度（第1组到第4组）。第4组是超加工食品（UPF），无论其营养成分如何，都应限制摄入。",
+    "excellentChoice": "绝佳选择",
+    "goodOption": "不错的选择",
+    "lessHealthy": "不太健康",
+    "unhealthy": "不健康"
+  },
+  "characteristics": {
+    "keyCharacteristics": "主要特征",
+    "highInFiber": "高纤维",
+    "richInProtein": "富含蛋白质",
+    "lowInSugar": "低糖",
+    "lowInSalt": "低盐",
+    "lowInFat": "低脂",
+    "lowInSaturatedFat": "低饱和脂肪",
+    "lowCalorie": "低卡路里",
+    "highInFat": "高脂肪",
+    "highInSaturatedFat": "高饱和脂肪",
+    "highCalorie": "高卡路里",
+    "highInSugar": "高糖",
+    "highInSalt": "高盐",
+    "highInCarbohydrates": "高碳水化合物",
+    "highInSodium": "高钠",
+    "containsAddedSugars": "含添加糖"
+  },
+  "allergens": {
+    "allergens": "过敏原"
+  },
+  "ingredients": {
+    "ingredients": "成分"
+  },
+  "narrative": {
+    "balancedProfile": "此产品具有均衡的营养成分，没有重大担忧或显著益处。",
+    "productIs": "此产品",
+    "and": "和",
+    "howeverIt": "然而，它",
+    "excellentConsumption": "这是定期食用的绝佳选择。",
+    "goodConsumption": "这是一个不错的选择，可以适量定期食用。",
+    "moderateConsumption": "建议适量食用此产品，并与更健康的选择保持平衡。",
+    "limitConsumption": "最好限制此产品的摄入，并在可能的情况下选择更健康的替代品。"
+  },
+  "history": {
+    "emptyBasket": "空篮子讲不出故事",
+    "startBuilding": "开始构建您的历史记录——一次扫描一个！",
+    "clearAllHistory": "清除所有历史记录",
+    "clearAllHistoryMessage": "您确定要清除历史记录中的所有项目吗？这不会影响收藏产品列表"
+  },
+  "favourites": {
+    "brokenHeart": "破碎的心",
+    "brokenHeartDescription": "您喜爱的零食就是治愈它所需的一切！",
+    "findFavourites": "查找您的收藏",
+    "clearAllFavourites": "清除所有收藏",
+    "clearAllFavouritesMessage": "您确定要清除所有收藏项目吗？"
+  },
+  "settings": {
+    "language": "语言",
+    "faq": "常见问题",
+    "shareTheApp": "分享应用",
+    "rateTheApp": "评价应用",
+    "contactDevelopers": "联系开发者",
+    "userAgreement": "用户协议",
+    "privacyPolicy": "隐私政策",
+    "appVersion": "应用版本",
+    "shareFoodId": "分享 Food ID",
+    "contactFoodId": "联系 Food ID",
+    "contactSubject": "Food ID 应用 - 联系",
+    "contactMessage": "联系 Food ID 开发者\n\n邮箱：{email}\n主题：{subject}",
+    "contactFallback": "邮箱：{email}\n\n主题：Food ID 应用 - 联系\n\n您可以复制邮箱地址并给我们发送消息。",
+    "feedbackSupportTitle": "反馈与支持",
+    "feedbackSupportMessage": "要提供反馈或请求支持，请发送电子邮件至 {email}",
+    "shareMessage": "看看 Food ID——帮助您做出明智食物选择的应用！\n\n🍎 App Store：{iosLink}\n🤖 Google Play：{androidLink}",
+    "unableToShare": "无法分享应用。请重试。",
+    "unableToOpenStore": "无法打开应用商店。请重试。",
+    "unableToOpenEmail": "无法打开电子邮件应用。请重试。"
+  },
+  "alerts": {
+    "nutriScoreTitle": "营养评分 {grade} - {description}",
+    "shareError": "分享错误",
+    "unableToShareProduct": "无法分享产品。请重试。"
+  },
+  "faq": {
+    "itemNotFound": "未找到常见问题项目",
+    "nutrientTableTitle": "营养素阈值（每100克）",
+    "nutrientTableNutrientHeader": "营养素",
+    "nutrientTableLowHeader": "低",
+    "nutrientTableModerateHeader": "中等",
+    "nutrientTableHighHeader": "高"
+  }
+}

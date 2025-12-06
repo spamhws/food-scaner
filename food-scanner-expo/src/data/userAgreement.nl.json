@@ -1,0 +1,51 @@
+{
+  "title": "Gebruikersovereenkomst",
+  "lastUpdated": "2025-12-03",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Acceptatie van voorwaarden",
+      "content": "Door de Food ID mobiele applicatie te downloaden, te installeren of te gebruiken, gaat u akkoord met deze Gebruiksvoorwaarden. Als u niet akkoord gaat met deze voorwaarden, gebruik dan de app niet."
+    },
+    {
+      "id": 2,
+      "title": "Beschrijving van de service",
+      "content": "Food ID is een mobiele applicatie die gebruikers in staat stelt productbarcodes te scannen en voedingsinformatie op te halen uit de OpenFoodFacts-database. De app biedt voedingsanalyse, ingrediëntenlijsten, allergeneninformatie en gepersonaliseerde beoordelingen om gebruikers te helpen geïnformeerde voedselkeuzes te maken."
+    },
+    {
+      "id": 3,
+      "title": "Gebruikersverantwoordelijkheden",
+      "content": "U bent verantwoordelijk voor het handhaven van de vertrouwelijkheid van uw apparaat en voor alle activiteiten die op uw apparaat plaatsvinden. U gaat akkoord om de app alleen voor wettige doeleinden en in overeenstemming met deze Voorwaarden te gebruiken. U gaat akkoord om de app niet te misbruiken of de normale werking ervan te verstoren."
+    },
+    {
+      "id": 4,
+      "title": "Nauwkeurigheid van gegevens",
+      "content": "Productinformatie is afkomstig van OpenFoodFacts, een door de gemeenschap gedreven database. Hoewel we ernaar streven nauwkeurige informatie te verstrekken, kunnen we niet de volledigheid of nauwkeurigheid van alle productgegevens garanderen. Gebruikers moeten kritische informatie, vooral met betrekking tot allergenen, verifiëren met productverpakkingen of fabrikanten."
+    },
+    {
+      "id": 5,
+      "title": "Intellectueel eigendom",
+      "content": "De app en de oorspronkelijke inhoud, functies en functionaliteit zijn eigendom van Food ID en worden beschermd door internationale auteursrechten, handelsmerken en andere wetten op intellectueel eigendom. Productgegevens worden verstrekt door OpenFoodFacts onder de Open Database License (ODbL)."
+    },
+    {
+      "id": 6,
+      "title": "Aansprakelijkheidsbeperking",
+      "content": "Food ID en zijn ontwikkelaars zijn niet aansprakelijk voor indirecte, incidentele, speciale, gevolgschade of strafschade als gevolg van uw gebruik of onvermogen om de app te gebruiken. We bieden de app 'zoals deze is' zonder garanties van welke aard dan ook, expliciet of impliciet."
+    },
+    {
+      "id": 7,
+      "title": "Wijzigingen in de voorwaarden",
+      "content": "We behouden ons het recht voor om deze Voorwaarden te allen tijde te wijzigen. We zullen gebruikers op de hoogte stellen van wijzigingen door de datum 'Laatst bijgewerkt' bij te werken. Uw voortgezet gebruik van de app na wijzigingen betekent acceptatie van de gewijzigde Voorwaarden."
+    },
+    {
+      "id": 8,
+      "title": "Beëindiging",
+      "content": "We kunnen uw toegang tot de app onmiddellijk beëindigen of opschorten, zonder voorafgaande kennisgeving, om welke reden dan ook, inclusief schending van deze Voorwaarden. Bij beëindiging zal uw recht om de app te gebruiken onmiddellijk ophouden."
+    },
+    {
+      "id": 9,
+      "title": "Contact",
+      "content": "Als u vragen heeft over deze Voorwaarden, neem dan contact met ons op via de ondersteuningskanalen van de app."
+    }
+  ]
+}

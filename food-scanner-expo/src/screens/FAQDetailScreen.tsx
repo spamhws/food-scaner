@@ -9,11 +9,13 @@ import { ScoreImage } from '@/components/ScoreImage';
 import { useTranslation as useI18nTranslation } from 'react-i18next';
 
 // Load FAQ data based on language
-const getFAQData = (language: 'en' | 'uk') => {
-  if (language === 'uk') {
-    return require('@/data/faq.uk.json');
+const getFAQData = (language: string) => {
+  try {
+    return require(`@/translations/${language}/faq.json`);
+  } catch {
+    // Fallback to English if language file doesn't exist
+    return require('@/translations/en/faq.json');
   }
-  return require('@/data/faq.json');
 };
 import { getTailwindColor } from '@/lib/utils/tailwind-colors';
 import nutrientThresholdsData from '@/data/nutrient-thresholds.json';
