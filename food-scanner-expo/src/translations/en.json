@@ -145,6 +145,8 @@
     "contactSubject": "Food ID App - Contact",
     "contactMessage": "Contact Food ID Developers\n\nEmail: {email}\nSubject: {subject}",
     "contactFallback": "Email: {email}\n\nSubject: Food ID App - Contact\n\nYou can copy the email address and send us a message.",
+    "feedbackSupportTitle": "Feedback & Support",
+    "feedbackSupportMessage": "To provide feedback or request support, please e-mail {email}",
     "shareMessage": "Check out Food ID - the app that helps you make informed food choices!\n\n🍎 App Store: {iosLink}\n🤖 Google Play: {androidLink}",
     "unableToShare": "Unable to share the app. Please try again.",
     "unableToOpenStore": "Unable to open the app store. Please try again.",

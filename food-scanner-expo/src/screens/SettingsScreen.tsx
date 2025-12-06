@@ -123,39 +123,23 @@ export function SettingsScreen() {
   };
 
   const handleContactDevelopers = async () => {
-    try {
-      const subject = t('settings.contactSubject');
-      const mailtoUrl = `mailto:${contactInfo.email}?subject=${encodeURIComponent(subject)}`;
+    const subject = t('settings.contactSubject');
+    const mailtoUrl = `mailto:${contactInfo.email}?subject=${encodeURIComponent(subject)}`;
 
-      // Try to open mailto: URL
+    try {
       const canOpen = await Linking.canOpenURL(mailtoUrl);
       if (canOpen) {
-        try {
-          await Linking.openURL(mailtoUrl);
-          return; // Successfully opened
-        } catch (openError) {
-          // If opening fails (e.g., Expo Go iOS limitation), fall back to Share
-        }
+        await Linking.openURL(mailtoUrl);
+        return;
       }
-
-      // Fallback: Use Share API (works in Expo Go)
-      // This allows users to share the email via any app (Mail, Messages, etc.)
-      const emailMessage = t('settings.contactMessage', {
-        email: contactInfo.email,
-        subject,
-      });
-      await Share.share({
-        message: emailMessage,
-        title: t('settings.contactFoodId'),
-      });
     } catch (error) {
-      // Final fallback: show email in alert
-      Alert.alert(
-        t('settings.contactDevelopers'),
-        t('settings.contactFallback', { email: contactInfo.email }),
-        [{ text: t('common.ok') }]
-      );
+      // Fall through to alert
     }
+
+    // Show alert with email (fallback for iOS or if can't open)
+    const messageTemplate = t('settings.feedbackSupportMessage');
+    const message = messageTemplate.replace('{email}', contactInfo.email);
+    Alert.alert(t('settings.feedbackSupportTitle'), message, [{ text: t('common.ok') }]);
   };
 
   return (

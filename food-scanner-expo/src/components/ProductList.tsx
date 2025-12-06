@@ -1,5 +1,12 @@
 import React, { useRef } from 'react';
-import { View, Text, ScrollView, LayoutChangeEvent } from 'react-native';
+import {
+  View,
+  ScrollView,
+  LayoutChangeEvent,
+  Dimensions,
+  Animated as RNAnimated,
+  TouchableOpacity,
+} from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
 import Animated, {
   runOnJS,
@@ -9,6 +16,10 @@ import Animated, {
 } from 'react-native-reanimated';
 import { ProductCard } from './ProductCard';
 import { IconTrash, IconHeartOff } from '@tabler/icons-react-native';
+
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const DELETE_BUTTON_MIN_SIZE = 32;
+const DELETE_BUTTON_MAX_SIZE = 64;
 
 interface ProductListProps {
   barcodes: string[];
@@ -32,7 +43,7 @@ function AnimatedSwipeableItem({
   totalItems: number;
   children: React.ReactNode;
   onDelete: (barcode: string) => void;
-  renderRightActions: () => React.ReactNode;
+  renderRightActions: (progress: RNAnimated.AnimatedInterpolation<number>) => React.ReactNode;
 }) {
   const swipeableRef = useRef<Swipeable>(null);
   const CARD_MIN_HEIGHT = 120;
@@ -65,7 +76,6 @@ function AnimatedSwipeableItem({
     marginBottom: marginBottom.value,
     opacity: opacity.value,
     overflow: 'visible',
-    
   }));
 
   return (
@@ -96,18 +106,58 @@ export function ProductList({
     return null;
   }
 
-  const renderRightActions = (barcode: string) => {
-    if (!onProductDelete) return null;
-
+  const renderRightActions = (barcode: string, onDeletePress: () => void) => {
     const IconComponent = deleteIcon === 'heart-off' ? IconHeartOff : IconTrash;
 
-    return (
-      <View className="flex-1 justify-center items-end bg-red-60 rounded-xl ml-3">
-        <View className="w-20 h-full justify-center items-center">
-          <IconComponent size={24} stroke="#FFFFFF" strokeWidth={1.5} />
+    return (progress: RNAnimated.AnimatedInterpolation<number>) => {
+      if (!onProductDelete) return null;
+
+      // Interpolate opacity: fade in as we swipe
+      const opacity = progress.interpolate({
+        inputRange: [0.1, 0.35],
+        outputRange: [0, 1],
+        extrapolate: 'clamp',
+      });
+
+      // Interpolate button scale: 32px to 64px as we swipe
+      const buttonScale = progress.interpolate({
+        inputRange: [0.1, 0.35],
+        outputRange: [DELETE_BUTTON_MIN_SIZE / DELETE_BUTTON_MAX_SIZE, 1],
+        extrapolate: 'clamp',
+      });
+
+      return (
+        <View
+          className="justify-center items-end ml-3"
+          style={{
+            width: SCREEN_WIDTH,
+            paddingRight: 8,
+          }}
+        >
+          <RNAnimated.View
+            style={{
+              opacity,
+              transform: [{ scale: buttonScale }],
+            }}
+          >
+            <TouchableOpacity
+              onPress={onDeletePress}
+              activeOpacity={0.7}
+              style={{
+                width: DELETE_BUTTON_MAX_SIZE,
+                height: DELETE_BUTTON_MAX_SIZE,
+                borderRadius: DELETE_BUTTON_MAX_SIZE / 2,
+                backgroundColor: '#EF4444',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <IconComponent size={24} stroke="#FFFFFF" strokeWidth={1.5} />
+            </TouchableOpacity>
+          </RNAnimated.View>
         </View>
-      </View>
-    );
+      );
+    };
   };
 
   return (
@@ -129,6 +179,10 @@ export function ProductList({
         );
 
         if (onProductDelete) {
+          const handleDelete = () => {
+            onProductDelete(barcode);
+          };
+
           return (
             <AnimatedSwipeableItem
               key={barcode}
@@ -136,8 +190,7 @@ export function ProductList({
               index={index}
               totalItems={barcodes.length}
               onDelete={onProductDelete}
-              renderRightActions={() => renderRightActions(barcode)}
-              
+              renderRightActions={renderRightActions(barcode, handleDelete)}
             >
               {card}
             </AnimatedSwipeableItem>
