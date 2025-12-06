@@ -6,10 +6,10 @@
 export function getDeviceLanguage(): string {
   // Get device locale using Intl API (works in React Native)
   const locale = Intl.DateTimeFormat().resolvedOptions().locale || 'en';
-  
+
   // Extract 2-letter language code (e.g., 'en-US' -> 'en', 'uk-UA' -> 'uk')
   const langCode = locale.split('-')[0].toLowerCase();
-  
+
   // OpenFoodFacts supports many languages
   // Common ones: en, fr, de, es, it, pt, nl, pl, uk, ru, cs, sk, hu, ro, bg, etc.
   // If language not explicitly supported, OpenFoodFacts will fallback to English
@@ -24,4 +24,3 @@ export function getDeviceLanguage(): string {
 export function getOpenFoodFactsLanguage(): string {
   return getDeviceLanguage();
 }
-

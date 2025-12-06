@@ -9,7 +9,6 @@ import {
   Linking,
   Alert,
 } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
 import Constants from 'expo-constants';
 import { useHeaderHeight } from '@/hooks/useHeaderHeight';
 import {
@@ -87,14 +86,6 @@ export function SettingsScreen() {
 
   // Dynamically get available languages from translation files
   const languages = getAvailableLanguages();
-
-  const handleLanguageChange = (langCode: string) => {
-    const validCodes = languages.map((lang) => lang.code);
-    if (validCodes.includes(langCode)) {
-      changeLanguage(langCode);
-    }
-  };
-
   const currentLanguageData = languages.find((lang) => lang.code === currentLanguage);
 
   const handleShareApp = async () => {
@@ -211,36 +202,14 @@ export function SettingsScreen() {
           showChevron={false}
         />
 
-        {/* Language Picker - Full Card Style */}
-        <View className="flex-row items-center bg-white rounded-xl shadow-card px-4 py-1 mb-3">
-          <View className="mr-3">
-            <IconLanguage size={24} stroke="#8E99AB" />
-          </View>
-          <View className="flex-1">
-            <Text className="text-base font-medium text-black">{t('settings.language')}</Text>
-          </View>
-          <View className="flex-row items-center flex-1 justify-end">
-            <Picker
-              selectedValue={currentLanguage}
-              onValueChange={handleLanguageChange}
-              style={{
-                flex: 1,
-                minWidth: 140,
-                height: Platform.OS === 'ios' ? 100 : 50,
-              }}
-              dropdownIconColor="#8E99AB"
-              mode={Platform.OS === 'android' ? 'dropdown' : 'dialog'}
-            >
-              {languages.map((lang) => (
-                <Picker.Item
-                  key={lang.code}
-                  label={`${lang.flag}  ${lang.name}`}
-                  value={lang.code}
-                />
-              ))}
-            </Picker>
-          </View>
-        </View>
+        <SettingItem
+          icon={<IconLanguage size={24} stroke="#8E99AB" />}
+          title={t('settings.language')}
+          value={
+            currentLanguageData ? `${currentLanguageData.flag} ${currentLanguageData.name}` : ''
+          }
+          onPress={() => navigation.navigate('LanguageSelection')}
+        />
 
         <SettingItem
           icon={<IconShieldLock size={24} stroke="#8E99AB" />}

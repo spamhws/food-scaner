@@ -10,4 +10,3 @@ export function getAvailableLanguages() {
     }))
     .sort((a, b) => (a.code === 'en' ? -1 : b.code === 'en' ? 1 : a.name.localeCompare(b.name)));
 }
-

@@ -54,23 +54,19 @@ export function FavouritesScreen() {
   };
 
   const handleClearAll = () => {
-    Alert.alert(
-      t('favourites.clearAllFavourites'),
-      t('favourites.clearAllFavouritesMessage'),
-      [
-        {
-          text: t('common.cancel'),
-          style: 'cancel',
+    Alert.alert(t('favourites.clearAllFavourites'), t('favourites.clearAllFavouritesMessage'), [
+      {
+        text: t('common.cancel'),
+        style: 'cancel',
+      },
+      {
+        text: t('common.clearAll'),
+        style: 'destructive',
+        onPress: async () => {
+          await clear();
         },
-        {
-          text: t('common.clearAll'),
-          style: 'destructive',
-          onPress: async () => {
-            await clear();
-          },
-        },
-      ]
-    );
+      },
+    ]);
   };
 
   // Set header right button for Clear All

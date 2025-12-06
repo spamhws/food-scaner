@@ -10,6 +10,7 @@ import { FAQScreen } from '@/screens/FAQScreen';
 import { FAQDetailScreen } from '@/screens/FAQDetailScreen';
 import { UserAgreementScreen } from '@/screens/UserAgreementScreen';
 import { PrivacyPolicyScreen } from '@/screens/PrivacyPolicyScreen';
+import { LanguageSelectionScreen } from '@/screens/LanguageSelectionScreen';
 import { isLiquidGlassAvailable } from 'expo-glass-effect';
 
 // Header tint color - matches native header button styling
@@ -53,6 +54,7 @@ export type RootStackParamList = {
   FAQDetail: { id: string };
   UserAgreement: undefined;
   PrivacyPolicy: undefined;
+  LanguageSelection: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -140,6 +142,13 @@ export function AppNavigator() {
         component={PrivacyPolicyScreen}
         options={{
           title: t('navigation.privacyPolicy'),
+        }}
+      />
+      <Stack.Screen
+        name="LanguageSelection"
+        component={LanguageSelectionScreen}
+        options={{
+          title: t('settings.language'),
         }}
       />
     </Stack.Navigator>
