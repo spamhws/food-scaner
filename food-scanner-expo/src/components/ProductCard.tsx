@@ -97,25 +97,46 @@ export function ProductCard({
     ]);
   };
 
+  // Calculate badge grade and determine icon
+  const badgeGrade = product ? calculateBadgeGrade(product) : null;
+  const isPositiveGrade = badgeGrade === 'A' || badgeGrade === 'B' || badgeGrade === 'C';
+  const badgeVariant = badgeGrade ? getNutriscoreBadgeVariant(badgeGrade) : null;
+  const iconType = badgeGrade ? (isPositiveGrade ? 'thumbUp' : 'thumbDown') : undefined;
+
   const content = (
     <View className="flex-row gap-3">
       {/* Left Section - Product Image */}
-      <View className="relative aspect-square h-full items-center justify-center rounded-xl border border-gray-30 bg-gray-10 overflow-hidden">
-        {isLoading ? (
-          <ActivityIndicator size="large" color="#8E99AB" />
-        ) : isError ? (
-          <IconMoodSurprised size={32} strokeWidth={1.75} stroke="#8E99AB" />
-        ) : product?.image ? (
-          <>
-            <Image
-              source={{ uri: product.image }}
-              className="absolute h-full w-full"
-              blurRadius={16}
-            />
-            <Image source={{ uri: product.image }} className="h-full w-full" resizeMode="contain" />
-          </>
-        ) : (
-          <IconPhotoOff size={32} strokeWidth={1.75} stroke="#8E99AB" />
+      <View className="relative overflow-visible">
+        <View className="aspect-square h-full items-center justify-center rounded-xl border border-gray-30 bg-gray-10 overflow-hidden">
+          {isLoading ? (
+            <ActivityIndicator size="large" color="#8E99AB" />
+          ) : isError ? (
+            <IconMoodSurprised size={32} strokeWidth={1.75} stroke="#8E99AB" />
+          ) : product?.image ? (
+            <>
+              <Image
+                source={{ uri: product.image }}
+                className="absolute h-full w-full"
+                blurRadius={16}
+              />
+              <Image
+                source={{ uri: product.image }}
+                className="h-full w-full"
+                resizeMode="contain"
+              />
+            </>
+          ) : (
+            <IconPhotoOff size={32} strokeWidth={1.75} stroke="#8E99AB" />
+          )}
+        </View>
+        {/* Badge with icon only - absolutely positioned for non-slider */}
+        {!inSlider && badgeGrade && product && !isError && !isLoading && (
+          <Badge
+            variant={badgeVariant!}
+            label=""
+            iconType={iconType}
+            className="p-1.5 absolute -bottom-1 -right-1"
+          />
         )}
       </View>
 
@@ -218,17 +239,18 @@ export function ProductCard({
           </View>
         )}
 
-        {/* Health Assessment Badge */}
+        {/* Health Assessment Badge - with icon for slider */}
         {!isLoading &&
           !isError &&
           product &&
+          inSlider &&
           (() => {
-            const badgeGrade = calculateBadgeGrade(product);
             return badgeGrade ? (
               <View className="mt-1 self-start">
                 <Badge
-                  variant={getNutriscoreBadgeVariant(badgeGrade)}
+                  variant={badgeVariant!}
                   label={getNutriscoreDescription(badgeGrade, t)}
+                  iconType={iconType}
                 />
               </View>
             ) : null;
@@ -239,7 +261,12 @@ export function ProductCard({
 
   return (
     <Card
-      className={clsx('pl-2 pt-2 pb-2 pr-3 mb-0 flex-shrink-0 min-h-[120px]', inSlider ? '' : 'w-full', className)}
+      className={clsx(
+        'pl-2 pt-2 pb-2 pr-3 mb-0 flex-shrink-0',
+        inSlider ? 'min-h-[120px]' : 'min-h-[96px]',
+        inSlider ? '' : 'w-full',
+        className
+      )}
       style={inSlider && sliderWidth ? { width: sliderWidth } : undefined}
     >
       {onPress && product && !isError && !isLoading ? (

@@ -149,3 +149,4 @@ export const getPrivacyPolicyData = (language: string) => {
   return privacyPolicyDataMap[language] || privacyPolicyDataMap.en;
 };
 
+

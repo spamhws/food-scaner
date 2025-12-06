@@ -40,12 +40,15 @@ export function ImageTitleSection({ product, onNutriscorePress }: ImageTitleSect
         </Text>
         {(() => {
           const badgeGrade = calculateBadgeGrade(product);
+          const isPositiveGrade = badgeGrade === 'A' || badgeGrade === 'B' || badgeGrade === 'C';
+          const iconType = badgeGrade ? (isPositiveGrade ? 'thumbUp' : 'thumbDown') : undefined;
           return badgeGrade ? (
             <Badge
               variant={getNutriscoreBadgeVariant(badgeGrade)}
               label={getNutriscoreDescription(badgeGrade, t)}
               interactive
               onPress={onNutriscorePress}
+              iconType={iconType}
             />
           ) : null;
         })()}

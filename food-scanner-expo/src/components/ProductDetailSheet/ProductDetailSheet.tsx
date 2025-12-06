@@ -6,6 +6,7 @@ import type { NavigationProp } from '@/navigation/navigation-types';
 import type { Product } from '@/types/product';
 import { generateAssessments } from '@/lib/utils/product-assessment';
 import { generateProductNarrative, getNutriscoreDescription } from '@/lib/utils/product-narrative';
+import { calculateBadgeGrade } from '@/lib/utils/badge-calculator';
 import { shareProduct } from '@/lib/utils/share';
 import { ProductDetailFooter } from './ProductDetailFooter';
 import { useFavorites } from '@/hooks/useFavorites';
@@ -106,18 +107,34 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
   );
 
   const handleNutriscorePress = () => {
-    // Only show NutriScore info if it's official from OpenFoodFacts
-    if (!product?.assessment) return;
+    if (!product) return;
+
+    // Calculate badge grade (uses official if available, otherwise calculates)
+    const badgeGrade = calculateBadgeGrade(product);
+    if (!badgeGrade) return;
+
     const narrative = generateProductNarrative(product, t);
-    const gradeDescription = getNutriscoreDescription(product.assessment.category, t);
-    Alert.alert(
-      t('alerts.nutriScoreTitle', {
-        grade: product.assessment.category,
+    const gradeDescription = getNutriscoreDescription(badgeGrade, t);
+
+    // Use different title based on whether it's official NutriScore or our calculation
+    let title: string;
+    if (product.assessment) {
+      // Official NutriScore from OpenFoodFacts
+      const translatedTitle = t('alerts.nutriScoreTitle', {
+        grade: badgeGrade,
         description: gradeDescription,
-      }),
-      narrative,
-      [{ text: t('common.gotIt'), style: 'default' }]
-    );
+      });
+      // Fallback if interpolation didn't work
+      title =
+        translatedTitle.includes('{grade}') || translatedTitle.includes('{description}')
+          ? `Nutri-Score ${badgeGrade} - ${gradeDescription}`
+          : translatedTitle;
+    } else {
+      // Our own calculation - don't call it NutriScore
+      title = `${badgeGrade} - ${gradeDescription}`;
+    }
+
+    Alert.alert(title, narrative, [{ text: t('common.gotIt'), style: 'default' }]);
   };
 
   const assessments = product ? generateAssessments(product) : [];

@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { IconThumbUp, IconThumbDown } from '@tabler/icons-react-native';
+import { getColor } from '@/lib/utils/colors';
 
 type BadgeVariant = 'success' | 'warning' | 'danger';
 
@@ -8,6 +10,9 @@ interface BadgeProps {
   label: string;
   interactive?: boolean;
   onPress?: () => void;
+  icon?: React.ReactNode;
+  iconType?: 'thumbUp' | 'thumbDown';
+  className?: string;
 }
 
 const variantStyles: Record<
@@ -35,14 +40,44 @@ const variantStyles: Record<
   },
 };
 
-export function Badge({ variant, label, interactive = false, onPress }: BadgeProps) {
+export function Badge({
+  variant,
+  label,
+  interactive = false,
+  onPress,
+  icon,
+  iconType,
+  className,
+}: BadgeProps) {
   const styles = variantStyles[variant];
+
+  // Get icon color based on variant
+  const getIconColor = () => {
+    if (variant === 'success') return getColor('green.60');
+    if (variant === 'warning') return getColor('bronze.60');
+    return getColor('red.60'); // danger
+  };
+
+  // Render icon based on iconType or provided icon
+  const renderIcon = () => {
+    if (icon) return icon;
+    if (iconType === 'thumbUp') {
+      return <IconThumbUp size={16} strokeWidth={2} stroke={getIconColor()} />;
+    }
+    if (iconType === 'thumbDown') {
+      return <IconThumbDown size={16} strokeWidth={2} stroke={getIconColor()} />;
+    }
+    return null;
+  };
 
   const content = (
     <View
-      className={`flex-row items-center gap-1 px-2 py-1 rounded border ${styles.container} ${styles.border}`}
+      className={`flex-row items-center gap-1 px-2 py-1 rounded border ${styles.container} ${styles.border} ${className}`}
     >
-      <Text className={`font-semibold text-body-medium ${styles.text}`}>{label}</Text>
+      {renderIcon()}
+      {label ? (
+        <Text className={`font-semibold text-body-medium ${styles.text}`}>{label}</Text>
+      ) : null}
     </View>
   );
 
