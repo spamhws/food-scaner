@@ -16,7 +16,8 @@
     "loading": "加载中...",
     "pleaseWait": "请稍候...",
     "error": "错误",
-    "retry": "重试"
+    "retry": "重试",
+    "open": "打开"
   },
   "navigation": {
     "scanner": "扫描器",
@@ -44,7 +45,10 @@
     "nothingFound": "哎呀，什么都没找到",
     "unknownProduct": "未知产品",
     "notInDatabase": "看起来此商品不在我的知识库中",
-    "noInformation": "此产品暂无信息"
+    "noInformation": "此产品暂无信息",
+    "submitProduct": "提交产品",
+    "submitProductTitle": "添加产品",
+    "submitProductMessage": "要将产品添加到数据库，我们将在您的浏览器中打开数据输入表单。"
   },
   "nutrition": {
     "nutritionalValue": "营养价值",

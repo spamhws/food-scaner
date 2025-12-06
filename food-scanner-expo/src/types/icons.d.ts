@@ -49,4 +49,5 @@ declare module '@tabler/icons-react-native' {
   export const IconMessageChatbot: React.FC<IconProps>;
   export const IconStar: React.FC<IconProps>;
   export const IconTrash: React.FC<IconProps>;
+  export const IconPlus: React.FC<IconProps>;
 }

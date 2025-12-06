@@ -16,7 +16,8 @@
     "loading": "Cargando...",
     "pleaseWait": "Por favor, espere...",
     "error": "Error",
-    "retry": "Reintentar"
+    "retry": "Reintentar",
+    "open": "Abrir"
   },
   "navigation": {
     "scanner": "Escáner",
@@ -44,7 +45,10 @@
     "nothingFound": "Ups, no se encontró nada",
     "unknownProduct": "Producto desconocido",
     "notInDatabase": "Parece que este artículo no está en mi base de conocimientos",
-    "noInformation": "Aún no hay información sobre este producto"
+    "noInformation": "Aún no hay información sobre este producto",
+    "submitProduct": "Enviar Producto",
+    "submitProductTitle": "Agregar Producto",
+    "submitProductMessage": "Para agregar un producto a la base de datos, abriremos el formulario de entrada de datos en su navegador."
   },
   "nutrition": {
     "nutritionalValue": "Valor nutricional",

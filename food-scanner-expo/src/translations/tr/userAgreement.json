@@ -23,6 +23,11 @@
       "content": "Ürün bilgileri, topluluk tarafından yönetilen bir veritabanı olan OpenFoodFacts'tan alınmaktadır. Doğru bilgi sağlamaya çalışsak da, tüm ürün verilerinin eksiksizliğini veya doğruluğunu garanti edemeyiz. Kullanıcılar, özellikle alerjenlerle ilgili kritik bilgileri ürün ambalajı veya üreticilerle doğrulamalıdır."
     },
     {
+      "id": 4.5,
+      "title": "Ürün verilerine katkıda bulunma",
+      "content": "Eksik ürünleri uygulama aracılığıyla göndererek veritabanını iyileştirmeye yardımcı olabilirsiniz. Bir ürün bulunamadığında, onu OpenFoodFacts'a eklemek için Ürün Gönder işlevini kullanın. Katkıda bulunarak, gönderilerinizin Open Database License (ODbL) altında kamuya açık olacağını kabul edersiniz."
+    },
+    {
       "id": 5,
       "title": "Fikri mülkiyet",
       "content": "Uygulama ve orijinal içeriği, özellikleri ve işlevselliği Food ID'ye aittir ve uluslararası telif hakkı, ticari marka ve diğer fikri mülkiyet yasalarıyla korunmaktadır. Ürün verileri, Open Database License (ODbL) altında OpenFoodFacts tarafından sağlanmaktadır."

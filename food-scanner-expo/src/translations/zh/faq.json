@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "产品不在数据库中",
-        "description": "如果条形码扫描成功但没有出现产品信息，该产品可能尚未在 OpenFoodFacts 数据库中。您可以访问 <b>openfoodfacts.org</b> 并贡献产品信息来添加它。"
+        "description": "如果条形码扫描成功但没有出现产品信息，该产品可能尚未在 OpenFoodFacts 数据库中。点击 <b>提交产品</b> 按钮将其添加到数据库。"
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "如何添加产品",
-        "description": "您可以通过向 OpenFoodFacts 添加缺失的产品来做出贡献。访问 <b>openfoodfacts.org</b> 扫描条形码并添加产品信息，包括营养成分、成分和照片。"
+        "description": "如果找不到产品，请点击产品卡片上的 <b>提交产品</b> 按钮。这将在您的浏览器中打开一个表单，您可以在其中将产品信息添加到 OpenFoodFacts 数据库。您的贡献有助于为所有人扩展数据库。"
       }
     ]
   },

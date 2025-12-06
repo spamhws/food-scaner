@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Product Not in Database",
-        "description": "If the barcode scans successfully but no product information appears, the product may not be in the OpenFoodFacts database yet. You can add it by visiting <b>openfoodfacts.org</b> and contributing the product information."
+        "description": "If the barcode scans successfully but no product information appears, the product may not be in the OpenFoodFacts database yet. Tap the <b>Submit Product</b> button to add it to the database."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "How to Add Products",
-        "description": "You can contribute by adding missing products to OpenFoodFacts. Visit <b>openfoodfacts.org</b> to scan the barcode and add product information including nutrition facts, ingredients, and photos."
+        "description": "If a product isn't found, tap the <b>Submit Product</b> button on the product card. This will open a form in your browser where you can add the product information to the OpenFoodFacts database. Your contribution helps expand the database for everyone."
       }
     ]
   },

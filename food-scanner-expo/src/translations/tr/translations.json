@@ -16,7 +16,8 @@
     "loading": "Yükleniyor...",
     "pleaseWait": "Lütfen bekleyin...",
     "error": "Hata",
-    "retry": "Tekrar dene"
+    "retry": "Tekrar dene",
+    "open": "Aç"
   },
   "navigation": {
     "scanner": "Tarayıcı",
@@ -44,7 +45,10 @@
     "nothingFound": "Üzgünüz, hiçbir şey bulunamadı",
     "unknownProduct": "Bilinmeyen ürün",
     "notInDatabase": "Görünüşe göre bu öğe bilgi tabanımda yok",
-    "noInformation": "Bu ürün hakkında henüz bilgi yok"
+    "noInformation": "Bu ürün hakkında henüz bilgi yok",
+    "submitProduct": "Ürün Gönder",
+    "submitProductTitle": "Ürün Ekle",
+    "submitProductMessage": "Veritabanına bir ürün eklemek için, veri giriş formunu tarayıcınızda açacağız."
   },
   "nutrition": {
     "nutritionalValue": "Besin değeri",

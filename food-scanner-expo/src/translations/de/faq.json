@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Produkt nicht in der Datenbank",
-        "description": "Wenn der Barcode erfolgreich gescannt wird, aber keine Produktinformationen erscheinen, ist das Produkt möglicherweise noch nicht in der OpenFoodFacts-Datenbank. Sie können es hinzufügen, indem Sie <b>openfoodfacts.org</b> besuchen und die Produktinformationen beitragen."
+        "description": "Wenn der Barcode erfolgreich gescannt wird, aber keine Produktinformationen erscheinen, ist das Produkt möglicherweise noch nicht in der OpenFoodFacts-Datenbank. Tippen Sie auf die Schaltfläche <b>Produkt einreichen</b>, um es zur Datenbank hinzuzufügen."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "Wie man Produkte hinzufügt",
-        "description": "Sie können dazu beitragen, indem Sie fehlende Produkte zu OpenFoodFacts hinzufügen. Besuchen Sie <b>openfoodfacts.org</b>, um den Barcode zu scannen und Produktinformationen einschließlich Nährwertangaben, Zutaten und Fotos hinzuzufügen."
+        "description": "Wenn ein Produkt nicht gefunden wird, tippen Sie auf die Schaltfläche <b>Produkt einreichen</b> auf der Produktkarte. Dies öffnet ein Formular in Ihrem Browser, in dem Sie die Produktinformationen zur OpenFoodFacts-Datenbank hinzufügen können. Ihr Beitrag hilft, die Datenbank für alle zu erweitern."
       }
     ]
   },

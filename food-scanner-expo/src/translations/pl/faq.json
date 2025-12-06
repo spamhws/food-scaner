@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Produkt nie jest w bazie danych",
-        "description": "Jeśli kod kreskowy skanuje się pomyślnie, ale nie pojawiają się informacje o produkcie, produkt może jeszcze nie być w bazie danych OpenFoodFacts. Możesz go dodać, odwiedzając <b>openfoodfacts.org</b> i dodając informacje o produkcie."
+        "description": "Jeśli kod kreskowy skanuje się pomyślnie, ale nie pojawiają się informacje o produkcie, produkt może jeszcze nie być w bazie danych OpenFoodFacts. Naciśnij przycisk <b>Prześlij Produkt</b>, aby dodać go do bazy danych."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "Jak dodać produkty",
-        "description": "Możesz przyczynić się, dodając brakujące produkty do OpenFoodFacts. Odwiedź <b>openfoodfacts.org</b>, aby zeskanować kod kreskowy i dodać informacje o produkcie, w tym fakty żywieniowe, składniki i zdjęcia."
+        "description": "Jeśli produkt nie zostanie znaleziony, naciśnij przycisk <b>Prześlij Produkt</b> na karcie produktu. Spowoduje to otwarcie formularza w przeglądarce, gdzie możesz dodać informacje o produkcie do bazy danych OpenFoodFacts. Twój wkład pomaga rozszerzyć bazę danych dla wszystkich."
       }
     ]
   },

@@ -16,7 +16,8 @@
     "loading": "جاري التحميل...",
     "pleaseWait": "يرجى الانتظار...",
     "error": "خطأ",
-    "retry": "إعادة المحاولة"
+    "retry": "إعادة المحاولة",
+    "open": "فتح"
   },
   "navigation": {
     "scanner": "الماسح",
@@ -44,7 +45,10 @@
     "nothingFound": "عذراً، لم يتم العثور على شيء",
     "unknownProduct": "منتج غير معروف",
     "notInDatabase": "يبدو أن هذا العنصر غير موجود في قاعدة المعرفة الخاصة بي",
-    "noInformation": "لا توجد معلومات عن هذا المنتج بعد"
+    "noInformation": "لا توجد معلومات عن هذا المنتج بعد",
+    "submitProduct": "إرسال المنتج",
+    "submitProductTitle": "إضافة منتج",
+    "submitProductMessage": "لإضافة منتج إلى قاعدة البيانات، سنفتح نموذج إدخال البيانات في متصفحك."
   },
   "nutrition": {
     "nutritionalValue": "القيمة الغذائية",

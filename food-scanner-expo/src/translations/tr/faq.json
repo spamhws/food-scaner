@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Veritabanında olmayan ürün",
-        "description": "Barkod başarıyla taranırsa ancak ürün bilgisi görünmezse, ürün henüz OpenFoodFacts veritabanında olmayabilir. <b>openfoodfacts.org</b>'u ziyaret ederek ve ürün bilgilerini katkıda bulunarak ekleyebilirsiniz."
+        "description": "Barkod başarıyla taranırsa ancak ürün bilgisi görünmezse, ürün henüz OpenFoodFacts veritabanında olmayabilir. Veritabanına eklemek için <b>Ürün Gönder</b> düğmesine dokunun."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "Ürün nasıl eklenir",
-        "description": "Eksik ürünleri OpenFoodFacts'e ekleyerek katkıda bulunabilirsiniz. Barkodu taramak ve beslenme gerçekleri, içerikler ve fotoğraflar dahil ürün bilgileri eklemek için <b>openfoodfacts.org</b>'u ziyaret edin."
+        "description": "Bir ürün bulunamazsa, ürün kartındaki <b>Ürün Gönder</b> düğmesine dokunun. Bu, tarayıcınızda ürün bilgilerini OpenFoodFacts veritabanına ekleyebileceğiniz bir form açacaktır. Katkınız herkes için veritabanını genişletmeye yardımcı olur."
       }
     ]
   },

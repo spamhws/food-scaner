@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Produkt inte i databasen",
-        "description": "Om streckkoden skannas framgångsrikt men ingen produktinformation visas, kan produkten inte finnas i OpenFoodFacts-databasen ännu. Du kan lägga till den genom att besöka <b>openfoodfacts.org</b> och bidra med produktinformation."
+        "description": "Om streckkoden skannas framgångsrikt men ingen produktinformation visas, kan produkten inte finnas i OpenFoodFacts-databasen ännu. Tryck på knappen <b>Skicka in produkt</b> för att lägga till den i databasen."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "Hur man lägger till produkter",
-        "description": "Du kan bidra genom att lägga till saknade produkter till OpenFoodFacts. Besök <b>openfoodfacts.org</b> för att skanna streckkoden och lägga till produktinformation inklusive näringsfakta, ingredienser och foton."
+        "description": "Om en produkt inte hittas, tryck på knappen <b>Skicka in produkt</b> på produktkortet. Detta öppnar ett formulär i din webbläsare där du kan lägga till produktinformationen till OpenFoodFacts-databasen. Ditt bidrag hjälper till att utöka databasen för alla."
       }
     ]
   },

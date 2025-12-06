@@ -54,7 +54,7 @@
       {
         "type": "section",
         "subtitle": "Produkt není v databázi",
-        "description": "Pokud se čárový kód úspěšně naskenuje, ale nezobrazí se žádné informace o produktu, produkt možná ještě není v databázi OpenFoodFacts. Můžete jej přidat návštěvou <b>openfoodfacts.org</b> a přispěním informací o produktu."
+        "description": "Pokud se čárový kód úspěšně naskenuje, ale nezobrazí se žádné informace o produktu, produkt možná ještě není v databázi OpenFoodFacts. Klepněte na tlačítko <b>Odeslat produkt</b> pro přidání do databáze."
       },
       {
         "type": "section",
@@ -177,7 +177,7 @@
       {
         "type": "section",
         "subtitle": "Jak přidat produkty",
-        "description": "Můžete přispět přidáním chybějících produktů do OpenFoodFacts. Navštivte <b>openfoodfacts.org</b> pro skenování čárového kódu a přidání informací o produktu včetně nutričních faktů, složení a fotografií."
+        "description": "Pokud produkt není nalezen, klepněte na tlačítko <b>Odeslat produkt</b> na kartě produktu. Tím se otevře formulář ve vašem prohlížeči, kde můžete přidat informace o produktu do databáze OpenFoodFacts. Váš příspěvek pomáhá rozšířit databázi pro všechny."
       }
     ]
   },

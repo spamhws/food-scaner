@@ -16,7 +16,8 @@
     "loading": "Laddar...",
     "pleaseWait": "Vänligen vänta...",
     "error": "Fel",
-    "retry": "Försök igen"
+    "retry": "Försök igen",
+    "open": "Öppna"
   },
   "navigation": {
     "scanner": "Skanner",
@@ -44,7 +45,10 @@
     "nothingFound": "Hoppsan, ingenting hittades",
     "unknownProduct": "Okänd produkt",
     "notInDatabase": "Det verkar som att denna artikel inte finns i min kunskapsdatabas",
-    "noInformation": "Ingen information om denna produkt ännu"
+    "noInformation": "Ingen information om denna produkt ännu",
+    "submitProduct": "Skicka in produkt",
+    "submitProductTitle": "Lägg till produkt",
+    "submitProductMessage": "För att lägga till en produkt i databasen kommer vi att öppna formuläret för datainmatning i din webbläsare."
   },
   "nutrition": {
     "nutritionalValue": "Näringsvärde",

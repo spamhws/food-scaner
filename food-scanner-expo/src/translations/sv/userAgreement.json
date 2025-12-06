@@ -23,6 +23,11 @@
       "content": "Produktinformation kommer från OpenFoodFacts, en gemenskapsdriven databas. Även om vi strävar efter att tillhandahålla korrekt information kan vi inte garantera fullständigheten eller noggrannheten av all produktdata. Användare bör verifiera kritisk information, särskilt angående allergener, med produktförpackningen eller tillverkarna."
     },
     {
+      "id": 4.5,
+      "title": "Bidra med produktdata",
+      "content": "Du kan hjälpa till att förbättra databasen genom att skicka in saknade produkter via appen. När en produkt inte hittas, använd funktionen Skicka in produkt för att lägga till den i OpenFoodFacts. Genom att bidra godkänner du att dina inlämningar kommer att vara offentligt tillgängliga under Open Database License (ODbL)."
+    },
+    {
       "id": 5,
       "title": "Immateriella rättigheter",
       "content": "Appen och dess ursprungliga innehåll, funktioner och funktionalitet ägs av Food ID och skyddas av internationella upphovsrätts-, varumärkes- och andra immateriella rättighetslagar. Produktdata tillhandahålls av OpenFoodFacts under Open Database License (ODbL)."

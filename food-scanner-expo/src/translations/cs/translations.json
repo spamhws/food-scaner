@@ -16,7 +16,8 @@
     "loading": "Načítání...",
     "pleaseWait": "Prosím čekejte...",
     "error": "Chyba",
-    "retry": "Zkusit znovu"
+    "retry": "Zkusit znovu",
+    "open": "Otevřít"
   },
   "navigation": {
     "scanner": "Skener",
@@ -44,7 +45,10 @@
     "nothingFound": "Ups, nic nenalezeno",
     "unknownProduct": "Neznámý produkt",
     "notInDatabase": "Zdá se, že tato položka není v mé znalostní bázi",
-    "noInformation": "Zatím žádné informace o tomto produktu"
+    "noInformation": "Zatím žádné informace o tomto produktu",
+    "submitProduct": "Odeslat produkt",
+    "submitProductTitle": "Přidat produkt",
+    "submitProductMessage": "Pro přidání produktu do databáze otevřeme formulář pro zadávání dat ve vašem prohlížeči."
   },
   "nutrition": {
     "nutritionalValue": "Výživová hodnota",

@@ -23,6 +23,11 @@
       "content": "La información del producto proviene de OpenFoodFacts, una base de datos impulsada por la comunidad. Si bien nos esforzamos por proporcionar información precisa, no podemos garantizar la integridad o precisión de todos los datos del producto. Los usuarios deben verificar información crítica, especialmente con respecto a alérgenos, con el empaque del producto o los fabricantes."
     },
     {
+      "id": 4.5,
+      "title": "Contribuir con datos de productos",
+      "content": "Puede ayudar a mejorar la base de datos enviando productos faltantes a través de la aplicación. Cuando un producto no se encuentra, use la función Enviar Producto para agregarlo a OpenFoodFacts. Al contribuir, acepta que sus envíos estarán disponibles públicamente bajo la Licencia de Base de Datos Abierta (ODbL)."
+    },
+    {
       "id": 5,
       "title": "Propiedad intelectual",
       "content": "La aplicación y su contenido original, características y funcionalidad son propiedad de Food ID y están protegidos por leyes internacionales de derechos de autor, marcas registradas y otras leyes de propiedad intelectual. Los datos del producto son proporcionados por OpenFoodFacts bajo la Licencia de Base de Datos Abierta (ODbL)."

@@ -16,7 +16,8 @@
     "loading": "Se încarcă...",
     "pleaseWait": "Te rugăm să aștepți...",
     "error": "Eroare",
-    "retry": "Încearcă din nou"
+    "retry": "Încearcă din nou",
+    "open": "Deschide"
   },
   "navigation": {
     "scanner": "Scaner",
@@ -44,7 +45,10 @@
     "nothingFound": "Ups, nu s-a găsit nimic",
     "unknownProduct": "Produs necunoscut",
     "notInDatabase": "Se pare că acest articol nu este în baza mea de cunoștințe",
-    "noInformation": "Încă nu există informații despre acest produs"
+    "noInformation": "Încă nu există informații despre acest produs",
+    "submitProduct": "Trimite Produs",
+    "submitProductTitle": "Adaugă Produs",
+    "submitProductMessage": "Pentru a adăuga un produs în baza de date, vom deschide formularul de introducere a datelor în browserul dvs."
   },
   "nutrition": {
     "nutritionalValue": "Valoare nutrițională",

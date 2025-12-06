@@ -16,7 +16,8 @@
     "loading": "読み込み中...",
     "pleaseWait": "お待ちください...",
     "error": "エラー",
-    "retry": "再試行"
+    "retry": "再試行",
+    "open": "開く"
   },
   "navigation": {
     "scanner": "スキャナー",
@@ -44,7 +45,10 @@
     "nothingFound": "申し訳ございませんが、何も見つかりませんでした",
     "unknownProduct": "不明な製品",
     "notInDatabase": "このアイテムは知識ベースにないようです",
-    "noInformation": "この製品についての情報はまだありません"
+    "noInformation": "この製品についての情報はまだありません",
+    "submitProduct": "製品を提出",
+    "submitProductTitle": "製品を追加",
+    "submitProductMessage": "データベースに製品を追加するには、ブラウザでデータ入力フォームを開きます。"
   },
   "nutrition": {
     "nutritionalValue": "栄養価",

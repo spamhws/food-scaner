@@ -1,5 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Text, Image, ActivityIndicator, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  ActivityIndicator,
+  TouchableOpacity,
+  Alert,
+  Linking,
+} from 'react-native';
 import { Card } from '@/components/ui/Card';
 import { clsx } from 'clsx';
 import {
@@ -9,6 +17,7 @@ import {
   IconWheat,
   IconPhotoOff,
   IconMoodSurprised,
+  IconPlus,
 } from '@tabler/icons-react-native';
 import { useProduct } from '@/hooks/useProduct';
 import { vibrateProductFound, vibrateProductNotFound } from '@/lib/utils/vibration';
@@ -17,6 +26,10 @@ import { getNutriscoreBadgeVariant, getNutriscoreDescription } from '@/lib/utils
 import { calculateBadgeGrade } from '@/lib/utils/badge-calculator';
 import { getNutrientColor, getCaloriesColor } from '@/lib/utils/nutrient-colors';
 import { useTranslation } from '@/hooks/useTranslation';
+import { getColor } from '@/lib/utils/colors';
+
+const GOOGLE_FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSdyRU57xmFr79mn1whGHMb-xM9KZadVgfyMWcpDzD8ZXMjnRQ/viewform?usp=dialog';
 
 interface ProductCardProps {
   barcode: string;
@@ -64,6 +77,26 @@ export function ProductCard({
     }
   }, [product, isError, isLoading, barcode, vibrateOnScan]);
 
+  const handleSubmitProduct = () => {
+    Alert.alert(t('product.submitProductTitle'), t('product.submitProductMessage'), [
+      {
+        text: t('common.cancel'),
+        style: 'cancel',
+      },
+      {
+        text: t('common.open'),
+        onPress: async () => {
+          const supported = await Linking.canOpenURL(GOOGLE_FORM_URL);
+          if (supported) {
+            await Linking.openURL(GOOGLE_FORM_URL);
+          } else {
+            Alert.alert(t('common.error'), 'Unable to open the form. Please try again.');
+          }
+        },
+      },
+    ]);
+  };
+
   const content = (
     <View className="flex-row gap-3">
       {/* Left Section - Product Image */}
@@ -93,7 +126,7 @@ export function ProductCard({
           {isLoading ? (
             t('product.loadingProduct')
           ) : isError ? (
-            t('product.nothingFound')
+            <Text className="font-semibold">{t('product.nothingFound')}</Text>
           ) : (
             <>
               {product?.name || t('product.unknownProduct')}
@@ -108,9 +141,23 @@ export function ProductCard({
         </Text>
 
         {(isError || isLoading) && (
-          <Text className="text-sm text-gray-60">
-            {isLoading ? t('common.pleaseWait') : t('product.notInDatabase')}
-          </Text>
+          <View className="flex-row items-center justify-between gap-2">
+            {isLoading && (
+              <Text className="text-sm text-gray-60 flex-1">t('common.pleaseWait')</Text>
+            )}
+            {isError && !isLoading && (
+              <TouchableOpacity
+                onPress={handleSubmitProduct}
+                className="flex-row items-center gap-1 border border-blue-60 px-2 py-3 mt-1.5 rounded-lg"
+                activeOpacity={0.7}
+              >
+                <IconPlus size={24} strokeWidth={2} stroke={getColor('blue.60')} />
+                <Text className="text-blue-60 text-base font-semibold">
+                  {t('product.submitProduct')}
+                </Text>
+              </TouchableOpacity>
+            )}
+          </View>
         )}
 
         {/* Nutritional Information */}
