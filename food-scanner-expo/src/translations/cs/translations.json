@@ -162,6 +162,24 @@
     "shareError": "Chyba sdílení",
     "unableToShareProduct": "Produkt nelze sdílet. Zkuste to prosím znovu."
   },
+  "share": {
+    "nutritionalInformation": "Výživové informace (na 100g):",
+    "calories": "Kalorie: {value} kcal",
+    "protein": "Bílkoviny: {value}g",
+    "fat": "Tuk: {value}g",
+    "saturatedFat": "Nasycené tuky: {value}g",
+    "carbohydrates": "Sacharidy: {value}g",
+    "sugars": "Cukry: {value}g",
+    "addedSugars": "Přidaný cukr: {value}g",
+    "fiber": "Vláknina: {value}g",
+    "salt": "Sůl: {value}g",
+    "sodium": "Sodík: {value}g",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "Obrázek produktu:",
+    "getFoodId": "Získejte Food ID:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "Položka FAQ nenalezena",
     "nutrientTableTitle": "Prahové hodnoty živin (na 100g)",

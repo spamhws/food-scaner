@@ -1,4 +1,5 @@
 import { useTranslation as useI18nTranslation } from 'react-i18next';
+import { saveLanguage } from '@/lib/storage/storage';
 
 /**
  * Custom hook for translations
@@ -7,8 +8,10 @@ import { useTranslation as useI18nTranslation } from 'react-i18next';
 export function useTranslation() {
   const { t, i18n } = useI18nTranslation();
 
-  const changeLanguage = (lang: string) => {
+  const changeLanguage = async (lang: string) => {
     i18n.changeLanguage(lang);
+    // Persist language preference to AsyncStorage
+    await saveLanguage(lang);
   };
 
   return {

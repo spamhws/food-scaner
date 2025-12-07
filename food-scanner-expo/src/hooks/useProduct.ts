@@ -56,9 +56,10 @@ export function useProduct({ barcode, enabled = true, fromCache = false }: UsePr
   });
 
   // Return cached data if available and using cache mode, otherwise return query data
+  // isLoading should be true during initial load OR during refetch (isFetching)
   return {
     ...query,
     data: fromCache && cachedData !== undefined ? cachedData : query.data,
-    isLoading: fromCache ? cachedData === undefined : query.isLoading,
+    isLoading: fromCache ? cachedData === undefined : query.isLoading || query.isFetching, // Include isFetching to show loading during refetch
   };
 }

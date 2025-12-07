@@ -162,6 +162,24 @@
     "shareError": "Deelfout",
     "unableToShareProduct": "Kan het product niet delen. Probeer het opnieuw."
   },
+  "share": {
+    "nutritionalInformation": "Voedingsinformatie (per 100g):",
+    "calories": "Calorieën: {value} kcal",
+    "protein": "Eiwit: {value}g",
+    "fat": "Vet: {value}g",
+    "saturatedFat": "Verzadigd vet: {value}g",
+    "carbohydrates": "Koolhydraten: {value}g",
+    "sugars": "Suikers: {value}g",
+    "addedSugars": "Toegevoegde suiker: {value}g",
+    "fiber": "Vezels: {value}g",
+    "salt": "Zout: {value}g",
+    "sodium": "Natrium: {value}g",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "Productafbeelding:",
+    "getFoodId": "Download Food ID:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "FAQ-item niet gevonden",
     "nutrientTableTitle": "Voedingsstofdrempels (per 100g)",

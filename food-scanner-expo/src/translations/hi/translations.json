@@ -162,6 +162,24 @@
     "shareError": "साझा करने में त्रुटि",
     "unableToShareProduct": "उत्पाद साझा करने में असमर्थ। कृपया पुनः प्रयास करें।"
   },
+  "share": {
+    "nutritionalInformation": "पोषण जानकारी (प्रति 100 ग्राम):",
+    "calories": "कैलोरी: {value} किलोकैलोरी",
+    "protein": "प्रोटीन: {value}ग्राम",
+    "fat": "वसा: {value}ग्राम",
+    "saturatedFat": "संतृप्त वसा: {value}ग्राम",
+    "carbohydrates": "कार्बोहाइड्रेट: {value}ग्राम",
+    "sugars": "चीनी: {value}ग्राम",
+    "addedSugars": "जोड़ी गई चीनी: {value}ग्राम",
+    "fiber": "फाइबर: {value}ग्राम",
+    "salt": "नमक: {value}ग्राम",
+    "sodium": "सोडियम: {value}ग्राम",
+    "nutriScore": "न्यूट्री-स्कोर: {grade}",
+    "productImage": "उत्पाद छवि:",
+    "getFoodId": "Food ID प्राप्त करें:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "FAQ आइटम नहीं मिला",
     "nutrientTableTitle": "पोषक तत्व सीमा (प्रति 100 ग्राम)",

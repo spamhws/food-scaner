@@ -162,6 +162,24 @@
     "shareError": "Teilungsfehler",
     "unableToShareProduct": "Produkt konnte nicht geteilt werden. Bitte versuchen Sie es erneut."
   },
+  "share": {
+    "nutritionalInformation": "Nährwertangaben (pro 100g):",
+    "calories": "Kalorien: {value} kcal",
+    "protein": "Eiweiß: {value}g",
+    "fat": "Fett: {value}g",
+    "saturatedFat": "Gesättigte Fettsäuren: {value}g",
+    "carbohydrates": "Kohlenhydrate: {value}g",
+    "sugars": "Zucker: {value}g",
+    "addedSugars": "Zugesetzter Zucker: {value}g",
+    "fiber": "Ballaststoffe: {value}g",
+    "salt": "Salz: {value}g",
+    "sodium": "Natrium: {value}g",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "Produktbild:",
+    "getFoodId": "Food ID erhalten:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "FAQ-Element nicht gefunden",
     "nutrientTableTitle": "Nährstoffschwellenwerte (pro 100g)",

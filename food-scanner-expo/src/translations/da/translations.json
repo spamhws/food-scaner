@@ -162,6 +162,24 @@
     "shareError": "Delfejl",
     "unableToShareProduct": "Kunne ikke dele produktet. Prøv igen."
   },
+  "share": {
+    "nutritionalInformation": "Næringsoplysninger (pr. 100g):",
+    "calories": "Kalorier: {value} kcal",
+    "protein": "Protein: {value}g",
+    "fat": "Fedt: {value}g",
+    "saturatedFat": "Mættet fedt: {value}g",
+    "carbohydrates": "Kulhydrater: {value}g",
+    "sugars": "Sukker: {value}g",
+    "addedSugars": "Tilsat sukker: {value}g",
+    "fiber": "Fiber: {value}g",
+    "salt": "Salt: {value}g",
+    "sodium": "Natrium: {value}g",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "Produktbillede:",
+    "getFoodId": "Hent Food ID:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "FAQ-element ikke fundet",
     "nutrientTableTitle": "Næringsstoftærskler (pr. 100g)",

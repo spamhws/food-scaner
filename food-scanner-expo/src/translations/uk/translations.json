@@ -162,6 +162,24 @@
     "shareError": "Помилка обміну",
     "unableToShareProduct": "Неможливо поділитися продуктом. Будь ласка, спробуйте ще раз."
   },
+  "share": {
+    "nutritionalInformation": "Поживна інформація (на 100г):",
+    "calories": "Калорії: {value} ккал",
+    "protein": "Білок: {value}г",
+    "fat": "Жири: {value}г",
+    "saturatedFat": "Насичені жири: {value}г",
+    "carbohydrates": "Вуглеводи: {value}г",
+    "sugars": "Цукор: {value}г",
+    "addedSugars": "Доданий цукор: {value}г",
+    "fiber": "Клітковина: {value}г",
+    "salt": "Сіль: {value}г",
+    "sodium": "Натрій: {value}г",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "Зображення продукту:",
+    "getFoodId": "Отримати Food ID:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "Питання не знайдено",
     "nutrientTableTitle": "Пороги поживних речовин (на 100г)",

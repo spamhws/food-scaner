@@ -162,6 +162,24 @@
     "shareError": "Delningsfel",
     "unableToShareProduct": "Kunde inte dela produkten. Försök igen."
   },
+  "share": {
+    "nutritionalInformation": "Näringsinformation (per 100g):",
+    "calories": "Kalorier: {value} kcal",
+    "protein": "Protein: {value}g",
+    "fat": "Fett: {value}g",
+    "saturatedFat": "Mättat fett: {value}g",
+    "carbohydrates": "Kolhydrater: {value}g",
+    "sugars": "Socker: {value}g",
+    "addedSugars": "Tillsatt socker: {value}g",
+    "fiber": "Fiber: {value}g",
+    "salt": "Salt: {value}g",
+    "sodium": "Natrium: {value}g",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "Produktbild:",
+    "getFoodId": "Hämta Food ID:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "FAQ-objekt hittades inte",
     "nutrientTableTitle": "Näringsämneströsklar (per 100g)",

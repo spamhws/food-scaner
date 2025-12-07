@@ -162,6 +162,24 @@
     "shareError": "分享错误",
     "unableToShareProduct": "无法分享产品。请重试。"
   },
+  "share": {
+    "nutritionalInformation": "营养信息（每100克）:",
+    "calories": "卡路里: {value} 千卡",
+    "protein": "蛋白质: {value}克",
+    "fat": "脂肪: {value}克",
+    "saturatedFat": "饱和脂肪: {value}克",
+    "carbohydrates": "碳水化合物: {value}克",
+    "sugars": "糖: {value}克",
+    "addedSugars": "添加糖: {value}克",
+    "fiber": "纤维: {value}克",
+    "salt": "盐: {value}克",
+    "sodium": "钠: {value}克",
+    "nutriScore": "营养评分: {grade}",
+    "productImage": "产品图片:",
+    "getFoodId": "获取 Food ID:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "未找到常见问题项目",
     "nutrientTableTitle": "营养素阈值（每100克）",

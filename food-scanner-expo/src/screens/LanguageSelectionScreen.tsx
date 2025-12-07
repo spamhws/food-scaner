@@ -24,9 +24,7 @@ function LanguageItem({ name, isSelected, onPress }: LanguageItemProps) {
       <View className="flex-1">
         <Text className="text-base font-medium text-black">{name}</Text>
       </View>
-      {isSelected && (
-        <IconCheck size={20} stroke={getColor('blue.60')} strokeWidth={2} />
-      )}
+      {isSelected && <IconCheck size={20} stroke={getColor('blue.60')} strokeWidth={2} />}
     </TouchableOpacity>
   );
 }
@@ -39,9 +37,9 @@ export function LanguageSelectionScreen() {
 
   const languages = getAvailableLanguages();
 
-  const handleLanguageSelect = (langCode: string) => {
+  const handleLanguageSelect = async (langCode: string) => {
     if (langCode !== currentLanguage) {
-      changeLanguage(langCode);
+      await changeLanguage(langCode);
     }
     navigation.goBack();
   };
@@ -68,4 +66,3 @@ export function LanguageSelectionScreen() {
     </View>
   );
 }
-

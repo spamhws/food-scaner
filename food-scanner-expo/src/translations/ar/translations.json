@@ -162,6 +162,24 @@
     "shareError": "خطأ في المشاركة",
     "unableToShareProduct": "تعذر مشاركة المنتج. يرجى المحاولة مرة أخرى."
   },
+  "share": {
+    "nutritionalInformation": "المعلومات الغذائية (لكل 100 جرام):",
+    "calories": "السعرات الحرارية: {value} سعر حراري",
+    "protein": "البروتين: {value} جرام",
+    "fat": "الدهون: {value} جرام",
+    "saturatedFat": "الدهون المشبعة: {value} جرام",
+    "carbohydrates": "الكربوهيدرات: {value} جرام",
+    "sugars": "السكريات: {value} جرام",
+    "addedSugars": "السكر المضاف: {value} جرام",
+    "fiber": "الألياف: {value} جرام",
+    "salt": "الملح: {value} جرام",
+    "sodium": "الصوديوم: {value} جرام",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "صورة المنتج:",
+    "getFoodId": "احصل على Food ID:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "عنصر الأسئلة الشائعة غير موجود",
     "nutrientTableTitle": "عتبات العناصر الغذائية (لكل 100 جرام)",

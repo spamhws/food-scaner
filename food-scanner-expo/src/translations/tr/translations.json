@@ -162,6 +162,24 @@
     "shareError": "Paylaşma hatası",
     "unableToShareProduct": "Ürün paylaşılamadı. Lütfen tekrar deneyin."
   },
+  "share": {
+    "nutritionalInformation": "Besin bilgisi (100g başına):",
+    "calories": "Kalori: {value} kcal",
+    "protein": "Protein: {value}g",
+    "fat": "Yağ: {value}g",
+    "saturatedFat": "Doymuş yağ: {value}g",
+    "carbohydrates": "Karbonhidrat: {value}g",
+    "sugars": "Şeker: {value}g",
+    "addedSugars": "Eklenen şeker: {value}g",
+    "fiber": "Lif: {value}g",
+    "salt": "Tuz: {value}g",
+    "sodium": "Sodyum: {value}g",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "Ürün görseli:",
+    "getFoodId": "Food ID'yi al:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "SSS öğesi bulunamadı",
     "nutrientTableTitle": "Besin eşikleri (100g başına)",

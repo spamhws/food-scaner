@@ -5,6 +5,7 @@ const KEYS = {
   HISTORY: '@food_scanner_history',
   FAVORITES: '@food_scanner_favorites',
   PRODUCTS: '@food_scanner_products',
+  LANGUAGE: '@food_scanner_language',
 } as const;
 
 /**
@@ -158,5 +159,34 @@ export async function clearProductsCache(): Promise<void> {
     await AsyncStorage.removeItem(KEYS.PRODUCTS);
   } catch (error) {
     console.error('Error clearing products cache:', error);
+  }
+}
+
+/**
+ * Language: Store user's selected language preference
+ */
+export async function getSavedLanguage(): Promise<string | null> {
+  try {
+    const value = await AsyncStorage.getItem(KEYS.LANGUAGE);
+    return value;
+  } catch (error) {
+    console.error('Error reading saved language:', error);
+    return null;
+  }
+}
+
+export async function saveLanguage(language: string): Promise<void> {
+  try {
+    await AsyncStorage.setItem(KEYS.LANGUAGE, language);
+  } catch (error) {
+    console.error('Error saving language:', error);
+  }
+}
+
+export async function clearLanguage(): Promise<void> {
+  try {
+    await AsyncStorage.removeItem(KEYS.LANGUAGE);
+  } catch (error) {
+    console.error('Error clearing language:', error);
   }
 }

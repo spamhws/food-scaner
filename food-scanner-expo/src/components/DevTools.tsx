@@ -1,22 +1,19 @@
 /**
  * DEV TOOLS COMPONENT
- * 
+ *
  * ⚠️ REMOVE THIS COMPONENT BEFORE PRODUCTION ⚠️
- * 
+ *
  * This component provides development utilities:
  * - Clear all storage (history, favorites, products cache)
  * - Display current scanned barcode
- * 
+ *
  * To remove: Delete this file and remove the import/usage from ScannerScreen.tsx
  */
 
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {
-  clearHistory,
-  clearProductsCache,
-} from '@/lib/storage/storage';
+import { clearHistory, clearProductsCache, clearLanguage } from '@/lib/storage/storage';
 
 interface DevToolsProps {
   currentBarcode: string | null;
@@ -49,6 +46,9 @@ export function DevTools({ currentBarcode }: DevToolsProps) {
               // Clear favorites
               await AsyncStorage.removeItem('@food_scanner_favorites');
 
+              // Clear language preference
+              await clearLanguage();
+
               Alert.alert('Success', 'All storage has been cleared.');
             } catch (error) {
               console.error('Error clearing storage:', error);
@@ -65,20 +65,12 @@ export function DevTools({ currentBarcode }: DevToolsProps) {
   return (
     <View style={styles.container}>
       {/* Clear Storage Button */}
-      <TouchableOpacity
-        style={styles.button}
-        onPress={handleClearStorage}
-        disabled={isClearing}
-      >
-        <Text style={styles.buttonText}>
-          {isClearing ? 'Clearing...' : 'Dev: Clear Storage'}
-        </Text>
+      <TouchableOpacity style={styles.button} onPress={handleClearStorage} disabled={isClearing}>
+        <Text style={styles.buttonText}>{isClearing ? 'Clearing...' : 'Dev: Clear Storage'}</Text>
       </TouchableOpacity>
 
       {/* Current Barcode Display */}
-      {currentBarcode && (
-        <Text style={styles.barcodeText}>{currentBarcode}</Text>
-      )}
+      {currentBarcode && <Text style={styles.barcodeText}>{currentBarcode}</Text>}
     </View>
   );
 }
@@ -114,4 +106,3 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
 });
-

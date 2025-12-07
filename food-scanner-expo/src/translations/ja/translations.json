@@ -162,6 +162,24 @@
     "shareError": "共有エラー",
     "unableToShareProduct": "製品を共有できませんでした。もう一度お試しください。"
   },
+  "share": {
+    "nutritionalInformation": "栄養情報（100gあたり）:",
+    "calories": "カロリー: {value} kcal",
+    "protein": "タンパク質: {value}g",
+    "fat": "脂質: {value}g",
+    "saturatedFat": "飽和脂肪酸: {value}g",
+    "carbohydrates": "炭水化物: {value}g",
+    "sugars": "糖類: {value}g",
+    "addedSugars": "添加糖: {value}g",
+    "fiber": "食物繊維: {value}g",
+    "salt": "塩: {value}g",
+    "sodium": "ナトリウム: {value}g",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "製品画像:",
+    "getFoodId": "Food IDを取得:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "FAQアイテムが見つかりません",
     "nutrientTableTitle": "栄養素の閾値（100gあたり）",

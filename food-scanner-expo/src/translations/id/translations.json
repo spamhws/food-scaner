@@ -162,6 +162,24 @@
     "shareError": "Kesalahan berbagi",
     "unableToShareProduct": "Tidak dapat membagikan produk. Silakan coba lagi."
   },
+  "share": {
+    "nutritionalInformation": "Informasi gizi (per 100g):",
+    "calories": "Kalori: {value} kkal",
+    "protein": "Protein: {value}g",
+    "fat": "Lemak: {value}g",
+    "saturatedFat": "Lemak jenuh: {value}g",
+    "carbohydrates": "Karbohidrat: {value}g",
+    "sugars": "Gula: {value}g",
+    "addedSugars": "Gula tambahan: {value}g",
+    "fiber": "Serat: {value}g",
+    "salt": "Garam: {value}g",
+    "sodium": "Natrium: {value}g",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "Gambar produk:",
+    "getFoodId": "Dapatkan Food ID:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "Item FAQ tidak ditemukan",
     "nutrientTableTitle": "Ambang batas nutrisi (per 100g)",

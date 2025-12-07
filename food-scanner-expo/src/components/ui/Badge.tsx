@@ -26,17 +26,17 @@ const variantStyles: Record<
   success: {
     container: 'bg-green-10',
     text: 'text-green-60',
-    border: 'border-green-60/30',
+    border: 'border-green-20',
   },
   warning: {
     container: 'bg-bronze-10',
     text: 'text-bronze-60',
-    border: 'border-bronze-60/30',
+    border: 'border-bronze-30',
   },
   danger: {
     container: 'bg-red-10',
     text: 'text-red-60',
-    border: 'border-red-60/30',
+    border: 'border-red-30',
   },
 };
 
@@ -72,7 +72,7 @@ export function Badge({
 
   const content = (
     <View
-      className={`flex-row items-center gap-1 px-2 py-1 rounded border ${styles.container} ${styles.border} ${className}`}
+      className={`flex-row items-center gap-1 px-2 py-1 border ${styles.container} ${styles.border} rounded ${className}`}
     >
       {renderIcon()}
       {label ? (

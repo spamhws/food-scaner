@@ -21,6 +21,7 @@ declare module '@tabler/icons-react-native' {
   export const IconSalad: React.FC<IconProps>;
   export const IconCube: React.FC<IconProps>;
   export const IconSalt: React.FC<IconProps>;
+  export const IconCarrot: React.FC<IconProps>;
   export const IconLeaf: React.FC<IconProps>;
   export const IconPhotoOff: React.FC<IconProps>;
   export const IconMoodSurprised: React.FC<IconProps>;
@@ -53,4 +54,5 @@ declare module '@tabler/icons-react-native' {
   export const IconPlus: React.FC<IconProps>;
   export const IconKeyboard: React.FC<IconProps>;
   export const IconCheck: React.FC<IconProps>;
+  export const IconRotateClockwise: React.FC<IconProps>;
 }

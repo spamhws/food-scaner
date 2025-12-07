@@ -62,7 +62,7 @@ function SettingItem({
   );
 
   const baseClassName = 'flex-row items-center bg-white rounded-xl shadow-card px-4 py-5 mb-3';
-  
+
   if (onPress) {
     return (
       <TouchableOpacity
@@ -75,11 +75,7 @@ function SettingItem({
     );
   }
 
-  return (
-    <View className={`${baseClassName} ${className}`}>
-      {content}
-    </View>
-  );
+  return <View className={`${baseClassName} ${className}`}>{content}</View>;
 }
 
 export function SettingsScreen() {
@@ -156,12 +152,26 @@ export function SettingsScreen() {
           paddingBottom: 24,
         }}
       >
-        {/* Information Section */}
+        {/* User Preferences */}
+        <SettingItem
+          icon={<IconWorld size={24} stroke="#8E99AB" />}
+          title={t('settings.language')}
+          onPress={() => navigation.navigate('LanguageSelection')}
+        />
+
+        {/* Help & Support */}
         <SettingItem
           icon={<IconHelpHexagon size={24} stroke="#8E99AB" />}
           title={t('settings.faq')}
           onPress={() => navigation.navigate('FAQ')}
         />
+        <SettingItem
+          icon={<IconMessageChatbot size={24} stroke="#8E99AB" />}
+          title={t('settings.contactDevelopers')}
+          onPress={handleContactDevelopers}
+        />
+
+        {/* Engagement */}
         <SettingItem
           icon={<IconSend size={24} stroke="#8E99AB" />}
           title={t('settings.shareTheApp')}
@@ -172,10 +182,12 @@ export function SettingsScreen() {
           title={t('settings.rateTheApp')}
           onPress={handleRateApp}
         />
+
+        {/* Legal */}
         <SettingItem
-          icon={<IconMessageChatbot size={24} stroke="#8E99AB" />}
-          title={t('settings.contactDevelopers')}
-          onPress={handleContactDevelopers}
+          icon={<IconShieldLock size={24} stroke="#8E99AB" />}
+          title={t('settings.privacyPolicy')}
+          onPress={() => navigation.navigate('PrivacyPolicy')}
         />
         <SettingItem
           icon={<IconFileText size={24} stroke="#8E99AB" />}
@@ -183,24 +195,13 @@ export function SettingsScreen() {
           onPress={() => navigation.navigate('UserAgreement')}
         />
 
+        {/* App Information */}
         <SettingItem
           icon={<IconDeviceMobile size={24} stroke="#8E99AB" />}
           title={t('settings.appVersion')}
           value={Constants.expoConfig?.version || t('common.unknown')}
           showChevron={false}
           className="pr-5"
-        />
-
-        <SettingItem
-          icon={<IconWorld size={24} stroke="#8E99AB" />}
-          title={t('settings.language')}
-          onPress={() => navigation.navigate('LanguageSelection')}
-        />
-
-        <SettingItem
-          icon={<IconShieldLock size={24} stroke="#8E99AB" />}
-          title={t('settings.privacyPolicy')}
-          onPress={() => navigation.navigate('PrivacyPolicy')}
         />
       </ScrollView>
     </View>

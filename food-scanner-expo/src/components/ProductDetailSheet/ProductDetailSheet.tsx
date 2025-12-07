@@ -87,11 +87,11 @@ export function ProductDetailSheet({ product, onClose }: ProductDetailSheetProps
     if (!product || isSharing) return;
     setIsSharing(true);
     try {
-      await shareProduct(product);
+      await shareProduct(product, t);
     } finally {
       setIsSharing(false);
     }
-  }, [product, isSharing]);
+  }, [product, isSharing, t]);
 
   const renderFooter = useCallback(
     (props: any) => (

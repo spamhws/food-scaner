@@ -162,6 +162,24 @@
     "shareError": "Eroare la distribuire",
     "unableToShareProduct": "Nu s-a putut distribui produsul. Te rugăm să încerci din nou."
   },
+  "share": {
+    "nutritionalInformation": "Informații nutriționale (pentru 100g):",
+    "calories": "Calorii: {value} kcal",
+    "protein": "Proteine: {value}g",
+    "fat": "Grăsimi: {value}g",
+    "saturatedFat": "Grăsimi saturate: {value}g",
+    "carbohydrates": "Carbohidrați: {value}g",
+    "sugars": "Zahăr: {value}g",
+    "addedSugars": "Zahăr adăugat: {value}g",
+    "fiber": "Fibre: {value}g",
+    "salt": "Sare: {value}g",
+    "sodium": "Sodiu: {value}g",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "Imagine produs:",
+    "getFoodId": "Obține Food ID:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "Elementul FAQ nu a fost găsit",
     "nutrientTableTitle": "Praguri nutriționale (pentru 100g)",

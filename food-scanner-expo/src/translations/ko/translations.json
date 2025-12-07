@@ -162,6 +162,24 @@
     "shareError": "공유 오류",
     "unableToShareProduct": "제품을 공유할 수 없습니다. 다시 시도해 주세요."
   },
+  "share": {
+    "nutritionalInformation": "영양 정보 (100g당):",
+    "calories": "칼로리: {value} kcal",
+    "protein": "단백질: {value}g",
+    "fat": "지방: {value}g",
+    "saturatedFat": "포화 지방: {value}g",
+    "carbohydrates": "탄수화물: {value}g",
+    "sugars": "당류: {value}g",
+    "addedSugars": "첨가당: {value}g",
+    "fiber": "식이섬유: {value}g",
+    "salt": "소금: {value}g",
+    "sodium": "나트륨: {value}g",
+    "nutriScore": "Nutri-Score: {grade}",
+    "productImage": "제품 이미지:",
+    "getFoodId": "Food ID 받기:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
   "faq": {
     "itemNotFound": "FAQ 항목을 찾을 수 없습니다",
     "nutrientTableTitle": "영양소 임계값 (100g당)",

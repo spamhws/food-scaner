@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -18,6 +18,7 @@ import {
   IconPhotoOff,
   IconMoodSurprised,
   IconPlus,
+  IconRotateClockwise,
 } from '@tabler/icons-react-native';
 import { useProduct } from '@/hooks/useProduct';
 import { vibrateProductFound, vibrateProductNotFound } from '@/lib/utils/vibration';
@@ -28,8 +29,12 @@ import { getNutrientColor, getCaloriesColor } from '@/lib/utils/nutrient-colors'
 import { useTranslation } from '@/hooks/useTranslation';
 import { getColor } from '@/lib/utils/colors';
 
-const GOOGLE_FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSdyRU57xmFr79mn1whGHMb-xM9KZadVgfyMWcpDzD8ZXMjnRQ/viewform?usp=dialog';
+const GOOGLE_FORM_BASE_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSdyRU57xmFr79mn1whGHMb-xM9KZadVgfyMWcpDzD8ZXMjnRQ/viewform?usp=pp_url&entry.1556708471=';
+
+const getGoogleFormUrl = (barcode: string): string => {
+  return `${GOOGLE_FORM_BASE_URL}${encodeURIComponent(barcode)}`;
+};
 
 interface ProductCardProps {
   barcode: string;
@@ -49,7 +54,11 @@ export function ProductCard({
   sliderWidth,
 }: ProductCardProps) {
   const { t } = useTranslation();
-  const { data: product, isLoading } = useProduct({
+  const {
+    data: product,
+    isLoading,
+    refetch,
+  } = useProduct({
     barcode,
     enabled: !!barcode,
     fromCache: !vibrateOnScan, // Scanner mode: always fetch, History/Favs: use cache
@@ -58,10 +67,12 @@ export function ProductCard({
   // Product not found if data is null and not loading
   const isError = !isLoading && product === null;
   const hasVibratedRef = useRef(false);
+  const [hasSubmittedProduct, setHasSubmittedProduct] = useState(false);
 
-  // Reset vibration flag when barcode changes
+  // Reset vibration flag and submission state when barcode changes
   useEffect(() => {
     hasVibratedRef.current = false;
+    setHasSubmittedProduct(false);
   }, [barcode]);
 
   // Vibrate when product is found or not found
@@ -86,9 +97,11 @@ export function ProductCard({
       {
         text: t('common.open'),
         onPress: async () => {
-          const supported = await Linking.canOpenURL(GOOGLE_FORM_URL);
+          setHasSubmittedProduct(true); // Mark that user has submitted
+          const formUrl = getGoogleFormUrl(barcode);
+          const supported = await Linking.canOpenURL(formUrl);
           if (supported) {
-            await Linking.openURL(GOOGLE_FORM_URL);
+            await Linking.openURL(formUrl);
           } else {
             Alert.alert(t('common.error'), 'Unable to open the form. Please try again.');
           }
@@ -103,42 +116,57 @@ export function ProductCard({
   const badgeVariant = badgeGrade ? getNutriscoreBadgeVariant(badgeGrade) : null;
   const iconType = badgeGrade ? (isPositiveGrade ? 'thumbUp' : 'thumbDown') : undefined;
 
+  // Get border color for non-slider image container based on badge variant
+  const getImageBorderColor = () => {
+    if (badgeVariant === 'danger') return 'border-red-30';
+    if (badgeVariant === 'success') return 'border-green-20';
+    if (badgeVariant === 'warning') return 'border-bronze-30';
+    return 'border-gray-30';
+  };
+
   const content = (
     <View className="flex-row gap-3">
       {/* Left Section - Product Image */}
-      <View className="relative overflow-visible">
-        <View className="aspect-square h-full items-center justify-center rounded-xl border border-gray-30 bg-gray-10 overflow-hidden">
-          {isLoading ? (
-            <ActivityIndicator size="large" color="#8E99AB" />
-          ) : isError ? (
-            <IconMoodSurprised size={32} strokeWidth={1.75} stroke="#8E99AB" />
-          ) : product?.image ? (
-            <>
-              <Image
-                source={{ uri: product.image }}
-                className="absolute h-full w-full"
-                blurRadius={16}
-              />
-              <Image
-                source={{ uri: product.image }}
-                className="h-full w-full"
-                resizeMode="contain"
-              />
-            </>
-          ) : (
-            <IconPhotoOff size={32} strokeWidth={1.75} stroke="#8E99AB" />
-          )}
-        </View>
-        {/* Badge with icon only - absolutely positioned for non-slider */}
+
+      <View
+        className={clsx(
+          'overflow-hidden relative aspect-square h-full items-center justify-center rounded-xl border bg-gray-10 z-20',
+          getImageBorderColor()
+        )}
+      >
+        {isLoading ? (
+          <ActivityIndicator size="large" color="#8E99AB" />
+        ) : isError ? (
+          <IconMoodSurprised size={32} strokeWidth={1.75} stroke="#8E99AB" />
+        ) : product?.image ? (
+          <>
+            <Image
+              source={{ uri: product.image }}
+              className="absolute h-full w-full z-0"
+              blurRadius={16}
+            />
+            <Image
+              source={{ uri: product.image }}
+              className="h-full w-full z-10"
+              resizeMode="contain"
+            />
+          </>
+        ) : (
+          <IconPhotoOff size={32} strokeWidth={1.75} stroke="#8E99AB" />
+        )}
+
         {!inSlider && badgeGrade && product && !isError && !isLoading && (
-          <Badge
-            variant={badgeVariant!}
-            label=""
-            iconType={iconType}
-            className="p-1.5 absolute -bottom-1 -right-1"
-          />
+          <View className="absolute bottom-0 right-0 z-30">
+            <Badge
+              variant={badgeVariant!}
+              label=""
+              iconType={iconType}
+              className="p-1.5 rounded-tl-lg rounded-br-lg rounded-tr-none rounded-bl-none border-t border-l border-r-0 border-b-0"
+            />
+          </View>
         )}
       </View>
+      {/* Badge with icon only - absolutely positioned for non-slider */}
 
       {/* Right Section - Product Info */}
       <View className="flex-1 justify-center gap-1.5">
@@ -164,19 +192,34 @@ export function ProductCard({
         {(isError || isLoading) && (
           <View className="flex-row items-center justify-between gap-2">
             {isLoading && (
-              <Text className="text-sm text-gray-60 flex-1">t('common.pleaseWait')</Text>
+              <Text className="text-sm text-gray-60 flex-1">{t('common.pleaseWait')}</Text>
             )}
             {isError && !isLoading && (
-              <TouchableOpacity
-                onPress={handleSubmitProduct}
-                className="flex-row items-center gap-1 border border-blue-60 px-2 py-2 mt-1.5 rounded-lg"
-                activeOpacity={0.7}
-              >
-                <IconPlus size={24} strokeWidth={1.75} stroke={getColor('blue.60')} />
-                <Text className="text-blue-60 text-base font-semibold">
-                  {t('product.submitProduct')}
-                </Text>
-              </TouchableOpacity>
+              <View className="flex-row items-center gap-2">
+                <TouchableOpacity
+                  onPress={handleSubmitProduct}
+                  className="flex-row items-center gap-1 border border-blue-60 px-2 py-2 mt-1.5 rounded-lg"
+                  activeOpacity={0.7}
+                >
+                  <IconPlus size={24} strokeWidth={1.75} stroke={getColor('blue.60')} />
+                  <Text className="text-blue-60 text-base font-semibold">
+                    {t('product.submitProduct')}
+                  </Text>
+                </TouchableOpacity>
+                {hasSubmittedProduct && (
+                  <TouchableOpacity
+                    onPress={() => refetch()}
+                    className="flex-row items-center justify-center border border-blue-60 px-2 py-2 mt-1.5 rounded-lg"
+                    activeOpacity={0.7}
+                  >
+                    <IconRotateClockwise
+                      size={24}
+                      strokeWidth={1.75}
+                      stroke={getColor('blue.60')}
+                    />
+                  </TouchableOpacity>
+                )}
+              </View>
             )}
           </View>
         )}
