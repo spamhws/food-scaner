@@ -5,7 +5,7 @@
 
 export const APP_STORE_LINKS = {
   ios: 'https://apps.apple.com/app/food-id', // TODO: Update with actual App Store link
-  android: 'https://play.google.com/store/apps/details?id=com.foodid', // TODO: Update with actual Play Store link
+  android: 'https://play.google.com/store/apps/details?id=com.uxuiua.foodid', // TODO: Update with actual Play Store link
 } as const;
 
 /**
@@ -14,6 +14,5 @@ export const APP_STORE_LINKS = {
  */
 export const APP_STORE_REVIEW_LINKS = {
   ios: 'itms-apps://apps.apple.com/app/id?action=write-review', // TODO: Update with actual App ID
-  android: 'market://details?id=com.foodid',
+  android: 'market://details?id=com.uxuiua.foodid',
 } as const;
-

@@ -156,7 +156,7 @@ export function ProductCard({
         )}
 
         {!inSlider && badgeGrade && product && !isError && !isLoading && (
-          <View className="absolute bottom-0 right-0 z-30">
+          <View className="absolute -bottom-[0.2px] right-0 z-20">
             <Badge
               variant={badgeVariant!}
               label=""
