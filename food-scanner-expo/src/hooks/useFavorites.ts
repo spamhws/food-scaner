@@ -1,52 +1,43 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import {
-  getFavorites,
   addToFavorites,
   removeFromFavorites,
   clearFavorites,
   toggleFavorite,
-  isFavorite as checkIsFavorite,
 } from '@/lib/storage/storage';
+import { useFavoritesContext } from '@/providers/favorites-provider';
 
 export function useFavorites() {
-  const [favorites, setFavorites] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const loadFavorites = useCallback(async () => {
-    setIsLoading(true);
-    const items = await getFavorites();
-    setFavorites(items);
-    setIsLoading(false);
-  }, []);
+  const { favorites, isLoading, updateFavorites } = useFavoritesContext();
 
   const addItem = useCallback(
     async (barcode: string) => {
       await addToFavorites(barcode);
-      await loadFavorites();
+      await updateFavorites();
     },
-    [loadFavorites]
+    [updateFavorites]
   );
 
   const removeItem = useCallback(
     async (barcode: string) => {
       await removeFromFavorites(barcode);
-      await loadFavorites();
+      await updateFavorites();
     },
-    [loadFavorites]
+    [updateFavorites]
   );
 
   const clear = useCallback(async () => {
     await clearFavorites();
-    await loadFavorites();
-  }, [loadFavorites]);
+    await updateFavorites();
+  }, [updateFavorites]);
 
   const toggle = useCallback(
     async (barcode: string) => {
       const newState = await toggleFavorite(barcode);
-      await loadFavorites();
+      await updateFavorites();
       return newState;
     },
-    [loadFavorites]
+    [updateFavorites]
   );
 
   const isFavorite = useCallback(
@@ -56,10 +47,6 @@ export function useFavorites() {
     [favorites]
   );
 
-  useEffect(() => {
-    loadFavorites();
-  }, [loadFavorites]);
-
   return {
     favorites,
     isLoading,
@@ -68,6 +55,6 @@ export function useFavorites() {
     clear,
     toggle,
     isFavorite,
-    refresh: loadFavorites,
+    refresh: updateFavorites,
   };
 }

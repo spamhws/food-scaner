@@ -19,6 +19,7 @@ import {
   Inter_700Bold,
 } from '@expo-google-fonts/inter';
 import { QueryProvider } from './src/providers/query-provider';
+import { FavoritesProvider } from './src/providers/favorites-provider';
 import { AppNavigator } from './src/navigation/AppNavigator';
 import './src/lib/i18n'; // Initialize i18n
 import './global.css';
@@ -42,10 +43,12 @@ export default function App() {
       <BottomSheetModalProvider>
         <SafeAreaProvider>
           <QueryProvider>
-            <NavigationContainer>
-              <AppNavigator />
-              <StatusBar style="auto" />
-            </NavigationContainer>
+            <FavoritesProvider>
+              <NavigationContainer>
+                <AppNavigator />
+                <StatusBar style="auto" />
+              </NavigationContainer>
+            </FavoritesProvider>
           </QueryProvider>
         </SafeAreaProvider>
       </BottomSheetModalProvider>

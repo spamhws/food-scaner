@@ -66,10 +66,9 @@ export async function getFavorites(): Promise<string[]> {
 export async function addToFavorites(barcode: string): Promise<void> {
   try {
     const favorites = await getFavorites();
-    if (!favorites.includes(barcode)) {
-      favorites.push(barcode);
-      await AsyncStorage.setItem(KEYS.FAVORITES, JSON.stringify(favorites));
-    }
+    // Remove duplicates and add to front (newest first)
+    const newFavorites = [barcode, ...favorites.filter((b) => b !== barcode)];
+    await AsyncStorage.setItem(KEYS.FAVORITES, JSON.stringify(newFavorites));
   } catch (error) {
     console.error('Error adding to favorites:', error);
   }
