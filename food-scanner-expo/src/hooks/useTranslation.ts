@@ -9,8 +9,8 @@ export function useTranslation() {
   const { t, i18n } = useI18nTranslation();
 
   const changeLanguage = async (lang: string) => {
-    i18n.changeLanguage(lang);
-    // Persist language preference to AsyncStorage
+    // Await so the app finishes re-rendering with new language before we persist/navigate (avoids Android crash when options update during transition)
+    await i18n.changeLanguage(lang);
     await saveLanguage(lang);
   };
 

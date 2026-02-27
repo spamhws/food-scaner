@@ -267,7 +267,7 @@ export function ScannerScreen() {
         video={Videos.handPhone}
         title={t('scanner.readyToScan')}
         description={t('scanner.cameraPermissionDescription')}
-        buttonText={t('scanner.enableCamera')}
+        buttonText={canAskAgain ? t('common.continue') : t('scanner.openSettings')}
         onButtonPress={canAskAgain ? requestPermission : handleOpenSettings}
       />
     );

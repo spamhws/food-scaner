@@ -3,7 +3,7 @@
 ## Your current config
 
 - **Expo**: SDK 54
-- **App**: Food ID (`food-scanner-expo`), version **1.0.3**
+- **App**: Food ID (`food-scanner-expo`), version **1.0.4**
 - **EAS**: Project linked (`projectId` in `app.json`)
 - **Android**: `com.uxuiua.foodid`, adaptive icon + splash configured
 - **iOS**: `com.uxuiua.foodid`, camera permission + non‑exempt encryption set
@@ -92,7 +92,7 @@ Ensure in App Store Connect you have an app with bundle ID `com.uxuiua.foodid`, 
 
 ## 4. Version and build number
 
-- **Version** (`version` in `app.json`): e.g. `1.0.3` — user-facing.
+- **Version** (`version` in `app.json`): e.g. `1.0.4` — user-facing.
 - **Build number**: EAS can auto-increment for production (`"autoIncrement": true` in `eas.json`).
 
 To bump the app version yourself, edit `app.json`:
