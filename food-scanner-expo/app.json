@@ -2,8 +2,8 @@
   "expo": {
     "name": "Food ID",
     "slug": "food-scanner-expo",
-    "version": "1.0.4",
-    "runtimeVersion": "1.0.4",
+    "version": "1.0.5",
+    "runtimeVersion": "1.0.5",
     "updates": {
       "enabled": true,
       "checkAutomatically": "ON_LOAD",
